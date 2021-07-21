@@ -1,0 +1,829 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E1DE6413DEBB8F8023BE690 /* Pods_HypixelStatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF69D871D49B2B20ACDC2C0 /* Pods_HypixelStatsTests.framework */; };
+		767864A562AEE51B77B1D918 /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8225318C5098FA73349D2281 /* Pods_HypixelStats_HypixelStatsUITests.framework */; };
+		A72BF621C06034A7D00BB9B9 /* Pods_HypixelStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952AAEAEC2543328EB86C96D /* Pods_HypixelStats.framework */; };
+		BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348D26A5EF9B00153FBE /* GamesTableController.swift */; };
+		BE10349026A627FA00153FBE /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348F26A627FA00153FBE /* GameTypes.swift */; };
+		BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330126A0DDA00054E475 /* AppDelegate.swift */; };
+		BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330326A0DDA00054E475 /* SceneDelegate.swift */; };
+		BE14330626A0DDA00054E475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330526A0DDA00054E475 /* ViewController.swift */; };
+		BE14330926A0DDA00054E475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE14330726A0DDA00054E475 /* Main.storyboard */; };
+		BE14330C26A0DDA00054E475 /* HypixelStats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE14330A26A0DDA00054E475 /* HypixelStats.xcdatamodeld */; };
+		BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE14330D26A0DDA20054E475 /* Assets.xcassets */; };
+		BE14331126A0DDA20054E475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE14330F26A0DDA20054E475 /* LaunchScreen.storyboard */; };
+		BE14331C26A0DDA20054E475 /* HypixelStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14331B26A0DDA20054E475 /* HypixelStatsTests.swift */; };
+		BE14332726A0DDA20054E475 /* HypixelStatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14332626A0DDA20054E475 /* HypixelStatsUITests.swift */; };
+		BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333426A0E1FA0054E475 /* APIManager.swift */; };
+		BE14333826A0E96C0054E475 /* HypixelAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333726A0E96C0054E475 /* HypixelAPIManager.swift */; };
+		BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333926A0E97A0054E475 /* MojangAPIManager.swift */; };
+		BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */; };
+		BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */; };
+		BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */; };
+		BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */; };
+		BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */; };
+		BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE14331826A0DDA20054E475 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE1432F626A0DDA00054E475 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE1432FD26A0DDA00054E475;
+			remoteInfo = HypixelStats;
+		};
+		BE14332326A0DDA20054E475 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE1432F626A0DDA00054E475 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE1432FD26A0DDA00054E475;
+			remoteInfo = HypixelStats;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1335A542FE74D93C4F72183A /* Pods-HypixelStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.release.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.release.xcconfig"; sourceTree = "<group>"; };
+		3A7964323B7DCBBAD69A73C9 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		52D641DFECA4AA51BD0314A4 /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5CF69D871D49B2B20ACDC2C0 /* Pods_HypixelStatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		602DB0CAA9A7A7E4ADAD458E /* Pods-HypixelStatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8225318C5098FA73349D2281 /* Pods_HypixelStats_HypixelStatsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats_HypixelStatsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		952AAEAEC2543328EB86C96D /* Pods_HypixelStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE10348D26A5EF9B00153FBE /* GamesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableController.swift; sourceTree = "<group>"; };
+		BE10348F26A627FA00153FBE /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
+		BE1432FE26A0DDA00054E475 /* HypixelStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypixelStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE14330126A0DDA00054E475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE14330326A0DDA00054E475 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BE14330526A0DDA00054E475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE14330826A0DDA00054E475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE14330B26A0DDA00054E475 /* HypixelStats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HypixelStats.xcdatamodel; sourceTree = "<group>"; };
+		BE14330D26A0DDA20054E475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE14331026A0DDA20054E475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE14331226A0DDA20054E475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE14331726A0DDA20054E475 /* HypixelStatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HypixelStatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE14331B26A0DDA20054E475 /* HypixelStatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypixelStatsTests.swift; sourceTree = "<group>"; };
+		BE14331D26A0DDA20054E475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE14332226A0DDA20054E475 /* HypixelStatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HypixelStatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE14332626A0DDA20054E475 /* HypixelStatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypixelStatsUITests.swift; sourceTree = "<group>"; };
+		BE14332826A0DDA20054E475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE14333426A0E1FA0054E475 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		BE14333726A0E96C0054E475 /* HypixelAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypixelAPIManager.swift; sourceTree = "<group>"; };
+		BE14333926A0E97A0054E475 /* MojangAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojangAPIManager.swift; sourceTree = "<group>"; };
+		BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftUser.swift; sourceTree = "<group>"; };
+		BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsInfoTableViewCell.swift; sourceTree = "<group>"; };
+		BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsInfoTableViewCell.xib; sourceTree = "<group>"; };
+		BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStatsViewController.swift; sourceTree = "<group>"; };
+		BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballStatsViewController.swift; sourceTree = "<group>"; };
+		BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		D254E92960DBAC8E3E7F1DE6 /* Pods-HypixelStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.debug.xcconfig"; sourceTree = "<group>"; };
+		D5A854FFB1B1F315C8D6E29C /* Pods-HypixelStatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE1432FB26A0DDA00054E475 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A72BF621C06034A7D00BB9B9 /* Pods_HypixelStats.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE14331426A0DDA20054E475 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E1DE6413DEBB8F8023BE690 /* Pods_HypixelStatsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE14331F26A0DDA20054E475 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				767864A562AEE51B77B1D918 /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8EA4070C3391C1FB18CBBC14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				952AAEAEC2543328EB86C96D /* Pods_HypixelStats.framework */,
+				8225318C5098FA73349D2281 /* Pods_HypixelStats_HypixelStatsUITests.framework */,
+				5CF69D871D49B2B20ACDC2C0 /* Pods_HypixelStatsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBD5FE7B11B397D579B5E290 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D254E92960DBAC8E3E7F1DE6 /* Pods-HypixelStats.debug.xcconfig */,
+				1335A542FE74D93C4F72183A /* Pods-HypixelStats.release.xcconfig */,
+				52D641DFECA4AA51BD0314A4 /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */,
+				3A7964323B7DCBBAD69A73C9 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */,
+				602DB0CAA9A7A7E4ADAD458E /* Pods-HypixelStatsTests.debug.xcconfig */,
+				D5A854FFB1B1F315C8D6E29C /* Pods-HypixelStatsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BE10349126A6783E00153FBE /* GameStatsVC's */ = {
+			isa = PBXGroup;
+			children = (
+				BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */,
+				BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */,
+			);
+			path = "GameStatsVC's";
+			sourceTree = "<group>";
+		};
+		BE1432F526A0DDA00054E475 = {
+			isa = PBXGroup;
+			children = (
+				BE14330026A0DDA00054E475 /* HypixelStats */,
+				BE14331A26A0DDA20054E475 /* HypixelStatsTests */,
+				BE14332526A0DDA20054E475 /* HypixelStatsUITests */,
+				BE1432FF26A0DDA00054E475 /* Products */,
+				BBD5FE7B11B397D579B5E290 /* Pods */,
+				8EA4070C3391C1FB18CBBC14 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BE1432FF26A0DDA00054E475 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE1432FE26A0DDA00054E475 /* HypixelStats.app */,
+				BE14331726A0DDA20054E475 /* HypixelStatsTests.xctest */,
+				BE14332226A0DDA20054E475 /* HypixelStatsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE14330026A0DDA00054E475 /* HypixelStats */ = {
+			isa = PBXGroup;
+			children = (
+				BE10349126A6783E00153FBE /* GameStatsVC's */,
+				BE14333626A0E94F0054E475 /* API */,
+				BE14330126A0DDA00054E475 /* AppDelegate.swift */,
+				BE14330326A0DDA00054E475 /* SceneDelegate.swift */,
+				BE14330526A0DDA00054E475 /* ViewController.swift */,
+				BE14330726A0DDA00054E475 /* Main.storyboard */,
+				BE14330D26A0DDA20054E475 /* Assets.xcassets */,
+				BE14330F26A0DDA20054E475 /* LaunchScreen.storyboard */,
+				BE14331226A0DDA20054E475 /* Info.plist */,
+				BE14330A26A0DDA00054E475 /* HypixelStats.xcdatamodeld */,
+				BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */,
+				BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */,
+				BE10348D26A5EF9B00153FBE /* GamesTableController.swift */,
+				BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */,
+				BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */,
+			);
+			path = HypixelStats;
+			sourceTree = "<group>";
+		};
+		BE14331A26A0DDA20054E475 /* HypixelStatsTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE14331B26A0DDA20054E475 /* HypixelStatsTests.swift */,
+				BE14331D26A0DDA20054E475 /* Info.plist */,
+			);
+			path = HypixelStatsTests;
+			sourceTree = "<group>";
+		};
+		BE14332526A0DDA20054E475 /* HypixelStatsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE14332626A0DDA20054E475 /* HypixelStatsUITests.swift */,
+				BE14332826A0DDA20054E475 /* Info.plist */,
+			);
+			path = HypixelStatsUITests;
+			sourceTree = "<group>";
+		};
+		BE14333626A0E94F0054E475 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BE14333426A0E1FA0054E475 /* APIManager.swift */,
+				BE14333726A0E96C0054E475 /* HypixelAPIManager.swift */,
+				BE14333926A0E97A0054E475 /* MojangAPIManager.swift */,
+				BE10348F26A627FA00153FBE /* GameTypes.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE1432FD26A0DDA00054E475 /* HypixelStats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE14332B26A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStats" */;
+			buildPhases = (
+				9D977DEC68275AEE218A7A88 /* [CP] Check Pods Manifest.lock */,
+				BE1432FA26A0DDA00054E475 /* Sources */,
+				BE1432FB26A0DDA00054E475 /* Frameworks */,
+				BE1432FC26A0DDA00054E475 /* Resources */,
+				25C138EB7C2D4A6CAABA99BC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HypixelStats;
+			productName = HypixelStats;
+			productReference = BE1432FE26A0DDA00054E475 /* HypixelStats.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE14331626A0DDA20054E475 /* HypixelStatsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE14332E26A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStatsTests" */;
+			buildPhases = (
+				658ABED3686C8EB2761F437D /* [CP] Check Pods Manifest.lock */,
+				BE14331326A0DDA20054E475 /* Sources */,
+				BE14331426A0DDA20054E475 /* Frameworks */,
+				BE14331526A0DDA20054E475 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE14331926A0DDA20054E475 /* PBXTargetDependency */,
+			);
+			name = HypixelStatsTests;
+			productName = HypixelStatsTests;
+			productReference = BE14331726A0DDA20054E475 /* HypixelStatsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE14332126A0DDA20054E475 /* HypixelStatsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE14333126A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStatsUITests" */;
+			buildPhases = (
+				E87C3975DCCE4D1D71236E30 /* [CP] Check Pods Manifest.lock */,
+				BE14331E26A0DDA20054E475 /* Sources */,
+				BE14331F26A0DDA20054E475 /* Frameworks */,
+				BE14332026A0DDA20054E475 /* Resources */,
+				9E66665DA85F17B43C5A7D48 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE14332426A0DDA20054E475 /* PBXTargetDependency */,
+			);
+			name = HypixelStatsUITests;
+			productName = HypixelStatsUITests;
+			productReference = BE14332226A0DDA20054E475 /* HypixelStatsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE1432F626A0DDA00054E475 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					BE1432FD26A0DDA00054E475 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					BE14331626A0DDA20054E475 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = BE1432FD26A0DDA00054E475;
+					};
+					BE14332126A0DDA20054E475 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = BE1432FD26A0DDA00054E475;
+					};
+				};
+			};
+			buildConfigurationList = BE1432F926A0DDA00054E475 /* Build configuration list for PBXProject "HypixelStats" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE1432F526A0DDA00054E475;
+			productRefGroup = BE1432FF26A0DDA00054E475 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE1432FD26A0DDA00054E475 /* HypixelStats */,
+				BE14331626A0DDA20054E475 /* HypixelStatsTests */,
+				BE14332126A0DDA20054E475 /* HypixelStatsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE1432FC26A0DDA00054E475 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE14331126A0DDA20054E475 /* LaunchScreen.storyboard in Resources */,
+				BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */,
+				BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */,
+				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE14331526A0DDA20054E475 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE14332026A0DDA20054E475 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25C138EB7C2D4A6CAABA99BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HypixelStats/Pods-HypixelStats-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HypixelStats/Pods-HypixelStats-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HypixelStats/Pods-HypixelStats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		658ABED3686C8EB2761F437D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HypixelStatsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D977DEC68275AEE218A7A88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HypixelStats-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E66665DA85F17B43C5A7D48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E87C3975DCCE4D1D71236E30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HypixelStats-HypixelStatsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE1432FA26A0DDA00054E475 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE14333826A0E96C0054E475 /* HypixelAPIManager.swift in Sources */,
+				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
+				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
+				BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */,
+				BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */,
+				BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */,
+				BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */,
+				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
+				BE10349026A627FA00153FBE /* GameTypes.swift in Sources */,
+				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
+				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
+				BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */,
+				BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */,
+				BE14330C26A0DDA00054E475 /* HypixelStats.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE14331326A0DDA20054E475 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE14331C26A0DDA20054E475 /* HypixelStatsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE14331E26A0DDA20054E475 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE14332726A0DDA20054E475 /* HypixelStatsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE14331926A0DDA20054E475 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE1432FD26A0DDA00054E475 /* HypixelStats */;
+			targetProxy = BE14331826A0DDA20054E475 /* PBXContainerItemProxy */;
+		};
+		BE14332426A0DDA20054E475 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE1432FD26A0DDA00054E475 /* HypixelStats */;
+			targetProxy = BE14332326A0DDA20054E475 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE14330726A0DDA00054E475 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE14330826A0DDA00054E475 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE14330F26A0DDA20054E475 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE14331026A0DDA20054E475 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE14332926A0DDA20054E475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE14332A26A0DDA20054E475 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE14332C26A0DDA20054E475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D254E92960DBAC8E3E7F1DE6 /* Pods-HypixelStats.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBK8797X5P;
+				INFOPLIST_FILE = HypixelStats/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Edison-Ooi.HypixelStats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE14332D26A0DDA20054E475 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1335A542FE74D93C4F72183A /* Pods-HypixelStats.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBK8797X5P;
+				INFOPLIST_FILE = HypixelStats/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Edison-Ooi.HypixelStats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BE14332F26A0DDA20054E475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 602DB0CAA9A7A7E4ADAD458E /* Pods-HypixelStatsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBK8797X5P;
+				INFOPLIST_FILE = HypixelStatsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Edison-Ooi.HypixelStatsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HypixelStats.app/HypixelStats";
+			};
+			name = Debug;
+		};
+		BE14333026A0DDA20054E475 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5A854FFB1B1F315C8D6E29C /* Pods-HypixelStatsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBK8797X5P;
+				INFOPLIST_FILE = HypixelStatsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Edison-Ooi.HypixelStatsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HypixelStats.app/HypixelStats";
+			};
+			name = Release;
+		};
+		BE14333226A0DDA20054E475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52D641DFECA4AA51BD0314A4 /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBK8797X5P;
+				INFOPLIST_FILE = HypixelStatsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Edison-Ooi.HypixelStatsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HypixelStats;
+			};
+			name = Debug;
+		};
+		BE14333326A0DDA20054E475 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A7964323B7DCBBAD69A73C9 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBK8797X5P;
+				INFOPLIST_FILE = HypixelStatsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Edison-Ooi.HypixelStatsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HypixelStats;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE1432F926A0DDA00054E475 /* Build configuration list for PBXProject "HypixelStats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE14332926A0DDA20054E475 /* Debug */,
+				BE14332A26A0DDA20054E475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE14332B26A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE14332C26A0DDA20054E475 /* Debug */,
+				BE14332D26A0DDA20054E475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE14332E26A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStatsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE14332F26A0DDA20054E475 /* Debug */,
+				BE14333026A0DDA20054E475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE14333126A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStatsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE14333226A0DDA20054E475 /* Debug */,
+				BE14333326A0DDA20054E475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BE14330A26A0DDA00054E475 /* HypixelStats.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BE14330B26A0DDA00054E475 /* HypixelStats.xcdatamodel */,
+			);
+			currentVersion = BE14330B26A0DDA00054E475 /* HypixelStats.xcdatamodel */;
+			path = HypixelStats.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BE1432F626A0DDA00054E475 /* Project object */;
+}

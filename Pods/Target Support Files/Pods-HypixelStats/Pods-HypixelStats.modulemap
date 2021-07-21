@@ -1,0 +1,6 @@
+framework module Pods_HypixelStats {
+  umbrella header "Pods-HypixelStats-umbrella.h"
+
+  export *
+  module * { export * }
+}

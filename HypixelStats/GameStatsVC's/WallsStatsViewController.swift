@@ -1,20 +1,20 @@
 //
-//  PaintballStatsViewController.swift
+//  WallsStatsViewController.swift
 //  HypixelStats
 //
-//  Created by codeplus on 7/20/21.
+//  Created by codeplus on 7/21/21.
 //
 
 import Foundation
 import UIKit
 import SwiftyJSON
 
-class PaintballStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
+class WallsStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = "Paintball"
+        titleLabel.text = "Walls"
         
         statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         statsTable.delegate = self
@@ -24,39 +24,25 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
     
     lazy var desiredStats: [[(String, Any)]] = {
         
+        var wins = data["wins"].doubleValue ?? 0.0
+        var losses = data["losses"].doubleValue ?? 0.0
+        var wlr = GameTypes.calculateKDR(kills: wins, deaths: losses)
+        
         var kills = data["kills"].doubleValue ?? 0.0
         var deaths = data["deaths"].doubleValue ?? 0.0
-        
         var kdr = GameTypes.calculateKDR(kills: kills, deaths: deaths)
-       
-        
-        let shotsFired = data["shots_fired"].doubleValue ?? 0.0
-        
-        var shotsPerKill = kills == 0.0 ? shotsFired : shotsFired / kills
         
         return [
             [
-                ("Wins", data["wins"].intValue ?? 0)
+                ("Wins", data["wins"].intValue ?? 0),
+                ("Losses", data["losses"].intValue ?? 0),
+                ("W/L", wlr),
             ],
             [
                 ("Kills", data["kills"].intValue ?? 0),
+                ("Assists", data["assists"].intValue ?? 0),
                 ("Deaths", data["deaths"].intValue ?? 0),
-                ("K/D", kdr),
-                ("Shots Fired", data["shots_fired"].intValue ?? 0),
-                ("Shots/Kill", String(format: "%.2f", shotsPerKill))
-            ],
-            [
-                ("Killstreaks", data["killstreaks"].intValue ?? 0),
-                ("Forcefield Time (seconds)", data["forcefieldTime"].intValue ?? 0)
-            ],
-            [
-                ("Adrenaline", (data["adrenaline"].intValue ?? 0) + 1),
-                ("Endurance", (data["endurance"].intValue ?? 0) + 1),
-                ("Fortune", (data["fortune"].intValue ?? 0) + 1),
-                ("Godfather", (data["godfather"].intValue ?? 0) + 1),
-                ("Head Start", data["headstart"].intValue ?? 0),
-                ("Superluck", (data["superluck"].intValue ?? 0) + 1),
-                ("Transfusion", (data["transfusion"].intValue ?? 0) + 1)
+                ("K/D", kdr)
             ]
         ]
     }()
@@ -79,12 +65,6 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        
-        if section == 3 {
-            label.text = "Perks"
-            label.backgroundColor = .systemPink
-            return label
-        }
         
         label.backgroundColor = .white
         

@@ -22,9 +22,11 @@
 		BE14331C26A0DDA20054E475 /* HypixelStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14331B26A0DDA20054E475 /* HypixelStatsTests.swift */; };
 		BE14332726A0DDA20054E475 /* HypixelStatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14332626A0DDA20054E475 /* HypixelStatsUITests.swift */; };
 		BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333426A0E1FA0054E475 /* APIManager.swift */; };
-		BE14333826A0E96C0054E475 /* HypixelAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333726A0E96C0054E475 /* HypixelAPIManager.swift */; };
 		BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333926A0E97A0054E475 /* MojangAPIManager.swift */; };
 		BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */; };
+		BE51723226A8F65100DE85DC /* VampireZStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */; };
+		BE51723426A90A0E00DE85DC /* WallsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */; };
+		BE51723626A914C200DE85DC /* BuildBattleStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */; };
 		BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */; };
 		BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */; };
 		BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */; };
@@ -75,9 +77,11 @@
 		BE14332626A0DDA20054E475 /* HypixelStatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypixelStatsUITests.swift; sourceTree = "<group>"; };
 		BE14332826A0DDA20054E475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE14333426A0E1FA0054E475 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		BE14333726A0E96C0054E475 /* HypixelAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypixelAPIManager.swift; sourceTree = "<group>"; };
 		BE14333926A0E97A0054E475 /* MojangAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojangAPIManager.swift; sourceTree = "<group>"; };
 		BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftUser.swift; sourceTree = "<group>"; };
+		BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireZStatsViewController.swift; sourceTree = "<group>"; };
+		BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallsStatsViewController.swift; sourceTree = "<group>"; };
+		BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildBattleStatsViewController.swift; sourceTree = "<group>"; };
 		BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsInfoTableViewCell.swift; sourceTree = "<group>"; };
 		BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsInfoTableViewCell.xib; sourceTree = "<group>"; };
 		BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStatsViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,9 @@
 			children = (
 				BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */,
 				BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */,
+				BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */,
+				BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */,
+				BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */,
 			);
 			path = "GameStatsVC's";
 			sourceTree = "<group>";
@@ -213,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				BE14333426A0E1FA0054E475 /* APIManager.swift */,
-				BE14333726A0E96C0054E475 /* HypixelAPIManager.swift */,
 				BE14333926A0E97A0054E475 /* MojangAPIManager.swift */,
 				BE10348F26A627FA00153FBE /* GameTypes.swift */,
 			);
@@ -459,7 +465,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE14333826A0E96C0054E475 /* HypixelAPIManager.swift in Sources */,
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
 				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
 				BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */,
@@ -468,6 +473,9 @@
 				BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */,
 				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
 				BE10349026A627FA00153FBE /* GameTypes.swift in Sources */,
+				BE51723226A8F65100DE85DC /* VampireZStatsViewController.swift in Sources */,
+				BE51723626A914C200DE85DC /* BuildBattleStatsViewController.swift in Sources */,
+				BE51723426A90A0E00DE85DC /* WallsStatsViewController.swift in Sources */,
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
 				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
 				BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */,

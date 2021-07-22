@@ -40,9 +40,10 @@ class GamesTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if gameList[indexPath.section][indexPath.row] == "Paintball" {
-            performSegue(withIdentifier: "showPaintballStats", sender: self)
-        }
+        //All segues from this table have identifier "show{game}Stats"
+        let identifer = "show" + gameList[indexPath.section][indexPath.row] + "Stats"
+        
+        performSegue(withIdentifier: identifer, sender: self)
         
     }
     
@@ -67,12 +68,19 @@ class GamesTableController: UITableViewController {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
         let destVC = segue.destination as! GenericStatsViewController
-        if segue.identifier == "showPaintballStats" {
-            destVC.data = data["Paintball"] ?? ["": ""]
-        }
+        
+        //Getting game type from segue identifier show{game}Stats
+        let str = segue.identifier!
+        let start = str.index(str.startIndex, offsetBy: 4)
+        let end = str.index(str.endIndex, offsetBy: -5)
+        let range = start..<end
+         
+        let game = String(str[range])
+        
+        destVC.data = data[game] ?? ["": ""]
+        
     }
     
 

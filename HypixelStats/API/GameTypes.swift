@@ -15,6 +15,7 @@ class GameTypes {
         var cleanName: String
     }
     
+//    This list is missing Pit
 //    static let allGames: [game] = [
 //        game(typeName: "ARCADE", databaseName: "Arcade", cleanName: "Arcade"),
 //        game(typeName: "BEDWARS", databaseName: "Bedwars", cleanName: "Bedwars"),
@@ -39,6 +40,20 @@ class GameTypes {
 //        game(typeName: "TRUE_COMBAT", databaseName: "TrueCombat", cleanName: "Crazy Walls"),
 //        game(typeName: "SKYCLASH", databaseName: "SkyClash", cleanName: "SkyClash")
 //    ]
+    
+    static func calculateKDR(kills: Double, deaths: Double) -> String {
+        var kdr = 0.0
+        
+        if kills == 0.0 && deaths == 0.0 {
+            kdr = 0.0
+        } else if kills != 0.0 && deaths == 0.0 {
+            kdr = kills
+        } else {
+            kdr = kills / deaths
+        }
+        
+        return String(format: "%.2f", kdr)
+    }
     
     static let databaseNameToCleanName: [String: String] = [
         "Arcade": "Arcade",

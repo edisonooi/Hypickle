@@ -14,14 +14,20 @@ class GenericStatsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statsTable: UITableView!
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var mainStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         statsTable.allowsSelection = false
         
+        titleLabel.textAlignment = .center
+        
+        
         // Do any additional setup after loading the view.
     }
+
     
 
     /*

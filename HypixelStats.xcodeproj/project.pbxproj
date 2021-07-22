@@ -32,6 +32,7 @@
 		BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */; };
 		BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */; };
 		BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */; };
+		BEAFEC0126AA11E000349728 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0026AA11E000349728 /* CellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStatsViewController.swift; sourceTree = "<group>"; };
 		BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballStatsViewController.swift; sourceTree = "<group>"; };
 		BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		BEAFEC0026AA11E000349728 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		D254E92960DBAC8E3E7F1DE6 /* Pods-HypixelStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A854FFB1B1F315C8D6E29C /* Pods-HypixelStatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +196,7 @@
 				BE10348D26A5EF9B00153FBE /* GamesTableController.swift */,
 				BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */,
 				BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */,
+				BEAFEC0026AA11E000349728 /* CellData.swift */,
 			);
 			path = HypixelStats;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */,
 				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
 				BE10349026A627FA00153FBE /* GameTypes.swift in Sources */,
+				BEAFEC0126AA11E000349728 /* CellData.swift in Sources */,
 				BE51723226A8F65100DE85DC /* VampireZStatsViewController.swift in Sources */,
 				BE51723626A914C200DE85DC /* BuildBattleStatsViewController.swift in Sources */,
 				BE51723426A90A0E00DE85DC /* WallsStatsViewController.swift in Sources */,

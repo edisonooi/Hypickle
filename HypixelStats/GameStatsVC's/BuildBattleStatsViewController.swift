@@ -22,58 +22,79 @@ class BuildBattleStatsViewController: GenericStatsViewController, UITableViewDel
         
     }
     
-    lazy var desiredStats: [[(String, Any)]] = {
+    lazy var statsTableData: [CellData] = {
         
-        var wins = data["wins"].doubleValue ?? 0.0
-        var gamesPlayed = data["games_played"].doubleValue ?? 0.0
+        var wins = data["wins"].intValue ?? 0
+        var gamesPlayed = data["games_played"].intValue ?? 0
         var losses = gamesPlayed - wins
         var wlr = GameTypes.calculateKDR(kills: wins, deaths: losses)
         
+        let winsDivisions = [
+            ("Solo", data["wins_solo_normal"].intValue ?? 0),
+            ("Teams", data["wins_teams_normal"].intValue ?? 0),
+            ("Pro", data["wins_solo_pro"].intValue ?? 0),
+            ("Guess the Build", data["wins_guess_the_build"].intValue ?? 0)
+        ]
+        
         return [
-            [
-                ("Score", data["score"].intValue ?? 0),
-                ("Title", calculateTitle(score: data["score"].intValue ?? 0)),
-            ],
-            [
-                //Do a dropdown for win categories
-                ("Overall Wins", data["wins"].intValue ?? 0),
-                ("Overall Losses", Int(losses)),
-                ("W/L", wlr),
-            ],
-            [
-                ("Total Votes", data["total_votes"].intValue ?? 0),
-                ("Correct Guesses", data["correct_guesses"].intValue ?? 0),
-                ("Super Votes", data["super_votes"].intValue ?? 0),
-            ]
+            CellData(headerData: ("Score", data["score"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Title", calculateTitle(score: data["score"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Overall Wins (tap for details)", wins), sectionData: winsDivisions, isHeader: false, isOpened: false),
+            CellData(headerData: ("Overall Losses", Int(losses)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Total Votes", data["total_votes"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Super Votes", data["super_votes"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
         ]
     }()
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return desiredStats.count
+        return statsTableData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return desiredStats[section].count
+        if statsTableData[section].isOpened {
+            return statsTableData[section].sectionData.count + 1
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = statsTable.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
-        let category = desiredStats[indexPath.section][indexPath.row].0
-        let value = desiredStats[indexPath.section][indexPath.row].1
-        cell.configure(category: category, value: "\(value)")
+        
+        if indexPath.row == 0 {
+            let category = statsTableData[indexPath.section].headerData.0
+            let value = statsTableData[indexPath.section].headerData.1
+            cell.configure(category: category, value: "\(value)")
+        } else {
+            let category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
+            let value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
+            cell.configure(category: category, value: "\(value)")
+        }
+
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        label.backgroundColor = .white
-        
-        return label
+        if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
+            statsTableData[indexPath.section].isOpened = !statsTableData[indexPath.section].isOpened
+            let sections = IndexSet.init(integer: indexPath.section)
+            statsTable.reloadSections(sections, with: .none)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 2 || section == 5 {
+            return 32
+        }
+        return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
     
     func calculateTitle(score: Int) -> String {

@@ -20,7 +20,7 @@ class GenericStatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        statsTable.allowsSelection = false
+        statsTable.allowsSelection = true
         
         titleLabel.textAlignment = .center
         

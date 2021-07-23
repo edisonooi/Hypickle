@@ -33,6 +33,8 @@
 		BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */; };
 		BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */; };
 		BEAFEC0126AA11E000349728 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0026AA11E000349728 /* CellData.swift */; };
+		BEAFEC0626AA3F3B00349728 /* ArenaStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */; };
+		BEAFEC0826AA4C9500349728 /* TNTGamesStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballStatsViewController.swift; sourceTree = "<group>"; };
 		BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		BEAFEC0026AA11E000349728 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaStatsViewController.swift; sourceTree = "<group>"; };
+		BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNTGamesStatsViewController.swift; sourceTree = "<group>"; };
 		D254E92960DBAC8E3E7F1DE6 /* Pods-HypixelStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A854FFB1B1F315C8D6E29C /* Pods-HypixelStatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +156,8 @@
 				BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */,
 				BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */,
 				BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */,
+				BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */,
+				BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */,
 			);
 			path = "GameStatsVC's";
 			sourceTree = "<group>";
@@ -471,6 +477,7 @@
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
 				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
 				BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */,
+				BEAFEC0826AA4C9500349728 /* TNTGamesStatsViewController.swift in Sources */,
 				BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */,
 				BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */,
 				BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */,
@@ -480,6 +487,7 @@
 				BE51723226A8F65100DE85DC /* VampireZStatsViewController.swift in Sources */,
 				BE51723626A914C200DE85DC /* BuildBattleStatsViewController.swift in Sources */,
 				BE51723426A90A0E00DE85DC /* WallsStatsViewController.swift in Sources */,
+				BEAFEC0626AA3F3B00349728 /* ArenaStatsViewController.swift in Sources */,
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
 				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
 				BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */,

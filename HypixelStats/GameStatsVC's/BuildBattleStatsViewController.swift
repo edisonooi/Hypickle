@@ -22,12 +22,10 @@ class BuildBattleStatsViewController: GenericStatsViewController, UITableViewDel
         
     }
     
-    
-    
     lazy var statsTableData: [CellData] = {
         
-        var wins = data["wins"].doubleValue ?? 0.0
-        var gamesPlayed = data["games_played"].doubleValue ?? 0.0
+        var wins = data["wins"].intValue ?? 0
+        var gamesPlayed = data["games_played"].intValue ?? 0
         var losses = gamesPlayed - wins
         var wlr = GameTypes.calculateKDR(kills: wins, deaths: losses)
         
@@ -41,31 +39,13 @@ class BuildBattleStatsViewController: GenericStatsViewController, UITableViewDel
         return [
             CellData(headerData: ("Score", data["score"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Title", calculateTitle(score: data["score"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Overall Wins (tap for details)", data["wins"].intValue ?? 0), sectionData: winsDivisions, isHeader: false, isOpened: false),
+            CellData(headerData: ("Overall Wins (tap for details)", wins), sectionData: winsDivisions, isHeader: false, isOpened: false),
             CellData(headerData: ("Overall Losses", Int(losses)), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Total Votes", data["total_votes"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Super Votes", data["super_votes"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
         ]
-        
-//        return [
-//            [
-//                ("Score", data["score"].intValue ?? 0),
-//                ("Title", calculateTitle(score: data["score"].intValue ?? 0)),
-//            ],
-//            [
-//                //Do a dropdown for win categories
-//                ("Overall Wins", data["wins"].intValue ?? 0),
-//                ("Overall Losses", Int(losses)),
-//                ("W/L", wlr),
-//            ],
-//            [
-//                ("Total Votes", data["total_votes"].intValue ?? 0),
-//                ("Correct Guesses", data["correct_guesses"].intValue ?? 0),
-//                ("Super Votes", data["super_votes"].intValue ?? 0),
-//            ]
-//        ]
     }()
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -24,25 +24,31 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
     
     lazy var desiredStats: [[(String, Any)]] = {
         
-        var kills = data["kills"].doubleValue ?? 0.0
-        var deaths = data["deaths"].doubleValue ?? 0.0
+        var kills = data["kills"].intValue ?? 0
+        var deaths = data["deaths"].intValue ?? 0
         
         var kdr = GameTypes.calculateKDR(kills: kills, deaths: deaths)
        
         
-        let shotsFired = data["shots_fired"].doubleValue ?? 0.0
+        let shotsFired = data["shots_fired"].intValue ?? 0
         
-        var shotsPerKill = kills == 0.0 ? shotsFired : shotsFired / kills
+        var shotsPerKill = kills == 0 ? shotsFired : shotsFired / kills
+        
+        var headStart = data["headstart"].intValue ?? 0
+        
+        if headStart == 0 {
+            headStart = 1
+        }
         
         return [
             [
                 ("Wins", data["wins"].intValue ?? 0)
             ],
             [
-                ("Kills", data["kills"].intValue ?? 0),
-                ("Deaths", data["deaths"].intValue ?? 0),
+                ("Kills", kills),
+                ("Deaths", deaths),
                 ("K/D", kdr),
-                ("Shots Fired", data["shots_fired"].intValue ?? 0),
+                ("Shots Fired", shotsFired),
                 ("Shots/Kill", String(format: "%.2f", shotsPerKill))
             ],
             [
@@ -54,7 +60,7 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
                 ("Endurance", (data["endurance"].intValue ?? 0) + 1),
                 ("Fortune", (data["fortune"].intValue ?? 0) + 1),
                 ("Godfather", (data["godfather"].intValue ?? 0) + 1),
-                ("Head Start", data["headstart"].intValue ?? 0),
+                ("Head Start", headStart),
                 ("Superluck", (data["superluck"].intValue ?? 0) + 1),
                 ("Transfusion", (data["transfusion"].intValue ?? 0) + 1)
             ]

@@ -41,15 +41,18 @@ class GameTypes {
 //        game(typeName: "SKYCLASH", databaseName: "SkyClash", cleanName: "SkyClash")
 //    ]
     
-    static func calculateKDR(kills: Double, deaths: Double) -> String {
+    static func calculateKDR(kills: Int, deaths: Int) -> String {
+        
+        let kills2 = Double(kills)
+        let deaths2 = Double(deaths)
         var kdr = 0.0
         
-        if kills == 0.0 && deaths == 0.0 {
+        if kills2 == 0.0 && deaths2 == 0.0 {
             kdr = 0.0
-        } else if kills != 0.0 && deaths == 0.0 {
-            kdr = kills
+        } else if kills2 != 0.0 && deaths2 == 0.0 {
+            kdr = kills2
         } else {
-            kdr = kills / deaths
+            kdr = kills2 / deaths2
         }
         
         return String(format: "%.2f", kdr)
@@ -71,9 +74,9 @@ class GameTypes {
         "TNTGames": "TNT Games",
         "UHC": "UHC Champions",
         "Battleground": "Warlords",
-        "Arena": "Arena",
+        "Arena": "Arena Brawl",
         "Paintball": "Paintball",
-        "Quake": "Quake",
+        "Quake": "Quakecraft",
         "GingerBread": "Turbo Kart Racers",
         "VampireZ": "VampireZ",
         "Walls": "Walls",

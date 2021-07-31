@@ -34,14 +34,14 @@ class WallsStatsViewController: GenericStatsViewController, UITableViewDelegate,
         
         return [
             [
-                ("Wins", data["wins"].intValue ?? 0),
-                ("Losses", data["losses"].intValue ?? 0),
+                ("Wins", wins),
+                ("Losses", losses),
                 ("W/L", wlr),
             ],
             [
-                ("Kills", data["kills"].intValue ?? 0),
+                ("Kills", kills),
                 ("Assists", data["assists"].intValue ?? 0),
-                ("Deaths", data["deaths"].intValue ?? 0),
+                ("Deaths", deaths),
                 ("K/D", kdr)
             ]
         ]

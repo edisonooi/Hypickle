@@ -134,6 +134,7 @@
                         <segue destination="XDc-yh-0fX" kind="showDetail" identifier="showBuildBattleStats" id="NrX-A1-OWR"/>
                         <segue destination="qPu-De-M3s" kind="showDetail" identifier="showArenaStats" id="PD9-zT-efv"/>
                         <segue destination="Mbz-yY-6oz" kind="showDetail" identifier="showTNTGamesStats" id="uPv-5v-wuj"/>
+                        <segue destination="A4a-9D-lTD" kind="showDetail" identifier="showQuakeStats" id="Hdz-xu-rN8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -520,6 +521,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAO-ls-jVN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4062" y="-221"/>
+        </scene>
+        <!--Quake Stats View Controller-->
+        <scene sceneID="I9y-bL-Z7D">
+            <objects>
+                <viewController id="A4a-9D-lTD" customClass="QuakeStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RS8-m1-1gM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKu-Vg-gKk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="ibJ-kJ-aNY">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxC-C0-NnY">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-SY-7TR">
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ibJ-kJ-aNY" firstAttribute="top" secondItem="LKu-Vg-gKk" secondAttribute="top" id="6du-LT-5sA"/>
+                                    <constraint firstItem="ibJ-kJ-aNY" firstAttribute="centerX" secondItem="LKu-Vg-gKk" secondAttribute="centerX" id="Gm9-Ns-dbi"/>
+                                    <constraint firstItem="ibJ-kJ-aNY" firstAttribute="centerY" secondItem="LKu-Vg-gKk" secondAttribute="centerY" id="Jfn-8c-ikF"/>
+                                    <constraint firstItem="ibJ-kJ-aNY" firstAttribute="leading" secondItem="LKu-Vg-gKk" secondAttribute="leading" id="Jsp-8e-EnT"/>
+                                    <constraint firstAttribute="bottom" secondItem="ibJ-kJ-aNY" secondAttribute="bottom" id="Y1o-8j-8xc"/>
+                                    <constraint firstAttribute="trailing" secondItem="ibJ-kJ-aNY" secondAttribute="trailing" id="Yes-Kx-6WI"/>
+                                    <constraint firstItem="ibJ-kJ-aNY" firstAttribute="width" secondItem="LKu-Vg-gKk" secondAttribute="width" id="rCd-EH-RZL"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Eus-Jj-lOw"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="lNB-q9-Mxy"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nw7-7Y-Dyk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LKu-Vg-gKk" secondAttribute="trailing" id="1dQ-Yd-39F"/>
+                            <constraint firstAttribute="bottom" secondItem="LKu-Vg-gKk" secondAttribute="bottom" id="TUw-zE-PXk"/>
+                            <constraint firstItem="LKu-Vg-gKk" firstAttribute="leading" secondItem="RS8-m1-1gM" secondAttribute="leading" id="fTq-1p-O1o"/>
+                            <constraint firstItem="LKu-Vg-gKk" firstAttribute="top" secondItem="RS8-m1-1gM" secondAttribute="top" id="pgQ-jH-jd3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YR2-m6-kUO"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="LKu-Vg-gKk" id="Xyh-pq-4Vl"/>
+                        <outlet property="mainStackView" destination="ibJ-kJ-aNY" id="iJS-oR-sGr"/>
+                        <outlet property="statsTable" destination="HbO-SY-7TR" id="xn7-D2-QOe"/>
+                        <outlet property="titleLabel" destination="ZxC-C0-NnY" id="7jO-he-eHx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cop-CH-EPm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4062" y="161"/>
         </scene>
     </scenes>
     <resources>

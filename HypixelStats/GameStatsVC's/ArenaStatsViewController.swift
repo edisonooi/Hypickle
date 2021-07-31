@@ -133,9 +133,12 @@ class ArenaStatsViewController: GenericStatsViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 3 || section == 6 || section == 7 || section == 8 {
+        let sectionsThatNeedHeader = [3, 6, 7, 8]
+        
+        if sectionsThatNeedHeader.contains(section) {
             return 32
         }
+        
         return CGFloat.leastNormalMagnitude
     }
     

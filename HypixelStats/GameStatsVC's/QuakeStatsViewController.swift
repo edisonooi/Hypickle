@@ -143,9 +143,13 @@ class QuakeStatsViewController: GenericStatsViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 9 || section == 10 || section == 12 || section == 13 {
+        
+        let sectionsThatNeedHeader = [9, 10, 12, 13]
+        
+        if sectionsThatNeedHeader.contains(section) {
             return 32
         }
+        
         return CGFloat.leastNormalMagnitude
     }
     

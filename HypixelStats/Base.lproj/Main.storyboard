@@ -135,6 +135,7 @@
                         <segue destination="qPu-De-M3s" kind="showDetail" identifier="showArenaStats" id="PD9-zT-efv"/>
                         <segue destination="Mbz-yY-6oz" kind="showDetail" identifier="showTNTGamesStats" id="uPv-5v-wuj"/>
                         <segue destination="A4a-9D-lTD" kind="showDetail" identifier="showQuakeStats" id="Hdz-xu-rN8"/>
+                        <segue destination="Hib-ok-j2G" kind="showDetail" identifier="showSuperSmashStats" id="lB0-ud-cRk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -582,6 +583,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cop-CH-EPm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4062" y="161"/>
+        </scene>
+        <!--Super Smash Stats View Controller-->
+        <scene sceneID="h8D-gZ-h4q">
+            <objects>
+                <viewController id="Hib-ok-j2G" customClass="SuperSmashStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jQI-R0-2h8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZN-Yi-Ujk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="BHf-B7-8Pp">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvY-OP-OEl">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="G97-Oa-xY8">
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BHf-B7-8Pp" secondAttribute="trailing" id="39U-zy-xqS"/>
+                                    <constraint firstAttribute="bottom" secondItem="BHf-B7-8Pp" secondAttribute="bottom" id="7Ee-Vk-hU4"/>
+                                    <constraint firstItem="BHf-B7-8Pp" firstAttribute="centerY" secondItem="pZN-Yi-Ujk" secondAttribute="centerY" id="AKP-SR-BmU"/>
+                                    <constraint firstItem="BHf-B7-8Pp" firstAttribute="leading" secondItem="pZN-Yi-Ujk" secondAttribute="leading" id="HEq-TD-XDj"/>
+                                    <constraint firstItem="BHf-B7-8Pp" firstAttribute="width" secondItem="pZN-Yi-Ujk" secondAttribute="width" id="ute-dD-sed"/>
+                                    <constraint firstItem="BHf-B7-8Pp" firstAttribute="top" secondItem="pZN-Yi-Ujk" secondAttribute="top" id="zEq-UG-cIW"/>
+                                    <constraint firstItem="BHf-B7-8Pp" firstAttribute="centerX" secondItem="pZN-Yi-Ujk" secondAttribute="centerX" id="zY8-C4-uvQ"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="mZe-Dt-ACj"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="mUM-Mk-fkw"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jcb-Nm-Zjb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pZN-Yi-Ujk" secondAttribute="trailing" id="FuB-iC-rGX"/>
+                            <constraint firstAttribute="bottom" secondItem="pZN-Yi-Ujk" secondAttribute="bottom" id="Hzs-OH-EOj"/>
+                            <constraint firstItem="pZN-Yi-Ujk" firstAttribute="leading" secondItem="jQI-R0-2h8" secondAttribute="leading" id="Qa2-gB-se1"/>
+                            <constraint firstItem="pZN-Yi-Ujk" firstAttribute="top" secondItem="jQI-R0-2h8" secondAttribute="top" id="kk0-96-Wde"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="awZ-Ht-tJ4"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="pZN-Yi-Ujk" id="A4S-Bs-SZX"/>
+                        <outlet property="mainStackView" destination="BHf-B7-8Pp" id="B2P-51-eDz"/>
+                        <outlet property="statsTable" destination="G97-Oa-xY8" id="BqI-qK-l8a"/>
+                        <outlet property="titleLabel" destination="hvY-OP-OEl" id="umx-X3-8Pk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAt-Js-6RE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4062" y="-560"/>
         </scene>
     </scenes>
     <resources>

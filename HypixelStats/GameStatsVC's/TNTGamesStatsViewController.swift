@@ -226,9 +226,13 @@ class TNTGamesStatsViewController: GenericStatsViewController, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 4 || section == 10 || section == 13 || section == 14 || section == 19 {
+        
+        let sectionsThatNeedHeader = [4, 10, 13, 14, 19]
+        
+        if sectionsThatNeedHeader.contains(section) {
             return 32
         }
+        
         return CGFloat.leastNormalMagnitude
     }
     

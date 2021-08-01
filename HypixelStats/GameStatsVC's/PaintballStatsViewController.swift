@@ -27,7 +27,7 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
         var kills = data["kills"].intValue ?? 0
         var deaths = data["deaths"].intValue ?? 0
         
-        var kdr = GameTypes.calculateKDR(kills: kills, deaths: deaths)
+        var kdr = GameTypes.calculateRatio(kills: kills, deaths: deaths)
        
         
         let shotsFired = data["shots_fired"].intValue ?? 0

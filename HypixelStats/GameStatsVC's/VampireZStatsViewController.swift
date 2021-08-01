@@ -27,12 +27,12 @@ class VampireZStatsViewController: GenericStatsViewController, UITableViewDelega
         var humanKills = data["human_kills"].intValue ?? 0
         var humanDeaths = data["human_deaths"].intValue ?? 0
         
-        var humanKDR = GameTypes.calculateKDR(kills: humanKills, deaths: humanDeaths)
+        var humanKDR = GameTypes.calculateRatio(kills: humanKills, deaths: humanDeaths)
         
         var vampireKills = data["vampire_kills"].intValue ?? 0
         var vampireDeaths = data["vampire_deaths"].intValue ?? 0
         
-        var vampireKDR = GameTypes.calculateKDR(kills: vampireKills, deaths: vampireDeaths)
+        var vampireKDR = GameTypes.calculateRatio(kills: vampireKills, deaths: vampireDeaths)
         
         return [
             [

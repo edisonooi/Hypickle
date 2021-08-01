@@ -41,7 +41,7 @@ class GameTypes {
 //        game(typeName: "SKYCLASH", databaseName: "SkyClash", cleanName: "SkyClash")
 //    ]
     
-    static func calculateKDR(kills: Int, deaths: Int) -> String {
+    static func calculateRatio(kills: Int, deaths: Int) -> String {
         
         let kills2 = Double(kills)
         let deaths2 = Double(deaths)

@@ -30,14 +30,14 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
         var killsTeams = data["kills_teams_normal"].intValue ?? 0
         var kills = data["kills"].intValue ?? 0
         var deaths = data["deaths"].intValue ?? 0
-        var kdr = GameTypes.calculateKDR(kills: kills, deaths: deaths)
+        var kdr = GameTypes.calculateRatio(kills: kills, deaths: deaths)
         
         var winsSolo = data["wins_solo_normal"].intValue ?? 0
         var winsTeams = data["wins_teams_normal"].intValue ?? 0
         var wins = winsSolo + winsTeams
         
-        var wlr = GameTypes.calculateKDR(kills: wins, deaths: deaths)
-        var killsPerGame = GameTypes.calculateKDR(kills: kills, deaths: wins + deaths)
+        var wlr = GameTypes.calculateRatio(kills: wins, deaths: deaths)
+        var killsPerGame = GameTypes.calculateRatio(kills: kills, deaths: wins + deaths)
         
         let winsDivisions = [
             ("Solo", winsSolo),
@@ -116,7 +116,7 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
                 var kitWins = kitWinsSolo + kitWinsTeams
                 var kitGamesPlayed = data["games_played_" + kit].intValue ?? 0
                 var kitLosses = kitGamesPlayed - kitWins
-                var kitWLR = GameTypes.calculateKDR(kills: kitWins, deaths: kitLosses)
+                var kitWLR = GameTypes.calculateRatio(kills: kitWins, deaths: kitLosses)
                 
                 var kitKills = data["kills_" + kit].intValue ?? 0
                 
@@ -124,6 +124,12 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
                 
                 var kitPrestige = data["p" + kit].intValue ?? 0
                 var prestigeString = kitPrestige == 0 ? "" : GameTypes.convertToRomanNumerals(number: kitPrestige)
+                
+                var kitLevel = data[kit].intValue + 1
+                
+                if !data[kit].exists() {
+                    kitLevel = calculateKitLevel(kitEXP: kitEXP)
+                }
                 
                 var dataForThisKit = [kitEXP, kitWins, kitLosses, kitWLR, kitKills, kitTimePlayed] as [Any]
                 
@@ -142,7 +148,7 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
                         kitName = kit.capitalized
                 }
                 
-                kitStats.append(CellData(headerData: (kitName + " " + GameTypes.convertToRomanNumerals(number: data[kit].intValue + 1), prestigeString), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+                kitStats.append(CellData(headerData: (kitName + " " + GameTypes.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit, isHeader: false, isOpened: false))
             }
         }
         
@@ -201,6 +207,22 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func calculateKitLevel(kitEXP: Int) -> Int{
+        let xpThresholds = [0, 100, 250, 500, 1000, 1500, 2000, 2500, 5000, 10000]
+        
+        var ret = 0
+        
+        for threshold in xpThresholds {
+            if kitEXP >= threshold {
+                ret += 1
+            } else {
+                break
+            }
+        }
+        
+        return ret
     }
     
     func convertToHoursMinutesSeconds(seconds: Int) -> String {

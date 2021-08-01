@@ -52,7 +52,7 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
         
         var modeStats: [CellData] = []
         
-        for (i, mode) in modeNames.enumerated() {
+        for mode in modeNames {
             var statsForThisMode: [(String, Any)] = []
             
             var modeWins = data["wins_" + mode.0].intValue ?? 0
@@ -73,6 +73,7 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
         }
         
         ret.append(contentsOf: modeStats)
+        
         
         var kitData = data["class_stats"]
         var kitNames = [
@@ -96,7 +97,7 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
         
         var kitStats: [CellData] = []
         
-        for (i, kit) in kitNames.enumerated() {
+        for kit in kitNames {
             var statsForThisKit: [(String, Any)] = []
             
             if kitData[kit.0].exists() {
@@ -116,9 +117,8 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
                     statsForThisKit.append((category, dataForThisMode[index]))
                 }
                 
-                kitStats.append(CellData(headerData: (kit.1 + " Lv" + String(data["lastLevel_" + kit.0].intValue ?? 0), data["pg_" + kit.0].intValue ?? 0), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue ?? 0), data["pg_" + kit.0].intValue ?? 0), sectionData: statsForThisKit, isHeader: false, isOpened: false))
             }
-            
         }
         
         ret.append(contentsOf: kitStats)

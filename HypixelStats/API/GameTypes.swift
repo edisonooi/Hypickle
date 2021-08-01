@@ -58,6 +58,33 @@ class GameTypes {
         return String(format: "%.2f", kdr)
     }
     
+    static func convertToRomanNumerals(number: Int) -> String {
+        let romanValues = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+        let arabicValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+
+        var romanValue = ""
+        var startingValue = number
+        
+        for (index, romanChar) in romanValues.enumerated() {
+            var arabicValue = arabicValues[index]
+
+            var div = startingValue / arabicValue
+        
+            if (div > 0)
+            {
+                for j in 0..<div
+                {
+                    //println("Should add \(romanChar) to string")
+                    romanValue += romanChar
+                }
+
+                startingValue -= arabicValue * div
+            }
+        }
+        
+        return romanValue
+    }
+    
     static let databaseNameToCleanName: [String: String] = [
         "Arcade": "Arcade",
         "Bedwars": "Bedwars",
@@ -82,11 +109,5 @@ class GameTypes {
         "Walls": "Walls",
         "TrueCombat": "Crazy Walls",
         "SkyClash": "SkyClash"
-    ]
-    
-    static let desiredGameData: [String: [(String, Any)]] = [
-        "Arcade": [
-            
-        ]
     ]
 }

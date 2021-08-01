@@ -10,6 +10,8 @@
 		3E1DE6413DEBB8F8023BE690 /* Pods_HypixelStatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF69D871D49B2B20ACDC2C0 /* Pods_HypixelStatsTests.framework */; };
 		767864A562AEE51B77B1D918 /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8225318C5098FA73349D2281 /* Pods_HypixelStats_HypixelStatsUITests.framework */; };
 		A72BF621C06034A7D00BB9B9 /* Pods_HypixelStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952AAEAEC2543328EB86C96D /* Pods_HypixelStats.framework */; };
+		BE0DBF7E26B5F26800344E8B /* SuperSmashStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7D26B5F26800344E8B /* SuperSmashStatsViewController.swift */; };
+		BE0DBF8026B6157700344E8B /* HungerGamesStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */; };
 		BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348D26A5EF9B00153FBE /* GamesTableController.swift */; };
 		BE10349026A627FA00153FBE /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348F26A627FA00153FBE /* GameTypes.swift */; };
 		BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330126A0DDA00054E475 /* AppDelegate.swift */; };
@@ -63,6 +65,8 @@
 		602DB0CAA9A7A7E4ADAD458E /* Pods-HypixelStatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8225318C5098FA73349D2281 /* Pods_HypixelStats_HypixelStatsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats_HypixelStatsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		952AAEAEC2543328EB86C96D /* Pods_HypixelStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0DBF7D26B5F26800344E8B /* SuperSmashStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSmashStatsViewController.swift; sourceTree = "<group>"; };
+		BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerGamesStatsViewController.swift; sourceTree = "<group>"; };
 		BE10348D26A5EF9B00153FBE /* GamesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableController.swift; sourceTree = "<group>"; };
 		BE10348F26A627FA00153FBE /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
 		BE1432FE26A0DDA00054E475 /* HypixelStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypixelStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +165,8 @@
 				BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */,
 				BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */,
 				BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */,
+				BE0DBF7D26B5F26800344E8B /* SuperSmashStatsViewController.swift */,
+				BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */,
 			);
 			path = "GameStatsVC's";
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 				BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */,
 				BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */,
 				BE8FFE3126B3B0850033A8C2 /* QuakeStatsViewController.swift in Sources */,
+				BE0DBF8026B6157700344E8B /* HungerGamesStatsViewController.swift in Sources */,
 				BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */,
 				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
 				BE10349026A627FA00153FBE /* GameTypes.swift in Sources */,
@@ -494,6 +501,7 @@
 				BEAFEC0626AA3F3B00349728 /* ArenaStatsViewController.swift in Sources */,
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
 				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
+				BE0DBF7E26B5F26800344E8B /* SuperSmashStatsViewController.swift in Sources */,
 				BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */,
 				BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */,
 				BE14330C26A0DDA00054E475 /* HypixelStats.xcdatamodeld in Sources */,

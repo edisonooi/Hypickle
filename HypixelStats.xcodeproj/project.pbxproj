@@ -29,6 +29,9 @@
 		BE51723226A8F65100DE85DC /* VampireZStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */; };
 		BE51723426A90A0E00DE85DC /* WallsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */; };
 		BE51723626A914C200DE85DC /* BuildBattleStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */; };
+		BE59FAF026B70B17000F7799 /* GingerbreadStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAEF26B70B17000F7799 /* GingerbreadStatsViewController.swift */; };
+		BE59FAF326B7294F000F7799 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAF226B7294F000F7799 /* StringExtension.swift */; };
+		BE59FAF526B778A1000F7799 /* BattlegroundStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAF426B778A1000F7799 /* BattlegroundStatsViewController.swift */; };
 		BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */; };
 		BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */; };
 		BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */; };
@@ -90,6 +93,9 @@
 		BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireZStatsViewController.swift; sourceTree = "<group>"; };
 		BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallsStatsViewController.swift; sourceTree = "<group>"; };
 		BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildBattleStatsViewController.swift; sourceTree = "<group>"; };
+		BE59FAEF26B70B17000F7799 /* GingerbreadStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GingerbreadStatsViewController.swift; sourceTree = "<group>"; };
+		BE59FAF226B7294F000F7799 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		BE59FAF426B778A1000F7799 /* BattlegroundStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlegroundStatsViewController.swift; sourceTree = "<group>"; };
 		BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsInfoTableViewCell.swift; sourceTree = "<group>"; };
 		BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsInfoTableViewCell.xib; sourceTree = "<group>"; };
 		BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStatsViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +173,8 @@
 				BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */,
 				BE0DBF7D26B5F26800344E8B /* SuperSmashStatsViewController.swift */,
 				BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */,
+				BE59FAEF26B70B17000F7799 /* GingerbreadStatsViewController.swift */,
+				BE59FAF426B778A1000F7799 /* BattlegroundStatsViewController.swift */,
 			);
 			path = "GameStatsVC's";
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 		BE14330026A0DDA00054E475 /* HypixelStats */ = {
 			isa = PBXGroup;
 			children = (
+				BE59FAF126B72940000F7799 /* Extensions */,
 				BE10349126A6783E00153FBE /* GameStatsVC's */,
 				BE14333626A0E94F0054E475 /* API */,
 				BE14330126A0DDA00054E475 /* AppDelegate.swift */,
@@ -242,6 +251,14 @@
 				BE10348F26A627FA00153FBE /* GameTypes.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		BE59FAF126B72940000F7799 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE59FAF226B7294F000F7799 /* StringExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE59FAF526B778A1000F7799 /* BattlegroundStatsViewController.swift in Sources */,
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
 				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
 				BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */,
@@ -501,7 +519,9 @@
 				BEAFEC0626AA3F3B00349728 /* ArenaStatsViewController.swift in Sources */,
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
 				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
+				BE59FAF026B70B17000F7799 /* GingerbreadStatsViewController.swift in Sources */,
 				BE0DBF7E26B5F26800344E8B /* SuperSmashStatsViewController.swift in Sources */,
+				BE59FAF326B7294F000F7799 /* StringExtension.swift in Sources */,
 				BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */,
 				BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */,
 				BE14330C26A0DDA00054E475 /* HypixelStats.xcdatamodeld in Sources */,

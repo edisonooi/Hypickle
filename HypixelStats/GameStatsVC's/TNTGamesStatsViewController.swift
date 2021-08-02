@@ -28,60 +28,60 @@ class TNTGamesStatsViewController: GenericStatsViewController, UITableViewDelega
         
         var winsTNTRun = data["wins_tntrun"].intValue ?? 0
         var lossesTNTRun = data["deaths_tntrun"].intValue ?? 0
-        var wlrTNTRun = GameTypes.calculateRatio(kills: winsTNTRun, deaths: lossesTNTRun)
+        var wlrTNTRun = GameTypes.calculateRatio(numerator: winsTNTRun, denominator: lossesTNTRun)
         
         var winsPVPRun = data["wins_pvprun"].intValue ?? 0
         var killsPVPRun = data["kills_pvprun"].intValue ?? 0
         var lossesPVPRun = data["deaths_pvprun"].intValue ?? 0
-        var wlrPVPRun = GameTypes.calculateRatio(kills: winsPVPRun, deaths: lossesPVPRun)
-        var kdrPVPRun = GameTypes.calculateRatio(kills: killsPVPRun, deaths: lossesPVPRun)
+        var wlrPVPRun = GameTypes.calculateRatio(numerator: winsPVPRun, denominator: lossesPVPRun)
+        var kdrPVPRun = GameTypes.calculateRatio(numerator: killsPVPRun, denominator: lossesPVPRun)
         
         var winsSpleef = data["wins_bowspleef"].intValue ?? 0
         var lossesSpleef = data["deaths_bowspleef"].intValue ?? 0
-        var wlrSpleef = GameTypes.calculateRatio(kills: winsSpleef, deaths: lossesSpleef)
+        var wlrSpleef = GameTypes.calculateRatio(numerator: winsSpleef, denominator: lossesSpleef)
         
         var winsTag = data["wins_tntag"].intValue ?? 0
         
         var winsWizards = data["wins_capture"].intValue ?? 0
         var killsWizards = data["kills_capture"].intValue ?? 0
         var deathsWizards = data["deaths_capture"].intValue ?? 0
-        var kdrWizards = GameTypes.calculateRatio(kills: killsWizards, deaths: deathsWizards)
+        var kdrWizards = GameTypes.calculateRatio(numerator: killsWizards, denominator: deathsWizards)
         
         var killsAncient = data["new_ancientwizard_kills"].intValue ?? 0
         var deathsAncient = data["new_ancientwizard_deaths"].intValue ?? 0
-        var kdrAncient = GameTypes.calculateRatio(kills: killsAncient, deaths: deathsAncient)
+        var kdrAncient = GameTypes.calculateRatio(numerator: killsAncient, denominator: deathsAncient)
         
         var killsBlood = data["new_bloodwizard_kills"].intValue ?? 0
         var deathsBlood = data["new_bloodwizard_deaths"].intValue ?? 0
-        var kdrBlood = GameTypes.calculateRatio(kills: killsBlood, deaths: deathsBlood)
+        var kdrBlood = GameTypes.calculateRatio(numerator: killsBlood, denominator: deathsBlood)
         
         var killsFire = data["new_firewizard_kills"].intValue ?? 0
         var deathsFire = data["new_firewizard_deaths"].intValue ?? 0
-        var kdrFire = GameTypes.calculateRatio(kills: killsFire, deaths: deathsFire)
+        var kdrFire = GameTypes.calculateRatio(numerator: killsFire, denominator: deathsFire)
         
         var killsHydro = data["new_hydrowizard_kills"].intValue ?? 0
         var deathsHydro = data["new_hydrowizard_deaths"].intValue ?? 0
-        var kdrHydro = GameTypes.calculateRatio(kills: killsHydro, deaths: deathsHydro)
+        var kdrHydro = GameTypes.calculateRatio(numerator: killsHydro, denominator: deathsHydro)
         
         var killsIce = data["new_icewizard_kills"].intValue ?? 0
         var deathsIce = data["new_icewizard_deaths"].intValue ?? 0
-        var kdrIce = GameTypes.calculateRatio(kills: killsIce, deaths: deathsIce)
+        var kdrIce = GameTypes.calculateRatio(numerator: killsIce, denominator: deathsIce)
         
         var killsKinetic = data["new_kineticwizard_kills"].intValue ?? 0
         var deathsKinetic = data["new_kineticwizard_deaths"].intValue ?? 0
-        var kdrKinetic = GameTypes.calculateRatio(kills: killsKinetic, deaths: deathsKinetic)
+        var kdrKinetic = GameTypes.calculateRatio(numerator: killsKinetic, denominator: deathsKinetic)
         
         var killsStorm = data["new_stormwizard_kills"].intValue ?? 0
         var deathsStorm = data["new_stormwizard_deaths"].intValue ?? 0
-        var kdrStorm = GameTypes.calculateRatio(kills: killsStorm, deaths: deathsStorm)
+        var kdrStorm = GameTypes.calculateRatio(numerator: killsStorm, denominator: deathsStorm)
         
         var killsToxic = data["new_toxicwizard_kills"].intValue ?? 0
         var deathsToxic = data["new_toxicwizard_deaths"].intValue ?? 0
-        var kdrToxic = GameTypes.calculateRatio(kills: killsToxic, deaths: deathsToxic)
+        var kdrToxic = GameTypes.calculateRatio(numerator: killsToxic, denominator: deathsToxic)
         
         var killsWither = data["new_witherwizard_kills"].intValue ?? 0
         var deathsWither = data["new_witherwizard_deaths"].intValue ?? 0
-        var kdrWither = GameTypes.calculateRatio(kills: killsWither, deaths: deathsWither)
+        var kdrWither = GameTypes.calculateRatio(numerator: killsWither, denominator: deathsWither)
         
         let statsAncient: [(String, Any)] = [
             ("Kills", killsAncient),

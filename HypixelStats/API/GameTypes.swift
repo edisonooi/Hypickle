@@ -41,10 +41,10 @@ class GameTypes {
 //        game(typeName: "SKYCLASH", databaseName: "SkyClash", cleanName: "SkyClash")
 //    ]
     
-    static func calculateRatio(kills: Int, deaths: Int) -> String {
+    static func calculateRatio(numerator: Int, denominator: Int) -> String {
         
-        let kills2 = Double(kills)
-        let deaths2 = Double(deaths)
+        let kills2 = Double(numerator)
+        let deaths2 = Double(denominator)
         var kdr = 0.0
         
         if kills2 == 0.0 && deaths2 == 0.0 {

@@ -34,10 +34,10 @@ class ArenaStatsViewController: GenericStatsViewController, UITableViewDelegate,
         var losses4v4 = data["losses_4v4"].intValue ?? 0
         var losses = losses1v1 + losses2v2 + losses4v4
 
-        var wlr = GameTypes.calculateRatio(kills: wins, deaths: losses)
-        var wlr1v1 = GameTypes.calculateRatio(kills: wins1v1, deaths: losses1v1)
-        var wlr2v2 = GameTypes.calculateRatio(kills: wins2v2, deaths: losses2v2)
-        var wlr4v4 = GameTypes.calculateRatio(kills: wins4v4, deaths: losses4v4)
+        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr1v1 = GameTypes.calculateRatio(numerator: wins1v1, denominator: losses1v1)
+        var wlr2v2 = GameTypes.calculateRatio(numerator: wins2v2, denominator: losses2v2)
+        var wlr4v4 = GameTypes.calculateRatio(numerator: wins4v4, denominator: losses4v4)
         
         var kills1v1 = data["kills_1v1"].intValue ?? 0
         var kills2v2 = data["kills_2v2"].intValue ?? 0
@@ -49,10 +49,10 @@ class ArenaStatsViewController: GenericStatsViewController, UITableViewDelegate,
         var deaths4v4 = data["deaths_4v4"].intValue ?? 0
         var deaths = deaths1v1 + deaths2v2 + deaths4v4
         
-        var kdr = GameTypes.calculateRatio(kills: kills, deaths: deaths)
-        var kdr1v1 = GameTypes.calculateRatio(kills: kills1v1, deaths: deaths1v1)
-        var kdr2v2 = GameTypes.calculateRatio(kills: kills2v2, deaths: deaths2v2)
-        var kdr4v4 = GameTypes.calculateRatio(kills: kills4v4, deaths: deaths4v4)
+        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr1v1 = GameTypes.calculateRatio(numerator: kills1v1, denominator: deaths1v1)
+        var kdr2v2 = GameTypes.calculateRatio(numerator: kills2v2, denominator: deaths2v2)
+        var kdr4v4 = GameTypes.calculateRatio(numerator: kills4v4, denominator: deaths4v4)
         
         let stats1v1: [(String, Any)] = [
             ("Wins", wins1v1),

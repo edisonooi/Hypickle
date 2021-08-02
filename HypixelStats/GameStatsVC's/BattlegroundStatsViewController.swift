@@ -37,8 +37,14 @@ class BattlegroundStatsViewController: GenericStatsViewController, UITableViewDe
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         var akr = GameTypes.calculateRatio(numerator: assists, denominator: kills)
         
+        let winStats: [(String, Any)] = [
+            ("Capture the Flag", data["wins_capturetheflag"].intValue ?? 0),
+            ("Domination", data["wins_domination"].intValue ?? 0),
+            ("Team Deathmatch", data["wins_teamdeathmatch"].intValue ?? 0)
+        ]
+        
         var generalStats = [
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winStats, isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
             
@@ -49,16 +55,20 @@ class BattlegroundStatsViewController: GenericStatsViewController, UITableViewDe
             CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Assists/Kill", akr), sectionData: [], isHeader: false, isOpened: false),
             
+            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Void Shards", data["void_shards"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            
+            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            
             CellData(headerData: ("Damage", data["damage"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Healing", data["heal"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            
-            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Void Shards", data["void_shards"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false)
         ]
 
         ret.append(contentsOf: generalStats)
-        
+
         
         let kits = ["mage", "paladin", "shaman", "warrior"]
         let upgrades = ["cooldown", "critchance", "critmultiplier", "energy", "health", "skill1", "skill2", "skill3", "skill4", "skill5"]
@@ -141,7 +151,7 @@ class BattlegroundStatsViewController: GenericStatsViewController, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 6, 8, 11, 13]
+        let sectionsThatNeedHeader = [3, 6, 8, 10, 13, 16]
         
         if sectionsThatNeedHeader.contains(section) {
             return 32

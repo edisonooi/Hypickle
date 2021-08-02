@@ -30,14 +30,14 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
         var killsTeams = data["kills_teams_normal"].intValue ?? 0
         var kills = data["kills"].intValue ?? 0
         var deaths = data["deaths"].intValue ?? 0
-        var kdr = GameTypes.calculateRatio(kills: kills, deaths: deaths)
+        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
         var winsSolo = data["wins_solo_normal"].intValue ?? 0
         var winsTeams = data["wins_teams_normal"].intValue ?? 0
         var wins = winsSolo + winsTeams
         
-        var wlr = GameTypes.calculateRatio(kills: wins, deaths: deaths)
-        var killsPerGame = GameTypes.calculateRatio(kills: kills, deaths: wins + deaths)
+        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: deaths)
+        var killsPerGame = GameTypes.calculateRatio(numerator: kills, denominator: wins + deaths)
         
         let winsDivisions = [
             ("Solo", winsSolo),
@@ -116,7 +116,7 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
                 var kitWins = kitWinsSolo + kitWinsTeams
                 var kitGamesPlayed = data["games_played_" + kit].intValue ?? 0
                 var kitLosses = kitGamesPlayed - kitWins
-                var kitWLR = GameTypes.calculateRatio(kills: kitWins, deaths: kitLosses)
+                var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
                 
                 var kitKills = data["kills_" + kit].intValue ?? 0
                 
@@ -209,20 +209,20 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
         return CGFloat.leastNormalMagnitude
     }
     
-    func calculateKitLevel(kitEXP: Int) -> Int{
+    func calculateKitLevel(kitEXP: Int) -> Int {
         let xpThresholds = [0, 100, 250, 500, 1000, 1500, 2000, 2500, 5000, 10000]
         
-        var ret = 0
+        var level = 0
         
         for threshold in xpThresholds {
             if kitEXP >= threshold {
-                ret += 1
+                level += 1
             } else {
                 break
             }
         }
         
-        return ret
+        return level
     }
     
     func convertToHoursMinutesSeconds(seconds: Int) -> String {

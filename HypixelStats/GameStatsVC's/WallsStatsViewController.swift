@@ -26,11 +26,11 @@ class WallsStatsViewController: GenericStatsViewController, UITableViewDelegate,
         
         var wins = data["wins"].intValue ?? 0
         var losses = data["losses"].intValue ?? 0
-        var wlr = GameTypes.calculateRatio(kills: wins, deaths: losses)
+        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue ?? 0
         var deaths = data["deaths"].intValue ?? 0
-        var kdr = GameTypes.calculateRatio(kills: kills, deaths: deaths)
+        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
         return [
             [

@@ -40,7 +40,7 @@ class StatsViewController: UIViewController {
             
             APIManager.getJSON(specific_url: url) {jsonData in
 
-                if jsonData["player"].dictionary != nil{
+                if jsonData["player"].dictionary != nil {
                     self.allStatsData = jsonData["player"]
 
                     self.gameStats = jsonData["player"]["stats"]

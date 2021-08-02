@@ -27,7 +27,7 @@ class BuildBattleStatsViewController: GenericStatsViewController, UITableViewDel
         var wins = data["wins"].intValue ?? 0
         var gamesPlayed = data["games_played"].intValue ?? 0
         var losses = gamesPlayed - wins
-        var wlr = GameTypes.calculateRatio(kills: wins, deaths: losses)
+        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
         let winsDivisions = [
             ("Solo", data["wins_solo_normal"].intValue ?? 0),

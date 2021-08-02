@@ -36,25 +36,25 @@ class QuakeStatsViewController: GenericStatsViewController, UITableViewDelegate,
         var deathsTeams = data["deaths_teams"].intValue ?? 0
         var deaths = deathsSolo + deathsTeams
         
-        var kdrSolo = GameTypes.calculateRatio(kills: killsSolo, deaths: deathsSolo)
-        var kdrTeams = GameTypes.calculateRatio(kills: killsTeams, deaths: deathsTeams)
-        var kdr = GameTypes.calculateRatio(kills: kills, deaths: deaths)
+        var kdrSolo = GameTypes.calculateRatio(numerator: killsSolo, denominator: deathsSolo)
+        var kdrTeams = GameTypes.calculateRatio(numerator: killsTeams, denominator: deathsTeams)
+        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
         var headshotsSolo = data["headshots"].intValue ?? 0
         var headshotsTeams = data["headshots_teams"].intValue ?? 0
         var headshots = headshotsSolo + headshotsTeams
         
-        var headshotsPerKillSolo = GameTypes.calculateRatio(kills: headshotsSolo, deaths: deathsSolo)
-        var headshotsPerKillTeams = GameTypes.calculateRatio(kills: headshotsTeams, deaths: deathsTeams)
-        var headshotsPerKill = GameTypes.calculateRatio(kills: headshots, deaths: deaths)
+        var headshotsPerKillSolo = GameTypes.calculateRatio(numerator: headshotsSolo, denominator: deathsSolo)
+        var headshotsPerKillTeams = GameTypes.calculateRatio(numerator: headshotsTeams, denominator: deathsTeams)
+        var headshotsPerKill = GameTypes.calculateRatio(numerator: headshots, denominator: deaths)
         
         var shotsFiredSolo = data["shots_fired"].intValue ?? 0
         var shotsFiredTeams = data["shots_fired_teams"].intValue ?? 0
         var shotsFired = shotsFiredSolo + shotsFiredTeams
         
-        var killsPerShotSolo = GameTypes.calculateRatio(kills: killsSolo, deaths: shotsFiredSolo)
-        var killsPerShotTeams = GameTypes.calculateRatio(kills: killsTeams, deaths: shotsFiredTeams)
-        var killsPerShot = GameTypes.calculateRatio(kills: kills, deaths: shotsFired)
+        var killsPerShotSolo = GameTypes.calculateRatio(numerator: killsSolo, denominator: shotsFiredSolo)
+        var killsPerShotTeams = GameTypes.calculateRatio(numerator: killsTeams, denominator: shotsFiredTeams)
+        var killsPerShot = GameTypes.calculateRatio(numerator: kills, denominator: shotsFired)
         
         var killstreaksSolo = data["killstreaks"].intValue ?? 0
         var killstreaksTeams = data["killstreaks_teams"].intValue ?? 0

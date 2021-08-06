@@ -36,6 +36,8 @@
 		BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */; };
 		BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */; };
 		BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */; };
+		BE85B08726BD8D42004B4303 /* UHCStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85B08626BD8D42004B4303 /* UHCStatsViewController.swift */; };
+		BE85B08926BD96C1004B4303 /* MurderMysteryStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85B08826BD96C1004B4303 /* MurderMysteryStatsViewController.swift */; };
 		BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */; };
 		BE8FFE3126B3B0850033A8C2 /* QuakeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */; };
 		BE9BE1B026BB0B7300463ED4 /* DuelsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */; };
@@ -103,6 +105,8 @@
 		BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsInfoTableViewCell.xib; sourceTree = "<group>"; };
 		BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStatsViewController.swift; sourceTree = "<group>"; };
 		BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballStatsViewController.swift; sourceTree = "<group>"; };
+		BE85B08626BD8D42004B4303 /* UHCStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UHCStatsViewController.swift; sourceTree = "<group>"; };
+		BE85B08826BD96C1004B4303 /* MurderMysteryStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MurderMysteryStatsViewController.swift; sourceTree = "<group>"; };
 		BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeStatsViewController.swift; sourceTree = "<group>"; };
 		BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelsStatsViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */,
 				BEC6822926BCD15F0042D947 /* Walls3StatsViewController.swift */,
 				BEC6822B26BCE26D0042D947 /* SpeedUHCStatsViewController.swift */,
+				BE85B08626BD8D42004B4303 /* UHCStatsViewController.swift */,
+				BE85B08826BD96C1004B4303 /* MurderMysteryStatsViewController.swift */,
 			);
 			path = "GameStatsVC's";
 			sourceTree = "<group>";
@@ -513,10 +519,12 @@
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
 				BE9BE1B026BB0B7300463ED4 /* DuelsStatsViewController.swift in Sources */,
 				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
+				BE85B08726BD8D42004B4303 /* UHCStatsViewController.swift in Sources */,
 				BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */,
 				BEC6822C26BCE26D0042D947 /* SpeedUHCStatsViewController.swift in Sources */,
 				BEAFEC0826AA4C9500349728 /* TNTGamesStatsViewController.swift in Sources */,
 				BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */,
+				BE85B08926BD96C1004B4303 /* MurderMysteryStatsViewController.swift in Sources */,
 				BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */,
 				BE8FFE3126B3B0850033A8C2 /* QuakeStatsViewController.swift in Sources */,
 				BE0DBF8026B6157700344E8B /* HungerGamesStatsViewController.swift in Sources */,

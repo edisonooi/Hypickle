@@ -152,14 +152,14 @@ class TNTGamesStatsViewController: GenericStatsViewController, UITableViewDelega
             CellData(headerData: ("Wins", winsTNTRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", lossesTNTRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlrTNTRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Record Time", formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Record Time", GameTypes.formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Wins", winsPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills", killsPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", lossesPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlrPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdrPVPRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Record Time", formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Record Time", GameTypes.formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Wins", winsSpleef), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", lossesSpleef), sectionData: [], isHeader: false, isOpened: false),
@@ -240,10 +240,6 @@ class TNTGamesStatsViewController: GenericStatsViewController, UITableViewDelega
         return CGFloat.leastNormalMagnitude
     }
     
-    func formatMinuteSeconds(totalSeconds: Int) -> String {
-        let min = Int(totalSeconds / 60)
-        let sec = Int(Double(totalSeconds).truncatingRemainder(dividingBy: 60))
-        return String(format: "%02d:%02d", min, sec)
-    }
+    
 }
 

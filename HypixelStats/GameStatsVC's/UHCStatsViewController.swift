@@ -1,20 +1,20 @@
 //
-//  SpeedUHCStatsViewController.swift
+//  UHCStatsViewController.swift
 //  HypixelStats
 //
-//  Created by codeplus on 8/5/21.
+//  Created by codeplus on 8/6/21.
 //
 
 import Foundation
 import UIKit
 import SwiftyJSON
 
-class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
+class UHCStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = "Speed UHC"
+        titleLabel.text = "UHC Champions"
         
         statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         statsTable.delegate = self
@@ -27,12 +27,53 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
         
         var ret: [CellData] = []
         
-        var wins = data["wins"].intValue ?? 0
-        var losses = data["losses"].intValue ?? 0
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wins = 0, kills = 0, deaths = 0, headsEaten = 0
+
+        var modes = [
+            (id: "_solo", name: "Solo"),
+            (id: "", name: "Teams"),
+            (id: "_red vs blue", name: "Red vs. Blue"),
+            (id: "_no diamonds", name: "No Diamonds"),
+            (id: "_vanilla doubles", name: "Vanilla Doubles"),
+            (id: "_brawl", name: "Brawl"),
+            (id: "_solo brawl", name: "Solo Brawl"),
+            (id: "_duo brawl", name: "Duo Brawl"),
+        ]
         
-        var kills = data["kills"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var desiredStats = ["Wins", "Kills", "Deaths", "K/D", "Kills/Wins", "Heads Eaten"]
+        
+        var modeStats: [CellData] = []
+        
+        for mode in modes {
+            var statsForThisMode: [(String, Any)] = []
+            
+            var modeWins = data["wins" + mode.id].intValue ?? 0
+            
+            var modeKills = data["kills" + mode.id].intValue ?? 0
+            var modeDeaths = data["deaths" + mode.id].intValue ?? 0
+            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            
+            var modeKW = GameTypes.calculateRatio(numerator: modeKills, denominator: modeWins)
+            var modeHeadsEaten = data["heads_eaten" + mode.id].intValue ?? 0
+            
+            wins += modeWins
+            kills += modeKills
+            deaths += modeDeaths
+            headsEaten += modeHeadsEaten
+            
+            if modeWins + modeKills + modeDeaths == 0 {
+                continue
+            }
+            
+            var dataForThisMode = [modeWins, modeKills, modeDeaths, modeKDR, modeKW, modeHeadsEaten] as [Any]
+            
+            for (index, category) in desiredStats.enumerated() {
+                statsForThisMode.append((category, dataForThisMode[index]))
+            }
+            
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+        }
+        
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
         var titleAndStar = getTitleAndStar(score: data["score"].intValue ?? 0)
@@ -40,8 +81,6 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
         var generalStats = [
             
             CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
@@ -51,50 +90,15 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
             CellData(headerData: ("Stars", titleAndStar.1), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Title", titleAndStar.0), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Heads Eaten", headsEaten), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Ultimates Crafted", (data["ultimates_crafted"].intValue ?? 0) + (data["ultimates_crafted_solo"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
 
         ]
         
+        
         ret.append(contentsOf: generalStats)
         
-        var modes = [
-            (id: "_solo_normal", name: "Solo Normal"),
-            (id: "_solo_insane", name: "Solo Insane"),
-            (id: "_team_normal", name: "Teams Normal"),
-            (id: "_team_insane", name: "Teams Insane")
-        ]
-        
-        var desiredStats = ["Wins", "Losses", "W/L", "Kills", "Deaths", "K/D"]
-        
-        var modeStats: [CellData] = []
-        
-        for mode in modes {
-            var statsForThisMode: [(String, Any)] = []
-            
-            var modeWins = data["wins" + mode.id].intValue ?? 0
-            var modeLosses = data["losses" + mode.id].intValue ?? 0
-            var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
-            
-            var modeKills = data["kills" + mode.id].intValue ?? 0
-            var modeDeaths = data["deaths" + mode.id].intValue ?? 0
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
-            
-            if modeWins + modeDeaths == 0 {
-                continue
-            }
-            
-            var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR] as [Any]
-            
-            for (index, category) in desiredStats.enumerated() {
-                statsForThisMode.append((category, dataForThisMode[index]))
-            }
-            
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
-        }
-        
         ret.append(contentsOf: modeStats)
-        
         
         return ret
     }()
@@ -138,7 +142,7 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 6, 9, 11]
+        let sectionsThatNeedHeader = [1, 4, 7, 9]
         
         if sectionsThatNeedHeader.contains(section) {
             return 32
@@ -153,17 +157,22 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
     
     func getTitleAndStar(score: Int) -> (String, Int) {
         let titles = [
-            (value: 0, name: "Hiker"),
-            (value: 50, name: "Jogger"),
-            (value: 300, name: "Runner"),
-            (value: 1050, name: "Sprinter"),
-            (value: 2560, name: "Turbo"),
-            (value: 5550, name: "Sanic"),
-            (value: 15550, name: "Hot Rod"),
-            (value: 30550, name: "Bolt"),
-            (value: 55550, name: "Zoom"),
-            (value: 85550, name: "God Speed"),
-            (value: Int.max, name: nil)
+            (value: 0, name: "Recruit", color: "gray"),
+            (value: 10, name: "Initiate", color: "gray"),
+            (value: 60, name: "Soldier", color: "gray"),
+            (value: 210, name: "Sergeant", color: "gray"),
+            (value: 460, name: "Knight", color: "gray"),
+            (value: 960, name: "Captain", color: "gray"),
+            (value: 1710, name: "Centurion", color: "gray"),
+            (value: 2710, name: "Gladiator", color: "gray"),
+            (value: 5210, name: "Warlord", color: "gray"),
+            (value: 10210, name: "Champion", color: "gray"),
+            (value: 13210, name: "Champion", color: "gray"),
+            (value: 16210, name: "Bronze Champion", color: "brown"),
+            (value: 19210, name: "Silver Champion", color: "white"),
+            (value: 22210, name: "Gold Champion", color: "gold"),
+            (value: 25210, name: "High Champion", color: "aqua"),
+            (value: Int.max, name: nil, color: nil)
         ]
         
         for (index, title) in titles.enumerated() {
@@ -172,7 +181,7 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
             }
         }
         
-        return ("Hiker", 1)
+        return ("Recruit", 1)
     }
     
     

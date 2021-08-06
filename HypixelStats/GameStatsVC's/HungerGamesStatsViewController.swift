@@ -120,7 +120,7 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
                 
                 var kitKills = data["kills_" + kit].intValue ?? 0
                 
-                var kitTimePlayed = convertToHoursMinutesSeconds(seconds: data["time_played_" + kit].intValue ?? 0)
+                var kitTimePlayed = GameTypes.convertToHoursMinutesSeconds(seconds: data["time_played_" + kit].intValue ?? 0)
                 
                 var kitPrestige = data["p" + kit].intValue ?? 0
                 var prestigeString = kitPrestige == 0 ? "" : GameTypes.convertToRomanNumerals(number: kitPrestige)
@@ -225,15 +225,7 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
         return level
     }
     
-    func convertToHoursMinutesSeconds(seconds: Int) -> String {
-        
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .positional
-
-        let formattedString = formatter.string(from: TimeInterval(seconds))!
-        return formattedString
-    }
+    
     
     
 }

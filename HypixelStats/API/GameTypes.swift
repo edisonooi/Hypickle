@@ -104,6 +104,22 @@ class GameTypes {
         return romanValue
     }
     
+    static func formatMinuteSeconds(totalSeconds: Int) -> String {
+        let min = Int(totalSeconds / 60)
+        let sec = Int(Double(totalSeconds).truncatingRemainder(dividingBy: 60))
+        return String(format: "%02d:%02d", min, sec)
+    }
+    
+    static func convertToHoursMinutesSeconds(seconds: Int) -> String {
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .positional
+
+        let formattedString = formatter.string(from: TimeInterval(seconds))!
+        return formattedString
+    }
+    
     static let databaseNameToCleanName: [String: String] = [
         "Arcade": "Arcade",
         "Bedwars": "Bedwars",

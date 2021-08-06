@@ -35,6 +35,8 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
         var deaths = data["deaths"].intValue ?? 0
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
+        var titleAndStar = getTitleAndStar(score: data["score"].intValue ?? 0)
+        
         var generalStats = [
             
             CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
@@ -46,7 +48,7 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
             CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Score", data["score"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Title", getTitle(score: data["score"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Title", titleAndStar.0), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Current Winstreak", data["winstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false)
@@ -148,7 +150,7 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
         return CGFloat.leastNormalMagnitude
     }
     
-    func getTitle(score: Int) -> String {
+    func getTitleAndStar(score: Int) -> (String, Int) {
         let titles = [
             (value: 0, name: "Hiker"),
             (value: 50, name: "Jogger"),
@@ -165,10 +167,12 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
         
         for (index, title) in titles.enumerated() {
             if score < title.value {
-                return titles[index - 1].name!
+                return (titles[index - 1].name!, index)
             }
         }
         
-        return "Hiker"
+        return ("Hiker", 1)
     }
+    
+    
 }

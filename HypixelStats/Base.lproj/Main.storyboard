@@ -140,6 +140,7 @@
                         <segue destination="zCm-ig-RcP" kind="showDetail" identifier="showBattlegroundStats" id="vfF-MU-AQQ"/>
                         <segue destination="JMO-dd-zBV" kind="showDetail" identifier="showDuelsStats" id="Yyr-sj-w2J"/>
                         <segue destination="h4P-4D-CXN" kind="showDetail" identifier="showWalls3Stats" id="ZvH-Er-blO"/>
+                        <segue destination="NIy-J3-47m" kind="showDetail" identifier="showSpeedUHCStats" id="r9W-fI-xJf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -953,6 +954,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="are-g7-5FP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4801" y="160"/>
+        </scene>
+        <!--SpeedUHC Stats View Controller-->
+        <scene sceneID="2LW-Xf-Xm0">
+            <objects>
+                <viewController id="NIy-J3-47m" customClass="SpeedUHCStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gLr-vF-REz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5S-in-LVe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="1WI-dS-due">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CsA-hg-IZJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Yv4-0t-dMd">
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1WI-dS-due" firstAttribute="width" secondItem="R5S-in-LVe" secondAttribute="width" id="CjI-dm-C6Y"/>
+                                    <constraint firstItem="1WI-dS-due" firstAttribute="centerX" secondItem="R5S-in-LVe" secondAttribute="centerX" id="DhD-4k-6O8"/>
+                                    <constraint firstItem="1WI-dS-due" firstAttribute="top" secondItem="R5S-in-LVe" secondAttribute="top" id="IIj-2M-yZ7"/>
+                                    <constraint firstAttribute="trailing" secondItem="1WI-dS-due" secondAttribute="trailing" id="TUa-3f-wno"/>
+                                    <constraint firstItem="1WI-dS-due" firstAttribute="leading" secondItem="R5S-in-LVe" secondAttribute="leading" id="WlQ-kD-Rj3"/>
+                                    <constraint firstItem="1WI-dS-due" firstAttribute="centerY" secondItem="R5S-in-LVe" secondAttribute="centerY" id="mfV-dL-x1K"/>
+                                    <constraint firstAttribute="bottom" secondItem="1WI-dS-due" secondAttribute="bottom" id="qRr-Vj-rjM"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="J3Z-wr-3dT"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="aAB-AM-6vT"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UET-QX-PBz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="R5S-in-LVe" secondAttribute="bottom" id="0ue-ai-Vkb"/>
+                            <constraint firstItem="R5S-in-LVe" firstAttribute="leading" secondItem="gLr-vF-REz" secondAttribute="leading" id="EhT-4S-gy8"/>
+                            <constraint firstAttribute="trailing" secondItem="R5S-in-LVe" secondAttribute="trailing" id="Nwc-Pj-huB"/>
+                            <constraint firstItem="R5S-in-LVe" firstAttribute="top" secondItem="gLr-vF-REz" secondAttribute="top" id="gkc-cc-SOA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RqU-ax-HSR"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="R5S-in-LVe" id="cCP-r5-PjZ"/>
+                        <outlet property="mainStackView" destination="1WI-dS-due" id="27Z-yl-uCd"/>
+                        <outlet property="statsTable" destination="Yv4-0t-dMd" id="eAX-7g-Q0V"/>
+                        <outlet property="titleLabel" destination="CsA-hg-IZJ" id="ENW-SR-iHd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O6b-88-b14" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4799" y="-221"/>
         </scene>
     </scenes>
     <resources>

@@ -165,7 +165,6 @@ class Walls3StatsViewController: GenericStatsViewController, UITableViewDelegate
         
         ret.append(contentsOf: kitStats)
         
-        
         return ret
     }()
     

@@ -38,6 +38,7 @@
 		BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */; };
 		BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */; };
 		BE8FFE3126B3B0850033A8C2 /* QuakeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */; };
+		BE9BE1B026BB0B7300463ED4 /* DuelsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */; };
 		BEAFEC0126AA11E000349728 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0026AA11E000349728 /* CellData.swift */; };
 		BEAFEC0626AA3F3B00349728 /* ArenaStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */; };
 		BEAFEC0826AA4C9500349728 /* TNTGamesStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */; };
@@ -102,6 +103,7 @@
 		BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballStatsViewController.swift; sourceTree = "<group>"; };
 		BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeStatsViewController.swift; sourceTree = "<group>"; };
+		BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelsStatsViewController.swift; sourceTree = "<group>"; };
 		BEAFEC0026AA11E000349728 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaStatsViewController.swift; sourceTree = "<group>"; };
 		BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNTGamesStatsViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */,
 				BE59FAEF26B70B17000F7799 /* GingerbreadStatsViewController.swift */,
 				BE59FAF426B778A1000F7799 /* BattlegroundStatsViewController.swift */,
+				BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */,
 			);
 			path = "GameStatsVC's";
 			sourceTree = "<group>";
@@ -204,8 +207,8 @@
 		BE14330026A0DDA00054E475 /* HypixelStats */ = {
 			isa = PBXGroup;
 			children = (
-				BE59FAF126B72940000F7799 /* Extensions */,
 				BE10349126A6783E00153FBE /* GameStatsVC's */,
+				BE59FAF126B72940000F7799 /* Extensions */,
 				BE14333626A0E94F0054E475 /* API */,
 				BE14330126A0DDA00054E475 /* AppDelegate.swift */,
 				BE14330326A0DDA00054E475 /* SceneDelegate.swift */,
@@ -502,6 +505,7 @@
 			files = (
 				BE59FAF526B778A1000F7799 /* BattlegroundStatsViewController.swift in Sources */,
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
+				BE9BE1B026BB0B7300463ED4 /* DuelsStatsViewController.swift in Sources */,
 				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
 				BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */,
 				BEAFEC0826AA4C9500349728 /* TNTGamesStatsViewController.swift in Sources */,

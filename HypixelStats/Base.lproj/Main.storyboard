@@ -111,16 +111,15 @@
         <scene sceneID="wSy-vH-FdJ">
             <objects>
                 <viewController id="hAT-br-KNY" customClass="GamesTableController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="MYM-og-vvR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MYM-og-vvR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gameCell" id="hQ8-yT-S52">
-                                <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hQ8-yT-S52" id="xxQ-5F-2yD">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -139,6 +138,7 @@
                         <segue destination="yq1-59-OMm" kind="showDetail" identifier="showHungerGamesStats" id="GuI-2X-Coy"/>
                         <segue destination="ORt-i5-ON3" kind="showDetail" identifier="showGingerBreadStats" id="Bq5-qT-Oxg"/>
                         <segue destination="zCm-ig-RcP" kind="showDetail" identifier="showBattlegroundStats" id="vfF-MU-AQQ"/>
+                        <segue destination="JMO-dd-zBV" kind="showDetail" identifier="showDuelsStats" id="Yyr-sj-w2J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -830,6 +830,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1p-JV-7pq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4059" y="882"/>
+        </scene>
+        <!--Duels Stats View Controller-->
+        <scene sceneID="hHa-xs-xxc">
+            <objects>
+                <viewController id="JMO-dd-zBV" customClass="DuelsStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2bu-hL-DVN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QwC-NE-b7U">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="C4B-r4-G8A">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-8m-ChH">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="p3N-gf-F6M">
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="C4B-r4-G8A" firstAttribute="centerX" secondItem="QwC-NE-b7U" secondAttribute="centerX" id="3kn-OZ-5YF"/>
+                                    <constraint firstItem="C4B-r4-G8A" firstAttribute="top" secondItem="QwC-NE-b7U" secondAttribute="top" id="8jP-wu-kaf"/>
+                                    <constraint firstItem="C4B-r4-G8A" firstAttribute="leading" secondItem="QwC-NE-b7U" secondAttribute="leading" id="NdM-On-nbo"/>
+                                    <constraint firstItem="C4B-r4-G8A" firstAttribute="centerY" secondItem="QwC-NE-b7U" secondAttribute="centerY" id="OtD-jY-RZk"/>
+                                    <constraint firstAttribute="bottom" secondItem="C4B-r4-G8A" secondAttribute="bottom" id="bfN-TO-g1C"/>
+                                    <constraint firstItem="C4B-r4-G8A" firstAttribute="width" secondItem="QwC-NE-b7U" secondAttribute="width" id="qHI-VK-rN0"/>
+                                    <constraint firstAttribute="trailing" secondItem="C4B-r4-G8A" secondAttribute="trailing" id="xOq-F9-LrR"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Wro-cu-JKx"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="sKM-3W-DiZ"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VpO-ip-SZw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QwC-NE-b7U" firstAttribute="top" secondItem="2bu-hL-DVN" secondAttribute="top" id="7tT-bj-J2E"/>
+                            <constraint firstAttribute="trailing" secondItem="QwC-NE-b7U" secondAttribute="trailing" id="J1w-hl-h1g"/>
+                            <constraint firstItem="QwC-NE-b7U" firstAttribute="leading" secondItem="2bu-hL-DVN" secondAttribute="leading" id="Ltt-hH-90Q"/>
+                            <constraint firstAttribute="bottom" secondItem="QwC-NE-b7U" secondAttribute="bottom" id="hpm-to-C71"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OPq-Eh-6Jj"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="QwC-NE-b7U" id="vNG-Wj-KrH"/>
+                        <outlet property="mainStackView" destination="C4B-r4-G8A" id="qcE-MC-aRI"/>
+                        <outlet property="statsTable" destination="p3N-gf-F6M" id="kZz-q1-x8P"/>
+                        <outlet property="titleLabel" destination="jYc-8m-ChH" id="vOu-m3-Xa0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kOf-HT-lcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3330" y="881"/>
         </scene>
     </scenes>
     <resources>

@@ -58,6 +58,25 @@ class GameTypes {
         return String(format: "%.2f", kdr)
     }
     
+    static func calculatePercentage(numerator: Int, denominator: Int) -> String {
+        
+        let kills2 = Double(numerator)
+        let deaths2 = Double(denominator)
+        var kdr = 0.0
+        
+        if kills2 == 0.0 && deaths2 == 0.0 {
+            kdr = 0.0
+        } else if kills2 != 0.0 && deaths2 == 0.0 {
+            kdr = kills2
+        } else {
+            kdr = kills2 / deaths2
+        }
+        
+        return String(format: "%.2f%%", kdr * 100)
+    }
+    
+    
+    
     static func convertToRomanNumerals(number: Int) -> String {
         let romanValues = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
         let arabicValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]

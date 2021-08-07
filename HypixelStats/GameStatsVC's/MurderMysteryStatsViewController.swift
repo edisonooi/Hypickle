@@ -134,10 +134,9 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
             var statsForThisMode: [(String, Any)] = []
             
             if mode.id == "_MURDER_INFECTION" {
-                var infectionDesiredStats = ["Wins as Infected", "Wins as Survivor", "Kills as Infected", "Kills as Survivor", "Final Kills", "Total Time Survived", "Gold Pickups"]
+                var infectionDesiredStats = ["Wins", "Kills as Infected", "Kills as Survivor", "Final Kills", "Total Time Survived", "Gold Pickups"]
                 
-                var winsInfected = data["wins" + mode.id].intValue
-                var winsSurvivor = data["survivor_wins" + mode.id].intValue
+                var wins = data["wins" + mode.id].intValue
                 
                 var killsAsInfected = data["kills_as_infected" + mode.id].intValue
                 var killsAsSurvivor = data["kills_as_survivor" + mode.id].intValue
@@ -147,7 +146,7 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
                 
                 var infectionGoldPickups = data["coins_pickedup" + mode.id].intValue
                 
-                var infectionData = [winsInfected, winsSurvivor, killsAsInfected, killsAsSurvivor, finalKills, timeSurvived, infectionGoldPickups] as [Any]
+                var infectionData = [wins, killsAsInfected, killsAsSurvivor, finalKills, timeSurvived, infectionGoldPickups] as [Any]
                 
                 for (index, category) in infectionDesiredStats.enumerated() {
                     statsForThisMode.append((category, infectionData[index]))

@@ -27,29 +27,29 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
         
         var ret: [CellData] = []
         
-        var wins = data["wins"].intValue ?? 0
-        var losses = (data["games"].intValue ?? 0) - wins
+        var wins = data["wins"].intValue
+        var losses = (data["games"].intValue) - wins
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
-        var kills = data["kills"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var kills = data["kills"].intValue
+        var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
-        var fastestMurdWin = data["quickest_murderer_win_time_seconds"].intValue ?? 0
-        var fastestDetWin = data["quickest_detective_win_time_seconds"].intValue ?? 0
+        var fastestMurdWin = data["quickest_murderer_win_time_seconds"].intValue
+        var fastestDetWin = data["quickest_detective_win_time_seconds"].intValue
         
         var murdWinString = fastestMurdWin == 0 ? "N/A" : GameTypes.formatMinuteSeconds(totalSeconds: fastestMurdWin)
         var detWinString = fastestDetWin == 0 ? "N/A" : GameTypes.formatMinuteSeconds(totalSeconds: fastestDetWin)
         
         let winsDivisions = [
-            ("Murderer Wins", data["murderer_wins"].intValue ?? 0),
-            ("Detective Wins", data["detective_wins"].intValue ?? 0)
+            ("Murderer Wins", data["murderer_wins"].intValue),
+            ("Detective Wins", data["detective_wins"].intValue)
         ]
         
         let killsDivisions = [
-            ("Kills as Murderer", data["kills_as_murderer"].intValue ?? 0),
-            ("Thrown Knife Kills", data["thrown_knife_kills"].intValue ?? 0),
-            ("Bow Kills", data["bow_kills"].intValue ?? 0)
+            ("Kills as Murderer", data["kills_as_murderer"].intValue),
+            ("Thrown Knife Kills", data["thrown_knife_kills"].intValue),
+            ("Bow Kills", data["bow_kills"].intValue)
         ]
         
         let knifeSkins = [
@@ -103,7 +103,7 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
             CellData(headerData: ("Fastest Detective Win", detWinString), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue), sectionData: [], isHeader: false, isOpened: false)
         ]
         
         ret.append(contentsOf: generalStats)
@@ -136,16 +136,16 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
             if mode.id == "_MURDER_INFECTION" {
                 var infectionDesiredStats = ["Wins as Infected", "Wins as Survivor", "Kills as Infected", "Kills as Survivor", "Final Kills", "Total Time Survived", "Gold Pickups"]
                 
-                var winsInfected = data["wins" + mode.id].intValue ?? 0
-                var winsSurvivor = data["survivor_wins" + mode.id].intValue ?? 0
+                var winsInfected = data["wins" + mode.id].intValue
+                var winsSurvivor = data["survivor_wins" + mode.id].intValue
                 
-                var killsAsInfected = data["kills_as_infected" + mode.id].intValue ?? 0
-                var killsAsSurvivor = data["kills_as_survivor" + mode.id].intValue ?? 0
-                var finalKills = data["kills" + mode.id].intValue ?? 0
+                var killsAsInfected = data["kills_as_infected" + mode.id].intValue
+                var killsAsSurvivor = data["kills_as_survivor" + mode.id].intValue
+                var finalKills = data["kills" + mode.id].intValue
                 
-                var timeSurvived = GameTypes.convertToHoursMinutesSeconds(seconds: data["total_time_survived_seconds" + mode.id].intValue ?? 0)
+                var timeSurvived = GameTypes.convertToHoursMinutesSeconds(seconds: data["total_time_survived_seconds" + mode.id].intValue)
                 
-                var infectionGoldPickups = data["coins_pickedup" + mode.id].intValue ?? 0
+                var infectionGoldPickups = data["coins_pickedup" + mode.id].intValue
                 
                 var infectionData = [winsInfected, winsSurvivor, killsAsInfected, killsAsSurvivor, finalKills, timeSurvived, infectionGoldPickups] as [Any]
                 
@@ -158,19 +158,19 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
                 continue
             }
             
-            var modeWins = data["wins" + mode.id].intValue ?? 0
-            var modeLosses = (data["games" + mode.id].intValue ?? 0) - modeWins
+            var modeWins = data["wins" + mode.id].intValue
+            var modeLosses = (data["games" + mode.id].intValue) - modeWins
             var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
-            var modeKills = data["kills" + mode.id].intValue ?? 0
-            var modeDeaths = data["deaths" + mode.id].intValue ?? 0
+            var modeKills = data["kills" + mode.id].intValue
+            var modeDeaths = data["deaths" + mode.id].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
-            var modeKnifeKills = data["knife_kills" + mode.id].intValue ?? 0
-            var modeThrownKnifeKills = data["thrown_knife_kills" + mode.id].intValue ?? 0
-            var modeBowKills = data["bow_kills" + mode.id].intValue ?? 0
+            var modeKnifeKills = data["knife_kills" + mode.id].intValue
+            var modeThrownKnifeKills = data["thrown_knife_kills" + mode.id].intValue
+            var modeBowKills = data["bow_kills" + mode.id].intValue
             
-            var modeGoldPickups = data["coins_pickedup" + mode.id].intValue ?? 0
+            var modeGoldPickups = data["coins_pickedup" + mode.id].intValue
             
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeKnifeKills, modeThrownKnifeKills, modeBowKills, modeDeaths, modeKDR, modeGoldPickups] as [Any]
             

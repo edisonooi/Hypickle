@@ -28,18 +28,18 @@ class Walls3StatsViewController: GenericStatsViewController, UITableViewDelegate
         
         var ret: [CellData] = []
         
-        var wins = data["wins"].intValue ?? 0
-        var losses = data["losses"].intValue ?? 0
+        var wins = data["wins"].intValue
+        var losses = data["losses"].intValue
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
-        var kills = data["kills"].intValue ?? 0
-        var assists = data["assists"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var kills = data["kills"].intValue
+        var assists = data["assists"].intValue
+        var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
-        var finalKills = data["final_kills"].intValue ?? 0
-        var finalAssists = data["final_assists"].intValue ?? 0
-        var finalDeaths = data["final_deaths"].intValue ?? 0
+        var finalKills = data["final_kills"].intValue
+        var finalAssists = data["final_assists"].intValue
+        var finalDeaths = data["final_deaths"].intValue
         var finalKDR = GameTypes.calculateRatio(numerator: finalKills, denominator: finalDeaths)
       
         
@@ -74,12 +74,12 @@ class Walls3StatsViewController: GenericStatsViewController, UITableViewDelegate
         for mode in modes {
             var statsForThisMode: [(String, Any)] = []
             
-            var modeWins = data["wins" + mode.id].intValue ?? 0
-            var modeLosses = data["losses" + mode.id].intValue ?? 0
+            var modeWins = data["wins" + mode.id].intValue
+            var modeLosses = data["losses" + mode.id].intValue
             var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
-            var modeKills = data["kills" + mode.id].intValue ?? 0
-            var modeDeaths = data["deaths" + mode.id].intValue ?? 0
+            var modeKills = data["kills" + mode.id].intValue
+            var modeDeaths = data["deaths" + mode.id].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             if modeWins + modeLosses + modeKills + modeDeaths == 0 {
@@ -133,23 +133,23 @@ class Walls3StatsViewController: GenericStatsViewController, UITableViewDelegate
         for kit in kits {
             var statsForThisKit: [(String, Any)] = []
             
-            var kitWins = data[kit.id + "_wins"].intValue ?? 0
-            var kitLosses = data[kit.id + "_losses"].intValue ?? 0
+            var kitWins = data[kit.id + "_wins"].intValue
+            var kitLosses = data[kit.id + "_losses"].intValue
             var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
             
             if kitWins + kitLosses == 0 {
                 continue
             }
             
-            var kitKills = data[kit.id + "_kills"].intValue ?? 0
-            var kitDeaths = data[kit.id + "_deaths"].intValue ?? 0
+            var kitKills = data[kit.id + "_kills"].intValue
+            var kitDeaths = data[kit.id + "_deaths"].intValue
             var kitKDR = GameTypes.calculateRatio(numerator: kitKills, denominator: kitDeaths)
             
-            var kitFinalKills = data[kit.id + "_final_kills"].intValue ?? 0
-            var kitFinalDeaths = data[kit.id + "_final_deaths"].intValue ?? 0
+            var kitFinalKills = data[kit.id + "_final_kills"].intValue
+            var kitFinalDeaths = data[kit.id + "_final_deaths"].intValue
             var kitFinalKDR = GameTypes.calculateRatio(numerator: kitFinalKills, denominator: kitFinalDeaths)
             
-            var kitPrestige = data["classes"][kit.id]["prestige"].intValue ?? 0
+            var kitPrestige = data["classes"][kit.id]["prestige"].intValue
             
             var kitPrestigeString = kitPrestige == 0 ? "" : GameTypes.convertToRomanNumerals(number: kitPrestige)
             

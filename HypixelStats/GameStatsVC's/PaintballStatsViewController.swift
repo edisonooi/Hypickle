@@ -24,17 +24,17 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
     
     lazy var desiredStats: [[(String, Any)]] = {
         
-        var kills = data["kills"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var kills = data["kills"].intValue
+        var deaths = data["deaths"].intValue
         
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
        
         
-        let shotsFired = data["shots_fired"].intValue ?? 0
+        let shotsFired = data["shots_fired"].intValue
         
         var shotsPerKill = kills == 0 ? shotsFired : shotsFired / kills
         
-        var headStart = data["headstart"].intValue ?? 0
+        var headStart = data["headstart"].intValue
         
         if headStart == 0 {
             headStart = 1
@@ -42,7 +42,7 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
         
         return [
             [
-                ("Wins", data["wins"].intValue ?? 0)
+                ("Wins", data["wins"].intValue)
             ],
             [
                 ("Kills", kills),
@@ -52,17 +52,17 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
                 ("Shots/Kill", String(format: "%.2f", shotsPerKill))
             ],
             [
-                ("Killstreaks", data["killstreaks"].intValue ?? 0),
-                ("Forcefield Time (seconds)", data["forcefieldTime"].intValue ?? 0)
+                ("Killstreaks", data["killstreaks"].intValue),
+                ("Forcefield Time (seconds)", data["forcefieldTime"].intValue)
             ],
             [
-                ("Adrenaline", (data["adrenaline"].intValue ?? 0) + 1),
-                ("Endurance", (data["endurance"].intValue ?? 0) + 1),
-                ("Fortune", (data["fortune"].intValue ?? 0) + 1),
-                ("Godfather", (data["godfather"].intValue ?? 0) + 1),
+                ("Adrenaline", (data["adrenaline"].intValue) + 1),
+                ("Endurance", (data["endurance"].intValue) + 1),
+                ("Fortune", (data["fortune"].intValue) + 1),
+                ("Godfather", (data["godfather"].intValue) + 1),
                 ("Head Start", headStart),
-                ("Superluck", (data["superluck"].intValue ?? 0) + 1),
-                ("Transfusion", (data["transfusion"].intValue ?? 0) + 1)
+                ("Superluck", (data["superluck"].intValue) + 1),
+                ("Transfusion", (data["transfusion"].intValue) + 1)
             ]
         ]
     }()

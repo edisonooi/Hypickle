@@ -37,20 +37,20 @@ class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate,
         
         var ret: [CellData] = []
         
-        var wins = data["wins"].intValue ?? 0
-        var losses = data["losses"].intValue ?? 0
+        var wins = data["wins"].intValue
+        var losses = data["losses"].intValue
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
-        var kills = data["kills"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var kills = data["kills"].intValue
+        var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
-        var swings = data["melee_swings"].intValue ?? 0
-        var hits = data["melee_hits"].intValue ?? 0
+        var swings = data["melee_swings"].intValue
+        var hits = data["melee_hits"].intValue
         var meleeAccuracy = GameTypes.calculatePercentage(numerator: hits, denominator: swings)
         
-        var bowShots = data["bow_shots"].intValue ?? 0
-        var bowHits = data["bow_hits"].intValue ?? 0
+        var bowShots = data["bow_shots"].intValue
+        var bowHits = data["bow_hits"].intValue
         var bowAccuracy = GameTypes.calculatePercentage(numerator: bowHits, denominator: bowShots)
         
         
@@ -65,8 +65,8 @@ class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate,
             CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Best Overall Winstreak", data["best_overall_winstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Current Winstreak", data["current_winstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Best Overall Winstreak", data["best_overall_winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Current Winstreak", data["current_winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Melee Swings", swings), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Melee Hits", hits), sectionData: [], isHeader: false, isOpened: false),
@@ -111,8 +111,8 @@ class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate,
         for mode in modes {
             var statsForThisMode: [(String, Any)] = []
             
-            var modeWins = data[mode.id + "_wins"].intValue ?? 0
-            var modeLosses = data[mode.id + "_losses"].intValue ?? 0
+            var modeWins = data[mode.id + "_wins"].intValue
+            var modeLosses = data[mode.id + "_losses"].intValue
             
             if modeWins + modeLosses == 0 {
                 continue
@@ -120,12 +120,12 @@ class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate,
             
             var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
-            var modeKills = mode.divisionId == "bridge" ? data[mode.id + "_bridge_kills"].intValue ?? 0 : data[mode.id + "_kills"].intValue ?? 0
-            var modeDeaths = mode.divisionId == "bridge" ? data[mode.id + "_bridge_deaths"].intValue ?? 0 : data[mode.id + "_deaths"].intValue ?? 0
+            var modeKills = mode.divisionId == "bridge" ? data[mode.id + "_bridge_kills"].intValue : data[mode.id + "_kills"].intValue
+            var modeDeaths = mode.divisionId == "bridge" ? data[mode.id + "_bridge_deaths"].intValue : data[mode.id + "_deaths"].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
-            var modeCurrentWS = data["current_winstreak_mode_" + mode.id].intValue ?? 0
-            var modeBestWS = data["best_winstreak_mode_" + mode.id].intValue ?? 0
+            var modeCurrentWS = data["current_winstreak_mode_" + mode.id].intValue
+            var modeBestWS = data["best_winstreak_mode_" + mode.id].intValue
             
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR, modeBestWS, modeCurrentWS] as [Any]
             
@@ -134,7 +134,7 @@ class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate,
             }
             
             if mode.divisionId == "bridge" {
-                var goals = data[mode.id + "_goals"].intValue ?? 0
+                var goals = data[mode.id + "_goals"].intValue
                 statsForThisMode.append(("Goals", goals))
             }
             
@@ -201,10 +201,10 @@ class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate,
     
     func getDivision(modeID: String) -> String {
         for division in divisions.reversed() {
-            var divisionData = data[modeID + "_" + division.name.lowercased() + "_title_prestige"].intValue ?? 0
+            let divisionData = data[modeID + "_" + division.name.lowercased() + "_title_prestige"].intValue
             
             if divisionData != 0 {
-                var romanNumeral = GameTypes.convertToRomanNumerals(number: divisionData)
+                let romanNumeral = GameTypes.convertToRomanNumerals(number: divisionData)
                 
                 return division.name + " " + romanNumeral
             }

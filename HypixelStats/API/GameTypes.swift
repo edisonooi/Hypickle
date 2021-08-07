@@ -85,9 +85,9 @@ class GameTypes {
         var startingValue = number
         
         for (index, romanChar) in romanValues.enumerated() {
-            var arabicValue = arabicValues[index]
+            let arabicValue = arabicValues[index]
 
-            var div = startingValue / arabicValue
+            let div = startingValue / arabicValue
         
             if (div > 0)
             {

@@ -47,14 +47,14 @@ class UHCStatsViewController: GenericStatsViewController, UITableViewDelegate, U
         for mode in modes {
             var statsForThisMode: [(String, Any)] = []
             
-            var modeWins = data["wins" + mode.id].intValue ?? 0
+            var modeWins = data["wins" + mode.id].intValue
             
-            var modeKills = data["kills" + mode.id].intValue ?? 0
-            var modeDeaths = data["deaths" + mode.id].intValue ?? 0
+            var modeKills = data["kills" + mode.id].intValue
+            var modeDeaths = data["deaths" + mode.id].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var modeKW = GameTypes.calculateRatio(numerator: modeKills, denominator: modeWins)
-            var modeHeadsEaten = data["heads_eaten" + mode.id].intValue ?? 0
+            var modeHeadsEaten = data["heads_eaten" + mode.id].intValue
             
             wins += modeWins
             kills += modeKills
@@ -76,7 +76,7 @@ class UHCStatsViewController: GenericStatsViewController, UITableViewDelegate, U
         
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
-        var titleAndStar = getTitleAndStar(score: data["score"].intValue ?? 0)
+        var titleAndStar = getTitleAndStar(score: data["score"].intValue)
         
         var generalStats = [
             
@@ -86,12 +86,12 @@ class UHCStatsViewController: GenericStatsViewController, UITableViewDelegate, U
             CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Score", data["score"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Score", data["score"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Stars", titleAndStar.1), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Title", titleAndStar.0), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Heads Eaten", headsEaten), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Ultimates Crafted", (data["ultimates_crafted"].intValue ?? 0) + (data["ultimates_crafted_solo"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Ultimates Crafted", (data["ultimates_crafted"].intValue) + (data["ultimates_crafted_solo"].intValue)), sectionData: [], isHeader: false, isOpened: false),
 
         ]
         

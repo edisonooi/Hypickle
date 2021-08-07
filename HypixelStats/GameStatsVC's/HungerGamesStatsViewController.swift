@@ -26,14 +26,14 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
         
         var ret: [CellData] = []
         
-        var killsSolo = data["kills_solo_normal"].intValue ?? 0
-        var killsTeams = data["kills_teams_normal"].intValue ?? 0
-        var kills = data["kills"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var killsSolo = data["kills_solo_normal"].intValue
+        var killsTeams = data["kills_teams_normal"].intValue
+        var kills = data["kills"].intValue
+        var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
-        var winsSolo = data["wins_solo_normal"].intValue ?? 0
-        var winsTeams = data["wins_teams_normal"].intValue ?? 0
+        var winsSolo = data["wins_solo_normal"].intValue
+        var winsTeams = data["wins_teams_normal"].intValue
         var wins = winsSolo + winsTeams
         
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: deaths)
@@ -109,20 +109,20 @@ class HungerGamesStatsViewController: GenericStatsViewController, UITableViewDel
             
             if data[kit].exists() || (data["time_played_" + kit].exists() && data["time_played_" + kit].intValue != 0) {
                 
-                var kitEXP = data["exp_" + kit].intValue ?? 0
+                var kitEXP = data["exp_" + kit].intValue
                 
-                var kitWinsSolo = data["wins_" + kit].intValue ?? 0
-                var kitWinsTeams = data["wins_teams_" + kit].intValue ?? 0
+                var kitWinsSolo = data["wins_" + kit].intValue
+                var kitWinsTeams = data["wins_teams_" + kit].intValue
                 var kitWins = kitWinsSolo + kitWinsTeams
-                var kitGamesPlayed = data["games_played_" + kit].intValue ?? 0
+                var kitGamesPlayed = data["games_played_" + kit].intValue
                 var kitLosses = kitGamesPlayed - kitWins
                 var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
                 
-                var kitKills = data["kills_" + kit].intValue ?? 0
+                var kitKills = data["kills_" + kit].intValue
                 
-                var kitTimePlayed = GameTypes.convertToHoursMinutesSeconds(seconds: data["time_played_" + kit].intValue ?? 0)
+                var kitTimePlayed = GameTypes.convertToHoursMinutesSeconds(seconds: data["time_played_" + kit].intValue)
                 
-                var kitPrestige = data["p" + kit].intValue ?? 0
+                var kitPrestige = data["p" + kit].intValue
                 var prestigeString = kitPrestige == 0 ? "" : GameTypes.convertToRomanNumerals(number: kitPrestige)
                 
                 var kitLevel = data[kit].intValue + 1

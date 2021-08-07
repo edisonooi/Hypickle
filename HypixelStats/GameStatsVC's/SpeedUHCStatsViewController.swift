@@ -27,15 +27,15 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
         
         var ret: [CellData] = []
         
-        var wins = data["wins"].intValue ?? 0
-        var losses = data["losses"].intValue ?? 0
+        var wins = data["wins"].intValue
+        var losses = data["losses"].intValue
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
-        var kills = data["kills"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var kills = data["kills"].intValue
+        var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
-        var titleAndStar = getTitleAndStar(score: data["score"].intValue ?? 0)
+        var titleAndStar = getTitleAndStar(score: data["score"].intValue)
         
         var generalStats = [
             
@@ -47,12 +47,12 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
             CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Score", data["score"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Score", data["score"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Stars", titleAndStar.1), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Title", titleAndStar.0), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false)
 
         ]
         
@@ -72,12 +72,12 @@ class SpeedUHCStatsViewController: GenericStatsViewController, UITableViewDelega
         for mode in modes {
             var statsForThisMode: [(String, Any)] = []
             
-            var modeWins = data["wins" + mode.id].intValue ?? 0
-            var modeLosses = data["losses" + mode.id].intValue ?? 0
+            var modeWins = data["wins" + mode.id].intValue
+            var modeLosses = data["losses" + mode.id].intValue
             var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
-            var modeKills = data["kills" + mode.id].intValue ?? 0
-            var modeDeaths = data["deaths" + mode.id].intValue ?? 0
+            var modeKills = data["kills" + mode.id].intValue
+            var modeDeaths = data["deaths" + mode.id].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             if modeWins + modeDeaths == 0 {

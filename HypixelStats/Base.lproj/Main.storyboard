@@ -65,42 +65,79 @@
             <objects>
                 <viewController id="I3E-YT-o2K" customClass="StatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="acR-WH-JL7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UAB-y8-re4">
-                                <rect key="frame" x="110" y="90" width="195" height="281"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-yP-ffv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6O-kM-aJi" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="39" placeholderIntrinsicHeight="21" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-nr-9wu">
+                                                <rect key="frame" x="187.5" y="20" width="39" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="313" translatesAutoresizingMaskIntoConstraints="NO" id="HOF-Rr-GHs">
+                                                <rect key="frame" x="87" y="61" width="240" height="313"/>
+                                            </imageView>
+                                            <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="532" translatesAutoresizingMaskIntoConstraints="NO" id="AeB-Kk-knS">
+                                                <rect key="frame" x="0.0" y="394" width="414" height="532"/>
+                                                <connections>
+                                                    <segue destination="hAT-br-KNY" kind="embed" identifier="showGamesTable" id="cVC-0D-gVA"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="NRg-nr-9wu" firstAttribute="top" secondItem="C6O-kM-aJi" secondAttribute="top" constant="20" id="1VE-HS-2K6"/>
+                                            <constraint firstItem="HOF-Rr-GHs" firstAttribute="centerX" secondItem="C6O-kM-aJi" secondAttribute="centerX" id="JWM-gj-3oa"/>
+                                            <constraint firstItem="AeB-Kk-knS" firstAttribute="centerX" secondItem="C6O-kM-aJi" secondAttribute="centerX" id="Wzu-99-WxW"/>
+                                            <constraint firstItem="NRg-nr-9wu" firstAttribute="centerX" secondItem="C6O-kM-aJi" secondAttribute="centerX" id="led-xX-Ira"/>
+                                            <constraint firstItem="HOF-Rr-GHs" firstAttribute="top" secondItem="NRg-nr-9wu" secondAttribute="bottom" constant="20" id="rdT-he-yIe"/>
+                                            <constraint firstItem="AeB-Kk-knS" firstAttribute="top" secondItem="HOF-Rr-GHs" secondAttribute="bottom" constant="20" id="vyQ-5W-f7T"/>
+                                            <constraint firstAttribute="bottom" secondItem="AeB-Kk-knS" secondAttribute="bottom" constant="20" id="wpU-dx-jkc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                            </imageView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AeB-Kk-knS">
-                                <rect key="frame" x="0.0" y="391" width="414" height="417"/>
-                                <connections>
-                                    <segue destination="hAT-br-KNY" kind="embed" identifier="showGamesTable" id="cVC-0D-gVA"/>
-                                </connections>
-                            </containerView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hi" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="juM-Gs-Nxe">
-                                <rect key="frame" x="186" y="44" width="42" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <constraints>
+                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="leading" secondItem="l6r-yP-ffv" secondAttribute="leading" id="0VO-6i-NdD"/>
+                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="centerX" secondItem="l6r-yP-ffv" secondAttribute="centerX" id="5Rc-6C-CfS"/>
+                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="centerY" secondItem="l6r-yP-ffv" secondAttribute="centerY" priority="250" id="Po1-Yr-fNT"/>
+                                    <constraint firstAttribute="trailing" secondItem="C6O-kM-aJi" secondAttribute="trailing" id="Rlr-rF-Tfk"/>
+                                    <constraint firstAttribute="bottom" secondItem="C6O-kM-aJi" secondAttribute="bottom" id="Wd4-OX-3XT"/>
+                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="top" secondItem="0FN-wz-OjS" secondAttribute="top" id="ZEx-oF-PZ9"/>
+                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="leading" secondItem="0FN-wz-OjS" secondAttribute="leading" id="cNq-QP-Nr8"/>
+                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="trailing" secondItem="0FN-wz-OjS" secondAttribute="trailing" id="rH8-JO-j4x"/>
+                                    <constraint firstItem="0FN-wz-OjS" firstAttribute="bottom" secondItem="C6O-kM-aJi" secondAttribute="bottom" priority="250" id="ts3-LJ-IbC"/>
+                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="top" secondItem="l6r-yP-ffv" secondAttribute="top" id="udk-8M-eK2"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="3Pi-Yy-oSY"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="0FN-wz-OjS"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jVO-cq-IGv"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="AeB-Kk-knS" secondAttribute="trailing" id="0if-ax-VI9"/>
-                            <constraint firstItem="AeB-Kk-knS" firstAttribute="width" secondItem="acR-WH-JL7" secondAttribute="width" id="9wQ-UH-zdH"/>
-                            <constraint firstItem="AeB-Kk-knS" firstAttribute="leading" secondItem="acR-WH-JL7" secondAttribute="leading" id="YXX-gH-OI6"/>
-                            <constraint firstItem="AeB-Kk-knS" firstAttribute="bottom" secondItem="jVO-cq-IGv" secondAttribute="bottom" id="jjf-2q-aA9"/>
-                            <constraint firstItem="AeB-Kk-knS" firstAttribute="top" secondItem="UAB-y8-re4" secondAttribute="bottom" constant="20" id="xxk-8i-abO"/>
+                            <constraint firstItem="C6O-kM-aJi" firstAttribute="height" secondItem="acR-WH-JL7" secondAttribute="height" priority="250" id="6AW-bo-fdp"/>
+                            <constraint firstItem="C6O-kM-aJi" firstAttribute="width" secondItem="acR-WH-JL7" secondAttribute="width" id="8Mv-1f-3Zm"/>
+                            <constraint firstItem="l6r-yP-ffv" firstAttribute="leading" secondItem="jVO-cq-IGv" secondAttribute="leading" id="aem-sJ-nOM"/>
+                            <constraint firstItem="l6r-yP-ffv" firstAttribute="width" secondItem="acR-WH-JL7" secondAttribute="width" id="gYN-2L-voI"/>
+                            <constraint firstItem="l6r-yP-ffv" firstAttribute="trailing" secondItem="jVO-cq-IGv" secondAttribute="trailing" id="hMS-YH-ClX"/>
+                            <constraint firstItem="l6r-yP-ffv" firstAttribute="top" secondItem="jVO-cq-IGv" secondAttribute="top" id="jUr-Ic-r4R"/>
+                            <constraint firstAttribute="bottom" secondItem="l6r-yP-ffv" secondAttribute="bottom" id="xql-QF-3dB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="plu-1S-uXL"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="gameTableContainerView" destination="AeB-Kk-knS" id="cHH-oh-qgl"/>
-                        <outlet property="skinImageVew" destination="UAB-y8-re4" id="9fE-3g-bTB"/>
-                        <outlet property="usernameTextField" destination="juM-Gs-Nxe" id="rBE-Cv-UPg"/>
+                        <outlet property="skinImageView" destination="HOF-Rr-GHs" id="mPO-hH-8Te"/>
+                        <outlet property="usernameTextField" destination="NRg-nr-9wu" id="jKR-Wf-kAw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AX8-zI-qgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -111,8 +148,8 @@
         <scene sceneID="wSy-vH-FdJ">
             <objects>
                 <viewController id="hAT-br-KNY" customClass="GamesTableController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MYM-og-vvR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MYM-og-vvR" customClass="GamesTable" customModule="HypixelStats" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gameCell" id="hQ8-yT-S52">
@@ -169,14 +206,14 @@
             <objects>
                 <viewController id="xAB-Yw-ih0" customClass="PaintballStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c3n-7f-Ro1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wya-Ah-xkT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="w03-XU-B7N">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyA-wj-xXi">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -185,7 +222,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZY9-lg-RIC">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -230,14 +267,14 @@
             <objects>
                 <viewController id="sXV-Sv-GRM" customClass="VampireZStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Clg-WP-jur">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46o-pJ-Ykm">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="BSZ-jp-pok">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDe-6S-Zby">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -246,7 +283,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2YG-uv-goH">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -291,14 +328,14 @@
             <objects>
                 <viewController id="PEa-yz-F10" customClass="WallsStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gEJ-WW-T8a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4WH-FV-JPW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="VFa-rm-TIO">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icf-v1-OhS">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -307,7 +344,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VTV-A1-g2W">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -352,14 +389,14 @@
             <objects>
                 <viewController id="XDc-yh-0fX" customClass="BuildBattleStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Ud-b9-1MG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1v-Jt-KSV">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="BYf-qu-gFJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xR9-mT-XUL">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -368,7 +405,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FgE-r4-Ah7">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -413,14 +450,14 @@
             <objects>
                 <viewController id="qPu-De-M3s" customClass="ArenaStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kHG-Nr-2ZG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vx5-PV-o6W">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="ISj-4j-9ZI">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qs1-nZ-3cn">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -429,7 +466,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pi6-kV-cDl">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -474,14 +511,14 @@
             <objects>
                 <viewController id="Mbz-yY-6oz" customClass="TNTGamesStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wez-o8-HtC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mE1-1t-iDL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="uP3-xw-meA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8M-ax-8Rl">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -490,7 +527,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="PIa-qk-TMI">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -535,14 +572,14 @@
             <objects>
                 <viewController id="A4a-9D-lTD" customClass="QuakeStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RS8-m1-1gM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKu-Vg-gKk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="ibJ-kJ-aNY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxC-C0-NnY">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -551,7 +588,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-SY-7TR">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -596,14 +633,14 @@
             <objects>
                 <viewController id="Hib-ok-j2G" customClass="SuperSmashStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jQI-R0-2h8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZN-Yi-Ujk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="BHf-B7-8Pp">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvY-OP-OEl">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -612,7 +649,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="G97-Oa-xY8">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -657,14 +694,14 @@
             <objects>
                 <viewController id="yq1-59-OMm" customClass="HungerGamesStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cqx-hM-AqM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mk-rh-TQG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="JFr-1p-R7l">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUA-CY-M1b">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -673,7 +710,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="350-e7-5JH">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -718,14 +755,14 @@
             <objects>
                 <viewController id="ORt-i5-ON3" customClass="GingerbreadStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m8P-we-qBs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sj9-u9-UgN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="PTb-0b-x3a">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygn-X9-GrD">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -734,7 +771,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-yi-5fm">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -779,14 +816,14 @@
             <objects>
                 <viewController id="zCm-ig-RcP" customClass="BattlegroundStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7af-FB-7PF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgi-AA-8dv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="slq-tD-rgv">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uZ-lj-b9x">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -795,7 +832,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1K1-RE-oXi">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -840,14 +877,14 @@
             <objects>
                 <viewController id="JMO-dd-zBV" customClass="DuelsStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2bu-hL-DVN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QwC-NE-b7U">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="C4B-r4-G8A">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-8m-ChH">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -856,7 +893,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="p3N-gf-F6M">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -901,14 +938,14 @@
             <objects>
                 <viewController id="h4P-4D-CXN" customClass="Walls3StatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZIm-es-WLb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aP1-qQ-Chl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="aP3-eN-U7o">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPc-hY-c3H">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -917,7 +954,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="eid-22-pUb">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -962,14 +999,14 @@
             <objects>
                 <viewController id="NIy-J3-47m" customClass="SpeedUHCStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gLr-vF-REz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5S-in-LVe">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="1WI-dS-due">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CsA-hg-IZJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -978,7 +1015,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Yv4-0t-dMd">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -1023,14 +1060,14 @@
             <objects>
                 <viewController id="h9e-fh-b7A" customClass="UHCStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d1h-4s-naK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjW-6q-dsi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="2Xr-Ub-XWD">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGH-fj-nvK">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -1039,7 +1076,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ycl-Vo-0K4">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>
@@ -1084,14 +1121,14 @@
             <objects>
                 <viewController id="s2b-wf-7Ix" customClass="MurderMysteryStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zvf-aE-fKL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Rd-Zk-gxN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="eJa-Of-Gk3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVN-gz-E3w">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
@@ -1100,7 +1137,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="17J-fH-k9Q">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="352.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
                                         </subviews>

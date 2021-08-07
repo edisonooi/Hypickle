@@ -66,7 +66,7 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
             "knife_skin_gold_digger" : "Gold Digger",
             "knife_skin_apple" : "Healthy Treat",
             "knife_skin_ice_shard" : "Ice Shard",
-            "undefined" : "Iron Sword",
+            "undefined" : "Default Iron Sword",
             "knife_skin_mouse_trap" : "Mouse Trap",
             "knife_skin_mvp" : "MVP Diamond Sword",
             "knife_skin_none" : "Iron Sword",
@@ -102,7 +102,7 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
             CellData(headerData: ("Fastest Murderer Win", murdWinString), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Fastest Detective Win", detWinString), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "undefined"), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false)
         ]
         
@@ -112,6 +112,7 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
            (id: "_MURDER_CLASSIC", name: "Classic"),
            (id: "_MURDER_ASSASSINS", name: "Assassins"),
            (id: "_MURDER_DOUBLE_UP", name: "Double Up"),
+           (id: "_MURDER_INFECTION", name: "Infection v2"),
            (id: "_MURDER_HARDCORE", name: "Hardcore"),
            (id: "_MURDER_SHOWDOWN", name: "Showdown")
         ]
@@ -122,15 +123,40 @@ class MurderMysteryStatsViewController: GenericStatsViewController, UITableViewD
         
         for mode in modes {
             
+            if mode.id == "_MURDER_HARDCORE" && (data["games" + mode.id].exists() || data["games_MURDER_SHOWDOWN"].exists()) {
+                modeStats.append(CellData(headerData: ("LEGACY MODES", ""), sectionData: [], isHeader: false, isOpened: false))
+            }
+            
             if !data["games" + mode.id].exists() {
                 continue
             }
             
-            if mode.id == "_MURDER_HARDCORE" || mode.id == "_MURDER_SHOWDOWN" {
-                modeStats.append(CellData(headerData: ("LEGACY MODES", ""), sectionData: [], isHeader: false, isOpened: false))
-            }
-            
             var statsForThisMode: [(String, Any)] = []
+            
+            if mode.id == "_MURDER_INFECTION" {
+                var infectionDesiredStats = ["Wins as Infected", "Wins as Survivor", "Kills as Infected", "Kills as Survivor", "Final Kills", "Total Time Survived", "Gold Pickups"]
+                
+                var winsInfected = data["wins" + mode.id].intValue ?? 0
+                var winsSurvivor = data["survivor_wins" + mode.id].intValue ?? 0
+                
+                var killsAsInfected = data["kills_as_infected" + mode.id].intValue ?? 0
+                var killsAsSurvivor = data["kills_as_survivor" + mode.id].intValue ?? 0
+                var finalKills = data["kills" + mode.id].intValue ?? 0
+                
+                var timeSurvived = GameTypes.convertToHoursMinutesSeconds(seconds: data["total_time_survived_seconds" + mode.id].intValue ?? 0)
+                
+                var infectionGoldPickups = data["coins_pickedup" + mode.id].intValue ?? 0
+                
+                var infectionData = [winsInfected, winsSurvivor, killsAsInfected, killsAsSurvivor, finalKills, timeSurvived, infectionGoldPickups] as [Any]
+                
+                for (index, category) in infectionDesiredStats.enumerated() {
+                    statsForThisMode.append((category, infectionData[index]))
+                }
+                
+                modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+                
+                continue
+            }
             
             var modeWins = data["wins" + mode.id].intValue ?? 0
             var modeLosses = (data["games" + mode.id].intValue ?? 0) - modeWins

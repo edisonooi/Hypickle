@@ -24,12 +24,12 @@ class WallsStatsViewController: GenericStatsViewController, UITableViewDelegate,
     
     lazy var desiredStats: [[(String, Any)]] = {
         
-        var wins = data["wins"].intValue ?? 0
-        var losses = data["losses"].intValue ?? 0
+        var wins = data["wins"].intValue
+        var losses = data["losses"].intValue
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
-        var kills = data["kills"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var kills = data["kills"].intValue
+        var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
         return [
@@ -40,7 +40,7 @@ class WallsStatsViewController: GenericStatsViewController, UITableViewDelegate,
             ],
             [
                 ("Kills", kills),
-                ("Assists", data["assists"].intValue ?? 0),
+                ("Assists", data["assists"].intValue),
                 ("Deaths", deaths),
                 ("K/D", kdr)
             ]

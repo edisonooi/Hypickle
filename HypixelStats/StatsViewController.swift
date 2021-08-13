@@ -18,8 +18,8 @@ class StatsViewController: UIViewController {
     var gameStats: JSON = [:]
     
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var skinImageVew: UIImageView!
+    @IBOutlet weak var usernameTextField: UILabel!
+    @IBOutlet weak var skinImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,8 @@ class StatsViewController: UIViewController {
         
         if segue.identifier == "showGamesTable" {
             let gamesTableVC = segue.destination as! GamesTableController
+            
+            gamesTableVC.view.translatesAutoresizingMaskIntoConstraints = false
             
             let url = "https://api.hypixel.net/player?uuid=\(user!.uuid)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
             
@@ -63,7 +65,7 @@ class StatsViewController: UIViewController {
             
             // always update the UI from the main thread
             DispatchQueue.main.async() { [weak self] in
-                self?.skinImageVew.image = UIImage(data: data)
+                self?.skinImageView.image = UIImage(data: data)
             }
         }
     }

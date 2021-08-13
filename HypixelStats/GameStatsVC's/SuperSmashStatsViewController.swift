@@ -26,19 +26,19 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
         
         var ret: [CellData] = []
         
-        var wins = data["wins"].intValue ?? 0
-        var losses = data["losses"].intValue ?? 0
+        var wins = data["wins"].intValue
+        var losses = data["losses"].intValue
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
-        var kills = data["kills"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var kills = data["kills"].intValue
+        var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
         var generalStats = [
             CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false)
@@ -55,12 +55,12 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
         for mode in modeNames {
             var statsForThisMode: [(String, Any)] = []
             
-            var modeWins = data["wins_" + mode.0].intValue ?? 0
-            var modeLosses = data["losses_" + mode.0].intValue ?? 0
+            var modeWins = data["wins_" + mode.0].intValue
+            var modeLosses = data["losses_" + mode.0].intValue
             var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
-            var modeKills = data["kills_" + mode.0].intValue ?? 0
-            var modeDeaths = data["deaths_" + mode.0].intValue ?? 0
+            var modeKills = data["kills_" + mode.0].intValue
+            var modeDeaths = data["deaths_" + mode.0].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR] as [Any]
@@ -103,12 +103,12 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
             if kitData[kit.0].exists() {
                 var dataForThisKit = kitData[kit.0]
                 
-                var kitWins = dataForThisKit["wins"].intValue ?? 0
-                var kitLosses = dataForThisKit["losses"].intValue ?? 0
+                var kitWins = dataForThisKit["wins"].intValue
+                var kitLosses = dataForThisKit["losses"].intValue
                 var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
                 
-                var kitKills = dataForThisKit["kills"].intValue ?? 0
-                var kitDeaths = dataForThisKit["deaths"].intValue ?? 0
+                var kitKills = dataForThisKit["kills"].intValue
+                var kitDeaths = dataForThisKit["deaths"].intValue
                 var kitKDR = GameTypes.calculateRatio(numerator: kitKills, denominator: kitDeaths)
                 
                 var dataForThisMode = [kitWins, kitLosses, kitWLR, kitKills, kitDeaths, kitKDR] as [Any]
@@ -117,7 +117,7 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
                     statsForThisKit.append((category, dataForThisMode[index]))
                 }
                 
-                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue ?? 0), data["pg_" + kit.0].intValue ?? 0), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue), data["pg_" + kit.0].intValue), sectionData: statsForThisKit, isHeader: false, isOpened: false))
             }
         }
         

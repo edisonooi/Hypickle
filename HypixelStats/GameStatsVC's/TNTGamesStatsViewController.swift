@@ -26,123 +26,123 @@ class TNTGamesStatsViewController: GenericStatsViewController, UITableViewDelega
         
         //Yes this is gross and inefficient, I know
         
-        var winsTNTRun = data["wins_tntrun"].intValue ?? 0
-        var lossesTNTRun = data["deaths_tntrun"].intValue ?? 0
+        var winsTNTRun = data["wins_tntrun"].intValue
+        var lossesTNTRun = data["deaths_tntrun"].intValue
         var wlrTNTRun = GameTypes.calculateRatio(numerator: winsTNTRun, denominator: lossesTNTRun)
         
-        var winsPVPRun = data["wins_pvprun"].intValue ?? 0
-        var killsPVPRun = data["kills_pvprun"].intValue ?? 0
-        var lossesPVPRun = data["deaths_pvprun"].intValue ?? 0
+        var winsPVPRun = data["wins_pvprun"].intValue
+        var killsPVPRun = data["kills_pvprun"].intValue
+        var lossesPVPRun = data["deaths_pvprun"].intValue
         var wlrPVPRun = GameTypes.calculateRatio(numerator: winsPVPRun, denominator: lossesPVPRun)
         var kdrPVPRun = GameTypes.calculateRatio(numerator: killsPVPRun, denominator: lossesPVPRun)
         
-        var winsSpleef = data["wins_bowspleef"].intValue ?? 0
-        var lossesSpleef = data["deaths_bowspleef"].intValue ?? 0
+        var winsSpleef = data["wins_bowspleef"].intValue
+        var lossesSpleef = data["deaths_bowspleef"].intValue
         var wlrSpleef = GameTypes.calculateRatio(numerator: winsSpleef, denominator: lossesSpleef)
         
-        var winsTag = data["wins_tntag"].intValue ?? 0
+        var winsTag = data["wins_tntag"].intValue
         
-        var winsWizards = data["wins_capture"].intValue ?? 0
-        var killsWizards = data["kills_capture"].intValue ?? 0
-        var deathsWizards = data["deaths_capture"].intValue ?? 0
+        var winsWizards = data["wins_capture"].intValue
+        var killsWizards = data["kills_capture"].intValue
+        var deathsWizards = data["deaths_capture"].intValue
         var kdrWizards = GameTypes.calculateRatio(numerator: killsWizards, denominator: deathsWizards)
         
-        var killsAncient = data["new_ancientwizard_kills"].intValue ?? 0
-        var deathsAncient = data["new_ancientwizard_deaths"].intValue ?? 0
+        var killsAncient = data["new_ancientwizard_kills"].intValue
+        var deathsAncient = data["new_ancientwizard_deaths"].intValue
         var kdrAncient = GameTypes.calculateRatio(numerator: killsAncient, denominator: deathsAncient)
         
-        var killsBlood = data["new_bloodwizard_kills"].intValue ?? 0
-        var deathsBlood = data["new_bloodwizard_deaths"].intValue ?? 0
+        var killsBlood = data["new_bloodwizard_kills"].intValue
+        var deathsBlood = data["new_bloodwizard_deaths"].intValue
         var kdrBlood = GameTypes.calculateRatio(numerator: killsBlood, denominator: deathsBlood)
         
-        var killsFire = data["new_firewizard_kills"].intValue ?? 0
-        var deathsFire = data["new_firewizard_deaths"].intValue ?? 0
+        var killsFire = data["new_firewizard_kills"].intValue
+        var deathsFire = data["new_firewizard_deaths"].intValue
         var kdrFire = GameTypes.calculateRatio(numerator: killsFire, denominator: deathsFire)
         
-        var killsHydro = data["new_hydrowizard_kills"].intValue ?? 0
-        var deathsHydro = data["new_hydrowizard_deaths"].intValue ?? 0
+        var killsHydro = data["new_hydrowizard_kills"].intValue
+        var deathsHydro = data["new_hydrowizard_deaths"].intValue
         var kdrHydro = GameTypes.calculateRatio(numerator: killsHydro, denominator: deathsHydro)
         
-        var killsIce = data["new_icewizard_kills"].intValue ?? 0
-        var deathsIce = data["new_icewizard_deaths"].intValue ?? 0
+        var killsIce = data["new_icewizard_kills"].intValue
+        var deathsIce = data["new_icewizard_deaths"].intValue
         var kdrIce = GameTypes.calculateRatio(numerator: killsIce, denominator: deathsIce)
         
-        var killsKinetic = data["new_kineticwizard_kills"].intValue ?? 0
-        var deathsKinetic = data["new_kineticwizard_deaths"].intValue ?? 0
+        var killsKinetic = data["new_kineticwizard_kills"].intValue
+        var deathsKinetic = data["new_kineticwizard_deaths"].intValue
         var kdrKinetic = GameTypes.calculateRatio(numerator: killsKinetic, denominator: deathsKinetic)
         
-        var killsStorm = data["new_stormwizard_kills"].intValue ?? 0
-        var deathsStorm = data["new_stormwizard_deaths"].intValue ?? 0
+        var killsStorm = data["new_stormwizard_kills"].intValue
+        var deathsStorm = data["new_stormwizard_deaths"].intValue
         var kdrStorm = GameTypes.calculateRatio(numerator: killsStorm, denominator: deathsStorm)
         
-        var killsToxic = data["new_toxicwizard_kills"].intValue ?? 0
-        var deathsToxic = data["new_toxicwizard_deaths"].intValue ?? 0
+        var killsToxic = data["new_toxicwizard_kills"].intValue
+        var deathsToxic = data["new_toxicwizard_deaths"].intValue
         var kdrToxic = GameTypes.calculateRatio(numerator: killsToxic, denominator: deathsToxic)
         
-        var killsWither = data["new_witherwizard_kills"].intValue ?? 0
-        var deathsWither = data["new_witherwizard_deaths"].intValue ?? 0
+        var killsWither = data["new_witherwizard_kills"].intValue
+        var deathsWither = data["new_witherwizard_deaths"].intValue
         var kdrWither = GameTypes.calculateRatio(numerator: killsWither, denominator: deathsWither)
         
         let statsAncient: [(String, Any)] = [
             ("Kills", killsAncient),
             ("Deaths", deathsAncient),
-            ("Assists", data["new_ancientwizard_assists"].intValue ?? 0),
+            ("Assists", data["new_ancientwizard_assists"].intValue),
             ("K/D", kdrAncient)
         ]
         
         let statsBlood: [(String, Any)] = [
             ("Kills", killsBlood),
             ("Deaths", deathsBlood),
-            ("Assists", data["new_bloodwizard_assists"].intValue ?? 0),
+            ("Assists", data["new_bloodwizard_assists"].intValue),
             ("K/D", kdrBlood)
         ]
         
         let statsFire: [(String, Any)] = [
             ("Kills", killsFire),
             ("Deaths", deathsFire),
-            ("Assists", data["new_firewizard_assists"].intValue ?? 0),
+            ("Assists", data["new_firewizard_assists"].intValue),
             ("K/D", kdrFire)
         ]
         
         let statsHydro: [(String, Any)] = [
             ("Kills", killsHydro),
             ("Deaths", deathsHydro),
-            ("Assists", data["new_hydrowizard_assists"].intValue ?? 0),
+            ("Assists", data["new_hydrowizard_assists"].intValue),
             ("K/D", kdrHydro)
         ]
         
         let statsIce: [(String, Any)] = [
             ("Kills", killsIce),
             ("Deaths", deathsIce),
-            ("Assists", data["new_icewizard_assists"].intValue ?? 0),
+            ("Assists", data["new_icewizard_assists"].intValue),
             ("K/D", kdrIce)
         ]
         
         let statsKinetic: [(String, Any)] = [
             ("Kills", killsKinetic),
             ("Deaths", deathsKinetic),
-            ("Assists", data["new_kineticwizard_assists"].intValue ?? 0),
+            ("Assists", data["new_kineticwizard_assists"].intValue),
             ("K/D", kdrKinetic)
         ]
         
         let statsStorm: [(String, Any)] = [
             ("Kills", killsStorm),
             ("Deaths", deathsStorm),
-            ("Assists", data["new_stormwizard_assists"].intValue ?? 0),
+            ("Assists", data["new_stormwizard_assists"].intValue),
             ("K/D", kdrStorm)
         ]
         
         let statsToxic: [(String, Any)] = [
             ("Kills", killsToxic),
             ("Deaths", deathsToxic),
-            ("Assists", data["new_toxicwizard_assists"].intValue ?? 0),
+            ("Assists", data["new_toxicwizard_assists"].intValue),
             ("K/D", kdrToxic)
         ]
         
         let statsWither: [(String, Any)] = [
             ("Kills", killsWither),
             ("Deaths", deathsWither),
-            ("Assists", data["new_witherwizard_assists"].intValue ?? 0),
+            ("Assists", data["new_witherwizard_assists"].intValue),
             ("K/D", kdrWither)
         ]
         
@@ -152,14 +152,14 @@ class TNTGamesStatsViewController: GenericStatsViewController, UITableViewDelega
             CellData(headerData: ("Wins", winsTNTRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", lossesTNTRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlrTNTRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Record Time", formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Record Time", GameTypes.formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Wins", winsPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills", killsPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", lossesPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlrPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdrPVPRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Record Time", formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Record Time", GameTypes.formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Wins", winsSpleef), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", lossesSpleef), sectionData: [], isHeader: false, isOpened: false),
@@ -170,7 +170,7 @@ class TNTGamesStatsViewController: GenericStatsViewController, UITableViewDelega
             CellData(headerData: ("Wins", winsWizards), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills", killsWizards), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", deathsWizards), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", data["assists_capture"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Assists", data["assists_capture"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdrWizards), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Ancient", ""), sectionData: statsAncient, isHeader: false, isOpened: false),
@@ -240,10 +240,6 @@ class TNTGamesStatsViewController: GenericStatsViewController, UITableViewDelega
         return CGFloat.leastNormalMagnitude
     }
     
-    func formatMinuteSeconds(totalSeconds: Int) -> String {
-        let min = Int(totalSeconds / 60)
-        let sec = Int(Double(totalSeconds).truncatingRemainder(dividingBy: 60))
-        return String(format: "%02d:%02d", min, sec)
-    }
+    
 }
 

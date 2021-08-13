@@ -24,26 +24,26 @@ class VampireZStatsViewController: GenericStatsViewController, UITableViewDelega
     
     lazy var desiredStats: [[(String, Any)]] = {
         
-        var humanKills = data["human_kills"].intValue ?? 0
-        var humanDeaths = data["human_deaths"].intValue ?? 0
+        var humanKills = data["human_kills"].intValue
+        var humanDeaths = data["human_deaths"].intValue
         
         var humanKDR = GameTypes.calculateRatio(numerator: humanKills, denominator: humanDeaths)
         
-        var vampireKills = data["vampire_kills"].intValue ?? 0
-        var vampireDeaths = data["vampire_deaths"].intValue ?? 0
+        var vampireKills = data["vampire_kills"].intValue
+        var vampireDeaths = data["vampire_deaths"].intValue
         
         var vampireKDR = GameTypes.calculateRatio(numerator: vampireKills, denominator: vampireDeaths)
         
         return [
             [
-                ("Human Wins", data["human_wins"].intValue ?? 0),
+                ("Human Wins", data["human_wins"].intValue),
                 ("Human Kills", humanKills),
                 ("Human Deaths", humanDeaths),
                 ("Human K/D", humanKDR),
-                ("Zombie Kills", data["zombie_kills"].intValue ?? 0)
+                ("Zombie Kills", data["zombie_kills"].intValue)
             ],
             [
-                ("Vampire Wins", data["vampire_wins"].intValue ?? 0),
+                ("Vampire Wins", data["vampire_wins"].intValue),
                 ("Vampire Kills", vampireKills),
                 ("Vampire Deaths", vampireDeaths),
                 ("Vampire K/D", vampireKDR)

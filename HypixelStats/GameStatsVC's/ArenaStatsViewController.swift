@@ -24,14 +24,14 @@ class ArenaStatsViewController: GenericStatsViewController, UITableViewDelegate,
     
     lazy var statsTableData: [CellData] = {
         
-        var wins = data["wins"].intValue ?? 0
-        var wins1v1 = data["wins_1v1"].intValue ?? 0
-        var wins2v2 = data["wins_2v2"].intValue ?? 0
-        var wins4v4 = data["wins_4v4"].intValue ?? 0
+        var wins = data["wins"].intValue
+        var wins1v1 = data["wins_1v1"].intValue
+        var wins2v2 = data["wins_2v2"].intValue
+        var wins4v4 = data["wins_4v4"].intValue
         
-        var losses1v1 = data["losses_1v1"].intValue ?? 0
-        var losses2v2 = data["losses_2v2"].intValue ?? 0
-        var losses4v4 = data["losses_4v4"].intValue ?? 0
+        var losses1v1 = data["losses_1v1"].intValue
+        var losses2v2 = data["losses_2v2"].intValue
+        var losses4v4 = data["losses_4v4"].intValue
         var losses = losses1v1 + losses2v2 + losses4v4
 
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
@@ -39,14 +39,14 @@ class ArenaStatsViewController: GenericStatsViewController, UITableViewDelegate,
         var wlr2v2 = GameTypes.calculateRatio(numerator: wins2v2, denominator: losses2v2)
         var wlr4v4 = GameTypes.calculateRatio(numerator: wins4v4, denominator: losses4v4)
         
-        var kills1v1 = data["kills_1v1"].intValue ?? 0
-        var kills2v2 = data["kills_2v2"].intValue ?? 0
-        var kills4v4 = data["kills_4v4"].intValue ?? 0
+        var kills1v1 = data["kills_1v1"].intValue
+        var kills2v2 = data["kills_2v2"].intValue
+        var kills4v4 = data["kills_4v4"].intValue
         var kills = kills1v1 + kills2v2 + kills4v4
         
-        var deaths1v1 = data["deaths_1v1"].intValue ?? 0
-        var deaths2v2 = data["deaths_2v2"].intValue ?? 0
-        var deaths4v4 = data["deaths_4v4"].intValue ?? 0
+        var deaths1v1 = data["deaths_1v1"].intValue
+        var deaths2v2 = data["deaths_2v2"].intValue
+        var deaths4v4 = data["deaths_4v4"].intValue
         var deaths = deaths1v1 + deaths2v2 + deaths4v4
         
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)

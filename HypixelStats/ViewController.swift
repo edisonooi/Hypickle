@@ -27,10 +27,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func searchButtonPressed(_ sender: Any) {
-        var username = usernameTextField.text!
+        let username = usernameTextField.text!
         var name = ""
         var uuid = ""
-        var skin = ""
         
         let url = "https://api.mojang.com/users/profiles/minecraft/\(username)"
 

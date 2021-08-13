@@ -26,21 +26,21 @@ class BattlegroundStatsViewController: GenericStatsViewController, UITableViewDe
         
         var ret: [CellData] = []
         
-        var wins = data["wins"].intValue ?? 0
-        var losses = data["losses"].intValue ?? 0
+        var wins = data["wins"].intValue
+        var losses = data["losses"].intValue
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
-        var kills = data["kills"].intValue ?? 0
-        var assists = data["assists"].intValue ?? 0
-        var deaths = data["deaths"].intValue ?? 0
+        var kills = data["kills"].intValue
+        var assists = data["assists"].intValue
+        var deaths = data["deaths"].intValue
         
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         var akr = GameTypes.calculateRatio(numerator: assists, denominator: kills)
         
         let winStats: [(String, Any)] = [
-            ("Capture the Flag", data["wins_capturetheflag"].intValue ?? 0),
-            ("Domination", data["wins_domination"].intValue ?? 0),
-            ("Team Deathmatch", data["wins_teamdeathmatch"].intValue ?? 0)
+            ("Capture the Flag", data["wins_capturetheflag"].intValue),
+            ("Domination", data["wins_domination"].intValue),
+            ("Team Deathmatch", data["wins_teamdeathmatch"].intValue)
         ]
         
         var generalStats = [
@@ -55,16 +55,16 @@ class BattlegroundStatsViewController: GenericStatsViewController, UITableViewDe
             CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Assists/Kill", akr), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Void Shards", data["void_shards"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Damage", data["damage"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Healing", data["heal"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Damage", data["damage"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Healing", data["heal"].intValue), sectionData: [], isHeader: false, isOpened: false),
         ]
 
         ret.append(contentsOf: generalStats)
@@ -81,13 +81,13 @@ class BattlegroundStatsViewController: GenericStatsViewController, UITableViewDe
         for kit in kits {
             var statsForThisKit: [(String, Any)] = []
             
-            var kitWins = data["wins_" + kit].intValue ?? 0
-            var kitLosses = data["losses_" + kit].intValue ?? 0
+            var kitWins = data["wins_" + kit].intValue
+            var kitLosses = data["losses_" + kit].intValue
             var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
             
-            var kitDamage = data["damage_" + kit].intValue ?? 0
-            var kitDamagePrevented = data["damage_prevented_" + kit].intValue ?? 0
-            var kitHealing = data["heal_" + kit].intValue ?? 0
+            var kitDamage = data["damage_" + kit].intValue
+            var kitDamagePrevented = data["damage_prevented_" + kit].intValue
+            var kitHealing = data["heal_" + kit].intValue
 
                 
             var dataForThisKit = [kitWins, kitLosses, kitWLR, kitDamage, kitDamagePrevented, kitHealing] as [Any]
@@ -99,7 +99,7 @@ class BattlegroundStatsViewController: GenericStatsViewController, UITableViewDe
             var kitLevel = 0
             
             for upgrade in upgrades {
-                kitLevel += data[kit + "_" + upgrade].intValue ?? 0
+                kitLevel += data[kit + "_" + upgrade].intValue
             }
             
             kitStats.append(CellData(headerData: (kit.capitalized, "Lv\(kitLevel)"), sectionData: statsForThisKit, isHeader: false, isOpened: false))

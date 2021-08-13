@@ -24,40 +24,40 @@ class QuakeStatsViewController: GenericStatsViewController, UITableViewDelegate,
     
     lazy var statsTableData: [CellData] = {
         
-        var winsSolo = data["wins"].intValue ?? 0
-        var winsTeams = data["wins_teams"].intValue ?? 0
+        var winsSolo = data["wins"].intValue
+        var winsTeams = data["wins_teams"].intValue
         var wins = winsSolo + winsTeams
         
-        var killsSolo = data["kills"].intValue ?? 0
-        var killsTeams = data["kills_teams"].intValue ?? 0
+        var killsSolo = data["kills"].intValue
+        var killsTeams = data["kills_teams"].intValue
         var kills = killsSolo + killsTeams
         
-        var deathsSolo = data["deaths"].intValue ?? 0
-        var deathsTeams = data["deaths_teams"].intValue ?? 0
+        var deathsSolo = data["deaths"].intValue
+        var deathsTeams = data["deaths_teams"].intValue
         var deaths = deathsSolo + deathsTeams
         
         var kdrSolo = GameTypes.calculateRatio(numerator: killsSolo, denominator: deathsSolo)
         var kdrTeams = GameTypes.calculateRatio(numerator: killsTeams, denominator: deathsTeams)
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
-        var headshotsSolo = data["headshots"].intValue ?? 0
-        var headshotsTeams = data["headshots_teams"].intValue ?? 0
+        var headshotsSolo = data["headshots"].intValue
+        var headshotsTeams = data["headshots_teams"].intValue
         var headshots = headshotsSolo + headshotsTeams
         
         var headshotsPerKillSolo = GameTypes.calculateRatio(numerator: headshotsSolo, denominator: deathsSolo)
         var headshotsPerKillTeams = GameTypes.calculateRatio(numerator: headshotsTeams, denominator: deathsTeams)
         var headshotsPerKill = GameTypes.calculateRatio(numerator: headshots, denominator: deaths)
         
-        var shotsFiredSolo = data["shots_fired"].intValue ?? 0
-        var shotsFiredTeams = data["shots_fired_teams"].intValue ?? 0
+        var shotsFiredSolo = data["shots_fired"].intValue
+        var shotsFiredTeams = data["shots_fired_teams"].intValue
         var shotsFired = shotsFiredSolo + shotsFiredTeams
         
         var killsPerShotSolo = GameTypes.calculateRatio(numerator: killsSolo, denominator: shotsFiredSolo)
         var killsPerShotTeams = GameTypes.calculateRatio(numerator: killsTeams, denominator: shotsFiredTeams)
         var killsPerShot = GameTypes.calculateRatio(numerator: kills, denominator: shotsFired)
         
-        var killstreaksSolo = data["killstreaks"].intValue ?? 0
-        var killstreaksTeams = data["killstreaks_teams"].intValue ?? 0
+        var killstreaksSolo = data["killstreaks"].intValue
+        var killstreaksTeams = data["killstreaks_teams"].intValue
         var killstreaks = killstreaksSolo + killstreaksTeams
         
         let statsSolo: [(String, Any)] = [
@@ -93,10 +93,10 @@ class QuakeStatsViewController: GenericStatsViewController, UITableViewDelegate,
             CellData(headerData: ("Headshots/Kill", headshotsPerKill), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills/Shot", killsPerShot), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Highest Killstreak", data["highest_killstreak"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Highest Killstreak", data["highest_killstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Dash Cooldown", (data["dash_cooldown"].intValue ?? 0) + 1), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Dash Power", (data["dash_power"].intValue ?? 0) + 1), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Dash Cooldown", (data["dash_cooldown"].intValue) + 1), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Dash Power", (data["dash_power"].intValue) + 1), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Solo", ""), sectionData: statsSolo, isHeader: false, isOpened: false),
             

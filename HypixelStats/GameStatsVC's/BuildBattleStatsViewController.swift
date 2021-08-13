@@ -24,27 +24,27 @@ class BuildBattleStatsViewController: GenericStatsViewController, UITableViewDel
     
     lazy var statsTableData: [CellData] = {
         
-        var wins = data["wins"].intValue ?? 0
-        var gamesPlayed = data["games_played"].intValue ?? 0
+        var wins = data["wins"].intValue
+        var gamesPlayed = data["games_played"].intValue
         var losses = gamesPlayed - wins
         var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
         
         let winsDivisions = [
-            ("Solo", data["wins_solo_normal"].intValue ?? 0),
-            ("Teams", data["wins_teams_normal"].intValue ?? 0),
-            ("Pro", data["wins_solo_pro"].intValue ?? 0),
-            ("Guess the Build", data["wins_guess_the_build"].intValue ?? 0)
+            ("Solo", data["wins_solo_normal"].intValue),
+            ("Teams", data["wins_teams_normal"].intValue),
+            ("Pro", data["wins_solo_pro"].intValue),
+            ("Guess the Build", data["wins_guess_the_build"].intValue)
         ]
         
         return [
-            CellData(headerData: ("Score", data["score"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Title", calculateTitle(score: data["score"].intValue ?? 0)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Score", data["score"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Title", calculateTitle(score: data["score"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Overall Wins (tap for details)", wins), sectionData: winsDivisions, isHeader: false, isOpened: false),
             CellData(headerData: ("Overall Losses", Int(losses)), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Total Votes", data["total_votes"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Super Votes", data["super_votes"].intValue ?? 0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Total Votes", data["total_votes"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Super Votes", data["super_votes"].intValue), sectionData: [], isHeader: false, isOpened: false),
         ]
     }()
     

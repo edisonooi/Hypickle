@@ -63,15 +63,15 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
             CellData(headerData: ("Final Deaths", finalDeaths), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Final K/D", finalKDR), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Beds Broken", data["beds_broken_bedwars"]), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Beds Lost", data["beds_lost_bedwars"]), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Beds Broken", data["beds_broken_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Beds Lost", data["beds_lost_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Iron Collected", data["iron_resources_collected_bedwars"]), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Gold Collected", data["gold_resources_collected_bedwars"]), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Diamonds Collected", data["diamond_resources_collected_bedwars"]), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Emeralds Collected", data["emerald_resources_collected_bedwars"]), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Wrapped Prsents Collected", data["wrapped_present_resources_collected_bedwars"]), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Shop Purchases", data["_items_purchased_bedwars"]), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Iron Collected", data["iron_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Gold Collected", data["gold_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Diamonds Collected", data["diamond_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Emeralds Collected", data["emerald_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wrapped Presents Collected", data["wrapped_present_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Shop Purchases", data["_items_purchased_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
             
             
         ]
@@ -106,7 +106,9 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         
         var modeStats: [CellData] = []
         
-        for mode in modes {
+        var dreamModesExist = false
+        
+        for (index, mode) in modes.enumerated() {
             
             if mode.id == "eight_one_rush_" {
                 modeStats.append(CellData(headerData: ("DREAM MODES", ""), sectionData: [], isHeader: false, isOpened: false))
@@ -121,6 +123,11 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
             if modeWins + modeLosses == 0 {
                 modeCount -= 1
                 continue
+            }
+            
+            //Indicates that there are valid dream mode stats, therefore keep the DREAMS MODE header
+            if index >= 5 {
+                dreamModesExist = true
             }
             
             var modeKills = data[mode.id + "kills_bedwars"].intValue
@@ -144,6 +151,13 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
             }
             
             modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+        }
+        
+        if !dreamModesExist {
+            modeStats.removeAll { value in
+                return value.headerData.0 == "DREAM MODES"
+            }
+            modeCount -= 1
         }
         
         ret.append(contentsOf: modeStats)

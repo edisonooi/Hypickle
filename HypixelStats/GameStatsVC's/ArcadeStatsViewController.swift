@@ -261,7 +261,6 @@ class ArcadeStatsViewController: GenericStatsViewController, UITableViewDelegate
             (id: "skelefish", name: "Skelefish"),
             (id: "tnt_baby", name: "TNT Baby"),
             (id: "tnt", name: "Bombie"),
-            (id: "inferno", name: "Inferno"),
             (id: "broodmother", name: "Broodmother"),
             (id: "king_slime", name: "King Slime"),
             (id: "wither", name: "Wither"),
@@ -282,9 +281,7 @@ class ArcadeStatsViewController: GenericStatsViewController, UITableViewDelegate
             (id: "space_grunt", name: "Space Grunt"),
             (id: "clown", name: "Clown"),
             (id: "blob", name: "Blob"),
-            (id: "mega_magma", name: "Mega Magma"),
             (id: "iron_golem", name: "Iron Golem"),
-            (id: "mega_blob", name: "Mega Blob"),
             (id: "inferno", name: "Inferno"),
             (id: "tnt", name: "TNT"),
             (id: "werewolf", name: "Werewolf"),
@@ -305,7 +302,7 @@ class ArcadeStatsViewController: GenericStatsViewController, UITableViewDelegate
         ]
         
         zombieTypes.sort {
-            $0.id < $1.id
+            $0.name < $1.name
         }
         
         var typeStats: [(String, Any)] = [("TYPE", "KILLS")]

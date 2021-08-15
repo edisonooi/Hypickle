@@ -164,6 +164,14 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
         }
     }
     
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        if statsTableData[indexPath.section].sectionData.isEmpty || indexPath.row != 0 {
+            return false
+        }
+        
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let sectionsThatNeedHeader = [3, 4, 7, 10]
         

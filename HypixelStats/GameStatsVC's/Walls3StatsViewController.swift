@@ -67,7 +67,7 @@ class Walls3StatsViewController: GenericStatsViewController, UITableViewDelegate
             (id: "_gvg", name: "Casual Brawl"),
         ]
         
-        var desiredStats = ["Wins", "Losses", "W/L", "Kills", "Deaths", "K/D", ]
+        var desiredStats = ["Wins", "Losses", "W/L", "Kills", "Deaths", "K/D"]
         
         var modeStats: [CellData] = []
         
@@ -204,6 +204,14 @@ class Walls3StatsViewController: GenericStatsViewController, UITableViewDelegate
             let sections = IndexSet.init(integer: indexPath.section)
             statsTable.reloadSections(sections, with: .none)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        if statsTableData[indexPath.section].sectionData.isEmpty || indexPath.row != 0 {
+            return false
+        }
+        
+        return true
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

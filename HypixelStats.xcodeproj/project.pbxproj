@@ -179,6 +179,7 @@
 			children = (
 				BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */,
 				BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */,
+				4C7CC51226C86F8A006F6EEE /* BedwarsStatsViewController.swift */,
 				BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */,
 				BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */,
 				BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */,
@@ -194,7 +195,6 @@
 				BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */,
 				BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */,
 				BE59FAF426B778A1000F7799 /* BattlegroundStatsViewController.swift */,
-				4C7CC51226C86F8A006F6EEE /* BedwarsStatsViewController.swift */,
 			);
 			path = "GameStatsVC's";
 			sourceTree = "<group>";

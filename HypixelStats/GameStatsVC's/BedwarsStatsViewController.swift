@@ -252,6 +252,14 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         }
     }
     
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        if statsTableData[indexPath.section].sectionData.isEmpty || indexPath.row != 0 {
+            return false
+        }
+        
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let sectionsThatNeedHeader = [2, 5, 6, 12, 14, 20, 20 + modeCount, 20 + modeCount + dreamsModeCount, 20 + modeCount + dreamsModeCount + 3]
         

@@ -180,6 +180,7 @@
                         <segue destination="NIy-J3-47m" kind="showDetail" identifier="showSpeedUHCStats" id="r9W-fI-xJf"/>
                         <segue destination="h9e-fh-b7A" kind="showDetail" identifier="showUHCStats" id="Wmh-b2-MUA"/>
                         <segue destination="s2b-wf-7Ix" kind="showDetail" identifier="showMurderMysteryStats" id="3Oq-be-nmJ"/>
+                        <segue destination="uYX-tr-lsQ" kind="showDetail" identifier="showBedwarsStats" id="aEA-eH-Dxp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -199,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fma-2u-Fmw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2370" y="-386"/>
+            <point key="canvasLocation" x="2175" y="-470"/>
         </scene>
         <!--Paintball Stats View Controller-->
         <scene sceneID="K23-C9-NNg">
@@ -321,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="264-MM-BwV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3326" y="161"/>
+            <point key="canvasLocation" x="3325" y="233"/>
         </scene>
         <!--Walls Stats View Controller-->
         <scene sceneID="aGX-Db-tfC">
@@ -382,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2L0-bX-CBr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3325" y="524"/>
+            <point key="canvasLocation" x="3325" y="680"/>
         </scene>
         <!--Build Battle Stats View Controller-->
         <scene sceneID="KSq-hq-bdO">
@@ -443,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DH9-h8-eOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3329" y="-559"/>
+            <point key="canvasLocation" x="3329" y="-616"/>
         </scene>
         <!--Arena Stats View Controller-->
         <scene sceneID="GmX-J4-KGk">
@@ -504,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCs-du-s1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3330" y="-896"/>
+            <point key="canvasLocation" x="3329" y="-1010"/>
         </scene>
         <!--Games Stats View Controller-->
         <scene sceneID="8et-7e-zGe">
@@ -626,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cop-CH-EPm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4062" y="161"/>
+            <point key="canvasLocation" x="4061" y="233"/>
         </scene>
         <!--Super Smash Stats View Controller-->
         <scene sceneID="h8D-gZ-h4q">
@@ -687,7 +688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAt-Js-6RE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4062" y="-560"/>
+            <point key="canvasLocation" x="4061" y="-617"/>
         </scene>
         <!--Hunger Games Stats View Controller-->
         <scene sceneID="PKr-Hu-90N">
@@ -748,7 +749,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUN-xW-Dwj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4062" y="-897"/>
+            <point key="canvasLocation" x="4061" y="-1011"/>
         </scene>
         <!--Gingerbread Stats View Controller-->
         <scene sceneID="bex-tr-XJc">
@@ -809,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fc1-4e-zhz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4061" y="524"/>
+            <point key="canvasLocation" x="4061" y="680"/>
         </scene>
         <!--Battleground Stats View Controller-->
         <scene sceneID="1BR-7x-HSj">
@@ -870,7 +871,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1p-JV-7pq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4059" y="882"/>
+            <point key="canvasLocation" x="4061" y="1119"/>
         </scene>
         <!--Duels Stats View Controller-->
         <scene sceneID="hHa-xs-xxc">
@@ -931,7 +932,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOf-HT-lcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3330" y="881"/>
+            <point key="canvasLocation" x="3332" y="1118"/>
         </scene>
         <!--Walls3 Stats View Controller-->
         <scene sceneID="OgT-Ti-JNJ">
@@ -992,7 +993,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="are-g7-5FP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4801" y="160"/>
+            <point key="canvasLocation" x="4796" y="233"/>
         </scene>
         <!--SpeedUHC Stats View Controller-->
         <scene sceneID="2LW-Xf-Xm0">
@@ -1114,7 +1115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imQ-Lm-oCu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4801" y="-560"/>
+            <point key="canvasLocation" x="4796" y="-617"/>
         </scene>
         <!--Murder Mystery Stats View Controller-->
         <scene sceneID="sde-mS-wCW">
@@ -1175,7 +1176,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moz-T7-6XE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4797" y="525"/>
+            <point key="canvasLocation" x="4796" y="680"/>
+        </scene>
+        <!--Bedwars Stats View Controller-->
+        <scene sceneID="2Bu-PZ-N9m">
+            <objects>
+                <viewController id="uYX-tr-lsQ" customClass="BedwarsStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPc-h1-VfZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbc-Mf-MhU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="Fst-PB-WGn">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TA7-En-uc9">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pB7-md-5Ip">
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Fst-PB-WGn" firstAttribute="top" secondItem="Vbc-Mf-MhU" secondAttribute="top" id="2jG-M5-NmJ"/>
+                                    <constraint firstItem="Fst-PB-WGn" firstAttribute="centerY" secondItem="Vbc-Mf-MhU" secondAttribute="centerY" id="IDV-r1-HZ0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fst-PB-WGn" secondAttribute="bottom" id="Qe5-JD-EUi"/>
+                                    <constraint firstItem="Fst-PB-WGn" firstAttribute="width" secondItem="Vbc-Mf-MhU" secondAttribute="width" id="Vbg-cI-yl2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fst-PB-WGn" secondAttribute="trailing" id="kZe-bi-AOX"/>
+                                    <constraint firstItem="Fst-PB-WGn" firstAttribute="leading" secondItem="Vbc-Mf-MhU" secondAttribute="leading" id="lei-ot-gfn"/>
+                                    <constraint firstItem="Fst-PB-WGn" firstAttribute="centerX" secondItem="Vbc-Mf-MhU" secondAttribute="centerX" id="xXR-Vi-Wdh"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="XKv-6Y-nqM"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="QfR-WD-MvS"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GxE-vy-pZN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Vbc-Mf-MhU" secondAttribute="bottom" id="I7O-w4-ync"/>
+                            <constraint firstItem="Vbc-Mf-MhU" firstAttribute="leading" secondItem="cPc-h1-VfZ" secondAttribute="leading" id="J84-Yn-AGR"/>
+                            <constraint firstAttribute="trailing" secondItem="Vbc-Mf-MhU" secondAttribute="trailing" id="pGu-Cf-aow"/>
+                            <constraint firstItem="Vbc-Mf-MhU" firstAttribute="top" secondItem="cPc-h1-VfZ" secondAttribute="top" id="tPo-wh-Npn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0ny-Lp-BFN"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="Vbc-Mf-MhU" id="haO-NC-arx"/>
+                        <outlet property="mainStackView" destination="Fst-PB-WGn" id="4It-wr-PDJ"/>
+                        <outlet property="statsTable" destination="pB7-md-5Ip" id="5bJ-S8-oCj"/>
+                        <outlet property="titleLabel" destination="TA7-En-uc9" id="6V9-Zf-bcm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHD-th-pd3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4800" y="-1012"/>
         </scene>
     </scenes>
     <resources>

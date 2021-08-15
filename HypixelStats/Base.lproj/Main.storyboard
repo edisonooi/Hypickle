@@ -182,6 +182,7 @@
                         <segue destination="s2b-wf-7Ix" kind="showDetail" identifier="showMurderMysteryStats" id="3Oq-be-nmJ"/>
                         <segue destination="uYX-tr-lsQ" kind="showDetail" identifier="showBedwarsStats" id="aEA-eH-Dxp"/>
                         <segue destination="xje-hN-zwT" kind="showDetail" identifier="showArcadeStats" id="TzH-yY-Hi3"/>
+                        <segue destination="fZL-w2-1sW" kind="showDetail" identifier="showSkyWarsStats" id="0OU-oB-kP3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1300,6 +1301,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvS-Yu-Kin" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4796" y="1118"/>
+        </scene>
+        <!--Sky Wars Stats View Controller-->
+        <scene sceneID="JBl-ks-xSP">
+            <objects>
+                <viewController id="fZL-w2-1sW" customClass="SkyWarsStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ngh-IJ-fNn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVm-jk-Riq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="Fau-fp-TwF">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKx-sh-cFr">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mfF-Vj-lNv">
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Fau-fp-TwF" firstAttribute="centerY" secondItem="VVm-jk-Riq" secondAttribute="centerY" id="1lV-x2-sfR"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fau-fp-TwF" secondAttribute="bottom" id="3Pc-pd-gNz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fau-fp-TwF" secondAttribute="trailing" id="3fI-bv-1kK"/>
+                                    <constraint firstItem="Fau-fp-TwF" firstAttribute="centerX" secondItem="VVm-jk-Riq" secondAttribute="centerX" id="BwG-iz-l52"/>
+                                    <constraint firstItem="Fau-fp-TwF" firstAttribute="leading" secondItem="VVm-jk-Riq" secondAttribute="leading" id="GCJ-4F-zrG"/>
+                                    <constraint firstItem="Fau-fp-TwF" firstAttribute="top" secondItem="VVm-jk-Riq" secondAttribute="top" id="UNL-Jy-vBE"/>
+                                    <constraint firstItem="Fau-fp-TwF" firstAttribute="width" secondItem="VVm-jk-Riq" secondAttribute="width" id="ovK-qO-Btf"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="WNn-Xu-C4S"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="sFt-zK-tdu"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yEz-8U-02O"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VVm-jk-Riq" secondAttribute="trailing" id="LhG-Q8-X8d"/>
+                            <constraint firstAttribute="bottom" secondItem="VVm-jk-Riq" secondAttribute="bottom" id="NVb-Wq-aFn"/>
+                            <constraint firstItem="VVm-jk-Riq" firstAttribute="leading" secondItem="ngh-IJ-fNn" secondAttribute="leading" id="WlN-jm-QXy"/>
+                            <constraint firstItem="VVm-jk-Riq" firstAttribute="top" secondItem="ngh-IJ-fNn" secondAttribute="top" id="Ymg-nY-c59"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HWm-2u-osV"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="VVm-jk-Riq" id="sb4-d4-ExY"/>
+                        <outlet property="mainStackView" destination="Fau-fp-TwF" id="ewZ-wN-Yqa"/>
+                        <outlet property="statsTable" destination="mfF-Vj-lNv" id="8wa-VW-1Qa"/>
+                        <outlet property="titleLabel" destination="sKx-sh-cFr" id="Sxh-IY-fiN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Hl-eh-8tq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5501" y="-1010"/>
         </scene>
     </scenes>
     <resources>

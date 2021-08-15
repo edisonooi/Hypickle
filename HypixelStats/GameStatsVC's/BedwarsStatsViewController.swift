@@ -22,7 +22,8 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         
     }
     
-    var modeCount = 1
+    var modeCount = 5
+    var dreamsModeCount = 13
     
     
     lazy var statsTableData: [CellData] = {
@@ -100,8 +101,6 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
             (id: "castle_", name: "Castle"),
         ]
         
-        modeCount += modes.count
-        
         var desiredStats = ["Wins", "Losses", "W/L", "Kills", "Deaths", "K/D", "Final Kills", "Final Deaths", "Final K/D", "Current Winstreak", "Beds Broken", "Beds Lost"]
         
         var modeStats: [CellData] = []
@@ -110,10 +109,6 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         
         for (index, mode) in modes.enumerated() {
             
-            if mode.id == "eight_one_rush_" {
-                modeStats.append(CellData(headerData: ("DREAM MODES", ""), sectionData: [], isHeader: false, isOpened: false))
-            }
-            
             var statsForThisMode: [(String, Any)] = []
             
             var modeWins = data[mode.id + "wins_bedwars"].intValue
@@ -121,13 +116,12 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
             var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
             if modeWins + modeLosses == 0 {
-                modeCount -= 1
+                if index < 5 {
+                    modeCount -= 1
+                } else {
+                    dreamsModeCount -= 1
+                }
                 continue
-            }
-            
-            //Indicates that there are valid dream mode stats, therefore keep the DREAMS MODE header
-            if index >= 5 {
-                dreamModesExist = true
             }
             
             var modeKills = data[mode.id + "kills_bedwars"].intValue
@@ -151,13 +145,6 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
             }
             
             modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
-        }
-        
-        if !dreamModesExist {
-            modeStats.removeAll { value in
-                return value.headerData.0 == "DREAM MODES"
-            }
-            modeCount -= 1
         }
         
         ret.append(contentsOf: modeStats)
@@ -266,7 +253,7 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [2, 5, 6, 12, 14, 20, 20 + modeCount, 20 + modeCount + 3]
+        let sectionsThatNeedHeader = [2, 5, 6, 12, 14, 20, 20 + modeCount, 20 + modeCount + dreamsModeCount, 20 + modeCount + dreamsModeCount + 3]
         
         if sectionsThatNeedHeader.contains(section) {
             return 32

@@ -91,6 +91,10 @@ class GamesTableController: UITableViewController {
         
         destVC.data = data[game] ?? ["": ""]
         
+        if game == "Arcade" {
+            destVC.achievementsData = data["achievements"]
+        }
+        
     }
     
 

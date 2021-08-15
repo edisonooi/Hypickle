@@ -9,8 +9,9 @@ import UIKit
 import SwiftyJSON
 
 class GenericStatsViewController: UIViewController {
-    
-    var data: JSON = ["": ""]
+        
+    var data: JSON = [:]
+    var achievementsData: JSON = [:]
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statsTable: UITableView!

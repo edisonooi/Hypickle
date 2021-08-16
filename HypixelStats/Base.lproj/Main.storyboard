@@ -184,6 +184,7 @@
                         <segue destination="xje-hN-zwT" kind="showDetail" identifier="showArcadeStats" id="TzH-yY-Hi3"/>
                         <segue destination="fZL-w2-1sW" kind="showDetail" identifier="showSkyWarsStats" id="0OU-oB-kP3"/>
                         <segue destination="HqH-97-Zm0" kind="showDetail" identifier="showMCGOStats" id="S3V-cA-kbR"/>
+                        <segue destination="vqG-ez-Of4" kind="showDetail" identifier="showSkyClashStats" id="vvb-uP-VPY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1424,6 +1425,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qI8-ME-CjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5499" y="-615"/>
+        </scene>
+        <!--Sky Clash Stats View Controller-->
+        <scene sceneID="vsu-DN-j7a">
+            <objects>
+                <viewController id="vqG-ez-Of4" customClass="SkyClashStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eub-23-PxS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsy-my-JLg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-k5-U6O">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pw-wc-dDP">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="AWO-eh-59Z">
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="h7c-k5-U6O" firstAttribute="top" secondItem="tsy-my-JLg" secondAttribute="top" id="KjZ-OK-YgC"/>
+                                    <constraint firstItem="h7c-k5-U6O" firstAttribute="width" secondItem="tsy-my-JLg" secondAttribute="width" id="Q3a-6M-E0M"/>
+                                    <constraint firstItem="h7c-k5-U6O" firstAttribute="leading" secondItem="tsy-my-JLg" secondAttribute="leading" id="QQn-X0-3jS"/>
+                                    <constraint firstItem="h7c-k5-U6O" firstAttribute="centerY" secondItem="tsy-my-JLg" secondAttribute="centerY" id="WcR-gU-OR5"/>
+                                    <constraint firstItem="h7c-k5-U6O" firstAttribute="centerX" secondItem="tsy-my-JLg" secondAttribute="centerX" id="jIo-Pd-FTg"/>
+                                    <constraint firstAttribute="bottom" secondItem="h7c-k5-U6O" secondAttribute="bottom" id="ub1-ce-YCN"/>
+                                    <constraint firstAttribute="trailing" secondItem="h7c-k5-U6O" secondAttribute="trailing" id="y2S-5D-bvL"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="WC8-cT-dfD"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Ikj-Zh-hp3"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="W3k-ef-aqo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tsy-my-JLg" firstAttribute="leading" secondItem="Eub-23-PxS" secondAttribute="leading" id="2fU-pm-zau"/>
+                            <constraint firstAttribute="bottom" secondItem="tsy-my-JLg" secondAttribute="bottom" id="3Ze-my-pvb"/>
+                            <constraint firstAttribute="trailing" secondItem="tsy-my-JLg" secondAttribute="trailing" id="QNL-uF-6hQ"/>
+                            <constraint firstItem="tsy-my-JLg" firstAttribute="top" secondItem="Eub-23-PxS" secondAttribute="top" id="fe8-cl-H8R"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="l6b-W0-xSl"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="tsy-my-JLg" id="1Qg-kx-MfT"/>
+                        <outlet property="mainStackView" destination="h7c-k5-U6O" id="gfv-c7-2UV"/>
+                        <outlet property="statsTable" destination="AWO-eh-59Z" id="wAR-qx-Jrb"/>
+                        <outlet property="titleLabel" destination="4Pw-wc-dDP" id="EEt-yb-9XO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V1d-Rd-zgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5497" y="-221"/>
         </scene>
     </scenes>
     <resources>

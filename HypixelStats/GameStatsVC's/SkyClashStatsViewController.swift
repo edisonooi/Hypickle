@@ -1,20 +1,20 @@
 //
-//  SuperSmashStatsViewController.swift
+//  SkyClashStatsViewController.swift
 //  HypixelStats
 //
-//  Created by codeplus on 7/31/21.
+//  Created by Edison Ooi on 8/15/21.
 //
 
 import Foundation
 import UIKit
 import SwiftyJSON
 
-class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
+class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = "Smash Heroes"
+        titleLabel.text = "SkyClash"
         
         statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         statsTable.delegate = self
@@ -34,12 +34,20 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
         var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
+        var killsDivisions = [
+            ("Melee Kills", data["melee_kills"].intValue),
+            ("Void Kills", data["void_kills"].intValue),
+            ("Bow Kills", data["bow_kills"].intValue),
+            ("Mob Kills", data["mob_kills"].intValue),
+        ]
+        
         var generalStats = [
             CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
+            
+            CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions, isHeader: false, isOpened: false),
+            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false)
         ]
@@ -47,20 +55,26 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
         ret.append(contentsOf: generalStats)
         
         
-        var modeNames = [("normal", "1v1v1v1"), ("2v2", "2v2"), ("teams", "2v2v2")]
+        var modes = [
+            (id: "solo", name: "Solo"),
+            (id: "doubles", name: "Doubles"),
+            (id: "team_war", name: "Team War"),
+            (id: "mega", name: "Mega")
+        ]
+        
         var desiredStats = ["Wins", "Losses", "W/L", "Kills", "Deaths", "K/D"]
         
         var modeStats: [CellData] = []
         
-        for mode in modeNames {
+        for mode in modes {
             var statsForThisMode: [(String, Any)] = []
             
-            var modeWins = data["wins_" + mode.0].intValue
-            var modeLosses = data["losses_" + mode.0].intValue
+            var modeWins = data["wins_" + mode.id].intValue
+            var modeLosses = data["losses_" + mode.id].intValue
             var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
-            var modeKills = data["kills_" + mode.0].intValue
-            var modeDeaths = data["deaths_" + mode.0].intValue
+            var modeKills = data["kills_" + mode.id].intValue
+            var modeDeaths = data["deaths_" + mode.id].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR] as [Any]
@@ -69,56 +83,55 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
             
-            modeStats.append(CellData(headerData: (mode.1, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
         }
         
         ret.append(contentsOf: modeStats)
         
-        
-        var kitData = data["class_stats"]
-        var kitNames = [
-            ("BOTMUN", "Botmon"),
-            ("THE_BULK", "Bulk"),
-            ("CAKE_MONSTER", "Cake Monster"),
-            ("FROSTY", "Cryomancer"),
-            ("GENERAL_CLUCK", "General Cluck"),
-            ("GREEN_HOOD", "Green Hood"),
-            ("GOKU", "Karakot"),
-            ("MARAUDER", "Marauder"),
-            ("PUG", "Pug"),
-            ("SANIC", "Sanic"),
-            ("SERGEANT_SHIELD", "Sgt. Shield"),
-            ("SHOOP_DA_WHOOP", "Shoop"),
-            ("SKULLFIRE", "Skullfire"),
-            ("SPODERMAN", "Spooderman"),
-            ("TINMAN", "Tinman"),
-            ("DUSK_CRAWLER", "Void Crawler")
+        var kits = [
+            (id: "_kit_archer", name: "Archer"),
+            (id: "_kit_assassin", name: "Assassin"),
+            (id: "_kit_berserker", name: "Berserker"),
+            (id: "_kit_cleric", name: "Cleric"),
+            (id: "_kit_frost_knight", name: "Frost Knight"),
+            (id: "_kit_guardian", name: "Guardian"),
+            (id: "_kit_jumpman", name: "Jumpman"),
+            (id: "_kit_necromancer", name: "Necromancer"),
+            (id: "_kit_scout", name: "Scout"),
+            (id: "_kit_swordsman", name: "Swordsman"),
+            (id: "_kit_treasure_hunter", name: "Treasure Hunter")
         ]
+        
+        var desiredKitStats = ["Wins", "Kills", "Assists", "Deaths", "K/D"]
         
         var kitStats: [CellData] = []
         
-        for kit in kitNames {
+        for kit in kits {
             var statsForThisKit: [(String, Any)] = []
             
-            if kitData[kit.0].exists() {
-                var dataForThisKit = kitData[kit.0]
-                
-                var kitWins = dataForThisKit["wins"].intValue
-                var kitLosses = dataForThisKit["losses"].intValue
-                var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
-                
-                var kitKills = dataForThisKit["kills"].intValue
-                var kitDeaths = dataForThisKit["deaths"].intValue
-                var kitKDR = GameTypes.calculateRatio(numerator: kitKills, denominator: kitDeaths)
-                
-                var dataForThisMode = [kitWins, kitLosses, kitWLR, kitKills, kitDeaths, kitKDR] as [Any]
-                
-                for (index, category) in desiredStats.enumerated() {
-                    statsForThisKit.append((category, dataForThisMode[index]))
-                }
-                
-                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue), data["pg_" + kit.0].intValue), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+            var kitWins = 0
+            
+            for mode in modes {
+                kitWins += data[mode.id + "_wins" + kit.id].intValue
             }
+            
+            var kitKills = data["kills" + kit.id].intValue
+            var kitAssists = data["assists" + kit.id].intValue
+            var kitDeaths = data["deaths" + kit.id].intValue
+            var kitKDR = GameTypes.calculateRatio(numerator: kitKills, denominator: kitDeaths)
+            
+            if kitWins + kitDeaths == 0 {
+                continue
+            }
+            
+            var dataForThisMode = [kitWins, kitKills, kitAssists, kitDeaths, kitKDR] as [Any]
+            
+            for (index, category) in desiredKitStats.enumerated() {
+                statsForThisKit.append((category, dataForThisMode[index]))
+            }
+            
+            kitStats.append(CellData(headerData: (kit.name + " " + getKitLevel(kitID: kit.id), ""), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+            
         }
         
         ret.append(contentsOf: kitStats)
@@ -173,7 +186,7 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 4, 7, 10]
+        let sectionsThatNeedHeader = [3, 7, 11]
         
         if sectionsThatNeedHeader.contains(section) {
             return 32
@@ -185,4 +198,21 @@ class SuperSmashStatsViewController: GenericStatsViewController, UITableViewDele
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
+    
+    func getKitLevel(kitID: String) -> String {
+        var level = 0
+        
+        var id = kitID
+        id.remove(at: id.startIndex)
+        
+        level += data[id + "_minor"].intValue
+        level += data[id + "_master"].intValue
+        
+        if level == 0 {
+            return ""
+        }
+        
+        return GameTypes.convertToRomanNumerals(number: level)
+    }
 }
+

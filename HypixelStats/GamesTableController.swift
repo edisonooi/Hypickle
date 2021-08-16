@@ -24,6 +24,7 @@ class GamesTableController: UITableViewController {
         
         gamesTable.dataSource = self
         gamesTable.backgroundColor = .black
+        gamesTable.rowHeight = 64
 
     }
 
@@ -35,13 +36,13 @@ class GamesTableController: UITableViewController {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
         cell.textLabel?.text = GameTypes.databaseNameToCleanName[gameList[indexPath.section][indexPath.row]]
         
-        let verticalPadding: CGFloat = 8
-
-        let maskLayer = CALayer()
-        maskLayer.cornerRadius = 10
-        maskLayer.backgroundColor = UIColor.black.cgColor
-        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: tableView.frame.size.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
-        cell.layer.mask = maskLayer
+//        let verticalPadding: CGFloat = 8
+//
+//        let maskLayer = CALayer()
+//        maskLayer.cornerRadius = 10
+//        maskLayer.backgroundColor = UIColor.black.cgColor
+//        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: tableView.frame.size.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+//        cell.layer.mask = maskLayer
         
         return cell
         

@@ -212,7 +212,7 @@ class PitStatsViewController: GenericStatsViewController, UITableViewDelegate, U
                     if xp >= step {
                         xp -= step
                     } else {
-                        return (GameTypes.convertToRomanNumerals(number: i), 10 * j * k)
+                        return (GameTypes.convertToRomanNumerals(number: i), 10 * j + k)
                     }
                 }
             }

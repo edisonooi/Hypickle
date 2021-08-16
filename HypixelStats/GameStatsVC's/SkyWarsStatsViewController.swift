@@ -95,8 +95,6 @@ class SkyWarsStatsViewController: GenericStatsViewController, UITableViewDelegat
             (id: "_ranked",       name: "Ranked")
         ]
 
-
-
         var desiredStats = ["Wins", "Losses", "W/L", "Kills", "Deaths", "K/D"]
 
         var modeStats: [CellData] = []
@@ -115,10 +113,6 @@ class SkyWarsStatsViewController: GenericStatsViewController, UITableViewDelegat
             var modeKills = data["kills" + mode.id].intValue
             var modeDeaths = data["deaths" + mode.id].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
-
-            if modeWins + modeDeaths == 0 {
-                continue
-            }
 
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR] as [Any]
 
@@ -295,8 +289,4 @@ class SkyWarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         
         return prestigeString
     }
-    
-    
-    
-    
 }

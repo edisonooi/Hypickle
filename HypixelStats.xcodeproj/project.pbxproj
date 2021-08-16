@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E1DE6413DEBB8F8023BE690 /* Pods_HypixelStatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF69D871D49B2B20ACDC2C0 /* Pods_HypixelStatsTests.framework */; };
+		4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */; };
+		4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */; };
 		4C7CC51326C86F8A006F6EEE /* BedwarsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51226C86F8A006F6EEE /* BedwarsStatsViewController.swift */; };
 		4C7CC51526C8AAF0006F6EEE /* ArcadeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51426C8AAF0006F6EEE /* ArcadeStatsViewController.swift */; };
 		4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsViewController.swift */; };
@@ -76,6 +78,8 @@
 /* Begin PBXFileReference section */
 		1335A542FE74D93C4F72183A /* Pods-HypixelStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.release.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.release.xcconfig"; sourceTree = "<group>"; };
 		3A7964323B7DCBBAD69A73C9 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewCell.swift; sourceTree = "<group>"; };
+		4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesTableViewCell.xib; sourceTree = "<group>"; };
 		4C7CC51226C86F8A006F6EEE /* BedwarsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedwarsStatsViewController.swift; sourceTree = "<group>"; };
 		4C7CC51426C8AAF0006F6EEE /* ArcadeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeStatsViewController.swift; sourceTree = "<group>"; };
 		4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyWarsStatsViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */,
 				BEAFEC0026AA11E000349728 /* CellData.swift */,
 				BEDAAF3F26BE38BB002592A1 /* GamesTable.swift */,
+				4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */,
+				4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */,
 			);
 			path = HypixelStats;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE14331126A0DDA20054E475 /* LaunchScreen.storyboard in Resources */,
+				4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */,
 				BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */,
 				BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */,
 				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
@@ -570,6 +577,7 @@
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
 				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
 				BE59FAF026B70B17000F7799 /* GingerbreadStatsViewController.swift in Sources */,
+				4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */,
 				BEDAAF4026BE38BB002592A1 /* GamesTable.swift in Sources */,
 				BE0DBF7E26B5F26800344E8B /* SuperSmashStatsViewController.swift in Sources */,
 				BE59FAF326B7294F000F7799 /* StringExtension.swift in Sources */,

@@ -22,6 +22,7 @@ class GamesTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gamesTable.register(GamesTableViewCell.nib(), forCellReuseIdentifier: GamesTableViewCell.identifier)
         gamesTable.dataSource = self
         gamesTable.backgroundColor = .black
         gamesTable.rowHeight = 64
@@ -33,8 +34,14 @@ class GamesTableController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
-        cell.textLabel?.text = GameTypes.databaseNameToCleanName[gameList[indexPath.section][indexPath.row]]
+        let cell = gamesTable.dequeueReusableCell(withIdentifier: GamesTableViewCell.identifier, for: indexPath) as! GamesTableViewCell
+        
+        let gameID = gameList[indexPath.section][indexPath.row]
+        let iconID = gameID.lowercased() + "_icon"
+        let gameTitle = GameTypes.databaseNameToCleanName[gameID]!
+        
+        cell.configure(imageName: iconID, title: gameTitle)
+        
         
 //        let verticalPadding: CGFloat = 8
 //
@@ -62,19 +69,23 @@ class GamesTableController: UITableViewController {
         return gameList.count
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            return nil
-        }
-        
-        let label = UILabel()
-        label.text = "Removed Games"
-        label.backgroundColor = .systemPink
-        return label
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        if section == 0 {
+//            return nil
+//        }
+//
+//        let label = UILabel()
+//        label.text = "Removed Games"
+//        label.backgroundColor = .systemPink
+//        return label
+//    }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? CGFloat.leastNormalMagnitude : 32
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return section == 0 ? CGFloat.leastNormalMagnitude : 32
+//    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "" : "Removed Games"
     }
     
 

@@ -185,6 +185,7 @@
                         <segue destination="fZL-w2-1sW" kind="showDetail" identifier="showSkyWarsStats" id="0OU-oB-kP3"/>
                         <segue destination="HqH-97-Zm0" kind="showDetail" identifier="showMCGOStats" id="S3V-cA-kbR"/>
                         <segue destination="vqG-ez-Of4" kind="showDetail" identifier="showSkyClashStats" id="vvb-uP-VPY"/>
+                        <segue destination="sJ8-JN-0tu" kind="showDetail" identifier="showPitStats" id="Q0U-xv-ZaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1486,6 +1487,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1d-Rd-zgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5497" y="-221"/>
+        </scene>
+        <!--Pit Stats View Controller-->
+        <scene sceneID="bw8-3a-0fQ">
+            <objects>
+                <viewController id="sJ8-JN-0tu" customClass="PitStatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gax-nw-zTJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="540-2W-lbg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="hdX-Oo-DEf">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J96-ML-1OI">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ekc-Qg-1AT">
+                                                <rect key="frame" x="0.0" y="64.5" width="414" height="413.5"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hdX-Oo-DEf" secondAttribute="bottom" id="1Z3-jC-QBf"/>
+                                    <constraint firstAttribute="trailing" secondItem="hdX-Oo-DEf" secondAttribute="trailing" id="4RK-Tw-9dX"/>
+                                    <constraint firstItem="hdX-Oo-DEf" firstAttribute="leading" secondItem="540-2W-lbg" secondAttribute="leading" id="VHD-h8-eR8"/>
+                                    <constraint firstItem="hdX-Oo-DEf" firstAttribute="centerX" secondItem="540-2W-lbg" secondAttribute="centerX" id="cBG-Uc-j2o"/>
+                                    <constraint firstItem="hdX-Oo-DEf" firstAttribute="centerY" secondItem="540-2W-lbg" secondAttribute="centerY" id="h3j-Be-CWn"/>
+                                    <constraint firstItem="hdX-Oo-DEf" firstAttribute="width" secondItem="540-2W-lbg" secondAttribute="width" id="rDj-Sk-Apt"/>
+                                    <constraint firstItem="hdX-Oo-DEf" firstAttribute="top" secondItem="540-2W-lbg" secondAttribute="top" id="wL1-gf-y6W"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="wQ2-1t-2Ng"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="cDa-m0-8XT"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lZf-J6-Idd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="540-2W-lbg" secondAttribute="trailing" id="3BS-qy-tOD"/>
+                            <constraint firstItem="540-2W-lbg" firstAttribute="leading" secondItem="gax-nw-zTJ" secondAttribute="leading" id="ILd-Ij-0Nh"/>
+                            <constraint firstAttribute="bottom" secondItem="540-2W-lbg" secondAttribute="bottom" id="My4-kM-jsU"/>
+                            <constraint firstItem="540-2W-lbg" firstAttribute="top" secondItem="gax-nw-zTJ" secondAttribute="top" id="ozB-bA-IH5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bRO-h2-a4O"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="540-2W-lbg" id="Osq-52-uxP"/>
+                        <outlet property="mainStackView" destination="hdX-Oo-DEf" id="IZk-r0-aXy"/>
+                        <outlet property="statsTable" destination="Ekc-Qg-1AT" id="Xr4-TX-adr"/>
+                        <outlet property="titleLabel" destination="J96-ML-1OI" id="tlg-jT-arN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4zN-fj-sLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5501" y="238"/>
         </scene>
     </scenes>
     <resources>

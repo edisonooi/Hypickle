@@ -25,14 +25,14 @@ class HungerGamesStatsManager: NSObject, StatsManager {
         var killsTeams = data["kills_teams_normal"].intValue
         var kills = data["kills"].intValue
         var deaths = data["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var winsSolo = data["wins_solo_normal"].intValue
         var winsTeams = data["wins_teams_normal"].intValue
         var wins = winsSolo + winsTeams
         
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: deaths)
-        var killsPerGame = GameTypes.calculateRatio(numerator: kills, denominator: wins + deaths)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: deaths)
+        var killsPerGame = Utils.calculateRatio(numerator: kills, denominator: wins + deaths)
         
         let winsDivisions = [
             ("Solo", winsSolo),
@@ -111,14 +111,14 @@ class HungerGamesStatsManager: NSObject, StatsManager {
                 var kitWins = kitWinsSolo + kitWinsTeams
                 var kitGamesPlayed = data["games_played_" + kit].intValue
                 var kitLosses = kitGamesPlayed - kitWins
-                var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
+                var kitWLR = Utils.calculateRatio(numerator: kitWins, denominator: kitLosses)
                 
                 var kitKills = data["kills_" + kit].intValue
                 
-                var kitTimePlayed = GameTypes.convertToHoursMinutesSeconds(seconds: data["time_played_" + kit].intValue)
+                var kitTimePlayed = Utils.convertToHoursMinutesSeconds(seconds: data["time_played_" + kit].intValue)
                 
                 var kitPrestige = data["p" + kit].intValue
-                var prestigeString = kitPrestige == 0 ? "" : GameTypes.convertToRomanNumerals(number: kitPrestige)
+                var prestigeString = kitPrestige == 0 ? "" : Utils.convertToRomanNumerals(number: kitPrestige)
                 
                 var kitLevel = data[kit].intValue + 1
                 
@@ -143,7 +143,7 @@ class HungerGamesStatsManager: NSObject, StatsManager {
                         kitName = kit.capitalized
                 }
                 
-                kitStats.append(CellData(headerData: (kitName + " " + GameTypes.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+                kitStats.append(CellData(headerData: (kitName + " " + Utils.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit, isHeader: false, isOpened: false))
             }
         }
         

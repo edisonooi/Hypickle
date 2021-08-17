@@ -24,17 +24,17 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         
         var wins = data["wins"].intValue
         var losses = (data["games"].intValue) - wins
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue
         var deaths = data["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var fastestMurdWin = data["quickest_murderer_win_time_seconds"].intValue
         var fastestDetWin = data["quickest_detective_win_time_seconds"].intValue
         
-        var murdWinString = fastestMurdWin == 0 ? "N/A" : GameTypes.formatMinuteSeconds(totalSeconds: fastestMurdWin)
-        var detWinString = fastestDetWin == 0 ? "N/A" : GameTypes.formatMinuteSeconds(totalSeconds: fastestDetWin)
+        var murdWinString = fastestMurdWin == 0 ? "N/A" : Utils.formatMinuteSeconds(totalSeconds: fastestMurdWin)
+        var detWinString = fastestDetWin == 0 ? "N/A" : Utils.formatMinuteSeconds(totalSeconds: fastestDetWin)
         
         let winsDivisions = [
             ("Murderer Wins", data["murderer_wins"].intValue),
@@ -137,7 +137,7 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
                 var killsAsSurvivor = data["kills_as_survivor" + mode.id].intValue
                 var finalKills = data["kills" + mode.id].intValue
                 
-                var timeSurvived = GameTypes.convertToHoursMinutesSeconds(seconds: data["total_time_survived_seconds" + mode.id].intValue)
+                var timeSurvived = Utils.convertToHoursMinutesSeconds(seconds: data["total_time_survived_seconds" + mode.id].intValue)
                 
                 var infectionGoldPickups = data["coins_pickedup" + mode.id].intValue
                 
@@ -154,11 +154,11 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
             
             var modeWins = data["wins" + mode.id].intValue
             var modeLosses = (data["games" + mode.id].intValue) - modeWins
-            var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
+            var modeWLR = Utils.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
             var modeKills = data["kills" + mode.id].intValue
             var modeDeaths = data["deaths" + mode.id].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var modeKnifeKills = data["knife_kills" + mode.id].intValue
             var modeThrownKnifeKills = data["thrown_knife_kills" + mode.id].intValue

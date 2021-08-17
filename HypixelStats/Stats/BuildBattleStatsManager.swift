@@ -22,7 +22,7 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         var wins = data["wins"].intValue
         var gamesPlayed = data["games_played"].intValue
         var losses = gamesPlayed - wins
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         let winsDivisions = [
             ("Solo", data["wins_solo_normal"].intValue),

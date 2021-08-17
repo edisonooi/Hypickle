@@ -19,6 +19,7 @@ class GenericStatsViewController: UIViewController {
     
     
     lazy var dataManager: StatsManager = {
+        
         switch gameID {
         case "Arcade":
             return ArcadeStatsManager(data: data, achievementsData: achievementsData)
@@ -80,7 +81,7 @@ class GenericStatsViewController: UIViewController {
     
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.boldSystemFont(ofSize: 30.0)
-        titleLabel.text = GameTypes.databaseNameToCleanName[gameID]
+        titleLabel.text = Utils.databaseNameToCleanName[gameID]
         
         statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         statsTable.dataSource = dataManager

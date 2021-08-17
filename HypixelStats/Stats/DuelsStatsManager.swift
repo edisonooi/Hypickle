@@ -34,19 +34,19 @@ class DuelsStatsManager: NSObject, StatsManager {
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue
         var deaths = data["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var swings = data["melee_swings"].intValue
         var hits = data["melee_hits"].intValue
-        var meleeAccuracy = GameTypes.calculatePercentage(numerator: hits, denominator: swings)
+        var meleeAccuracy = Utils.calculatePercentage(numerator: hits, denominator: swings)
         
         var bowShots = data["bow_shots"].intValue
         var bowHits = data["bow_hits"].intValue
-        var bowAccuracy = GameTypes.calculatePercentage(numerator: bowHits, denominator: bowShots)
+        var bowAccuracy = Utils.calculatePercentage(numerator: bowHits, denominator: bowShots)
         
         
         var generalStats = [
@@ -113,11 +113,11 @@ class DuelsStatsManager: NSObject, StatsManager {
                 continue
             }
             
-            var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
+            var modeWLR = Utils.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
             var modeKills = mode.divisionId == "bridge" ? data[mode.id + "_bridge_kills"].intValue : data[mode.id + "_kills"].intValue
             var modeDeaths = mode.divisionId == "bridge" ? data[mode.id + "_bridge_deaths"].intValue : data[mode.id + "_deaths"].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var modeCurrentWS = data["current_winstreak_mode_" + mode.id].intValue
             var modeBestWS = data["best_winstreak_mode_" + mode.id].intValue
@@ -207,7 +207,7 @@ class DuelsStatsManager: NSObject, StatsManager {
             let divisionData = data[modeID + "_" + division.name.lowercased() + "_title_prestige"].intValue
             
             if divisionData != 0 {
-                let romanNumeral = GameTypes.convertToRomanNumerals(number: divisionData)
+                let romanNumeral = Utils.convertToRomanNumerals(number: divisionData)
                 
                 return division.name + " " + romanNumeral
             }

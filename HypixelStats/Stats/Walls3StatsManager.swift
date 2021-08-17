@@ -25,17 +25,17 @@ class Walls3StatsManager: NSObject, StatsManager {
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue
         var assists = data["assists"].intValue
         var deaths = data["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var finalKills = data["final_kills"].intValue
         var finalAssists = data["final_assists"].intValue
         var finalDeaths = data["final_deaths"].intValue
-        var finalKDR = GameTypes.calculateRatio(numerator: finalKills, denominator: finalDeaths)
+        var finalKDR = Utils.calculateRatio(numerator: finalKills, denominator: finalDeaths)
       
         
         var generalStats = [
@@ -71,11 +71,11 @@ class Walls3StatsManager: NSObject, StatsManager {
             
             var modeWins = data["wins" + mode.id].intValue
             var modeLosses = data["losses" + mode.id].intValue
-            var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
+            var modeWLR = Utils.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
             var modeKills = data["kills" + mode.id].intValue
             var modeDeaths = data["deaths" + mode.id].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             if modeWins + modeLosses + modeKills + modeDeaths == 0 {
                 continue
@@ -130,7 +130,7 @@ class Walls3StatsManager: NSObject, StatsManager {
             
             var kitWins = data[kit.id + "_wins"].intValue
             var kitLosses = data[kit.id + "_losses"].intValue
-            var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
+            var kitWLR = Utils.calculateRatio(numerator: kitWins, denominator: kitLosses)
             
             if kitWins + kitLosses == 0 {
                 continue
@@ -138,15 +138,15 @@ class Walls3StatsManager: NSObject, StatsManager {
             
             var kitKills = data[kit.id + "_kills"].intValue
             var kitDeaths = data[kit.id + "_deaths"].intValue
-            var kitKDR = GameTypes.calculateRatio(numerator: kitKills, denominator: kitDeaths)
+            var kitKDR = Utils.calculateRatio(numerator: kitKills, denominator: kitDeaths)
             
             var kitFinalKills = data[kit.id + "_final_kills"].intValue
             var kitFinalDeaths = data[kit.id + "_final_deaths"].intValue
-            var kitFinalKDR = GameTypes.calculateRatio(numerator: kitFinalKills, denominator: kitFinalDeaths)
+            var kitFinalKDR = Utils.calculateRatio(numerator: kitFinalKills, denominator: kitFinalDeaths)
             
             var kitPrestige = data["classes"][kit.id]["prestige"].intValue
             
-            var kitPrestigeString = kitPrestige == 0 ? "" : GameTypes.convertToRomanNumerals(number: kitPrestige)
+            var kitPrestigeString = kitPrestige == 0 ? "" : Utils.convertToRomanNumerals(number: kitPrestige)
             
             
             var dataForThisKit = [kitWins, kitLosses, kitWLR, kitKills, kitDeaths, kitKDR, kitFinalKills, kitFinalDeaths, kitFinalKDR] as [Any]

@@ -24,10 +24,10 @@ class MCGOStatsManager: NSObject, StatsManager {
         
         var kills = getTotalStats(id: "kills")
         var deaths = getTotalStats(id: "deaths")
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var headshotKills = data["headshot_kills"].intValue
-        var percentageHeadshot = GameTypes.calculatePercentage(numerator: headshotKills, denominator: kills)
+        var percentageHeadshot = Utils.calculatePercentage(numerator: headshotKills, denominator: kills)
         
         
         var generalStats = [
@@ -68,7 +68,7 @@ class MCGOStatsManager: NSObject, StatsManager {
 
             var modeKills = data["kills" + mode.id].intValue
             var modeDeaths = data["deaths" + mode.id].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var modeCopKills = data["cop_kills" + mode.id].intValue
             var modeCrimKills = data["criminal_kills" + mode.id].intValue

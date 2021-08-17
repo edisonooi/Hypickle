@@ -39,7 +39,7 @@ class GamesTableController: UITableViewController {
         
         let gameID = gameList[indexPath.section][indexPath.row]
         let iconID = gameID.lowercased() + "_icon"
-        let gameTitle = GameTypes.databaseNameToCleanName[gameID]!
+        let gameTitle = Utils.databaseNameToCleanName[gameID]!
         
         cell.configure(imageName: iconID, title: gameTitle)
         

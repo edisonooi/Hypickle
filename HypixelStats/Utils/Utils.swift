@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GameTypes {
+class Utils {
     
     struct game {
         var typeName: String

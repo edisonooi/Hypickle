@@ -21,11 +21,11 @@ class WallsStatsManager: NSObject, StatsManager {
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue
         var deaths = data["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         return [
             [

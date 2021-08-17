@@ -23,11 +23,11 @@ class SkyClashStatsManager: NSObject, StatsManager {
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue
         var deaths = data["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var killsDivisions = [
             ("Melee Kills", data["melee_kills"].intValue),
@@ -66,11 +66,11 @@ class SkyClashStatsManager: NSObject, StatsManager {
             
             var modeWins = data["wins_" + mode.id].intValue
             var modeLosses = data["losses_" + mode.id].intValue
-            var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
+            var modeWLR = Utils.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
             var modeKills = data["kills_" + mode.id].intValue
             var modeDeaths = data["deaths_" + mode.id].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR] as [Any]
             
@@ -113,7 +113,7 @@ class SkyClashStatsManager: NSObject, StatsManager {
             var kitKills = data["kills" + kit.id].intValue
             var kitAssists = data["assists" + kit.id].intValue
             var kitDeaths = data["deaths" + kit.id].intValue
-            var kitKDR = GameTypes.calculateRatio(numerator: kitKills, denominator: kitDeaths)
+            var kitKDR = Utils.calculateRatio(numerator: kitKills, denominator: kitDeaths)
             
             if kitWins + kitDeaths == 0 {
                 continue
@@ -207,7 +207,7 @@ class SkyClashStatsManager: NSObject, StatsManager {
             return ""
         }
         
-        return GameTypes.convertToRomanNumerals(number: level)
+        return Utils.convertToRomanNumerals(number: level)
     }
 }
 

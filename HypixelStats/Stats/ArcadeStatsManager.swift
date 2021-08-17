@@ -33,7 +33,7 @@ class ArcadeStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Wins", data["wins_oneinthequiver"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills", data["kills_oneinthequiver"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", data["deaths_oneinthequiver"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", GameTypes.calculateRatio(numerator: data["kills_oneinthequiver"].intValue, denominator: data["deaths_oneinthequiver"].intValue)), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_oneinthequiver"].intValue, denominator: data["deaths_oneinthequiver"].intValue)), sectionData: [], isHeader: false, isOpened: false)
         ]
         
         var captureTheWoolStats = [
@@ -72,7 +72,7 @@ class ArcadeStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Empire Kills", data["sw_empire_kills"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Rebel Kills", data["sw_rebel_kills"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", data["sw_deaths"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", GameTypes.calculateRatio(numerator: data["sw_kills"].intValue, denominator: data["sw_deaths"].intValue)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["sw_kills"].intValue, denominator: data["sw_deaths"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Shots Fired", data["sw_shots_fired"].intValue), sectionData: [], isHeader: false, isOpened: false)
         ]
         
@@ -97,13 +97,13 @@ class ArcadeStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Kills", data["kills_mini_walls"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Final Kills", data["final_kills_mini_walls"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", data["deaths_mini_walls"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", GameTypes.calculateRatio(numerator: data["kills_mini_walls"].intValue + data["final_kills_mini_walls"].intValue, denominator: data["deaths_mini_walls"].intValue)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_mini_walls"].intValue + data["final_kills_mini_walls"].intValue, denominator: data["deaths_mini_walls"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Withers Killed", data["wither_kills_mini_walls"].intValue), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Arrows Shot", data["arrows_shot_mini_walls"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Arrows Hit", data["arrows_hit_mini_walls"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Arrow Accuracy", GameTypes.calculatePercentage(numerator: data["arrows_hit_mini_walls"].intValue, denominator: data["arrows_shot_mini_walls"].intValue)), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Arrow Accuracy", Utils.calculatePercentage(numerator: data["arrows_hit_mini_walls"].intValue, denominator: data["arrows_shot_mini_walls"].intValue)), sectionData: [], isHeader: false, isOpened: false)
         ]
         
         var partyGamesStats = [
@@ -120,7 +120,7 @@ class ArcadeStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Wins", data["wins_throw_out"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills", data["kills_throw_out"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", data["deaths_throw_out"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", GameTypes.calculateRatio(numerator: data["kills_throw_out"].intValue, denominator: data["deaths_throw_out"].intValue)), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_throw_out"].intValue, denominator: data["deaths_throw_out"].intValue)), sectionData: [], isHeader: false, isOpened: false)
         ]
         
         var zombiesStats = getZombiesStats()
@@ -195,9 +195,9 @@ class ArcadeStatsManager: NSObject, StatsManager {
             
             CellData(headerData: ("Bullets Shot", data["bullets_shot_zombies"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Bullets Hit", data["bullets_hit_zombies"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Bullet Accuracy", GameTypes.calculatePercentage(numerator: data["bullets_hit_zombies"].intValue, denominator: data["bullets_shot_zombies"].intValue)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Bullet Accuracy", Utils.calculatePercentage(numerator: data["bullets_hit_zombies"].intValue, denominator: data["bullets_shot_zombies"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Headshots", data["headshots_zombies"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Headshot Percentage", GameTypes.calculatePercentage(numerator: data["headshots_zombies"].intValue, denominator: data["bullets_hit_zombies"].intValue)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Headshot Percentage", Utils.calculatePercentage(numerator: data["headshots_zombies"].intValue, denominator: data["bullets_hit_zombies"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Players Revived", data["players_revived_zombies"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Times Knocked Down", data["times_knocked_down_zombies"].intValue), sectionData: [], isHeader: false, isOpened: false),

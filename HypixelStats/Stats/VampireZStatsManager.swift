@@ -22,12 +22,12 @@ class VampireZStatsManager: NSObject, StatsManager {
         var humanKills = data["human_kills"].intValue
         var humanDeaths = data["human_deaths"].intValue
         
-        var humanKDR = GameTypes.calculateRatio(numerator: humanKills, denominator: humanDeaths)
+        var humanKDR = Utils.calculateRatio(numerator: humanKills, denominator: humanDeaths)
         
         var vampireKills = data["vampire_kills"].intValue
         var vampireDeaths = data["vampire_deaths"].intValue
         
-        var vampireKDR = GameTypes.calculateRatio(numerator: vampireKills, denominator: vampireDeaths)
+        var vampireKDR = Utils.calculateRatio(numerator: vampireKills, denominator: vampireDeaths)
         
         return [
             [

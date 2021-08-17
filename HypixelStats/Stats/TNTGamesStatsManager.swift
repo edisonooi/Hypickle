@@ -23,60 +23,60 @@ class TNTGamesStatsManager: NSObject, StatsManager {
         
         var winsTNTRun = data["wins_tntrun"].intValue
         var lossesTNTRun = data["deaths_tntrun"].intValue
-        var wlrTNTRun = GameTypes.calculateRatio(numerator: winsTNTRun, denominator: lossesTNTRun)
+        var wlrTNTRun = Utils.calculateRatio(numerator: winsTNTRun, denominator: lossesTNTRun)
         
         var winsPVPRun = data["wins_pvprun"].intValue
         var killsPVPRun = data["kills_pvprun"].intValue
         var lossesPVPRun = data["deaths_pvprun"].intValue
-        var wlrPVPRun = GameTypes.calculateRatio(numerator: winsPVPRun, denominator: lossesPVPRun)
-        var kdrPVPRun = GameTypes.calculateRatio(numerator: killsPVPRun, denominator: lossesPVPRun)
+        var wlrPVPRun = Utils.calculateRatio(numerator: winsPVPRun, denominator: lossesPVPRun)
+        var kdrPVPRun = Utils.calculateRatio(numerator: killsPVPRun, denominator: lossesPVPRun)
         
         var winsSpleef = data["wins_bowspleef"].intValue
         var lossesSpleef = data["deaths_bowspleef"].intValue
-        var wlrSpleef = GameTypes.calculateRatio(numerator: winsSpleef, denominator: lossesSpleef)
+        var wlrSpleef = Utils.calculateRatio(numerator: winsSpleef, denominator: lossesSpleef)
         
         var winsTag = data["wins_tntag"].intValue
         
         var winsWizards = data["wins_capture"].intValue
         var killsWizards = data["kills_capture"].intValue
         var deathsWizards = data["deaths_capture"].intValue
-        var kdrWizards = GameTypes.calculateRatio(numerator: killsWizards, denominator: deathsWizards)
+        var kdrWizards = Utils.calculateRatio(numerator: killsWizards, denominator: deathsWizards)
         
         var killsAncient = data["new_ancientwizard_kills"].intValue
         var deathsAncient = data["new_ancientwizard_deaths"].intValue
-        var kdrAncient = GameTypes.calculateRatio(numerator: killsAncient, denominator: deathsAncient)
+        var kdrAncient = Utils.calculateRatio(numerator: killsAncient, denominator: deathsAncient)
         
         var killsBlood = data["new_bloodwizard_kills"].intValue
         var deathsBlood = data["new_bloodwizard_deaths"].intValue
-        var kdrBlood = GameTypes.calculateRatio(numerator: killsBlood, denominator: deathsBlood)
+        var kdrBlood = Utils.calculateRatio(numerator: killsBlood, denominator: deathsBlood)
         
         var killsFire = data["new_firewizard_kills"].intValue
         var deathsFire = data["new_firewizard_deaths"].intValue
-        var kdrFire = GameTypes.calculateRatio(numerator: killsFire, denominator: deathsFire)
+        var kdrFire = Utils.calculateRatio(numerator: killsFire, denominator: deathsFire)
         
         var killsHydro = data["new_hydrowizard_kills"].intValue
         var deathsHydro = data["new_hydrowizard_deaths"].intValue
-        var kdrHydro = GameTypes.calculateRatio(numerator: killsHydro, denominator: deathsHydro)
+        var kdrHydro = Utils.calculateRatio(numerator: killsHydro, denominator: deathsHydro)
         
         var killsIce = data["new_icewizard_kills"].intValue
         var deathsIce = data["new_icewizard_deaths"].intValue
-        var kdrIce = GameTypes.calculateRatio(numerator: killsIce, denominator: deathsIce)
+        var kdrIce = Utils.calculateRatio(numerator: killsIce, denominator: deathsIce)
         
         var killsKinetic = data["new_kineticwizard_kills"].intValue
         var deathsKinetic = data["new_kineticwizard_deaths"].intValue
-        var kdrKinetic = GameTypes.calculateRatio(numerator: killsKinetic, denominator: deathsKinetic)
+        var kdrKinetic = Utils.calculateRatio(numerator: killsKinetic, denominator: deathsKinetic)
         
         var killsStorm = data["new_stormwizard_kills"].intValue
         var deathsStorm = data["new_stormwizard_deaths"].intValue
-        var kdrStorm = GameTypes.calculateRatio(numerator: killsStorm, denominator: deathsStorm)
+        var kdrStorm = Utils.calculateRatio(numerator: killsStorm, denominator: deathsStorm)
         
         var killsToxic = data["new_toxicwizard_kills"].intValue
         var deathsToxic = data["new_toxicwizard_deaths"].intValue
-        var kdrToxic = GameTypes.calculateRatio(numerator: killsToxic, denominator: deathsToxic)
+        var kdrToxic = Utils.calculateRatio(numerator: killsToxic, denominator: deathsToxic)
         
         var killsWither = data["new_witherwizard_kills"].intValue
         var deathsWither = data["new_witherwizard_deaths"].intValue
-        var kdrWither = GameTypes.calculateRatio(numerator: killsWither, denominator: deathsWither)
+        var kdrWither = Utils.calculateRatio(numerator: killsWither, denominator: deathsWither)
         
         let statsAncient: [(String, Any)] = [
             ("Kills", killsAncient),
@@ -147,14 +147,14 @@ class TNTGamesStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Wins", winsTNTRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", lossesTNTRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlrTNTRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Record Time", GameTypes.formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Wins", winsPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills", killsPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", lossesPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlrPVPRun), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("K/D", kdrPVPRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Record Time", GameTypes.formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue)), sectionData: [], isHeader: false, isOpened: false),
             
             CellData(headerData: ("Wins", winsSpleef), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", lossesSpleef), sectionData: [], isHeader: false, isOpened: false),

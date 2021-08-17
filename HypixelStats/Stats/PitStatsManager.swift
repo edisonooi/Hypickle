@@ -27,8 +27,8 @@ class PitStatsManager: NSObject, StatsManager {
         var kills = stats["kills"].intValue
         var assists = stats["assists"].intValue
         var deaths = stats["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
-        var kadr = GameTypes.calculateRatio(numerator: kills + assists, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
+        var kadr = Utils.calculateRatio(numerator: kills + assists, denominator: deaths)
         
         var playtimeMinutes = stats["playtime_minutes"].intValue
         var playtimeHours = Double(playtimeMinutes) / 60.0
@@ -56,7 +56,7 @@ class PitStatsManager: NSObject, StatsManager {
             CellData(headerData: ("KA/D", kadr), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Highest Killstreak", stats["max_streak"].intValue), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Playtime", GameTypes.convertToHoursMinutesSeconds(seconds: playtimeMinutes * 60)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Playtime", Utils.convertToHoursMinutesSeconds(seconds: playtimeMinutes * 60)), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Kills/Hour", String(format: "%.2f", killsPerHour)), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("KA/Hour", String(format: "%.2f", kaPerHour)), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("XP/Hour", String(format: "%.2f", xpPerHour)), sectionData: [], isHeader: false, isOpened: false),
@@ -207,13 +207,13 @@ class PitStatsManager: NSObject, StatsManager {
                     if xp >= step {
                         xp -= step
                     } else {
-                        return (GameTypes.convertToRomanNumerals(number: i), 10 * j + k)
+                        return (Utils.convertToRomanNumerals(number: i), 10 * j + k)
                     }
                 }
             }
         }
         
-        return (GameTypes.convertToRomanNumerals(number: maxPrestige), maxLevel)
+        return (Utils.convertToRomanNumerals(number: maxPrestige), maxLevel)
     }
     
     

@@ -23,14 +23,14 @@ class BattlegroundStatsManager: NSObject, StatsManager {
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue
         var assists = data["assists"].intValue
         var deaths = data["deaths"].intValue
         
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
-        var akr = GameTypes.calculateRatio(numerator: assists, denominator: kills)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
+        var akr = Utils.calculateRatio(numerator: assists, denominator: kills)
         
         let winStats: [(String, Any)] = [
             ("Capture the Flag", data["wins_capturetheflag"].intValue),
@@ -78,7 +78,7 @@ class BattlegroundStatsManager: NSObject, StatsManager {
             
             var kitWins = data["wins_" + kit].intValue
             var kitLosses = data["losses_" + kit].intValue
-            var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
+            var kitWLR = Utils.calculateRatio(numerator: kitWins, denominator: kitLosses)
             
             var kitDamage = data["damage_" + kit].intValue
             var kitDamagePrevented = data["damage_prevented_" + kit].intValue

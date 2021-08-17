@@ -26,15 +26,15 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         
         var wins = data["wins_bedwars"].intValue
         var losses = data["losses_bedwars"].intValue
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills_bedwars"].intValue
         var deaths = data["deaths_bedwars"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var finalKills = data["final_kills_bedwars"].intValue
         var finalDeaths = data["final_deaths_bedwars"].intValue
-        var finalKDR = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var finalKDR = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var level = getLevel(xp: data["Experience"].intValue + data["Experience_new"].intValue)
         var prestige = getPrestige(level: level)
@@ -107,7 +107,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
             
             var modeWins = data[mode.id + "wins_bedwars"].intValue
             var modeLosses = data[mode.id + "losses_bedwars"].intValue
-            var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
+            var modeWLR = Utils.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
             if modeWins + modeLosses == 0 {
                 if index < 5 {
@@ -120,11 +120,11 @@ public class BedwarsStatsManager: NSObject, StatsManager {
             
             var modeKills = data[mode.id + "kills_bedwars"].intValue
             var modeDeaths = data[mode.id + "deaths_bedwars"].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var modeFinalKills = data[mode.id + "final_kills_bedwars"].intValue
             var modeFinalDeaths = data[mode.id + "final_deaths_bedwars"].intValue
-            var modeFinalKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeFinalKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
 
             var modeWS = data[mode.id + "winstreak"].intValue
             
@@ -156,7 +156,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
             var successfulAttempts = data["practice"][mode.id]["successful_attempts"].intValue
             var blocksPlaced = data["practice"][mode.id]["blocks_placed"].intValue
             
-            var percentSuccess = GameTypes.calculatePercentage(numerator: successfulAttempts, denominator: successfulAttempts + failedAttempts)
+            var percentSuccess = Utils.calculatePercentage(numerator: successfulAttempts, denominator: successfulAttempts + failedAttempts)
             
             var statsForThisMode: [(String, Any)] = [
                 ("Successful Attempts", successfulAttempts),

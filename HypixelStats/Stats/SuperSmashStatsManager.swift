@@ -23,11 +23,11 @@ class SuperSmashStatsManager: NSObject, StatsManager {
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue
         var deaths = data["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var generalStats = [
             CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
@@ -52,11 +52,11 @@ class SuperSmashStatsManager: NSObject, StatsManager {
             
             var modeWins = data["wins_" + mode.0].intValue
             var modeLosses = data["losses_" + mode.0].intValue
-            var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
+            var modeWLR = Utils.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
             var modeKills = data["kills_" + mode.0].intValue
             var modeDeaths = data["deaths_" + mode.0].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR] as [Any]
             
@@ -100,11 +100,11 @@ class SuperSmashStatsManager: NSObject, StatsManager {
                 
                 var kitWins = dataForThisKit["wins"].intValue
                 var kitLosses = dataForThisKit["losses"].intValue
-                var kitWLR = GameTypes.calculateRatio(numerator: kitWins, denominator: kitLosses)
+                var kitWLR = Utils.calculateRatio(numerator: kitWins, denominator: kitLosses)
                 
                 var kitKills = dataForThisKit["kills"].intValue
                 var kitDeaths = dataForThisKit["deaths"].intValue
-                var kitKDR = GameTypes.calculateRatio(numerator: kitKills, denominator: kitDeaths)
+                var kitKDR = Utils.calculateRatio(numerator: kitKills, denominator: kitDeaths)
                 
                 var dataForThisMode = [kitWins, kitLosses, kitWLR, kitKills, kitDeaths, kitKDR] as [Any]
                 

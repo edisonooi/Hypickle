@@ -24,11 +24,11 @@ class SpeedUHCStatsManager: NSObject, StatsManager {
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
-        var wlr = GameTypes.calculateRatio(numerator: wins, denominator: losses)
+        var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var kills = data["kills"].intValue
         var deaths = data["deaths"].intValue
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var titleAndStar = getTitleAndStar(score: data["score"].intValue)
         
@@ -69,11 +69,11 @@ class SpeedUHCStatsManager: NSObject, StatsManager {
             
             var modeWins = data["wins" + mode.id].intValue
             var modeLosses = data["losses" + mode.id].intValue
-            var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
+            var modeWLR = Utils.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
             var modeKills = data["kills" + mode.id].intValue
             var modeDeaths = data["deaths" + mode.id].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
             if modeWins + modeDeaths == 0 {
                 continue

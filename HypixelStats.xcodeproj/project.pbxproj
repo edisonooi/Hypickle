@@ -23,7 +23,7 @@
 		BE0DBF7E26B5F26800344E8B /* SuperSmashStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */; };
 		BE0DBF8026B6157700344E8B /* HungerGamesStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7F26B6157700344E8B /* HungerGamesStatsManager.swift */; };
 		BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348D26A5EF9B00153FBE /* GamesTableController.swift */; };
-		BE10349026A627FA00153FBE /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348F26A627FA00153FBE /* GameTypes.swift */; };
+		BE10349026A627FA00153FBE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348F26A627FA00153FBE /* Utils.swift */; };
 		BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330126A0DDA00054E475 /* AppDelegate.swift */; };
 		BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330326A0DDA00054E475 /* SceneDelegate.swift */; };
 		BE14330626A0DDA00054E475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330526A0DDA00054E475 /* ViewController.swift */; };
@@ -97,7 +97,7 @@
 		BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSmashStatsManager.swift; sourceTree = "<group>"; };
 		BE0DBF7F26B6157700344E8B /* HungerGamesStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerGamesStatsManager.swift; sourceTree = "<group>"; };
 		BE10348D26A5EF9B00153FBE /* GamesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableController.swift; sourceTree = "<group>"; };
-		BE10348F26A627FA00153FBE /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
+		BE10348F26A627FA00153FBE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BE1432FE26A0DDA00054E475 /* HypixelStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypixelStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE14330126A0DDA00054E475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE14330326A0DDA00054E475 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +169,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C266D9226CB68BE00E91DA8 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */,
+				4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */,
+				BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */,
+				BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		4C266D9326CB695400E91DA8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */,
+				BEDAAF3F26BE38BB002592A1 /* GamesTable.swift */,
+				BEAFEC0026AA11E000349728 /* CellData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8EA4070C3391C1FB18CBBC14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,26 +270,21 @@
 		BE14330026A0DDA00054E475 /* HypixelStats */ = {
 			isa = PBXGroup;
 			children = (
-				BE10349126A6783E00153FBE /* Stats */,
 				BE59FAF126B72940000F7799 /* Extensions */,
-				BE14333626A0E94F0054E475 /* API */,
+				BE14333626A0E94F0054E475 /* Utils */,
+				4C266D9326CB695400E91DA8 /* Models */,
+				4C266D9226CB68BE00E91DA8 /* Custom Views */,
+				BE10349126A6783E00153FBE /* Stats */,
 				BE14330126A0DDA00054E475 /* AppDelegate.swift */,
 				BE14330326A0DDA00054E475 /* SceneDelegate.swift */,
 				BE14330726A0DDA00054E475 /* Main.storyboard */,
-				BE14330526A0DDA00054E475 /* ViewController.swift */,
 				BE14330D26A0DDA20054E475 /* Assets.xcassets */,
 				BE14330F26A0DDA20054E475 /* LaunchScreen.storyboard */,
 				BE14331226A0DDA20054E475 /* Info.plist */,
 				BE14330A26A0DDA00054E475 /* HypixelStats.xcdatamodeld */,
-				BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */,
+				BE14330526A0DDA00054E475 /* ViewController.swift */,
 				BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */,
 				BE10348D26A5EF9B00153FBE /* GamesTableController.swift */,
-				BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */,
-				BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */,
-				BEAFEC0026AA11E000349728 /* CellData.swift */,
-				BEDAAF3F26BE38BB002592A1 /* GamesTable.swift */,
-				4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */,
-				4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */,
 			);
 			path = HypixelStats;
 			sourceTree = "<group>";
@@ -291,14 +307,14 @@
 			path = HypixelStatsUITests;
 			sourceTree = "<group>";
 		};
-		BE14333626A0E94F0054E475 /* API */ = {
+		BE14333626A0E94F0054E475 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				BE14333426A0E1FA0054E475 /* APIManager.swift */,
 				BE14333926A0E97A0054E475 /* MojangAPIManager.swift */,
-				BE10348F26A627FA00153FBE /* GameTypes.swift */,
+				BE10348F26A627FA00153FBE /* Utils.swift */,
 			);
-			path = API;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		BE59FAF126B72940000F7799 /* Extensions */ = {
@@ -571,7 +587,7 @@
 				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
 				BEC6822A26BCD15F0042D947 /* Walls3StatsManager.swift in Sources */,
 				4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */,
-				BE10349026A627FA00153FBE /* GameTypes.swift in Sources */,
+				BE10349026A627FA00153FBE /* Utils.swift in Sources */,
 				4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */,
 				BEAFEC0126AA11E000349728 /* CellData.swift in Sources */,
 				BE51723226A8F65100DE85DC /* VampireZStatsManager.swift in Sources */,

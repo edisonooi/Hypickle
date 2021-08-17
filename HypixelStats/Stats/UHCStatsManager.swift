@@ -46,9 +46,9 @@ class UHCStatsManager: NSObject, StatsManager {
             
             var modeKills = data["kills" + mode.id].intValue
             var modeDeaths = data["deaths" + mode.id].intValue
-            var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
             
-            var modeKW = GameTypes.calculateRatio(numerator: modeKills, denominator: modeWins)
+            var modeKW = Utils.calculateRatio(numerator: modeKills, denominator: modeWins)
             var modeHeadsEaten = data["heads_eaten" + mode.id].intValue
             
             wins += modeWins
@@ -69,7 +69,7 @@ class UHCStatsManager: NSObject, StatsManager {
             modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
         }
         
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var titleAndStar = getTitleAndStar(score: data["score"].intValue)
         

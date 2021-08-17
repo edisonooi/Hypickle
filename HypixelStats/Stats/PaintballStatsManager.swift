@@ -22,7 +22,7 @@ class PaintballStatsManager: NSObject, StatsManager {
         var kills = data["kills"].intValue
         var deaths = data["deaths"].intValue
         
-        var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
+        var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
        
         
         let shotsFired = data["shots_fired"].intValue

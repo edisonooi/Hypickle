@@ -9,17 +9,12 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class PaintballStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
+class PaintballStatsManager: NSObject, StatsManager {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        titleLabel.text = "Paintball"
-        
-        statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
-        statsTable.delegate = self
-        statsTable.dataSource = self
-        
+    var data: JSON = [:]
+    
+    init(data: JSON) {
+        self.data = data
     }
     
     lazy var desiredStats: [[(String, Any)]] = {
@@ -76,7 +71,7 @@ class PaintballStatsViewController: GenericStatsViewController, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = statsTable.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         let category = desiredStats[indexPath.section][indexPath.row].0
         let value = desiredStats[indexPath.section][indexPath.row].1
         cell.configure(category: category, value: "\(value)")

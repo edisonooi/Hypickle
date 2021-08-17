@@ -9,17 +9,12 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
+class DuelsStatsManager: NSObject, StatsManager {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        titleLabel.text = "Duels"
-        
-        statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
-        statsTable.delegate = self
-        statsTable.dataSource = self
-        
+    var data: JSON = [:]
+    
+    init(data: JSON) {
+        self.data = data
     }
     
     let divisions = [
@@ -160,7 +155,7 @@ class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = statsTable.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
         if indexPath.row == 0 {
             let category = statsTableData[indexPath.section].headerData.0
@@ -181,7 +176,7 @@ class DuelsStatsViewController: GenericStatsViewController, UITableViewDelegate,
         if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
             statsTableData[indexPath.section].isOpened = !statsTableData[indexPath.section].isOpened
             let sections = IndexSet.init(integer: indexPath.section)
-            statsTable.reloadSections(sections, with: .none)
+            tableView.reloadSections(sections, with: .none)
         }
     }
     

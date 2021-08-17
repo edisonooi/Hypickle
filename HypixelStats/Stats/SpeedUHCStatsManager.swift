@@ -1,26 +1,22 @@
 //
-//  SkyClashStatsViewController.swift
+//  SpeedUHCStatsViewController.swift
 //  HypixelStats
 //
-//  Created by Edison Ooi on 8/15/21.
+//  Created by codeplus on 8/5/21.
 //
 
 import Foundation
 import UIKit
 import SwiftyJSON
 
-class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
+class SpeedUHCStatsManager: NSObject, StatsManager {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        titleLabel.text = "SkyClash"
-        
-        statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
-        statsTable.delegate = self
-        statsTable.dataSource = self
-        
+    var data: JSON = [:]
+    
+    init(data: JSON) {
+        self.data = data
     }
+    
     
     lazy var statsTableData: [CellData] = {
         
@@ -34,32 +30,34 @@ class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelega
         var deaths = data["deaths"].intValue
         var kdr = GameTypes.calculateRatio(numerator: kills, denominator: deaths)
         
-        var killsDivisions = [
-            ("Melee Kills", data["melee_kills"].intValue),
-            ("Void Kills", data["void_kills"].intValue),
-            ("Bow Kills", data["bow_kills"].intValue),
-            ("Mob Kills", data["mob_kills"].intValue),
-        ]
+        var titleAndStar = getTitleAndStar(score: data["score"].intValue)
         
         var generalStats = [
+            
             CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
             
-            CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions, isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
+            
+            CellData(headerData: ("Score", data["score"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Stars", titleAndStar.1), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Title", titleAndStar.0), sectionData: [], isHeader: false, isOpened: false),
+            
+            CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false)
+
         ]
         
         ret.append(contentsOf: generalStats)
         
-        
         var modes = [
-            (id: "solo", name: "Solo"),
-            (id: "doubles", name: "Doubles"),
-            (id: "team_war", name: "Team War"),
-            (id: "mega", name: "Mega")
+            (id: "_solo_normal", name: "Solo Normal"),
+            (id: "_solo_insane", name: "Solo Insane"),
+            (id: "_team_normal", name: "Teams Normal"),
+            (id: "_team_insane", name: "Teams Insane")
         ]
         
         var desiredStats = ["Wins", "Losses", "W/L", "Kills", "Deaths", "K/D"]
@@ -69,13 +67,17 @@ class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelega
         for mode in modes {
             var statsForThisMode: [(String, Any)] = []
             
-            var modeWins = data["wins_" + mode.id].intValue
-            var modeLosses = data["losses_" + mode.id].intValue
+            var modeWins = data["wins" + mode.id].intValue
+            var modeLosses = data["losses" + mode.id].intValue
             var modeWLR = GameTypes.calculateRatio(numerator: modeWins, denominator: modeLosses)
             
-            var modeKills = data["kills_" + mode.id].intValue
-            var modeDeaths = data["deaths_" + mode.id].intValue
+            var modeKills = data["kills" + mode.id].intValue
+            var modeDeaths = data["deaths" + mode.id].intValue
             var modeKDR = GameTypes.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            
+            if modeWins + modeDeaths == 0 {
+                continue
+            }
             
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR] as [Any]
             
@@ -88,54 +90,7 @@ class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelega
         
         ret.append(contentsOf: modeStats)
         
-        var kits = [
-            (id: "_kit_archer", name: "Archer"),
-            (id: "_kit_assassin", name: "Assassin"),
-            (id: "_kit_berserker", name: "Berserker"),
-            (id: "_kit_cleric", name: "Cleric"),
-            (id: "_kit_frost_knight", name: "Frost Knight"),
-            (id: "_kit_guardian", name: "Guardian"),
-            (id: "_kit_jumpman", name: "Jumpman"),
-            (id: "_kit_necromancer", name: "Necromancer"),
-            (id: "_kit_scout", name: "Scout"),
-            (id: "_kit_swordsman", name: "Swordsman"),
-            (id: "_kit_treasure_hunter", name: "Treasure Hunter")
-        ]
         
-        var desiredKitStats = ["Wins", "Kills", "Assists", "Deaths", "K/D"]
-        
-        var kitStats: [CellData] = []
-        
-        for kit in kits {
-            var statsForThisKit: [(String, Any)] = []
-            
-            var kitWins = 0
-            
-            for mode in modes {
-                kitWins += data[mode.id + "_wins" + kit.id].intValue
-            }
-            
-            var kitKills = data["kills" + kit.id].intValue
-            var kitAssists = data["assists" + kit.id].intValue
-            var kitDeaths = data["deaths" + kit.id].intValue
-            var kitKDR = GameTypes.calculateRatio(numerator: kitKills, denominator: kitDeaths)
-            
-            if kitWins + kitDeaths == 0 {
-                continue
-            }
-            
-            var dataForThisMode = [kitWins, kitKills, kitAssists, kitDeaths, kitKDR] as [Any]
-            
-            for (index, category) in desiredKitStats.enumerated() {
-                statsForThisKit.append((category, dataForThisMode[index]))
-            }
-            
-            kitStats.append(CellData(headerData: (kit.name + " " + getKitLevel(kitID: kit.id), ""), sectionData: statsForThisKit, isHeader: false, isOpened: false))
-            
-        }
-        
-        ret.append(contentsOf: kitStats)
-    
         return ret
     }()
     
@@ -152,7 +107,7 @@ class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = statsTable.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
         if indexPath.row == 0 {
             let category = statsTableData[indexPath.section].headerData.0
@@ -173,7 +128,7 @@ class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelega
         if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
             statsTableData[indexPath.section].isOpened = !statsTableData[indexPath.section].isOpened
             let sections = IndexSet.init(integer: indexPath.section)
-            statsTable.reloadSections(sections, with: .none)
+            tableView.reloadSections(sections, with: .none)
         }
     }
     
@@ -186,7 +141,7 @@ class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 7, 11]
+        let sectionsThatNeedHeader = [3, 6, 9, 11]
         
         if sectionsThatNeedHeader.contains(section) {
             return 32
@@ -199,20 +154,29 @@ class SkyClashStatsViewController: GenericStatsViewController, UITableViewDelega
         return CGFloat.leastNormalMagnitude
     }
     
-    func getKitLevel(kitID: String) -> String {
-        var level = 0
+    func getTitleAndStar(score: Int) -> (String, Int) {
+        let titles = [
+            (value: 0, name: "Hiker"),
+            (value: 50, name: "Jogger"),
+            (value: 300, name: "Runner"),
+            (value: 1050, name: "Sprinter"),
+            (value: 2560, name: "Turbo"),
+            (value: 5550, name: "Sanic"),
+            (value: 15550, name: "Hot Rod"),
+            (value: 30550, name: "Bolt"),
+            (value: 55550, name: "Zoom"),
+            (value: 85550, name: "God Speed"),
+            (value: Int.max, name: nil)
+        ]
         
-        var id = kitID
-        id.remove(at: id.startIndex)
-        
-        level += data[id + "_minor"].intValue
-        level += data[id + "_master"].intValue
-        
-        if level == 0 {
-            return ""
+        for (index, title) in titles.enumerated() {
+            if score < title.value {
+                return (titles[index - 1].name!, index)
+            }
         }
         
-        return GameTypes.convertToRomanNumerals(number: level)
+        return ("Hiker", 1)
     }
+    
+    
 }
-

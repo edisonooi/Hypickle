@@ -12,16 +12,16 @@
 		4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */; };
 		4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998F26CB5B890042F1E0 /* StatsManager.swift */; };
 		4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */; };
-		4C7CC51526C8AAF0006F6EEE /* ArcadeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51426C8AAF0006F6EEE /* ArcadeStatsViewController.swift */; };
-		4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsViewController.swift */; };
-		4CCF9C0526C97CFE004BDF5E /* MCGOStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0426C97CFE004BDF5E /* MCGOStatsViewController.swift */; };
-		4CCF9C0726C9EA2A004BDF5E /* PitStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0626C9EA2A004BDF5E /* PitStatsViewController.swift */; };
-		4CCF9C0926C9F213004BDF5E /* SkyClashStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0826C9F213004BDF5E /* SkyClashStatsViewController.swift */; };
-		4CCF9C0B26CA1292004BDF5E /* TrueCombatStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsViewController.swift */; };
+		4C7CC51526C8AAF0006F6EEE /* ArcadeStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */; };
+		4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsManager.swift */; };
+		4CCF9C0526C97CFE004BDF5E /* MCGOStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0426C97CFE004BDF5E /* MCGOStatsManager.swift */; };
+		4CCF9C0726C9EA2A004BDF5E /* PitStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */; };
+		4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0826C9F213004BDF5E /* SkyClashStatsManager.swift */; };
+		4CCF9C0B26CA1292004BDF5E /* TrueCombatStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsManager.swift */; };
 		767864A562AEE51B77B1D918 /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8225318C5098FA73349D2281 /* Pods_HypixelStats_HypixelStatsUITests.framework */; };
 		A72BF621C06034A7D00BB9B9 /* Pods_HypixelStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952AAEAEC2543328EB86C96D /* Pods_HypixelStats.framework */; };
-		BE0DBF7E26B5F26800344E8B /* SuperSmashStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7D26B5F26800344E8B /* SuperSmashStatsViewController.swift */; };
-		BE0DBF8026B6157700344E8B /* HungerGamesStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */; };
+		BE0DBF7E26B5F26800344E8B /* SuperSmashStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */; };
+		BE0DBF8026B6157700344E8B /* HungerGamesStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7F26B6157700344E8B /* HungerGamesStatsManager.swift */; };
 		BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348D26A5EF9B00153FBE /* GamesTableController.swift */; };
 		BE10349026A627FA00153FBE /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348F26A627FA00153FBE /* GameTypes.swift */; };
 		BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330126A0DDA00054E475 /* AppDelegate.swift */; };
@@ -36,26 +36,26 @@
 		BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333426A0E1FA0054E475 /* APIManager.swift */; };
 		BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333926A0E97A0054E475 /* MojangAPIManager.swift */; };
 		BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */; };
-		BE51723226A8F65100DE85DC /* VampireZStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */; };
-		BE51723426A90A0E00DE85DC /* WallsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */; };
-		BE51723626A914C200DE85DC /* BuildBattleStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */; };
-		BE59FAF026B70B17000F7799 /* GingerbreadStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAEF26B70B17000F7799 /* GingerbreadStatsViewController.swift */; };
+		BE51723226A8F65100DE85DC /* VampireZStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723126A8F65100DE85DC /* VampireZStatsManager.swift */; };
+		BE51723426A90A0E00DE85DC /* WallsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723326A90A0D00DE85DC /* WallsStatsManager.swift */; };
+		BE51723626A914C200DE85DC /* BuildBattleStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723526A914C200DE85DC /* BuildBattleStatsManager.swift */; };
+		BE59FAF026B70B17000F7799 /* GingerbreadStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAEF26B70B17000F7799 /* GingerbreadStatsManager.swift */; };
 		BE59FAF326B7294F000F7799 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAF226B7294F000F7799 /* StringExtension.swift */; };
-		BE59FAF526B778A1000F7799 /* BattlegroundStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAF426B778A1000F7799 /* BattlegroundStatsViewController.swift */; };
+		BE59FAF526B778A1000F7799 /* BattlegroundStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAF426B778A1000F7799 /* BattlegroundStatsManager.swift */; };
 		BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */; };
 		BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */; };
 		BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */; };
-		BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */; };
-		BE85B08726BD8D42004B4303 /* UHCStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85B08626BD8D42004B4303 /* UHCStatsViewController.swift */; };
-		BE85B08926BD96C1004B4303 /* MurderMysteryStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85B08826BD96C1004B4303 /* MurderMysteryStatsViewController.swift */; };
+		BE667DC226A77E5700325338 /* PaintballStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DC126A77E5700325338 /* PaintballStatsManager.swift */; };
+		BE85B08726BD8D42004B4303 /* UHCStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85B08626BD8D42004B4303 /* UHCStatsManager.swift */; };
+		BE85B08926BD96C1004B4303 /* MurderMysteryStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85B08826BD96C1004B4303 /* MurderMysteryStatsManager.swift */; };
 		BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */; };
-		BE8FFE3126B3B0850033A8C2 /* QuakeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */; };
-		BE9BE1B026BB0B7300463ED4 /* DuelsStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */; };
+		BE8FFE3126B3B0850033A8C2 /* QuakeStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8FFE3026B3B0850033A8C2 /* QuakeStatsManager.swift */; };
+		BE9BE1B026BB0B7300463ED4 /* DuelsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BE1AF26BB0B7300463ED4 /* DuelsStatsManager.swift */; };
 		BEAFEC0126AA11E000349728 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0026AA11E000349728 /* CellData.swift */; };
-		BEAFEC0626AA3F3B00349728 /* ArenaStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */; };
-		BEAFEC0826AA4C9500349728 /* TNTGamesStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */; };
-		BEC6822A26BCD15F0042D947 /* Walls3StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC6822926BCD15F0042D947 /* Walls3StatsViewController.swift */; };
-		BEC6822C26BCE26D0042D947 /* SpeedUHCStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC6822B26BCE26D0042D947 /* SpeedUHCStatsViewController.swift */; };
+		BEAFEC0626AA3F3B00349728 /* ArenaStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0526AA3F3B00349728 /* ArenaStatsManager.swift */; };
+		BEAFEC0826AA4C9500349728 /* TNTGamesStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFEC0726AA4C9500349728 /* TNTGamesStatsManager.swift */; };
+		BEC6822A26BCD15F0042D947 /* Walls3StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC6822926BCD15F0042D947 /* Walls3StatsManager.swift */; };
+		BEC6822C26BCE26D0042D947 /* SpeedUHCStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC6822B26BCE26D0042D947 /* SpeedUHCStatsManager.swift */; };
 		BEDAAF4026BE38BB002592A1 /* GamesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDAAF3F26BE38BB002592A1 /* GamesTable.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,19 +83,19 @@
 		4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesTableViewCell.xib; sourceTree = "<group>"; };
 		4C54998F26CB5B890042F1E0 /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
 		4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedwarsStatsManager.swift; sourceTree = "<group>"; };
-		4C7CC51426C8AAF0006F6EEE /* ArcadeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeStatsViewController.swift; sourceTree = "<group>"; };
-		4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyWarsStatsViewController.swift; sourceTree = "<group>"; };
-		4CCF9C0426C97CFE004BDF5E /* MCGOStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCGOStatsViewController.swift; sourceTree = "<group>"; };
-		4CCF9C0626C9EA2A004BDF5E /* PitStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitStatsViewController.swift; sourceTree = "<group>"; };
-		4CCF9C0826C9F213004BDF5E /* SkyClashStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyClashStatsViewController.swift; sourceTree = "<group>"; };
-		4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueCombatStatsViewController.swift; sourceTree = "<group>"; };
+		4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeStatsManager.swift; sourceTree = "<group>"; };
+		4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyWarsStatsManager.swift; sourceTree = "<group>"; };
+		4CCF9C0426C97CFE004BDF5E /* MCGOStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCGOStatsManager.swift; sourceTree = "<group>"; };
+		4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitStatsManager.swift; sourceTree = "<group>"; };
+		4CCF9C0826C9F213004BDF5E /* SkyClashStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyClashStatsManager.swift; sourceTree = "<group>"; };
+		4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueCombatStatsManager.swift; sourceTree = "<group>"; };
 		52D641DFECA4AA51BD0314A4 /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CF69D871D49B2B20ACDC2C0 /* Pods_HypixelStatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		602DB0CAA9A7A7E4ADAD458E /* Pods-HypixelStatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8225318C5098FA73349D2281 /* Pods_HypixelStats_HypixelStatsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats_HypixelStatsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		952AAEAEC2543328EB86C96D /* Pods_HypixelStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE0DBF7D26B5F26800344E8B /* SuperSmashStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSmashStatsViewController.swift; sourceTree = "<group>"; };
-		BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerGamesStatsViewController.swift; sourceTree = "<group>"; };
+		BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSmashStatsManager.swift; sourceTree = "<group>"; };
+		BE0DBF7F26B6157700344E8B /* HungerGamesStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerGamesStatsManager.swift; sourceTree = "<group>"; };
 		BE10348D26A5EF9B00153FBE /* GamesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableController.swift; sourceTree = "<group>"; };
 		BE10348F26A627FA00153FBE /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
 		BE1432FE26A0DDA00054E475 /* HypixelStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypixelStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,26 +116,26 @@
 		BE14333426A0E1FA0054E475 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		BE14333926A0E97A0054E475 /* MojangAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojangAPIManager.swift; sourceTree = "<group>"; };
 		BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftUser.swift; sourceTree = "<group>"; };
-		BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireZStatsViewController.swift; sourceTree = "<group>"; };
-		BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallsStatsViewController.swift; sourceTree = "<group>"; };
-		BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildBattleStatsViewController.swift; sourceTree = "<group>"; };
-		BE59FAEF26B70B17000F7799 /* GingerbreadStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GingerbreadStatsViewController.swift; sourceTree = "<group>"; };
+		BE51723126A8F65100DE85DC /* VampireZStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireZStatsManager.swift; sourceTree = "<group>"; };
+		BE51723326A90A0D00DE85DC /* WallsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallsStatsManager.swift; sourceTree = "<group>"; };
+		BE51723526A914C200DE85DC /* BuildBattleStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildBattleStatsManager.swift; sourceTree = "<group>"; };
+		BE59FAEF26B70B17000F7799 /* GingerbreadStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GingerbreadStatsManager.swift; sourceTree = "<group>"; };
 		BE59FAF226B7294F000F7799 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		BE59FAF426B778A1000F7799 /* BattlegroundStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlegroundStatsViewController.swift; sourceTree = "<group>"; };
+		BE59FAF426B778A1000F7799 /* BattlegroundStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlegroundStatsManager.swift; sourceTree = "<group>"; };
 		BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsInfoTableViewCell.swift; sourceTree = "<group>"; };
 		BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsInfoTableViewCell.xib; sourceTree = "<group>"; };
 		BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStatsViewController.swift; sourceTree = "<group>"; };
-		BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballStatsViewController.swift; sourceTree = "<group>"; };
-		BE85B08626BD8D42004B4303 /* UHCStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UHCStatsViewController.swift; sourceTree = "<group>"; };
-		BE85B08826BD96C1004B4303 /* MurderMysteryStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MurderMysteryStatsViewController.swift; sourceTree = "<group>"; };
+		BE667DC126A77E5700325338 /* PaintballStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballStatsManager.swift; sourceTree = "<group>"; };
+		BE85B08626BD8D42004B4303 /* UHCStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UHCStatsManager.swift; sourceTree = "<group>"; };
+		BE85B08826BD96C1004B4303 /* MurderMysteryStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MurderMysteryStatsManager.swift; sourceTree = "<group>"; };
 		BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
-		BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeStatsViewController.swift; sourceTree = "<group>"; };
-		BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelsStatsViewController.swift; sourceTree = "<group>"; };
+		BE8FFE3026B3B0850033A8C2 /* QuakeStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeStatsManager.swift; sourceTree = "<group>"; };
+		BE9BE1AF26BB0B7300463ED4 /* DuelsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelsStatsManager.swift; sourceTree = "<group>"; };
 		BEAFEC0026AA11E000349728 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
-		BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaStatsViewController.swift; sourceTree = "<group>"; };
-		BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNTGamesStatsViewController.swift; sourceTree = "<group>"; };
-		BEC6822926BCD15F0042D947 /* Walls3StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walls3StatsViewController.swift; sourceTree = "<group>"; };
-		BEC6822B26BCE26D0042D947 /* SpeedUHCStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedUHCStatsViewController.swift; sourceTree = "<group>"; };
+		BEAFEC0526AA3F3B00349728 /* ArenaStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaStatsManager.swift; sourceTree = "<group>"; };
+		BEAFEC0726AA4C9500349728 /* TNTGamesStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNTGamesStatsManager.swift; sourceTree = "<group>"; };
+		BEC6822926BCD15F0042D947 /* Walls3StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walls3StatsManager.swift; sourceTree = "<group>"; };
+		BEC6822B26BCE26D0042D947 /* SpeedUHCStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedUHCStatsManager.swift; sourceTree = "<group>"; };
 		BEDAAF3F26BE38BB002592A1 /* GamesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTable.swift; sourceTree = "<group>"; };
 		D254E92960DBAC8E3E7F1DE6 /* Pods-HypixelStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A854FFB1B1F315C8D6E29C /* Pods-HypixelStatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,35 +192,35 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		BE10349126A6783E00153FBE /* GameStatsVC's */ = {
+		BE10349126A6783E00153FBE /* Stats */ = {
 			isa = PBXGroup;
 			children = (
 				BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */,
-				4C7CC51426C8AAF0006F6EEE /* ArcadeStatsViewController.swift */,
-				BEAFEC0526AA3F3B00349728 /* ArenaStatsViewController.swift */,
+				4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */,
+				BEAFEC0526AA3F3B00349728 /* ArenaStatsManager.swift */,
 				4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */,
-				BE0DBF7F26B6157700344E8B /* HungerGamesStatsViewController.swift */,
-				BE51723526A914C200DE85DC /* BuildBattleStatsViewController.swift */,
-				4CCF9C0426C97CFE004BDF5E /* MCGOStatsViewController.swift */,
-				BE9BE1AF26BB0B7300463ED4 /* DuelsStatsViewController.swift */,
-				BEC6822926BCD15F0042D947 /* Walls3StatsViewController.swift */,
-				BE85B08826BD96C1004B4303 /* MurderMysteryStatsViewController.swift */,
-				BE667DC126A77E5700325338 /* PaintballStatsViewController.swift */,
-				4CCF9C0626C9EA2A004BDF5E /* PitStatsViewController.swift */,
-				BE8FFE3026B3B0850033A8C2 /* QuakeStatsViewController.swift */,
-				4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsViewController.swift */,
-				BE0DBF7D26B5F26800344E8B /* SuperSmashStatsViewController.swift */,
-				BEC6822B26BCE26D0042D947 /* SpeedUHCStatsViewController.swift */,
-				BEAFEC0726AA4C9500349728 /* TNTGamesStatsViewController.swift */,
-				BE59FAEF26B70B17000F7799 /* GingerbreadStatsViewController.swift */,
-				BE85B08626BD8D42004B4303 /* UHCStatsViewController.swift */,
-				BE51723126A8F65100DE85DC /* VampireZStatsViewController.swift */,
-				BE51723326A90A0D00DE85DC /* WallsStatsViewController.swift */,
-				BE59FAF426B778A1000F7799 /* BattlegroundStatsViewController.swift */,
-				4CCF9C0826C9F213004BDF5E /* SkyClashStatsViewController.swift */,
-				4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsViewController.swift */,
+				BE0DBF7F26B6157700344E8B /* HungerGamesStatsManager.swift */,
+				BE51723526A914C200DE85DC /* BuildBattleStatsManager.swift */,
+				4CCF9C0426C97CFE004BDF5E /* MCGOStatsManager.swift */,
+				BE9BE1AF26BB0B7300463ED4 /* DuelsStatsManager.swift */,
+				BEC6822926BCD15F0042D947 /* Walls3StatsManager.swift */,
+				BE85B08826BD96C1004B4303 /* MurderMysteryStatsManager.swift */,
+				BE667DC126A77E5700325338 /* PaintballStatsManager.swift */,
+				4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */,
+				BE8FFE3026B3B0850033A8C2 /* QuakeStatsManager.swift */,
+				4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsManager.swift */,
+				BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */,
+				BEC6822B26BCE26D0042D947 /* SpeedUHCStatsManager.swift */,
+				BEAFEC0726AA4C9500349728 /* TNTGamesStatsManager.swift */,
+				BE59FAEF26B70B17000F7799 /* GingerbreadStatsManager.swift */,
+				BE85B08626BD8D42004B4303 /* UHCStatsManager.swift */,
+				BE51723126A8F65100DE85DC /* VampireZStatsManager.swift */,
+				BE51723326A90A0D00DE85DC /* WallsStatsManager.swift */,
+				BE59FAF426B778A1000F7799 /* BattlegroundStatsManager.swift */,
+				4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsManager.swift */,
+				4CCF9C0826C9F213004BDF5E /* SkyClashStatsManager.swift */,
 			);
-			path = "GameStatsVC's";
+			path = Stats;
 			sourceTree = "<group>";
 		};
 		BE1432F526A0DDA00054E475 = {
@@ -248,7 +248,7 @@
 		BE14330026A0DDA00054E475 /* HypixelStats */ = {
 			isa = PBXGroup;
 			children = (
-				BE10349126A6783E00153FBE /* GameStatsVC's */,
+				BE10349126A6783E00153FBE /* Stats */,
 				BE59FAF126B72940000F7799 /* Extensions */,
 				BE14333626A0E94F0054E475 /* API */,
 				BE14330126A0DDA00054E475 /* AppDelegate.swift */,
@@ -549,43 +549,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE59FAF526B778A1000F7799 /* BattlegroundStatsViewController.swift in Sources */,
+				BE59FAF526B778A1000F7799 /* BattlegroundStatsManager.swift in Sources */,
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
-				4C7CC51526C8AAF0006F6EEE /* ArcadeStatsViewController.swift in Sources */,
+				4C7CC51526C8AAF0006F6EEE /* ArcadeStatsManager.swift in Sources */,
 				4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */,
-				BE9BE1B026BB0B7300463ED4 /* DuelsStatsViewController.swift in Sources */,
+				BE9BE1B026BB0B7300463ED4 /* DuelsStatsManager.swift in Sources */,
 				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
-				4CCF9C0726C9EA2A004BDF5E /* PitStatsViewController.swift in Sources */,
-				4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsViewController.swift in Sources */,
-				4CCF9C0526C97CFE004BDF5E /* MCGOStatsViewController.swift in Sources */,
-				BE85B08726BD8D42004B4303 /* UHCStatsViewController.swift in Sources */,
+				4CCF9C0726C9EA2A004BDF5E /* PitStatsManager.swift in Sources */,
+				4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsManager.swift in Sources */,
+				4CCF9C0526C97CFE004BDF5E /* MCGOStatsManager.swift in Sources */,
+				BE85B08726BD8D42004B4303 /* UHCStatsManager.swift in Sources */,
 				BE14330226A0DDA00054E475 /* AppDelegate.swift in Sources */,
-				BEC6822C26BCE26D0042D947 /* SpeedUHCStatsViewController.swift in Sources */,
-				BEAFEC0826AA4C9500349728 /* TNTGamesStatsViewController.swift in Sources */,
+				BEC6822C26BCE26D0042D947 /* SpeedUHCStatsManager.swift in Sources */,
+				BEAFEC0826AA4C9500349728 /* TNTGamesStatsManager.swift in Sources */,
 				BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */,
-				BE85B08926BD96C1004B4303 /* MurderMysteryStatsViewController.swift in Sources */,
+				BE85B08926BD96C1004B4303 /* MurderMysteryStatsManager.swift in Sources */,
 				BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */,
-				BE8FFE3126B3B0850033A8C2 /* QuakeStatsViewController.swift in Sources */,
-				BE0DBF8026B6157700344E8B /* HungerGamesStatsViewController.swift in Sources */,
-				BE667DC226A77E5700325338 /* PaintballStatsViewController.swift in Sources */,
+				BE8FFE3126B3B0850033A8C2 /* QuakeStatsManager.swift in Sources */,
+				BE0DBF8026B6157700344E8B /* HungerGamesStatsManager.swift in Sources */,
+				BE667DC226A77E5700325338 /* PaintballStatsManager.swift in Sources */,
 				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
-				BEC6822A26BCD15F0042D947 /* Walls3StatsViewController.swift in Sources */,
-				4CCF9C0926C9F213004BDF5E /* SkyClashStatsViewController.swift in Sources */,
+				BEC6822A26BCD15F0042D947 /* Walls3StatsManager.swift in Sources */,
+				4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */,
 				BE10349026A627FA00153FBE /* GameTypes.swift in Sources */,
 				4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */,
 				BEAFEC0126AA11E000349728 /* CellData.swift in Sources */,
-				BE51723226A8F65100DE85DC /* VampireZStatsViewController.swift in Sources */,
-				BE51723626A914C200DE85DC /* BuildBattleStatsViewController.swift in Sources */,
-				BE51723426A90A0E00DE85DC /* WallsStatsViewController.swift in Sources */,
-				BEAFEC0626AA3F3B00349728 /* ArenaStatsViewController.swift in Sources */,
+				BE51723226A8F65100DE85DC /* VampireZStatsManager.swift in Sources */,
+				BE51723626A914C200DE85DC /* BuildBattleStatsManager.swift in Sources */,
+				BE51723426A90A0E00DE85DC /* WallsStatsManager.swift in Sources */,
+				BEAFEC0626AA3F3B00349728 /* ArenaStatsManager.swift in Sources */,
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
 				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
-				BE59FAF026B70B17000F7799 /* GingerbreadStatsViewController.swift in Sources */,
+				BE59FAF026B70B17000F7799 /* GingerbreadStatsManager.swift in Sources */,
 				4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */,
 				BEDAAF4026BE38BB002592A1 /* GamesTable.swift in Sources */,
-				BE0DBF7E26B5F26800344E8B /* SuperSmashStatsViewController.swift in Sources */,
+				BE0DBF7E26B5F26800344E8B /* SuperSmashStatsManager.swift in Sources */,
 				BE59FAF326B7294F000F7799 /* StringExtension.swift in Sources */,
-				4CCF9C0B26CA1292004BDF5E /* TrueCombatStatsViewController.swift in Sources */,
+				4CCF9C0B26CA1292004BDF5E /* TrueCombatStatsManager.swift in Sources */,
 				BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */,
 				BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */,
 				BE14330C26A0DDA00054E475 /* HypixelStats.xcdatamodeld in Sources */,

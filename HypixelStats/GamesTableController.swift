@@ -11,6 +11,7 @@ import SwiftyJSON
 class GamesTableController: UITableViewController {
 
     var data: JSON = [:]
+    var selectedGame = ""
 
     let gameList = [
         ["Arcade", "Arena", "Bedwars", "BuildBattle", "HungerGames", "MCGO", "Duels", "Walls3", "MurderMystery", "Paintball", "Pit", "Quake", "SkyWars", "SuperSmash", "SpeedUHC", "TNTGames", "GingerBread", "UHC", "VampireZ", "Walls", "Battleground"],
@@ -58,10 +59,10 @@ class GamesTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //All segues from this table have identifier "show{game}Stats"
-        let identifer = "show" + gameList[indexPath.section][indexPath.row] + "Stats"
+        selectedGame = gameList[indexPath.section][indexPath.row]
         
-        performSegue(withIdentifier: identifer, sender: self)
+        performSegue(withIdentifier: "showGameStats", sender: self)
+        
         
     }
     
@@ -93,17 +94,10 @@ class GamesTableController: UITableViewController {
 
         let destVC = segue.destination as! GenericStatsViewController
         
-        //Getting game type from segue identifier show{game}Stats
-        let str = segue.identifier!
-        let start = str.index(str.startIndex, offsetBy: 4)
-        let end = str.index(str.endIndex, offsetBy: -5)
-        let range = start..<end
-         
-        let game = String(str[range])
+        destVC.data = data[selectedGame] ?? ["": ""]
+        destVC.gameID = selectedGame
         
-        destVC.data = data[game] ?? ["": ""]
-        
-        if game == "Arcade" {
+        if selectedGame == "Arcade" {
             destVC.achievementsData = data["achievements"]
         }
         

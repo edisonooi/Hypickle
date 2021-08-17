@@ -12,18 +12,36 @@ class GenericStatsViewController: UIViewController {
         
     var data: JSON = [:]
     var achievementsData: JSON = [:]
+    var gameID: String = ""
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statsTable: UITableView!
-    @IBOutlet weak var mainScrollView: UIScrollView!
-    @IBOutlet weak var mainStackView: UIStackView!
+    
+    
+    lazy var dataManager: StatsManager = {
+        switch gameID {
+        case "Bedwars":
+            return BedwarsStatsManager(data: data)
+        
+        default:
+            print("hello")
+        }
+        return BedwarsStatsManager(data: data)
+        
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         statsTable.allowsSelection = true
-        
+    
         titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 30.0)
+        titleLabel.text = GameTypes.databaseNameToCleanName[gameID]
+        
+        statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
+        statsTable.dataSource = dataManager
+        statsTable.delegate = dataManager
         
         
         // Do any additional setup after loading the view.

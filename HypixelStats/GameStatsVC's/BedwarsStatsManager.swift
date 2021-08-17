@@ -9,22 +9,16 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegate, UITableViewDataSource {
+public class BedwarsStatsManager: NSObject, StatsManager {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        titleLabel.text = "Bedwars"
-        
-        statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
-        statsTable.delegate = self
-        statsTable.dataSource = self
-        
+    var data: JSON = [:]
+    
+    init(data: JSON) {
+        self.data = data
     }
     
     var modeCount = 5
     var dreamsModeCount = 13
-    
     
     lazy var statsTableData: [CellData] = {
         
@@ -214,11 +208,11 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         return ret
     }()
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return statsTableData.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if statsTableData[section].isOpened {
             return statsTableData[section].sectionData.count + 1
         } else {
@@ -226,8 +220,8 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = statsTable.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
         if indexPath.row == 0 {
             let category = statsTableData[indexPath.section].headerData.0
@@ -242,17 +236,17 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
             statsTableData[indexPath.section].isOpened = !statsTableData[indexPath.section].isOpened
             let sections = IndexSet.init(integer: indexPath.section)
-            statsTable.reloadSections(sections, with: .none)
+            tableView.reloadSections(sections, with: .none)
         }
     }
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+    public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         if statsTableData[indexPath.section].sectionData.isEmpty || indexPath.row != 0 {
             return false
         }
@@ -260,7 +254,7 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         return true
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let sectionsThatNeedHeader = [2, 5, 6, 12, 14, 20, 20 + modeCount, 20 + modeCount + dreamsModeCount, 20 + modeCount + dreamsModeCount + 3]
         
         if sectionsThatNeedHeader.contains(section) {
@@ -270,7 +264,7 @@ class BedwarsStatsViewController: GenericStatsViewController, UITableViewDelegat
         return CGFloat.leastNormalMagnitude
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
     

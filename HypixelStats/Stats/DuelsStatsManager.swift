@@ -157,15 +157,22 @@ class DuelsStatsManager: NSObject, StatsManager {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
+        var category = ""
+        var value: Any = ""
+        
         if indexPath.row == 0 {
-            let category = statsTableData[indexPath.section].headerData.0
-            let value = statsTableData[indexPath.section].headerData.1
-            cell.configure(category: category, value: "\(value)")
+            category = statsTableData[indexPath.section].headerData.0
+            value = statsTableData[indexPath.section].headerData.1
         } else {
-            let category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
-            let value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
-            cell.configure(category: category, value: "\(value)")
+            category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
+            value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
         }
+        
+        if value is Int {
+            value = (value as! Int).withCommas
+        }
+        
+        cell.configure(category: category, value: "\(value)")
 
         return cell
     }

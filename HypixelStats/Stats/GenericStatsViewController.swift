@@ -14,8 +14,11 @@ class GenericStatsViewController: UIViewController {
     var achievementsData: JSON = [:]
     var gameID: String = ""
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var statsTable: UITableView!
+    @IBOutlet weak var gameIcon: UIImageView!
+    @IBOutlet weak var coinsView: UIView!
+    @IBOutlet weak var coinAmount: UILabel!
     
     
     lazy var dataManager: StatsManager = {
@@ -79,13 +82,24 @@ class GenericStatsViewController: UIViewController {
         
         statsTable.allowsSelection = true
     
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 30.0)
-        titleLabel.text = Utils.databaseNameToCleanName[gameID]
+        //gameTitle.textAlignment = .center
+        //gameTitle.font = UIFont.boldSystemFont(ofSize: 20.0)
+        gameTitle.text = Utils.databaseNameToCleanName[gameID]
+        
+        gameIcon.image = UIImage(named: gameID.lowercased() + "_icon")
+        gameIcon.translatesAutoresizingMaskIntoConstraints = false
         
         statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         statsTable.dataSource = dataManager
         statsTable.delegate = dataManager
+        
+        coinsView.backgroundColor = .systemGray5
+        coinsView.layer.cornerRadius = 16
+        coinsView.layer.masksToBounds = true
+        
+        coinAmount.text = data["coins"].intValue.withCommas
+        
+        
         
         
         // Do any additional setup after loading the view.

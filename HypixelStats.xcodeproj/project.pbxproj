@@ -39,7 +39,7 @@
 		BE51723226A8F65100DE85DC /* VampireZStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723126A8F65100DE85DC /* VampireZStatsManager.swift */; };
 		BE51723426A90A0E00DE85DC /* WallsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723326A90A0D00DE85DC /* WallsStatsManager.swift */; };
 		BE51723626A914C200DE85DC /* BuildBattleStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51723526A914C200DE85DC /* BuildBattleStatsManager.swift */; };
-		BE59FAF026B70B17000F7799 /* GingerbreadStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAEF26B70B17000F7799 /* GingerbreadStatsManager.swift */; };
+		BE59FAF026B70B17000F7799 /* GingerBreadStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAEF26B70B17000F7799 /* GingerBreadStatsManager.swift */; };
 		BE59FAF326B7294F000F7799 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAF226B7294F000F7799 /* StringExtension.swift */; };
 		BE59FAF526B778A1000F7799 /* BattlegroundStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59FAF426B778A1000F7799 /* BattlegroundStatsManager.swift */; };
 		BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */; };
@@ -119,7 +119,7 @@
 		BE51723126A8F65100DE85DC /* VampireZStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireZStatsManager.swift; sourceTree = "<group>"; };
 		BE51723326A90A0D00DE85DC /* WallsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallsStatsManager.swift; sourceTree = "<group>"; };
 		BE51723526A914C200DE85DC /* BuildBattleStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildBattleStatsManager.swift; sourceTree = "<group>"; };
-		BE59FAEF26B70B17000F7799 /* GingerbreadStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GingerbreadStatsManager.swift; sourceTree = "<group>"; };
+		BE59FAEF26B70B17000F7799 /* GingerBreadStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GingerBreadStatsManager.swift; sourceTree = "<group>"; };
 		BE59FAF226B7294F000F7799 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		BE59FAF426B778A1000F7799 /* BattlegroundStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlegroundStatsManager.swift; sourceTree = "<group>"; };
 		BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -196,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */,
+				4C54998F26CB5B890042F1E0 /* StatsManager.swift */,
 				4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */,
 				BEAFEC0526AA3F3B00349728 /* ArenaStatsManager.swift */,
 				4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */,
@@ -212,7 +213,7 @@
 				BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */,
 				BEC6822B26BCE26D0042D947 /* SpeedUHCStatsManager.swift */,
 				BEAFEC0726AA4C9500349728 /* TNTGamesStatsManager.swift */,
-				BE59FAEF26B70B17000F7799 /* GingerbreadStatsManager.swift */,
+				BE59FAEF26B70B17000F7799 /* GingerBreadStatsManager.swift */,
 				BE85B08626BD8D42004B4303 /* UHCStatsManager.swift */,
 				BE51723126A8F65100DE85DC /* VampireZStatsManager.swift */,
 				BE51723326A90A0D00DE85DC /* WallsStatsManager.swift */,
@@ -268,7 +269,6 @@
 				BEDAAF3F26BE38BB002592A1 /* GamesTable.swift */,
 				4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */,
 				4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */,
-				4C54998F26CB5B890042F1E0 /* StatsManager.swift */,
 			);
 			path = HypixelStats;
 			sourceTree = "<group>";
@@ -580,7 +580,7 @@
 				BEAFEC0626AA3F3B00349728 /* ArenaStatsManager.swift in Sources */,
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
 				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
-				BE59FAF026B70B17000F7799 /* GingerbreadStatsManager.swift in Sources */,
+				BE59FAF026B70B17000F7799 /* GingerBreadStatsManager.swift in Sources */,
 				4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */,
 				BEDAAF4026BE38BB002592A1 /* GamesTable.swift in Sources */,
 				BE0DBF7E26B5F26800344E8B /* SuperSmashStatsManager.swift in Sources */,

@@ -52,8 +52,8 @@ class GenericStatsViewController: UIViewController {
             return SpeedUHCStatsManager(data: data)
         case "TNTGames":
             return TNTGamesStatsManager(data: data)
-        case "Gingerbread":
-            return GingerbreadStatsManager(data: data)
+        case "GingerBread":
+            return GingerBreadStatsManager(data: data)
         case "UHC":
             return UHCStatsManager(data: data)
         case "VampireZ":

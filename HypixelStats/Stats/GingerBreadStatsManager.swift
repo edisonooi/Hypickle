@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class GingerbreadStatsManager: NSObject, StatsManager {
+class GingerBreadStatsManager: NSObject, StatsManager {
     
     var data: JSON = [:]
     

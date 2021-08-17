@@ -24,7 +24,13 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameTextField.text = user?.username
+        
+        if let username = user?.username {
+            usernameTextField.text = username
+            title = username + "'s Stats"
+        } else {
+            title = "No User Found"
+        }
         
         if let skinURL = user?.skin, skinURL != "" {
             downloadSkinImage(from: URL(string: skinURL)!)

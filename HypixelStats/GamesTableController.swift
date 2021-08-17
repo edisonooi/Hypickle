@@ -61,6 +61,7 @@ class GamesTableController: UITableViewController {
         
         selectedGame = gameList[indexPath.section][indexPath.row]
         
+        
         performSegue(withIdentifier: "showGameStats", sender: self)
         
         

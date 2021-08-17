@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2O0-bh-yjM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -49,27 +49,46 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="quX-wx-IkO">
+                        <barButtonItem key="backBarButtonItem" title=" " id="kGd-Lv-sya"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchButton" destination="B8I-yj-sop" id="C0w-uA-kvj"/>
                         <outlet property="testButton" destination="Z8g-dC-NQB" id="coc-EC-NCc"/>
                         <outlet property="usernameTextField" destination="wMc-jk-A0i" id="l59-KJ-RVw"/>
-                        <segue destination="I3E-YT-o2K" kind="showDetail" identifier="openUserStats" id="JgF-CE-pRG"/>
+                        <segue destination="I3E-YT-o2K" kind="show" identifier="openUserStats" id="JgF-CE-pRG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RZh-RT-m0X">
+            <objects>
+                <navigationController id="2O0-bh-yjM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5L8-8w-PAF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="y44-U5-oz4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEe-Mc-RHu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-784" y="117"/>
+        </scene>
         <!--Stats View Controller-->
         <scene sceneID="z8b-Lh-SRE">
             <objects>
                 <viewController id="I3E-YT-o2K" customClass="StatsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="acR-WH-JL7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-yP-ffv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="912"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6O-kM-aJi" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
@@ -103,7 +122,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstItem="C6O-kM-aJi" firstAttribute="leading" secondItem="l6r-yP-ffv" secondAttribute="leading" id="0VO-6i-NdD"/>
                                     <constraint firstItem="C6O-kM-aJi" firstAttribute="centerX" secondItem="l6r-yP-ffv" secondAttribute="centerX" id="5Rc-6C-CfS"/>
@@ -121,7 +139,6 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jVO-cq-IGv"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <constraints>
                             <constraint firstItem="C6O-kM-aJi" firstAttribute="height" secondItem="acR-WH-JL7" secondAttribute="height" priority="250" id="6AW-bo-fdp"/>
                             <constraint firstItem="C6O-kM-aJi" firstAttribute="width" secondItem="acR-WH-JL7" secondAttribute="width" id="8Mv-1f-3Zm"/>
@@ -132,7 +149,9 @@
                             <constraint firstAttribute="bottom" secondItem="l6r-yP-ffv" secondAttribute="bottom" id="xql-QF-3dB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="plu-1S-uXL"/>
+                    <navigationItem key="navigationItem" id="plu-1S-uXL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="yJS-M1-6SI"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
@@ -165,7 +184,7 @@
                     </tableView>
                     <connections>
                         <outlet property="gamesTable" destination="MYM-og-vvR" id="GF5-PL-Sns"/>
-                        <segue destination="qeO-hI-Fhy" kind="showDetail" identifier="showGameStats" id="qMb-Wa-dZU"/>
+                        <segue destination="qeO-hI-Fhy" kind="show" identifier="showGameStats" id="0Ck-MM-y7u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oy4-se-to2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -211,7 +230,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="ZwS-uf-r3S" firstAttribute="top" secondItem="cgr-mu-Od4" secondAttribute="top" constant="5" id="7wM-r4-i13"/>
                                             <constraint firstAttribute="bottom" secondItem="ZwS-uf-r3S" secondAttribute="bottom" constant="5" id="EjP-pJ-O2Y"/>
@@ -256,6 +274,7 @@
                             <constraint firstItem="GNC-kc-6RG" firstAttribute="bottom" secondItem="my2-Co-vT4" secondAttribute="bottom" id="wEl-4b-BwZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bZ9-ZI-RWn"/>
                     <connections>
                         <outlet property="coinAmount" destination="7mi-d4-OMH" id="FLZ-et-8yM"/>
                         <outlet property="coinsView" destination="cgr-mu-Od4" id="U8C-N5-wJO"/>
@@ -267,19 +286,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fma-2u-Fmw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2915.9420289855075" y="21.428571428571427"/>
+            <point key="canvasLocation" x="2967" y="117"/>
         </scene>
     </scenes>
     <resources>
         <image name="coin_icon" width="173" height="174"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

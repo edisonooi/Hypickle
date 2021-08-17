@@ -83,9 +83,8 @@ class GenericStatsViewController: UIViewController {
         
         statsTable.allowsSelection = true
     
-        //gameTitle.textAlignment = .center
-        //gameTitle.font = UIFont.boldSystemFont(ofSize: 20.0)
         gameTitle.text = Utils.databaseNameToCleanName[gameID]
+        title = Utils.databaseNameToCleanName[gameID]
         
         gameIcon.image = UIImage(named: gameID.lowercased() + "_icon")
         gameIcon.translatesAutoresizingMaskIntoConstraints = false
@@ -104,6 +103,8 @@ class GenericStatsViewController: UIViewController {
             currencyIcon.image = UIImage(named: "gold_ingot")
             coinAmount.text = Int(floor(data["profile"]["cash"].doubleValue)).withCommas
         }
+        
+        
         
         
         // Do any additional setup after loading the view.

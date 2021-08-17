@@ -23,6 +23,7 @@ class PitStatsManager: NSObject, StatsManager {
         
         var xp = profile["xp"].intValue
         var prestigeAndLevel = getPrestigeAndLevel(playerXP: xp)
+        var prestigeString = prestigeAndLevel.0 == "" ? "-" : prestigeAndLevel.0
         
         var kills = stats["kills"].intValue
         var assists = stats["assists"].intValue
@@ -41,7 +42,7 @@ class PitStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Prestige", prestigeAndLevel.0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Prestige", prestigeString), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Level", prestigeAndLevel.1), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("XP", xp), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: [], isHeader: false, isOpened: false),

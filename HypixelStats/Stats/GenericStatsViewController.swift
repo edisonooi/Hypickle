@@ -19,6 +19,7 @@ class GenericStatsViewController: UIViewController {
     @IBOutlet weak var gameIcon: UIImageView!
     @IBOutlet weak var coinsView: UIView!
     @IBOutlet weak var coinAmount: UILabel!
+    @IBOutlet weak var currencyIcon: UIImageView!
     
     
     lazy var dataManager: StatsManager = {
@@ -99,7 +100,10 @@ class GenericStatsViewController: UIViewController {
         
         coinAmount.text = data["coins"].intValue.withCommas
         
-        
+        if gameID == "Pit" {
+            currencyIcon.image = UIImage(named: "gold_ingot")
+            coinAmount.text = Int(floor(data["profile"]["cash"].doubleValue)).withCommas
+        }
         
         
         // Do any additional setup after loading the view.

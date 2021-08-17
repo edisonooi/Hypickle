@@ -259,6 +259,7 @@
                     <connections>
                         <outlet property="coinAmount" destination="7mi-d4-OMH" id="FLZ-et-8yM"/>
                         <outlet property="coinsView" destination="cgr-mu-Od4" id="U8C-N5-wJO"/>
+                        <outlet property="currencyIcon" destination="ZwS-uf-r3S" id="RHa-us-gz4"/>
                         <outlet property="gameIcon" destination="gfH-rc-tde" id="gfn-xb-XbD"/>
                         <outlet property="gameTitle" destination="eoH-T5-B91" id="07z-FJ-3ue"/>
                         <outlet property="statsTable" destination="my2-Co-vT4" id="Zik-0W-ngU"/>

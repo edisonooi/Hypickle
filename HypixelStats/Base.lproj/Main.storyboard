@@ -199,63 +199,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvI-vs-31A" userLabel="Header View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="gfH-rc-tde">
-                                        <rect key="frame" x="10" y="5" width="33" height="33"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="gfH-rc-tde" secondAttribute="height" multiplier="1:1" id="yUL-c8-WL3"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoH-T5-B91">
-                                        <rect key="frame" x="53" y="10" width="46" height="23"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgr-mu-Od4">
-                                        <rect key="frame" x="325.5" y="5" width="78.5" height="33"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="coin_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZwS-uf-r3S">
-                                                <rect key="frame" x="5" y="5" width="23" height="23"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="ZwS-uf-r3S" secondAttribute="height" multiplier="1:1" id="xaH-cy-jhW"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mi-d4-OMH">
-                                                <rect key="frame" x="33" y="5" width="35.5" height="23"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="ZwS-uf-r3S" firstAttribute="top" secondItem="cgr-mu-Od4" secondAttribute="top" constant="5" id="7wM-r4-i13"/>
-                                            <constraint firstAttribute="bottom" secondItem="ZwS-uf-r3S" secondAttribute="bottom" constant="5" id="EjP-pJ-O2Y"/>
-                                            <constraint firstAttribute="bottom" secondItem="7mi-d4-OMH" secondAttribute="bottom" constant="5" id="Fd8-8a-CbZ"/>
-                                            <constraint firstItem="ZwS-uf-r3S" firstAttribute="leading" secondItem="cgr-mu-Od4" secondAttribute="leading" constant="5" id="biU-sf-NOM"/>
-                                            <constraint firstAttribute="trailing" secondItem="7mi-d4-OMH" secondAttribute="trailing" constant="10" id="d5b-zO-59O"/>
-                                            <constraint firstItem="7mi-d4-OMH" firstAttribute="leading" secondItem="ZwS-uf-r3S" secondAttribute="trailing" constant="5" id="sEK-m8-aXl"/>
-                                            <constraint firstItem="7mi-d4-OMH" firstAttribute="top" secondItem="cgr-mu-Od4" secondAttribute="top" constant="5" id="yAE-Ir-39j"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="gfH-rc-tde" firstAttribute="top" secondItem="YvI-vs-31A" secondAttribute="top" constant="5" id="628-Uv-AIN"/>
-                                    <constraint firstItem="cgr-mu-Od4" firstAttribute="top" secondItem="YvI-vs-31A" secondAttribute="top" constant="5" id="8Gb-lH-LKP"/>
-                                    <constraint firstItem="gfH-rc-tde" firstAttribute="leading" secondItem="YvI-vs-31A" secondAttribute="leading" constant="10" id="8I0-GA-hph"/>
-                                    <constraint firstItem="eoH-T5-B91" firstAttribute="leading" secondItem="gfH-rc-tde" secondAttribute="trailing" constant="10" id="JmG-0y-bNn"/>
-                                    <constraint firstItem="eoH-T5-B91" firstAttribute="top" secondItem="YvI-vs-31A" secondAttribute="top" constant="10" id="W3r-GO-tZ9"/>
-                                    <constraint firstAttribute="bottom" secondItem="gfH-rc-tde" secondAttribute="bottom" constant="5" id="Wh7-xG-EeE"/>
-                                    <constraint firstAttribute="trailing" secondItem="cgr-mu-Od4" secondAttribute="trailing" constant="10" id="WtL-8x-Yef"/>
-                                    <constraint firstAttribute="bottom" secondItem="cgr-mu-Od4" secondAttribute="bottom" constant="5" id="eqn-cQ-KAw"/>
-                                    <constraint firstAttribute="bottom" secondItem="eoH-T5-B91" secondAttribute="bottom" constant="10" id="gse-pe-2BB"/>
-                                    <constraint firstItem="gfH-rc-tde" firstAttribute="centerY" secondItem="YvI-vs-31A" secondAttribute="centerY" id="i7P-3S-8ld"/>
-                                    <constraint firstItem="cgr-mu-Od4" firstAttribute="centerY" secondItem="YvI-vs-31A" secondAttribute="centerY" id="sE2-Ol-hI0"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="my2-Co-vT4">
                                 <rect key="frame" x="0.0" y="43" width="414" height="435"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -265,22 +208,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="my2-Co-vT4" firstAttribute="centerX" secondItem="tIk-1h-xJ7" secondAttribute="centerX" id="67O-yM-hNb"/>
-                            <constraint firstItem="YvI-vs-31A" firstAttribute="leading" secondItem="GNC-kc-6RG" secondAttribute="leading" id="HeG-XT-P0P"/>
-                            <constraint firstItem="my2-Co-vT4" firstAttribute="top" secondItem="YvI-vs-31A" secondAttribute="bottom" id="RzT-nH-WVZ"/>
+                            <constraint firstItem="my2-Co-vT4" firstAttribute="height" secondItem="tIk-1h-xJ7" secondAttribute="height" multiplier="0.910042" id="feL-ad-eoI"/>
                             <constraint firstItem="my2-Co-vT4" firstAttribute="width" secondItem="tIk-1h-xJ7" secondAttribute="width" id="hOs-WA-q7R"/>
-                            <constraint firstItem="YvI-vs-31A" firstAttribute="centerX" secondItem="tIk-1h-xJ7" secondAttribute="centerX" id="pBB-wN-qsJ"/>
-                            <constraint firstItem="YvI-vs-31A" firstAttribute="top" secondItem="GNC-kc-6RG" secondAttribute="top" id="rdS-Wl-y0Z"/>
-                            <constraint firstItem="GNC-kc-6RG" firstAttribute="trailing" secondItem="YvI-vs-31A" secondAttribute="trailing" id="sHO-1V-aHJ"/>
                             <constraint firstItem="GNC-kc-6RG" firstAttribute="bottom" secondItem="my2-Co-vT4" secondAttribute="bottom" id="wEl-4b-BwZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bZ9-ZI-RWn"/>
                     <connections>
-                        <outlet property="coinAmount" destination="7mi-d4-OMH" id="FLZ-et-8yM"/>
-                        <outlet property="coinsView" destination="cgr-mu-Od4" id="U8C-N5-wJO"/>
-                        <outlet property="currencyIcon" destination="ZwS-uf-r3S" id="RHa-us-gz4"/>
-                        <outlet property="gameIcon" destination="gfH-rc-tde" id="gfn-xb-XbD"/>
-                        <outlet property="gameTitle" destination="eoH-T5-B91" id="07z-FJ-3ue"/>
                         <outlet property="statsTable" destination="my2-Co-vT4" id="Zik-0W-ngU"/>
                     </connections>
                 </viewController>
@@ -290,7 +224,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="coin_icon" width="173" height="174"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

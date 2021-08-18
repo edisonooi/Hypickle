@@ -95,6 +95,8 @@ class GamesTableController: UITableViewController {
 
         let destVC = segue.destination as! GenericStatsViewController
         
+        
+        
         destVC.data = data[selectedGame] ?? ["": ""]
         destVC.gameID = selectedGame
         

@@ -14,6 +14,8 @@
 		4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998F26CB5B890042F1E0 /* StatsManager.swift */; };
 		4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */; };
 		4C7CC51526C8AAF0006F6EEE /* ArcadeStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */; };
+		4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC234A726CCA34600D95D38 /* CoinsView.xib */; };
+		4CC234AA26CCAF1400D95D38 /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC234A926CCAF1400D95D38 /* CoinsView.swift */; };
 		4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsManager.swift */; };
 		4CCF9C0526C97CFE004BDF5E /* MCGOStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0426C97CFE004BDF5E /* MCGOStatsManager.swift */; };
 		4CCF9C0726C9EA2A004BDF5E /* PitStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */; };
@@ -86,6 +88,8 @@
 		4C54998F26CB5B890042F1E0 /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
 		4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedwarsStatsManager.swift; sourceTree = "<group>"; };
 		4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeStatsManager.swift; sourceTree = "<group>"; };
+		4CC234A726CCA34600D95D38 /* CoinsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsView.xib; sourceTree = "<group>"; };
+		4CC234A926CCAF1400D95D38 /* CoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsView.swift; sourceTree = "<group>"; };
 		4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyWarsStatsManager.swift; sourceTree = "<group>"; };
 		4CCF9C0426C97CFE004BDF5E /* MCGOStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCGOStatsManager.swift; sourceTree = "<group>"; };
 		4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitStatsManager.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */,
 				BE667DBB26A766D500325338 /* StatsInfoTableViewCell.swift */,
 				BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */,
+				4CC234A726CCA34600D95D38 /* CoinsView.xib */,
+				4CC234A926CCAF1400D95D38 /* CoinsView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */,
 				BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */,
 				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
+				4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +592,7 @@
 				BE14333526A0E1FA0054E475 /* APIManager.swift in Sources */,
 				BE85B08926BD96C1004B4303 /* MurderMysteryStatsManager.swift in Sources */,
 				BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */,
+				4CC234AA26CCAF1400D95D38 /* CoinsView.swift in Sources */,
 				BE8FFE3126B3B0850033A8C2 /* QuakeStatsManager.swift in Sources */,
 				BE0DBF8026B6157700344E8B /* HungerGamesStatsManager.swift in Sources */,
 				BE667DC226A77E5700325338 /* PaintballStatsManager.swift in Sources */,

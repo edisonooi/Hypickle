@@ -13,13 +13,10 @@ class GenericStatsViewController: UIViewController {
     var data: JSON = [:]
     var achievementsData: JSON = [:]
     var gameID: String = ""
+    var coinsView: CoinsView?
     
-    @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var statsTable: UITableView!
-    @IBOutlet weak var gameIcon: UIImageView!
-    @IBOutlet weak var coinsView: UIView!
-    @IBOutlet weak var coinAmount: UILabel!
-    @IBOutlet weak var currencyIcon: UIImageView!
+    
     
     
     lazy var dataManager: StatsManager = {
@@ -81,33 +78,42 @@ class GenericStatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        statsTable.allowsSelection = true
-    
-        gameTitle.text = Utils.databaseNameToCleanName[gameID]
         title = Utils.databaseNameToCleanName[gameID]
         
-        gameIcon.image = UIImage(named: gameID.lowercased() + "_icon")
-        gameIcon.translatesAutoresizingMaskIntoConstraints = false
-        
+        statsTable.allowsSelection = true
         statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         statsTable.dataSource = dataManager
         statsTable.delegate = dataManager
         
-        coinsView.backgroundColor = .systemGray5
-        coinsView.layer.cornerRadius = 16
-        coinsView.layer.masksToBounds = true
         
-        coinAmount.text = data["coins"].intValue.withCommas
+
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        if gameID == "Pit" {
-            currencyIcon.image = UIImage(named: "gold_ingot")
-            coinAmount.text = Int(floor(data["profile"]["cash"].doubleValue)).withCommas
+        updateCoins()
+    }
+    
+    func updateCoins() {
+        
+        if coinsView == nil {
+            coinsView = CoinsView.instanceFromNib()
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: coinsView!)
         }
         
+        if gameID == "Pit" {
+            coinsView?.coinsIcon.image = UIImage(named: "gold_ingot")
+            coinsView?.coinAmount.text = Int(floor(data["profile"]["cash"].doubleValue)).withCommas
+        } else {
+            coinsView?.coinsIcon.image = UIImage(named: "coin_icon")
+            coinsView?.coinAmount.text = data["coins"].intValue.withCommas
+        }
         
-        
-        
-        // Do any additional setup after loading the view.
+        coinsView!.backgroundColor = .systemGray5
+        coinsView!.layer.cornerRadius = 16
+        coinsView!.layer.masksToBounds = true
     }
 
     

@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="-784" y="117"/>
         </scene>
-        <!--Item 2-->
+        <!--Achievements-->
         <scene sceneID="QVa-4D-oc6">
             <objects>
                 <viewController id="PUB-Vz-se0" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                         <viewLayoutGuide key="safeArea" id="Nff-JR-TdW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="iu6-fr-AmT"/>
+                    <tabBarItem key="tabBarItem" title="Achievements" image="outline_emoji_events_black_24pt" id="iu6-fr-AmT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ux3-xU-ErV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,7 +112,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcc-fn-0XU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241" y="117"/>
+            <point key="canvasLocation" x="1086" y="117"/>
         </scene>
         <!--Stats-->
         <scene sceneID="z8b-Lh-SRE">
@@ -184,7 +184,7 @@
                             <constraint firstAttribute="bottom" secondItem="l6r-yP-ffv" secondAttribute="bottom" id="xql-QF-3dB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stats" id="Z2y-c4-A6p"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="outline_bar_chart_black_24pt" id="Z2y-c4-A6p"/>
                     <navigationItem key="navigationItem" id="plu-1S-uXL">
                         <barButtonItem key="backBarButtonItem" title=" " id="yJS-M1-6SI"/>
                     </navigationItem>
@@ -260,6 +260,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="outline_bar_chart_black_24pt" width="24" height="24"/>
+        <image name="outline_emoji_events_black_24pt" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

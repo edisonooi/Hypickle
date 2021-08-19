@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Scrolling Navigation Controller-->
         <scene sceneID="RZh-RT-m0X">
             <objects>
-                <navigationController id="2O0-bh-yjM" sceneMemberID="viewController">
+                <navigationController id="2O0-bh-yjM" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5L8-8w-PAF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-yP-ffv">
-                                <rect key="frame" x="0.0" y="88" width="414" height="912"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6O-kM-aJi" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
@@ -160,10 +160,10 @@
                                 <constraints>
                                     <constraint firstItem="C6O-kM-aJi" firstAttribute="leading" secondItem="l6r-yP-ffv" secondAttribute="leading" id="0VO-6i-NdD"/>
                                     <constraint firstItem="C6O-kM-aJi" firstAttribute="centerX" secondItem="l6r-yP-ffv" secondAttribute="centerX" id="5Rc-6C-CfS"/>
+                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="top" secondItem="l6r-yP-ffv" secondAttribute="top" id="MgZ-bV-6VP"/>
                                     <constraint firstItem="C6O-kM-aJi" firstAttribute="centerY" secondItem="l6r-yP-ffv" secondAttribute="centerY" priority="250" id="Po1-Yr-fNT"/>
                                     <constraint firstAttribute="trailing" secondItem="C6O-kM-aJi" secondAttribute="trailing" id="Rlr-rF-Tfk"/>
                                     <constraint firstAttribute="bottom" secondItem="C6O-kM-aJi" secondAttribute="bottom" id="Wd4-OX-3XT"/>
-                                    <constraint firstItem="C6O-kM-aJi" firstAttribute="top" secondItem="0FN-wz-OjS" secondAttribute="top" id="ZEx-oF-PZ9"/>
                                     <constraint firstItem="C6O-kM-aJi" firstAttribute="leading" secondItem="0FN-wz-OjS" secondAttribute="leading" id="cNq-QP-Nr8"/>
                                     <constraint firstItem="C6O-kM-aJi" firstAttribute="trailing" secondItem="0FN-wz-OjS" secondAttribute="trailing" id="rH8-JO-j4x"/>
                                     <constraint firstItem="0FN-wz-OjS" firstAttribute="bottom" secondItem="C6O-kM-aJi" secondAttribute="bottom" priority="250" id="ts3-LJ-IbC"/>
@@ -177,10 +177,10 @@
                         <constraints>
                             <constraint firstItem="C6O-kM-aJi" firstAttribute="height" secondItem="acR-WH-JL7" secondAttribute="height" priority="250" id="6AW-bo-fdp"/>
                             <constraint firstItem="C6O-kM-aJi" firstAttribute="width" secondItem="acR-WH-JL7" secondAttribute="width" id="8Mv-1f-3Zm"/>
+                            <constraint firstItem="l6r-yP-ffv" firstAttribute="top" secondItem="acR-WH-JL7" secondAttribute="top" id="Z3i-50-rRz"/>
                             <constraint firstItem="l6r-yP-ffv" firstAttribute="leading" secondItem="jVO-cq-IGv" secondAttribute="leading" id="aem-sJ-nOM"/>
                             <constraint firstItem="l6r-yP-ffv" firstAttribute="width" secondItem="acR-WH-JL7" secondAttribute="width" id="gYN-2L-voI"/>
                             <constraint firstItem="l6r-yP-ffv" firstAttribute="trailing" secondItem="jVO-cq-IGv" secondAttribute="trailing" id="hMS-YH-ClX"/>
-                            <constraint firstItem="l6r-yP-ffv" firstAttribute="top" secondItem="jVO-cq-IGv" secondAttribute="top" id="jUr-Ic-r4R"/>
                             <constraint firstAttribute="bottom" secondItem="l6r-yP-ffv" secondAttribute="bottom" id="xql-QF-3dB"/>
                         </constraints>
                     </view>
@@ -192,6 +192,7 @@
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="gameTableContainerView" destination="AeB-Kk-knS" id="cHH-oh-qgl"/>
+                        <outlet property="mainScrollView" destination="l6r-yP-ffv" id="ZOk-Rj-1e1"/>
                         <outlet property="skinImageView" destination="HOF-Rr-GHs" id="mPO-hH-8Te"/>
                         <outlet property="usernameTextField" destination="NRg-nr-9wu" id="jKR-Wf-kAw"/>
                     </connections>

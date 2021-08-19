@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.4.3)
+  - AMScrollingNavbar (5.1.1)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - AMScrollingNavbar (~> 5.1.0)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AMScrollingNavbar
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AMScrollingNavbar: 128e9e17af3b93f80d6705befe7cc2ae5e8a8435
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 066363e0fa428ff1265eb4e2a827c27c9459e7f8
+PODFILE CHECKSUM: 3c1f16a0bfc76801d90af9d2d42d3d599b59a2a9
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.2

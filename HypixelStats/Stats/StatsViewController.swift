@@ -7,14 +7,16 @@
 
 import UIKit
 import SwiftyJSON
+import AMScrollingNavbar
 
-class StatsViewController: UIViewController {
+class StatsViewController: UIViewController, UIScrollViewDelegate {
     
     var user: MinecraftUser?
     var allStatsData: JSON = ["": ""]
     
     
     @IBOutlet weak var gameTableContainerView: UIView!
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     var gameStats: JSON = [:]
     
@@ -34,9 +36,36 @@ class StatsViewController: UIViewController {
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         
+        mainScrollView.delegate = self
+        
         if let skinURL = user?.skin, skinURL != "" {
             downloadSkinImage(from: URL(string: skinURL)!)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+            navigationController.followScrollView(mainScrollView, delay: 50.0)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+            navigationController.stopFollowingScrollView()
+        }
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar()
+        }
+        return true
     }
     
     

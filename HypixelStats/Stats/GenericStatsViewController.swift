@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyJSON
+import AMScrollingNavbar
 
 class GenericStatsViewController: UIViewController {
         
@@ -93,10 +94,24 @@ class GenericStatsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //self.navigationController?.isNavigationBarHidden = false
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+            navigationController.followScrollView(statsTable, delay: 20.0)
+        }
         
         updateCoins()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+            navigationController.stopFollowingScrollView()
+        }
+    }
+    
+    
     
     func updateCoins() {
         

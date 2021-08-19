@@ -48,7 +48,7 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
 
         if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
             navigationController.showNavbar(animated: true)
-            navigationController.followScrollView(mainScrollView, delay: 50.0)
+            navigationController.followScrollView(mainScrollView, delay: 20.0)
         }
     }
     

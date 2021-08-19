@@ -27,17 +27,18 @@ class StatsViewController: UIViewController {
         
         if let username = user?.username {
             usernameTextField.text = username
-            self.navigationController?.visibleViewController!.title = username + "'s Stats"
+            self.tabBarController?.navigationItem.title = username + "'s Stats"
         } else {
-            self.navigationController?.visibleViewController!.title = "No User Found"
+            self.tabBarController?.navigationItem.title = "No User Found"
         }
+        
+        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         
         if let skinURL = user?.skin, skinURL != "" {
             downloadSkinImage(from: URL(string: skinURL)!)
         }
-        
-        
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -46,6 +47,7 @@ class StatsViewController: UIViewController {
             
             gamesTableVC.view.translatesAutoresizingMaskIntoConstraints = false
             
+            //Initializing stuff here because apparently this is the first method that gets called
             let tabBar = tabBarController as! PlayerInfoTabBarController
             self.user = tabBar.user
             self.allStatsData = tabBar.user!.playerHypixelData

@@ -34,7 +34,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         
         var finalKills = data["final_kills_bedwars"].intValue
         var finalDeaths = data["final_deaths_bedwars"].intValue
-        var finalKDR = Utils.calculateRatio(numerator: kills, denominator: deaths)
+        var finalKDR = Utils.calculateRatio(numerator: finalKills, denominator: finalDeaths)
         
         var level = getLevel(xp: data["Experience"].intValue + data["Experience_new"].intValue)
         var prestige = getPrestige(level: level)

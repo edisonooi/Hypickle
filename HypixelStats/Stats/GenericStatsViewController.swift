@@ -93,6 +93,8 @@ class GenericStatsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2].title = " "
+        
         updateCoins()
     }
     

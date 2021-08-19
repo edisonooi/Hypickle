@@ -51,7 +51,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search Player Stats" id="quX-wx-IkO">
-                        <barButtonItem key="backBarButtonItem" title=" Search" id="kGd-Lv-sya"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="kGd-Lv-sya"/>
                     </navigationItem>
                     <connections>
                         <outlet property="searchButton" destination="B8I-yj-sop" id="C0w-uA-kvj"/>

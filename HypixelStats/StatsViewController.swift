@@ -13,6 +13,7 @@ class StatsViewController: UIViewController {
     var user: MinecraftUser?
     var allStatsData: JSON = ["": ""]
     
+    
     @IBOutlet weak var gameTableContainerView: UIView!
     
     var gameStats: JSON = [:]
@@ -24,17 +25,18 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         if let username = user?.username {
             usernameTextField.text = username
-            title = username + "'s Stats"
+            self.navigationController?.visibleViewController!.title = username + "'s Stats"
         } else {
-            title = "No User Found"
+            self.navigationController?.visibleViewController!.title = "No User Found"
         }
         
         if let skinURL = user?.skin, skinURL != "" {
             downloadSkinImage(from: URL(string: skinURL)!)
         }
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,22 +46,11 @@ class StatsViewController: UIViewController {
             
             gamesTableVC.view.translatesAutoresizingMaskIntoConstraints = false
             
-            let url = "https://api.hypixel.net/player?uuid=\(user!.uuid)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
+            let tabBar = tabBarController as! PlayerInfoTabBarController
+            self.user = tabBar.user
+            self.allStatsData = tabBar.user!.playerHypixelData
             
-            APIManager.getJSON(specific_url: url) {jsonData in
-
-                if jsonData["player"].dictionary != nil {
-                    self.allStatsData = jsonData["player"]
-
-                    self.gameStats = jsonData["player"]["stats"]
-                    
-                    gamesTableVC.data = self.gameStats
-
-                } else {
-                    print("Error retrieving all stats")
-                    return
-                }
-            }
+            gamesTableVC.data = self.allStatsData["stats"]
         }
     }
     

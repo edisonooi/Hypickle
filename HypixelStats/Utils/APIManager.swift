@@ -11,11 +11,11 @@ import Alamofire
 
 class APIManager {
     
-    static func getJSON(specific_url: String, completion:@escaping (JSON) -> ()) {
+    static func getJSON(url: String, completion:@escaping (JSON) -> ()) {
         
-        print(specific_url)
+        print(url)
         
-        AF.request(specific_url).responseJSON { response in
+        AF.request(url).responseJSON { response in
             switch response.result {
                 case .success(let value):
                     let json = JSON(value)

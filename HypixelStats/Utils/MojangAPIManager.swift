@@ -15,7 +15,7 @@ class MojangAPIManager {
         var skin = ""
         
         let skinURL = "https://sessionserver.mojang.com/session/minecraft/profile/\(uuid)"
-        APIManager.getJSON(specific_url: skinURL) {jsonData in
+        APIManager.getJSON(url: skinURL) {jsonData in
             if let skinData = jsonData["properties"] as? Array<Dictionary<String,Any>> {
                 var valueString = skinData[0]["value"] as! String
                 

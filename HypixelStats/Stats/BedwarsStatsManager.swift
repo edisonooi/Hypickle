@@ -268,17 +268,70 @@ class BedwarsStatsManager: NSObject, StatsManager {
             6: "",
             12: "",
             14: "",
-            20: "Modes",
-            20 + modeCount: "Dream Modes",
-            20 + modeCount + dreamsModeCount: "Practice Modes",
-            20 + modeCount + dreamsModeCount + 3: "Bridging Personal Bests"
+            20: "Modes"
         ]
         
-        if headers.contains(section) {
-            return 32
+        
+        
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
+        }
+        
+        if section == 20 + modeCount || section == 20 + modeCount + dreamsModeCount || section == 20 + modeCount + dreamsModeCount + 3 {
+            return 64
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var headers = [
+            2: "",
+            5: "",
+            6: "",
+            12: "",
+            14: "",
+            20: "Modes"
+        ]
+        
+        if modeCount == 0 && dreamsModeCount == 0 {
+            headers[20] = "Practice Modes"
+            headers[23] = "Bridging Personal Bests"
+        } else if modeCount == 0 && dreamsModeCount != 0 {
+            headers[20] = "Dream Modes"
+            headers[20 + dreamsModeCount] = "Practice Modes"
+            headers[20 + dreamsModeCount + 3] = "Bridging Personal Bests"
+        } else if modeCount != 0 && dreamsModeCount == 0 {
+            headers[20 + modeCount] = "Practice Modes"
+            headers[20 + modeCount + 3] = "Bridging Personal Bests"
+        } else {
+            headers[20 + modeCount] = "Dream Modes"
+            headers[20 + modeCount + dreamsModeCount] = "Practice Modes"
+            headers[20 + modeCount + dreamsModeCount + 3] = "Bridging Personal Bests"
+        }
+        
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+                
+            } else {
+                
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

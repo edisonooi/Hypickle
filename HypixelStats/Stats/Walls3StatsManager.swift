@@ -220,15 +220,55 @@ class Walls3StatsManager: NSObject, StatsManager {
         let headers = [
             3: "",
             7: "",
-            11: "Modes",
-            11 + modeCount: "Kits"
+            11: "Modes"
         ]
         
-        if headers.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
+        }
+        
+        if section == 11 + modeCount {
+            return 64
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var headers = [
+            3: "",
+            7: "",
+            11: "Modes",
+        ]
+        
+        if modeCount == 0 {
+            headers[11] = "Kits"
+        } else {
+            headers[11 + modeCount] = "Kits"
+        }
+        
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+                
+            } else {
+                
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

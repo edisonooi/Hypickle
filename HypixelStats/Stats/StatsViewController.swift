@@ -30,7 +30,7 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
             self.tabBarController?.navigationItem.title = "No User Found"
         }
         
-        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "   ", style: .plain, target: nil, action: nil)
         
         mainScrollView.delegate = self
         
@@ -77,7 +77,7 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
             self.user = tabBar.user
             self.allStatsData = tabBar.user!.playerHypixelData
             
-            gamesTableVC.data = self.allStatsData["stats"]
+            gamesTableVC.data = self.allStatsData
         }
     }
     

@@ -43,14 +43,14 @@ class SkyClashStatsManager: NSObject, StatsManager {
         ]
         
         var generalStats = [
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions, isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions),
+            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: [])
         ]
         
         ret.append(contentsOf: generalStats)
@@ -84,7 +84,7 @@ class SkyClashStatsManager: NSObject, StatsManager {
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
             
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)
@@ -131,7 +131,7 @@ class SkyClashStatsManager: NSObject, StatsManager {
                 statsForThisKit.append((category, dataForThisMode[index]))
             }
             
-            kitStats.append(CellData(headerData: (kit.name + " " + getKitLevel(kitID: kit.id), ""), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+            kitStats.append(CellData(headerData: (kit.name + " " + getKitLevel(kitID: kit.id), ""), sectionData: statsForThisKit))
             
         }
         

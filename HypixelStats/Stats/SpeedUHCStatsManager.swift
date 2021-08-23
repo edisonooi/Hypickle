@@ -40,20 +40,20 @@ class SpeedUHCStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
             
-            CellData(headerData: ("Score", data["score"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Stars", titleAndStar.1), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Title", titleAndStar.0), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Score", data["score"].intValue), sectionData: []),
+            CellData(headerData: ("Stars", titleAndStar.1), sectionData: []),
+            CellData(headerData: ("Title", titleAndStar.0), sectionData: []),
             
-            CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue), sectionData: []),
+            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: [])
 
         ]
         
@@ -91,7 +91,7 @@ class SpeedUHCStatsManager: NSObject, StatsManager {
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
             
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)

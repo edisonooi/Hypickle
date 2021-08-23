@@ -37,14 +37,14 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         ]
         
         return [
-            CellData(headerData: ("Score", data["score"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Title", calculateTitle(score: data["score"].intValue)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Overall Wins (tap for details)", wins), sectionData: winsDivisions, isHeader: false, isOpened: false),
-            CellData(headerData: ("Overall Losses", Int(losses)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Total Votes", data["total_votes"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Super Votes", data["super_votes"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Score", data["score"].intValue), sectionData: []),
+            CellData(headerData: ("Title", calculateTitle(score: data["score"].intValue)), sectionData: []),
+            CellData(headerData: ("Overall Wins (tap for details)", wins), sectionData: winsDivisions),
+            CellData(headerData: ("Overall Losses", Int(losses)), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Total Votes", data["total_votes"].intValue), sectionData: []),
+            CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue), sectionData: []),
+            CellData(headerData: ("Super Votes", data["super_votes"].intValue), sectionData: []),
         ]
     }()
     

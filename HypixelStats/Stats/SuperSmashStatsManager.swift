@@ -38,13 +38,13 @@ class SuperSmashStatsManager: NSObject, StatsManager {
         var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var generalStats = [
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: []),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: [])
         ]
         
         ret.append(contentsOf: generalStats)
@@ -72,7 +72,7 @@ class SuperSmashStatsManager: NSObject, StatsManager {
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
             
-            modeStats.append(CellData(headerData: (mode.1, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.1, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)
@@ -120,7 +120,7 @@ class SuperSmashStatsManager: NSObject, StatsManager {
                     statsForThisKit.append((category, dataForThisMode[index]))
                 }
                 
-                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue), data["pg_" + kit.0].intValue), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue), data["pg_" + kit.0].intValue), sectionData: statsForThisKit))
             }
         }
         

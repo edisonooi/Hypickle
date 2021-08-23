@@ -42,31 +42,31 @@ class BedwarsStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Prestige", prestige), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: []),
+            CellData(headerData: ("Prestige", prestige), sectionData: []),
             
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final Kills", finalKills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final K/D", finalKDR), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Final Kills", finalKills), sectionData: []),
+            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: []),
+            CellData(headerData: ("Final K/D", finalKDR), sectionData: []),
             
-            CellData(headerData: ("Beds Broken", data["beds_broken_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Beds Lost", data["beds_lost_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Beds Broken", data["beds_broken_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Beds Lost", data["beds_lost_bedwars"].intValue), sectionData: []),
             
-            CellData(headerData: ("Iron Collected", data["iron_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Gold Collected", data["gold_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Diamonds Collected", data["diamond_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Emeralds Collected", data["emerald_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Wrapped Presents Collected", data["wrapped_present_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Shop Purchases", data["_items_purchased_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Iron Collected", data["iron_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Gold Collected", data["gold_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Diamonds Collected", data["diamond_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Emeralds Collected", data["emerald_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Wrapped Presents Collected", data["wrapped_present_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Shop Purchases", data["_items_purchased_bedwars"].intValue), sectionData: []),
             
             
         ]
@@ -138,7 +138,7 @@ class BedwarsStatsManager: NSObject, StatsManager {
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
             
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)
@@ -165,7 +165,7 @@ class BedwarsStatsManager: NSObject, StatsManager {
                 ("Blocks Placed", blocksPlaced)
             ]
             
-            practiceModeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            practiceModeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: practiceModeStats)
@@ -198,7 +198,7 @@ class BedwarsStatsManager: NSObject, StatsManager {
                     statsForThisMode.append((distance + " Blocks", bestTimeString))
                 }
                 
-                bridgingStats.append(CellData(headerData: (angle.name + " " + elevation.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+                bridgingStats.append(CellData(headerData: (angle.name + " " + elevation.name, ""), sectionData: statsForThisMode))
             }
         }
         

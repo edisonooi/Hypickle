@@ -86,24 +86,24 @@ class QuakeStatsManager: NSObject, StatsManager {
         ]
         
         return [
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Killstreaks", killstreaks), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Headshots", headshots), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Shots Fired", shotsFired), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Headshots/Kill", headshotsPerKill), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills/Shot", killsPerShot), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Killstreaks", killstreaks), sectionData: []),
+            CellData(headerData: ("Headshots", headshots), sectionData: []),
+            CellData(headerData: ("Shots Fired", shotsFired), sectionData: []),
+            CellData(headerData: ("Headshots/Kill", headshotsPerKill), sectionData: []),
+            CellData(headerData: ("Kills/Shot", killsPerShot), sectionData: []),
             
-            CellData(headerData: ("Highest Killstreak", data["highest_killstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Highest Killstreak", data["highest_killstreak"].intValue), sectionData: []),
             
-            CellData(headerData: ("Dash Cooldown", (data["dash_cooldown"].intValue) + 1), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Dash Power", (data["dash_power"].intValue) + 1), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Dash Cooldown", (data["dash_cooldown"].intValue) + 1), sectionData: []),
+            CellData(headerData: ("Dash Power", (data["dash_power"].intValue) + 1), sectionData: []),
             
-            CellData(headerData: ("Solo", ""), sectionData: statsSolo, isHeader: false, isOpened: false),
+            CellData(headerData: ("Solo", ""), sectionData: statsSolo),
             
-            CellData(headerData: ("Teams", ""), sectionData: statsTeams, isHeader: false, isOpened: false)
+            CellData(headerData: ("Teams", ""), sectionData: statsTeams)
         ]
     }()
     

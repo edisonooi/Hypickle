@@ -97,7 +97,7 @@ class GamesTableController: UITableViewController {
         
         
         
-        destVC.data = data[selectedGame] ?? ["": ""]
+        destVC.data = data["stats"][selectedGame] ?? ["": ""]
         destVC.gameID = selectedGame
         
         if selectedGame == "Arcade" {

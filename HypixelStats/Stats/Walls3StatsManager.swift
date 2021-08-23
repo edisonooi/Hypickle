@@ -39,19 +39,19 @@ class Walls3StatsManager: NSObject, StatsManager {
       
         
         var generalStats = [
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", assists), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Assists", assists), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
             
-            CellData(headerData: ("Final Kills", finalKills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final Assists", finalAssists), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final K/D", finalKDR), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Final Kills", finalKills), sectionData: []),
+            CellData(headerData: ("Final Assists", finalAssists), sectionData: []),
+            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: []),
+            CellData(headerData: ("Final K/D", finalKDR), sectionData: [])
         ]
         
         ret.append(contentsOf: generalStats)
@@ -88,7 +88,7 @@ class Walls3StatsManager: NSObject, StatsManager {
             }
             
             
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)
@@ -155,7 +155,7 @@ class Walls3StatsManager: NSObject, StatsManager {
                 statsForThisKit.append((category, dataForThisKit[index]))
             }
             
-            kitStats.append(CellData(headerData: (kit.name, kitPrestigeString), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+            kitStats.append(CellData(headerData: (kit.name, kitPrestigeString), sectionData: statsForThisKit))
         }
         
         ret.append(contentsOf: kitStats)

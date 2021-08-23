@@ -92,19 +92,19 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions, isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions, isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
             
-            CellData(headerData: ("Fastest Murderer Win", murdWinString), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Fastest Detective Win", detWinString), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Fastest Murderer Win", murdWinString), sectionData: []),
+            CellData(headerData: ("Fastest Detective Win", detWinString), sectionData: []),
             
-            CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: []),
+            CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue), sectionData: [])
         ]
         
         ret.append(contentsOf: generalStats)
@@ -125,7 +125,7 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         for mode in modes {
             
             if mode.id == "_MURDER_HARDCORE" && (data["games" + mode.id].exists() || data["games_MURDER_SHOWDOWN"].exists()) {
-                modeStats.append(CellData(headerData: ("LEGACY MODES", ""), sectionData: [], isHeader: false, isOpened: false))
+                modeStats.append(CellData(headerData: ("LEGACY MODES", ""), sectionData: []))
             }
             
             if !data["games" + mode.id].exists() {
@@ -153,7 +153,7 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
                     statsForThisMode.append((category, infectionData[index]))
                 }
                 
-                modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+                modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
                 
                 continue
             }
@@ -178,7 +178,7 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
             
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)

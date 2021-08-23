@@ -48,27 +48,27 @@ class BattlegroundStatsManager: NSObject, StatsManager {
         ]
         
         var generalStats = [
-            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winStats, isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winStats),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", assists), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Assists", assists), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
             
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists/Kill", akr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Assists/Kill", akr), sectionData: []),
             
-            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: []),
+            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: []),
             
-            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue), sectionData: []),
+            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue), sectionData: []),
+            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue), sectionData: []),
             
-            CellData(headerData: ("Damage", data["damage"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Healing", data["heal"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Damage", data["damage"].intValue), sectionData: []),
+            CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue), sectionData: []),
+            CellData(headerData: ("Healing", data["heal"].intValue), sectionData: []),
         ]
 
         ret.append(contentsOf: generalStats)
@@ -106,7 +106,7 @@ class BattlegroundStatsManager: NSObject, StatsManager {
                 kitLevel += data[kit + "_" + upgrade].intValue
             }
             
-            kitStats.append(CellData(headerData: (kit.capitalized, "Lv\(kitLevel)"), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+            kitStats.append(CellData(headerData: (kit.capitalized, "Lv\(kitLevel)"), sectionData: statsForThisKit))
             
         }
         

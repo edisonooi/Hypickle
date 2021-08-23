@@ -104,17 +104,17 @@ class GingerBreadStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Games Played", gamesPlayed), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("% Games on Podium", podiumPercentage + "%"), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: []),
+            CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: []),
+            CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: []),
+            CellData(headerData: ("Games Played", gamesPlayed), sectionData: []),
+            CellData(headerData: ("% Games on Podium", podiumPercentage + "%"), sectionData: []),
             
-            CellData(headerData: ("Coins Picked Up", data["coins_picked_up"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Powerups Picked Up", data["box_pickups"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Blue Torpedoes Hit", data["blue_torpedo_hit"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Banana Hits Sent", data["banana_hits_sent"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Banana Hits Received", data["banana_hits_received"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Coins Picked Up", data["coins_picked_up"].intValue), sectionData: []),
+            CellData(headerData: ("Powerups Picked Up", data["box_pickups"].intValue), sectionData: []),
+            CellData(headerData: ("Blue Torpedoes Hit", data["blue_torpedo_hit"].intValue), sectionData: []),
+            CellData(headerData: ("Banana Hits Sent", data["banana_hits_sent"].intValue), sectionData: []),
+            CellData(headerData: ("Banana Hits Received", data["banana_hits_received"].intValue), sectionData: []),
         ]
     }()
     

@@ -45,13 +45,13 @@ class HungerGamesStatsManager: NSObject, StatsManager {
         ]
         
         var generalStats = [
-            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions, isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills/Game", killsPerGame), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions),
+            CellData(headerData: ("Losses", deaths), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills/Game", killsPerGame), sectionData: [])
         ]
         
         ret.append(contentsOf: generalStats)
@@ -148,7 +148,7 @@ class HungerGamesStatsManager: NSObject, StatsManager {
                         kitName = kit.capitalized
                 }
                 
-                kitStats.append(CellData(headerData: (kitName + " " + Utils.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+                kitStats.append(CellData(headerData: (kitName + " " + Utils.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit))
             }
         }
         

@@ -17,7 +17,11 @@ class WallsStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
-    lazy var desiredStats: [[(String, Any)]] = {
+    let headers = [
+        3: ""
+    ]
+    
+    lazy var statsTableData: [CellData] = {
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
@@ -28,47 +32,101 @@ class WallsStatsManager: NSObject, StatsManager {
         var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         return [
-            [
-                ("Wins", wins),
-                ("Losses", losses),
-                ("W/L", wlr),
-            ],
-            [
-                ("Kills", kills),
-                ("Assists", data["assists"].intValue),
-                ("Deaths", deaths),
-                ("K/D", kdr)
-            ]
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
+            
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
         ]
     }()
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return desiredStats.count
+        return statsTableData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return desiredStats[section].count
+        if statsTableData[section].isOpened {
+            return statsTableData[section].sectionData.count + 1
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
-        let category = desiredStats[indexPath.section][indexPath.row].0
-        let value = desiredStats[indexPath.section][indexPath.row].1
+        
+        var category = ""
+        var value: Any = ""
+        
+        if indexPath.row == 0 {
+            category = statsTableData[indexPath.section].headerData.0
+            value = statsTableData[indexPath.section].headerData.1
+        } else {
+            category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
+            value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
+        }
+        
+        if value is Int {
+            value = (value as! Int).withCommas
+        }
+        
         cell.configure(category: category, value: "\(value)")
+
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        label.backgroundColor = .white
+        if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
+            statsTableData[indexPath.section].isOpened = !statsTableData[indexPath.section].isOpened
+            let sections = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(sections, with: .none)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        if statsTableData[indexPath.section].sectionData.isEmpty || indexPath.row != 0 {
+            return false
+        }
         
-        return label
+        return true
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
+        }
+        
+        return CGFloat.leastNormalMagnitude
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
+    }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
 }

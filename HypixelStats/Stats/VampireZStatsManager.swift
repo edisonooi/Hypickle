@@ -17,7 +17,11 @@ class VampireZStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
-    lazy var desiredStats: [[(String, Any)]] = {
+    let headers = [
+        5: ""
+    ]
+    
+    lazy var statsTableData: [CellData] = {
         
         var humanKills = data["human_kills"].intValue
         var humanDeaths = data["human_deaths"].intValue
@@ -30,49 +34,103 @@ class VampireZStatsManager: NSObject, StatsManager {
         var vampireKDR = Utils.calculateRatio(numerator: vampireKills, denominator: vampireDeaths)
         
         return [
-            [
-                ("Human Wins", data["human_wins"].intValue),
-                ("Human Kills", humanKills),
-                ("Human Deaths", humanDeaths),
-                ("Human K/D", humanKDR),
-                ("Zombie Kills", data["zombie_kills"].intValue)
-            ],
-            [
-                ("Vampire Wins", data["vampire_wins"].intValue),
-                ("Vampire Kills", vampireKills),
-                ("Vampire Deaths", vampireDeaths),
-                ("Vampire K/D", vampireKDR)
-            ]
+            CellData(headerData: ("Human Wins", data["human_wins"].intValue), sectionData: []),
+            CellData(headerData: ("Human Kills", humanKills), sectionData: []),
+            CellData(headerData: ("Human Deaths", humanDeaths), sectionData: []),
+            CellData(headerData: ("Human K/D", humanKDR), sectionData: []),
+            CellData(headerData: ("Zombie Kills", data["zombie_kills"].intValue), sectionData: []),
+            
+            CellData(headerData: ("Vampire Wins", data["vampire_wins"].intValue), sectionData: []),
+            CellData(headerData: ("Vampire Kills", vampireKills), sectionData: []),
+            CellData(headerData: ("Vampire Deaths", vampireDeaths), sectionData: []),
+            CellData(headerData: ("Vampire K/D", vampireKDR), sectionData: [])
         ]
     }()
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return desiredStats.count
+        return statsTableData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return desiredStats[section].count
+        if statsTableData[section].isOpened {
+            return statsTableData[section].sectionData.count + 1
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
-        let category = desiredStats[indexPath.section][indexPath.row].0
-        let value = desiredStats[indexPath.section][indexPath.row].1
+        
+        var category = ""
+        var value: Any = ""
+        
+        if indexPath.row == 0 {
+            category = statsTableData[indexPath.section].headerData.0
+            value = statsTableData[indexPath.section].headerData.1
+        } else {
+            category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
+            value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
+        }
+        
+        if value is Int {
+            value = (value as! Int).withCommas
+        }
+        
         cell.configure(category: category, value: "\(value)")
+
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        label.backgroundColor = .white
+        if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
+            statsTableData[indexPath.section].isOpened = !statsTableData[indexPath.section].isOpened
+            let sections = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(sections, with: .none)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        if statsTableData[indexPath.section].sectionData.isEmpty || indexPath.row != 0 {
+            return false
+        }
         
-        return label
+        return true
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
+        }
+        
+        return CGFloat.leastNormalMagnitude
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
+    }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
 }

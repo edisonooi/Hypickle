@@ -17,6 +17,12 @@ class MCGOStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        2: "",
+        6: "",
+        9: "",
+        11: "Modes"
+    ]
     
     lazy var statsTableData: [CellData] = {
         
@@ -142,9 +148,9 @@ class MCGOStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [2, 6, 9, 11]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

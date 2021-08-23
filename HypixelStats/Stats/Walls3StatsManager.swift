@@ -217,9 +217,14 @@ class Walls3StatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 7, 11, 11 + modeCount]
+        let headers = [
+            3: "",
+            7: "",
+            11: "Modes",
+            11 + modeCount: "Kits"
+        ]
         
-        if sectionsThatNeedHeader.contains(section) {
+        if headers.contains(section) {
             return 32
         }
         

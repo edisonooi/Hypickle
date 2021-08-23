@@ -237,9 +237,9 @@ class TNTGamesStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let sectionsThatNeedHeader = [4, 10, 13, 14, 19]
+        let headers = [4, 10, 13, 14, 19]
         
-        if sectionsThatNeedHeader.contains(section) {
+        if headers.contains(section) {
             return 32
         }
         

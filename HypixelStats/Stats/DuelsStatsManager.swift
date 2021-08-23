@@ -17,6 +17,15 @@ class DuelsStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        1: "",
+        4: "",
+        7: "",
+        9: "",
+        12: "",
+        15: "Modes"
+    ]
+    
     let divisions = [
         (name: "Rookie",      color: "darkgray"),
         (name: "Iron",        color: "white"),
@@ -196,9 +205,9 @@ class DuelsStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [1, 4, 7, 9, 12, 15]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

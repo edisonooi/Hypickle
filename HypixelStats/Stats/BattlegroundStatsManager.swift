@@ -17,6 +17,15 @@ class BattlegroundStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        3: "",
+        6: "",
+        8: "",
+        10: "",
+        13: "",
+        16: "Kits"
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var ret: [CellData] = []
@@ -161,9 +170,9 @@ class BattlegroundStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 6, 8, 10, 13, 16]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

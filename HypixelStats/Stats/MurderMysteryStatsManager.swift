@@ -17,6 +17,12 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        3: "",
+        6: "",
+        8: "",
+        10: "Modes"
+    ]
     
     lazy var statsTableData: [CellData] = {
         
@@ -235,9 +241,9 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 6, 8, 10]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

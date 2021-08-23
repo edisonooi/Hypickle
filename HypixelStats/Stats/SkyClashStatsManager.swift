@@ -17,6 +17,12 @@ class SkyClashStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        3: "",
+        7: "Modes",
+        11: "Kits"
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var ret: [CellData] = []
@@ -188,9 +194,9 @@ class SkyClashStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 7, 11]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

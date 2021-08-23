@@ -17,6 +17,14 @@ class SuperSmashStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        3: "",
+        4: "",
+        7: "Modes",
+        10: "Kits"
+    ]
+    
+    
     lazy var statsTableData: [CellData] = {
         
         var ret: [CellData] = []
@@ -175,9 +183,9 @@ class SuperSmashStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 4, 7, 10]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

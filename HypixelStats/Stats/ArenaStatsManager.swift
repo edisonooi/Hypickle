@@ -17,6 +17,11 @@ class ArenaStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        3: "",
+        6: "Modes"
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var wins = data["wins"].intValue
@@ -143,9 +148,9 @@ class ArenaStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 6, 7, 8]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

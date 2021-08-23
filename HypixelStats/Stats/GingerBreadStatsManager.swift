@@ -17,6 +17,11 @@ class GingerBreadStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        5: "",
+        10: "Kart Info"
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var wins = data["wins"].intValue
@@ -110,8 +115,6 @@ class GingerBreadStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Blue Torpedoes Hit", data["blue_torpedo_hit"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Banana Hits Sent", data["banana_hits_sent"].intValue), sectionData: [], isHeader: false, isOpened: false),
             CellData(headerData: ("Banana Hits Received", data["banana_hits_received"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            
-            CellData(headerData: ("Kart Info", ""), sectionData: partStats, isHeader: false, isOpened: true)
         ]
     }()
     
@@ -170,9 +173,8 @@ class GingerBreadStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let sectionsThatNeedHeader = [5]
         
-        if sectionsThatNeedHeader.contains(section) {
+        if headers.contains(section) {
             return 32
         }
         

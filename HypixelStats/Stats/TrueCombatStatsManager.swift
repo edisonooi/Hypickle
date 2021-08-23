@@ -17,6 +17,11 @@ class TrueCombatStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        3: "",
+        6: "",
+        9: "Modes"
+    ]
     
     lazy var statsTableData: [CellData] = {
         
@@ -147,9 +152,9 @@ class TrueCombatStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 6, 9]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

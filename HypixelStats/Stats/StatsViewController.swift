@@ -13,14 +13,10 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
     
     var user: MinecraftUser?
     var allStatsData: JSON = ["": ""]
-    
+    var gameStats: JSON = [:]
     
     @IBOutlet weak var gameTableContainerView: UIView!
     @IBOutlet weak var mainScrollView: UIScrollView!
-    
-    var gameStats: JSON = [:]
-    
-    
     @IBOutlet weak var usernameTextField: UILabel!
     @IBOutlet weak var skinImageView: UIImageView!
     

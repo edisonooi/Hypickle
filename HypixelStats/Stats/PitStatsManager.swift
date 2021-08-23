@@ -17,6 +17,8 @@ class PitStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [4: "", 6: "", 12: "", 17: "", 19: "", 22: "", 25: "", 27: "", 31: "", 35: ""]
+    
     lazy var statsTableData: [CellData] = {
         
         let stats = data["pit_stats_ptl"]
@@ -149,9 +151,8 @@ class PitStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let sectionsThatNeedHeader = [4, 6, 12, 17, 19, 22, 25, 27, 31, 35]
         
-        if sectionsThatNeedHeader.contains(section) {
+        if headers.contains(section) {
             return 32
         }
         

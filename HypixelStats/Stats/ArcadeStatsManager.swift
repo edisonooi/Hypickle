@@ -370,9 +370,9 @@ class ArcadeStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let sectionsThatNeedHeader = [0, 3, 7, 9, 10, 12, 13, 15, 19, 26, 28, 31, 32, 41, 44, 45, 49, 51, 53, 58, 60, 62, 65, 66, 68, 70, 72, 73, 75]
+        let headers = [0, 3, 7, 9, 10, 12, 13, 15, 19, 26, 28, 31, 32, 41, 44, 45, 49, 51, 53, 58, 60, 62, 65, 66, 68, 70, 72, 73, 75]
         
-        if sectionsThatNeedHeader.contains(section) {
+        if headers.contains(section) {
             return 32
         }
         

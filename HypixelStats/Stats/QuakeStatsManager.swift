@@ -17,6 +17,14 @@ class QuakeStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        1: "",
+        5: "",
+        9: "",
+        10: "",
+        12: "Modes"
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var winsSolo = data["wins"].intValue
@@ -154,9 +162,8 @@ class QuakeStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let sectionsThatNeedHeader = [1, 5, 9, 10, 12, 13]
         
-        if sectionsThatNeedHeader.contains(section) {
+        if headers.contains(section) {
             return 32
         }
         

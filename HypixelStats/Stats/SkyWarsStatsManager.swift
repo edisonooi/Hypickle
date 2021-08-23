@@ -17,6 +17,18 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        2: "",
+        6: "",
+        10: "",
+        14: "",
+        17: "",
+        19: "",
+        22: "",
+        24: "",
+        28: "Modes"
+    ]
+    
     
     lazy var statsTableData: [CellData] = {
         
@@ -178,9 +190,9 @@ class SkyWarsStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [2, 6, 10, 14, 17, 19, 22, 24, 28]
         
-        if sectionsThatNeedHeader.contains(section) {
+        
+        if headers.contains(section) {
             return 32
         }
         

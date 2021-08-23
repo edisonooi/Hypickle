@@ -23,6 +23,8 @@
 		4CCF9C0726C9EA2A004BDF5E /* PitStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */; };
 		4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0826C9F213004BDF5E /* SkyClashStatsManager.swift */; };
 		4CCF9C0B26CA1292004BDF5E /* TrueCombatStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsManager.swift */; };
+		4CF034F526D2DD16000B91C0 /* GenericHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF034F426D2DD16000B91C0 /* GenericHeaderView.xib */; };
+		4CF034F726D2DE0E000B91C0 /* GenericHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */; };
 		767864A562AEE51B77B1D918 /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8225318C5098FA73349D2281 /* Pods_HypixelStats_HypixelStatsUITests.framework */; };
 		A72BF621C06034A7D00BB9B9 /* Pods_HypixelStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952AAEAEC2543328EB86C96D /* Pods_HypixelStats.framework */; };
 		BE0DBF7E26B5F26800344E8B /* SuperSmashStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */; };
@@ -99,6 +101,8 @@
 		4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitStatsManager.swift; sourceTree = "<group>"; };
 		4CCF9C0826C9F213004BDF5E /* SkyClashStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyClashStatsManager.swift; sourceTree = "<group>"; };
 		4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueCombatStatsManager.swift; sourceTree = "<group>"; };
+		4CF034F426D2DD16000B91C0 /* GenericHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericHeaderView.xib; sourceTree = "<group>"; };
+		4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericHeaderView.swift; sourceTree = "<group>"; };
 		52D641DFECA4AA51BD0314A4 /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CF69D871D49B2B20ACDC2C0 /* Pods_HypixelStatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		602DB0CAA9A7A7E4ADAD458E /* Pods-HypixelStatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				BE667DBC26A766D500325338 /* StatsInfoTableViewCell.xib */,
 				4CC234A726CCA34600D95D38 /* CoinsView.xib */,
 				4CC234A926CCAF1400D95D38 /* CoinsView.swift */,
+				4CF034F426D2DD16000B91C0 /* GenericHeaderView.xib */,
+				4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF034F526D2DD16000B91C0 /* GenericHeaderView.xib in Resources */,
 				BE14331126A0DDA20054E475 /* LaunchScreen.storyboard in Resources */,
 				4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */,
 				BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */,
@@ -601,6 +608,7 @@
 				BE14330426A0DDA00054E475 /* SceneDelegate.swift in Sources */,
 				4CC234AA26CCAF1400D95D38 /* CoinsView.swift in Sources */,
 				BE8FFE3126B3B0850033A8C2 /* QuakeStatsManager.swift in Sources */,
+				4CF034F726D2DE0E000B91C0 /* GenericHeaderView.swift in Sources */,
 				4C31D2CC26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift in Sources */,
 				BE0DBF8026B6157700344E8B /* HungerGamesStatsManager.swift in Sources */,
 				BE667DC226A77E5700325338 /* PaintballStatsManager.swift in Sources */,

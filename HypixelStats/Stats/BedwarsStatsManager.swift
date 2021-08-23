@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-public class BedwarsStatsManager: NSObject, StatsManager {
+class BedwarsStatsManager: NSObject, StatsManager {
     
     var data: JSON = [:]
     
@@ -208,11 +208,11 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         return ret
     }()
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return statsTableData.count
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if statsTableData[section].isOpened {
             return statsTableData[section].sectionData.count + 1
         } else {
@@ -220,7 +220,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         }
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
         var category = ""
@@ -243,7 +243,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
@@ -253,7 +253,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         }
     }
     
-    public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         if statsTableData[indexPath.section].sectionData.isEmpty || indexPath.row != 0 {
             return false
         }
@@ -261,10 +261,20 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         return true
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [2, 5, 6, 12, 14, 20, 20 + modeCount, 20 + modeCount + dreamsModeCount, 20 + modeCount + dreamsModeCount + 3]
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let headers = [
+            2: "",
+            5: "",
+            6: "",
+            12: "",
+            14: "",
+            20: "Modes",
+            20 + modeCount: "Dream Modes",
+            20 + modeCount + dreamsModeCount: "Practice Modes",
+            20 + modeCount + dreamsModeCount + 3: "Bridging Personal Bests"
+        ]
         
-        if sectionsThatNeedHeader.contains(section) {
+        if headers.contains(section) {
             return 32
         }
         

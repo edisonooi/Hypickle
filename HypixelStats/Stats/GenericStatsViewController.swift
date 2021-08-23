@@ -18,8 +18,6 @@ class GenericStatsViewController: UIViewController {
     
     @IBOutlet weak var statsTable: UITableView!
     
-    
-    
     lazy var dataManager: StatsManager = {
         
         switch gameID {
@@ -86,9 +84,6 @@ class GenericStatsViewController: UIViewController {
         statsTable.dataSource = dataManager
         statsTable.delegate = dataManager
         
-        
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,8 +106,6 @@ class GenericStatsViewController: UIViewController {
         }
     }
     
-    
-    
     func updateCoins() {
         
         if coinsView == nil {
@@ -132,17 +125,5 @@ class GenericStatsViewController: UIViewController {
         coinsView!.layer.cornerRadius = 16
         coinsView!.layer.masksToBounds = true
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -17,6 +17,11 @@ class HungerGamesStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        3: "",
+        7: "Kits"
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var ret: [CellData] = []
@@ -40,13 +45,13 @@ class HungerGamesStatsManager: NSObject, StatsManager {
         ]
         
         var generalStats = [
-            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions, isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills/Game", killsPerGame), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions),
+            CellData(headerData: ("Losses", deaths), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills/Game", killsPerGame), sectionData: [])
         ]
         
         ret.append(contentsOf: generalStats)
@@ -143,7 +148,7 @@ class HungerGamesStatsManager: NSObject, StatsManager {
                         kitName = kit.capitalized
                 }
                 
-                kitStats.append(CellData(headerData: (kitName + " " + Utils.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+                kitStats.append(CellData(headerData: (kitName + " " + Utils.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit))
             }
         }
         
@@ -206,13 +211,33 @@ class HungerGamesStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 7]
-        
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

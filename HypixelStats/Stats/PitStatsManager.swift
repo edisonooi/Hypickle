@@ -17,6 +17,8 @@ class PitStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [4: "", 6: "", 12: "", 17: "", 19: "", 22: "", 25: "", 27: "", 31: "", 35: ""]
+    
     lazy var statsTableData: [CellData] = {
         
         let stats = data["pit_stats_ptl"]
@@ -43,54 +45,54 @@ class PitStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Prestige", prestigeString), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Level", prestigeAndLevel.1), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("XP", xp), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Prestige", prestigeString), sectionData: []),
+            CellData(headerData: ("Level", prestigeAndLevel.1), sectionData: []),
+            CellData(headerData: ("XP", xp), sectionData: []),
+            CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: []),
             
-            CellData(headerData: ("Current Gold", Int(floor(profile["cash"].doubleValue))), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Lifetime Gold", stats["cash_earned"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Current Gold", Int(floor(profile["cash"].doubleValue))), sectionData: []),
+            CellData(headerData: ("Lifetime Gold", stats["cash_earned"].intValue), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", assists), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("KA/D", kadr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Highest Killstreak", stats["max_streak"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Assists", assists), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("KA/D", kadr), sectionData: []),
+            CellData(headerData: ("Highest Killstreak", stats["max_streak"].intValue), sectionData: []),
             
-            CellData(headerData: ("Playtime", Utils.convertToHoursMinutesSeconds(seconds: playtimeMinutes * 60)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills/Hour", String(format: "%.2f", killsPerHour)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("KA/Hour", String(format: "%.2f", kaPerHour)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("XP/Hour", String(format: "%.2f", xpPerHour)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Gold/Hour", String(format: "%.2f", goldPerHour)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Playtime", Utils.convertToHoursMinutesSeconds(seconds: playtimeMinutes * 60)), sectionData: []),
+            CellData(headerData: ("Kills/Hour", String(format: "%.2f", killsPerHour)), sectionData: []),
+            CellData(headerData: ("KA/Hour", String(format: "%.2f", kaPerHour)), sectionData: []),
+            CellData(headerData: ("XP/Hour", String(format: "%.2f", xpPerHour)), sectionData: []),
+            CellData(headerData: ("Gold/Hour", String(format: "%.2f", goldPerHour)), sectionData: []),
             
-            CellData(headerData: ("Jumps into Pit", stats["jumped_into_pit"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Launcher Launches", stats["launched_by_launchers"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Jumps into Pit", stats["jumped_into_pit"].intValue), sectionData: []),
+            CellData(headerData: ("Launcher Launches", stats["launched_by_launchers"].intValue), sectionData: []),
             
-            CellData(headerData: ("Contracts Completed", stats["contracts_completed"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Night Quests Completed", stats["night_quests_completed"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("King's Quest Completions", stats["king_quest_completion"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Contracts Completed", stats["contracts_completed"].intValue), sectionData: []),
+            CellData(headerData: ("Night Quests Completed", stats["night_quests_completed"].intValue), sectionData: []),
+            CellData(headerData: ("King's Quest Completions", stats["king_quest_completion"].intValue), sectionData: []),
             
-            CellData(headerData: ("Tier 1 Mystics Enchanted", stats["enchanted_tier1"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Tier 2 Mystics Enchanted", stats["enchanted_tier2"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Tier 3 Mystics Enchanted", stats["enchanted_tier3"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Tier 1 Mystics Enchanted", stats["enchanted_tier1"].intValue), sectionData: []),
+            CellData(headerData: ("Tier 2 Mystics Enchanted", stats["enchanted_tier2"].intValue), sectionData: []),
+            CellData(headerData: ("Tier 3 Mystics Enchanted", stats["enchanted_tier3"].intValue), sectionData: []),
             
-            CellData(headerData: ("Wheat Farmed", stats["wheat_farmed"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Diamond Items Purchased", stats["diamond_items_purchased"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wheat Farmed", stats["wheat_farmed"].intValue), sectionData: []),
+            CellData(headerData: ("Diamond Items Purchased", stats["diamond_items_purchased"].intValue), sectionData: []),
             
-            CellData(headerData: ("Golden Heads Eaten", stats["ghead_eaten"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Golden Apples Eaten", stats["gapple_eaten"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Soups Drank", stats["soups_drank"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Rage Potatoes Eaten", stats["rage_potatoes_eaten"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Golden Heads Eaten", stats["ghead_eaten"].intValue), sectionData: []),
+            CellData(headerData: ("Golden Apples Eaten", stats["gapple_eaten"].intValue), sectionData: []),
+            CellData(headerData: ("Soups Drank", stats["soups_drank"].intValue), sectionData: []),
+            CellData(headerData: ("Rage Potatoes Eaten", stats["rage_potatoes_eaten"].intValue), sectionData: []),
             
-            CellData(headerData: ("Lava Buckets Emptied", stats["lava_bucket_emptied"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Fishing Rods Launched", stats["fishing_rod_launched"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Items Fished", stats["fished_anything"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Fish Fished", stats["fishes_fished"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Lava Buckets Emptied", stats["lava_bucket_emptied"].intValue), sectionData: []),
+            CellData(headerData: ("Fishing Rods Launched", stats["fishing_rod_launched"].intValue), sectionData: []),
+            CellData(headerData: ("Items Fished", stats["fished_anything"].intValue), sectionData: []),
+            CellData(headerData: ("Fish Fished", stats["fishes_fished"].intValue), sectionData: []),
             
-            CellData(headerData: ("Blocks Placed", stats["blocks_placed"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Blocks Broken", stats["blocks_broken"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Obsidian Broken", stats["obsidian_broken"].intValue), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Blocks Placed", stats["blocks_placed"].intValue), sectionData: []),
+            CellData(headerData: ("Blocks Broken", stats["blocks_broken"].intValue), sectionData: []),
+            CellData(headerData: ("Obsidian Broken", stats["obsidian_broken"].intValue), sectionData: [])
         ]
     }()
     
@@ -148,14 +150,33 @@ class PitStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        let sectionsThatNeedHeader = [4, 6, 12, 17, 19, 22, 25, 27, 31, 35]
-        
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

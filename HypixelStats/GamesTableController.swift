@@ -14,7 +14,7 @@ class GamesTableController: UITableViewController {
     var selectedGame = ""
 
     let gameList = [
-        ["Arcade", "Arena", "Bedwars", "BuildBattle", "HungerGames", "MCGO", "Duels", "Walls3", "MurderMystery", "Paintball", "Pit", "Quake", "SkyWars", "SuperSmash", "SpeedUHC", "TNTGames", "GingerBread", "UHC", "VampireZ", "Walls", "Battleground"],
+        ["Arcade", "Arena", "Bedwars", "HungerGames", "BuildBattle", "MCGO", "Duels", "Walls3", "MurderMystery", "Paintball", "Pit", "Quake", "SkyWars", "SuperSmash", "SpeedUHC", "TNTGames", "GingerBread", "UHC", "VampireZ", "Walls", "Battleground"],
         ["TrueCombat", "SkyClash"]
     ]
     
@@ -97,7 +97,7 @@ class GamesTableController: UITableViewController {
         
         
         
-        destVC.data = data[selectedGame] ?? ["": ""]
+        destVC.data = data["stats"][selectedGame] ?? ["": ""]
         destVC.gameID = selectedGame
         
         if selectedGame == "Arcade" {

@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         
         let url = "https://api.mojang.com/users/profiles/minecraft/\(username)"
 
-        APIManager.getJSON(specific_url: url) {jsonData in
+        APIManager.getJSON(url: url) {jsonData in
             
             if let safeName = jsonData["name"].string, let safeID = jsonData["id"].string {
                 name = safeName
@@ -46,7 +46,19 @@ class ViewController: UIViewController {
                 
                 self.user = MinecraftUser(username: name, uuid: uuid)
                 
-                self.performSegue(withIdentifier: "openUserStats", sender: self)
+                let hypixelAPIUrl = "https://api.hypixel.net/player?uuid=\(self.user!.uuid)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
+                
+                APIManager.getJSON(url: hypixelAPIUrl) {playerData in
+                    if playerData["player"].exists() {
+                        self.user?.playerHypixelData = playerData["player"]
+                        
+                        self.performSegue(withIdentifier: "showUserInfo", sender: self)
+                    } else {
+                        print("Unable to retrieve data from Hypixel API")
+                        return
+                    }
+                    
+                }
                 
             } else {
                 print("Error, invalid username")
@@ -57,8 +69,8 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let statsVC = segue.destination as? StatsViewController {
-            statsVC.user = user
+        if let destVC = segue.destination as? PlayerInfoTabBarController {
+            destVC.user = self.user
         }
     }
     

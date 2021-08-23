@@ -27,7 +27,7 @@ class PaintballStatsManager: NSObject, StatsManager {
         
         let shotsFired = data["shots_fired"].intValue
         
-        var shotsPerKill = kills == 0 ? shotsFired : shotsFired / kills
+        var shotsPerKill = kills == 0 ? Double(shotsFired) : Double(shotsFired) / Double(kills)
         
         var headStart = data["headstart"].intValue
         

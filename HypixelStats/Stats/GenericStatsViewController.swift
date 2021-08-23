@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyJSON
+import AMScrollingNavbar
 
 class GenericStatsViewController: UIViewController {
         
@@ -16,8 +17,6 @@ class GenericStatsViewController: UIViewController {
     var coinsView: CoinsView?
     
     @IBOutlet weak var statsTable: UITableView!
-    
-    
     
     lazy var dataManager: StatsManager = {
         
@@ -85,15 +84,26 @@ class GenericStatsViewController: UIViewController {
         statsTable.dataSource = dataManager
         statsTable.delegate = dataManager
         
-        
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+            navigationController.followScrollView(statsTable, delay: 20.0)
+        }
+        
         updateCoins()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+            navigationController.stopFollowingScrollView()
+        }
     }
     
     func updateCoins() {
@@ -115,17 +125,5 @@ class GenericStatsViewController: UIViewController {
         coinsView!.layer.cornerRadius = 16
         coinsView!.layer.masksToBounds = true
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

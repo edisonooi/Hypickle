@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-public class BedwarsStatsManager: NSObject, StatsManager {
+class BedwarsStatsManager: NSObject, StatsManager {
     
     var data: JSON = [:]
     
@@ -34,7 +34,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         
         var finalKills = data["final_kills_bedwars"].intValue
         var finalDeaths = data["final_deaths_bedwars"].intValue
-        var finalKDR = Utils.calculateRatio(numerator: kills, denominator: deaths)
+        var finalKDR = Utils.calculateRatio(numerator: finalKills, denominator: finalDeaths)
         
         var level = getLevel(xp: data["Experience"].intValue + data["Experience_new"].intValue)
         var prestige = getPrestige(level: level)
@@ -42,31 +42,31 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Prestige", prestige), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: []),
+            CellData(headerData: ("Prestige", prestige), sectionData: []),
             
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final Kills", finalKills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final K/D", finalKDR), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Final Kills", finalKills), sectionData: []),
+            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: []),
+            CellData(headerData: ("Final K/D", finalKDR), sectionData: []),
             
-            CellData(headerData: ("Beds Broken", data["beds_broken_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Beds Lost", data["beds_lost_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Beds Broken", data["beds_broken_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Beds Lost", data["beds_lost_bedwars"].intValue), sectionData: []),
             
-            CellData(headerData: ("Iron Collected", data["iron_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Gold Collected", data["gold_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Diamonds Collected", data["diamond_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Emeralds Collected", data["emerald_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Wrapped Presents Collected", data["wrapped_present_resources_collected_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Shop Purchases", data["_items_purchased_bedwars"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Iron Collected", data["iron_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Gold Collected", data["gold_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Diamonds Collected", data["diamond_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Emeralds Collected", data["emerald_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Wrapped Presents Collected", data["wrapped_present_resources_collected_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Shop Purchases", data["_items_purchased_bedwars"].intValue), sectionData: []),
             
             
         ]
@@ -138,7 +138,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
             
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)
@@ -165,7 +165,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
                 ("Blocks Placed", blocksPlaced)
             ]
             
-            practiceModeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            practiceModeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: practiceModeStats)
@@ -198,7 +198,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
                     statsForThisMode.append((distance + " Blocks", bestTimeString))
                 }
                 
-                bridgingStats.append(CellData(headerData: (angle.name + " " + elevation.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+                bridgingStats.append(CellData(headerData: (angle.name + " " + elevation.name, ""), sectionData: statsForThisMode))
             }
         }
         
@@ -208,11 +208,11 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         return ret
     }()
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return statsTableData.count
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if statsTableData[section].isOpened {
             return statsTableData[section].sectionData.count + 1
         } else {
@@ -220,7 +220,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         }
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
         var category = ""
@@ -243,7 +243,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
@@ -253,7 +253,7 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         }
     }
     
-    public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         if statsTableData[indexPath.section].sectionData.isEmpty || indexPath.row != 0 {
             return false
         }
@@ -261,14 +261,77 @@ public class BedwarsStatsManager: NSObject, StatsManager {
         return true
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [2, 5, 6, 12, 14, 20, 20 + modeCount, 20 + modeCount + dreamsModeCount, 20 + modeCount + dreamsModeCount + 3]
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let headers = [
+            2: "",
+            5: "",
+            6: "",
+            12: "",
+            14: "",
+            20: "Modes"
+        ]
         
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        
+        
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
+        }
+        
+        if section == 20 + modeCount || section == 20 + modeCount + dreamsModeCount || section == 20 + modeCount + dreamsModeCount + 3 {
+            return 64
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var headers = [
+            2: "",
+            5: "",
+            6: "",
+            12: "",
+            14: "",
+            20: "Modes"
+        ]
+        
+        if modeCount == 0 && dreamsModeCount == 0 {
+            headers[20] = "Practice Modes"
+            headers[23] = "Bridging Personal Bests"
+        } else if modeCount == 0 && dreamsModeCount != 0 {
+            headers[20] = "Dream Modes"
+            headers[20 + dreamsModeCount] = "Practice Modes"
+            headers[20 + dreamsModeCount + 3] = "Bridging Personal Bests"
+        } else if modeCount != 0 && dreamsModeCount == 0 {
+            headers[20 + modeCount] = "Practice Modes"
+            headers[20 + modeCount + 3] = "Bridging Personal Bests"
+        } else {
+            headers[20 + modeCount] = "Dream Modes"
+            headers[20 + modeCount + dreamsModeCount] = "Practice Modes"
+            headers[20 + modeCount + dreamsModeCount + 3] = "Bridging Personal Bests"
+        }
+        
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+                
+            } else {
+                
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

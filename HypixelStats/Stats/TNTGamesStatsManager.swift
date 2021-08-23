@@ -144,39 +144,39 @@ class TNTGamesStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Wins", winsTNTRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", lossesTNTRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlrTNTRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", winsTNTRun), sectionData: []),
+            CellData(headerData: ("Losses", lossesTNTRun), sectionData: []),
+            CellData(headerData: ("W/L", wlrTNTRun), sectionData: []),
+            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue)), sectionData: []),
             
-            CellData(headerData: ("Wins", winsPVPRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills", killsPVPRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", lossesPVPRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlrPVPRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdrPVPRun), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue)), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", winsPVPRun), sectionData: []),
+            CellData(headerData: ("Kills", killsPVPRun), sectionData: []),
+            CellData(headerData: ("Deaths", lossesPVPRun), sectionData: []),
+            CellData(headerData: ("W/L", wlrPVPRun), sectionData: []),
+            CellData(headerData: ("K/D", kdrPVPRun), sectionData: []),
+            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue)), sectionData: []),
             
-            CellData(headerData: ("Wins", winsSpleef), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", lossesSpleef), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlrSpleef), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", winsSpleef), sectionData: []),
+            CellData(headerData: ("Losses", lossesSpleef), sectionData: []),
+            CellData(headerData: ("W/L", wlrSpleef), sectionData: []),
             
-            CellData(headerData: ("Wins", winsTag), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", winsTag), sectionData: []),
             
-            CellData(headerData: ("Wins", winsWizards), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Kills", killsWizards), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deathsWizards), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", data["assists_capture"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdrWizards), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", winsWizards), sectionData: []),
+            CellData(headerData: ("Kills", killsWizards), sectionData: []),
+            CellData(headerData: ("Deaths", deathsWizards), sectionData: []),
+            CellData(headerData: ("Assists", data["assists_capture"].intValue), sectionData: []),
+            CellData(headerData: ("K/D", kdrWizards), sectionData: []),
             
-            CellData(headerData: ("Ancient", ""), sectionData: statsAncient, isHeader: false, isOpened: false),
-            CellData(headerData: ("Blood", ""), sectionData: statsBlood, isHeader: false, isOpened: false),
-            CellData(headerData: ("Fire", ""), sectionData: statsFire, isHeader: false, isOpened: false),
-            CellData(headerData: ("Hydro", ""), sectionData: statsHydro, isHeader: false, isOpened: false),
-            CellData(headerData: ("Ice", ""), sectionData: statsIce, isHeader: false, isOpened: false),
-            CellData(headerData: ("Kinetic", ""), sectionData: statsKinetic, isHeader: false, isOpened: false),
-            CellData(headerData: ("Storm", ""), sectionData: statsStorm, isHeader: false, isOpened: false),
-            CellData(headerData: ("Toxic", ""), sectionData: statsToxic, isHeader: false, isOpened: false),
-            CellData(headerData: ("Wither", ""), sectionData: statsWither, isHeader: false, isOpened: false)
+            CellData(headerData: ("Ancient", ""), sectionData: statsAncient),
+            CellData(headerData: ("Blood", ""), sectionData: statsBlood),
+            CellData(headerData: ("Fire", ""), sectionData: statsFire),
+            CellData(headerData: ("Hydro", ""), sectionData: statsHydro),
+            CellData(headerData: ("Ice", ""), sectionData: statsIce),
+            CellData(headerData: ("Kinetic", ""), sectionData: statsKinetic),
+            CellData(headerData: ("Storm", ""), sectionData: statsStorm),
+            CellData(headerData: ("Toxic", ""), sectionData: statsToxic),
+            CellData(headerData: ("Wither", ""), sectionData: statsWither)
             
             
         ]
@@ -237,9 +237,9 @@ class TNTGamesStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let sectionsThatNeedHeader = [4, 10, 13, 14, 19]
+        let headers = [4, 10, 13, 14, 19]
         
-        if sectionsThatNeedHeader.contains(section) {
+        if headers.contains(section) {
             return 32
         }
         

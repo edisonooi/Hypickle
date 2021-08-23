@@ -10,6 +10,5 @@ import Foundation
 struct CellData {
     var headerData: (String, Any)
     var sectionData: [(String, Any)]
-    var isHeader: Bool
-    var isOpened: Bool
+    var isOpened: Bool = false
 }

@@ -17,6 +17,15 @@ class DuelsStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        1: "",
+        4: "",
+        7: "",
+        9: "",
+        12: "",
+        15: "Modes"
+    ]
+    
     let divisions = [
         (name: "Rookie",      color: "darkgray"),
         (name: "Iron",        color: "white"),
@@ -50,26 +59,26 @@ class DuelsStatsManager: NSObject, StatsManager {
         
         
         var generalStats = [
-            CellData(headerData: ("Overall Division", getDivision(modeID: "all_modes")), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Overall Division", getDivision(modeID: "all_modes")), sectionData: []),
             
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
             
-            CellData(headerData: ("Best Overall Winstreak", data["best_overall_winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Current Winstreak", data["current_winstreak"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Best Overall Winstreak", data["best_overall_winstreak"].intValue), sectionData: []),
+            CellData(headerData: ("Current Winstreak", data["current_winstreak"].intValue), sectionData: []),
             
-            CellData(headerData: ("Melee Swings", swings), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Melee Hits", hits), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Melee Accuracy", meleeAccuracy), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Melee Swings", swings), sectionData: []),
+            CellData(headerData: ("Melee Hits", hits), sectionData: []),
+            CellData(headerData: ("Melee Accuracy", meleeAccuracy), sectionData: []),
             
-            CellData(headerData: ("Arrow Shots", bowShots), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Arrow Hits", bowHits), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Arrow Accuracy", bowAccuracy), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Arrow Shots", bowShots), sectionData: []),
+            CellData(headerData: ("Arrow Hits", bowHits), sectionData: []),
+            CellData(headerData: ("Arrow Accuracy", bowAccuracy), sectionData: []),
 
         ]
         
@@ -133,7 +142,7 @@ class DuelsStatsManager: NSObject, StatsManager {
                 statsForThisMode.append(("Goals", goals))
             }
             
-            modeStats.append(CellData(headerData: (mode.name, getDivision(modeID: mode.divisionId)), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, getDivision(modeID: mode.divisionId)), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)
@@ -196,13 +205,33 @@ class DuelsStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [1, 4, 7, 9, 12, 15]
-        
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

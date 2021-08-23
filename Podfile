@@ -6,6 +6,7 @@ target 'HypixelStats' do
 
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.4'
+  pod 'AMScrollingNavbar', '~> 5.1.0'
 
   # Pods for HypixelStats
 

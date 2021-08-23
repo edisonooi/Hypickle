@@ -17,6 +17,11 @@ class GingerBreadStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        5: "",
+        10: "Kart Info"
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var wins = data["wins"].intValue
@@ -99,19 +104,17 @@ class GingerBreadStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Games Played", gamesPlayed), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("% Games on Podium", podiumPercentage + "%"), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: []),
+            CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: []),
+            CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: []),
+            CellData(headerData: ("Games Played", gamesPlayed), sectionData: []),
+            CellData(headerData: ("% Games on Podium", podiumPercentage + "%"), sectionData: []),
             
-            CellData(headerData: ("Coins Picked Up", data["coins_picked_up"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Powerups Picked Up", data["box_pickups"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Blue Torpedoes Hit", data["blue_torpedo_hit"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Banana Hits Sent", data["banana_hits_sent"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Banana Hits Received", data["banana_hits_received"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            
-            CellData(headerData: ("Kart Info", ""), sectionData: partStats, isHeader: false, isOpened: true)
+            CellData(headerData: ("Coins Picked Up", data["coins_picked_up"].intValue), sectionData: []),
+            CellData(headerData: ("Powerups Picked Up", data["box_pickups"].intValue), sectionData: []),
+            CellData(headerData: ("Blue Torpedoes Hit", data["blue_torpedo_hit"].intValue), sectionData: []),
+            CellData(headerData: ("Banana Hits Sent", data["banana_hits_sent"].intValue), sectionData: []),
+            CellData(headerData: ("Banana Hits Received", data["banana_hits_received"].intValue), sectionData: []),
         ]
     }()
     
@@ -169,14 +172,33 @@ class GingerBreadStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        let sectionsThatNeedHeader = [5]
-        
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

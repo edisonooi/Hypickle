@@ -5,6 +5,7 @@
 	<key>SchemeUserState</key>
 	<dict>
 		<key>AMScrollingNavbar.xcscheme</key>
+<<<<<<< HEAD
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -23,9 +24,15 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
-		</dict>
-		<key>Pods-HypixelStats-HypixelStatsUITests.xcscheme_^#shared#^_</key>
+=======
 		<dict>
+			<key>isShown</key>
+			<false/>
+>>>>>>> tab_bar_experiment
+		</dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
@@ -33,9 +40,14 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+=======
+			<key>isShown</key>
+			<false/>
+>>>>>>> tab_bar_experiment
 		</dict>
-		<key>Pods-HypixelStats.xcscheme_^#shared#^_</key>
+		<key>Pods-HypixelStats-HypixelStatsUITests.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
@@ -43,9 +55,14 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+=======
+			<key>isShown</key>
+			<false/>
+>>>>>>> tab_bar_experiment
 		</dict>
-		<key>Pods-HypixelStatsTests.xcscheme_^#shared#^_</key>
+		<key>Pods-HypixelStats.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
@@ -53,12 +70,28 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
+=======
+			<key>isShown</key>
+			<false/>
+>>>>>>> tab_bar_experiment
 		</dict>
-		<key>SwiftyJSON.xcscheme_^#shared#^_</key>
+		<key>Pods-HypixelStatsTests.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>3</integer>
+=======
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+>>>>>>> tab_bar_experiment
 		</dict>
 	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict/>
 </dict>
 </plist>

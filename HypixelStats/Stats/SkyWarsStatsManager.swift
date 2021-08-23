@@ -17,6 +17,18 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        2: "",
+        6: "",
+        10: "",
+        14: "",
+        17: "",
+        19: "",
+        22: "",
+        24: "",
+        28: "Modes"
+    ]
+    
     
     lazy var statsTableData: [CellData] = {
         
@@ -40,42 +52,42 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Prestige", prestige), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: []),
+            CellData(headerData: ("Prestige", prestige), sectionData: []),
             
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Lab Wins", data["wins_lab"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Lab Wins", data["wins_lab"].intValue), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
             
-            CellData(headerData: ("Melee Kills", data["melee_kills"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Bow Kills", data["bow_kills"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Void Kills", data["void_kills"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Mob Kills", data["mob_kills"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Melee Kills", data["melee_kills"].intValue), sectionData: []),
+            CellData(headerData: ("Bow Kills", data["bow_kills"].intValue), sectionData: []),
+            CellData(headerData: ("Void Kills", data["void_kills"].intValue), sectionData: []),
+            CellData(headerData: ("Mob Kills", data["mob_kills"].intValue), sectionData: []),
             
-            CellData(headerData: ("Arrows Shot", arrowsShot), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Arrows Hit", arrowsHit), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Arrow Accuracy", arrowAccuracy), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Arrows Shot", arrowsShot), sectionData: []),
+            CellData(headerData: ("Arrows Hit", arrowsHit), sectionData: []),
+            CellData(headerData: ("Arrow Accuracy", arrowAccuracy), sectionData: []),
             
-            CellData(headerData: ("Eggs Thrown", data["egg_thrown"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Pearls Thrown", data["enderpearls_thrown"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Eggs Thrown", data["egg_thrown"].intValue), sectionData: []),
+            CellData(headerData: ("Pearls Thrown", data["enderpearls_thrown"].intValue), sectionData: []),
             
-            CellData(headerData: ("Blocks Placed", data["blocks_placed"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Blocks Broken", data["blocks_broken"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Chests Opened", data["chests_opened"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Blocks Placed", data["blocks_placed"].intValue), sectionData: []),
+            CellData(headerData: ("Blocks Broken", data["blocks_broken"].intValue), sectionData: []),
+            CellData(headerData: ("Chests Opened", data["chests_opened"].intValue), sectionData: []),
             
-            CellData(headerData: ("Heads Gathered", data["heads"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Corruption Chance", getCorruptionChance()), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Heads Gathered", data["heads"].intValue), sectionData: []),
+            CellData(headerData: ("Corruption Chance", getCorruptionChance()), sectionData: []),
             
-            CellData(headerData: ("Souls Gathered", data["souls_gathered"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Current Souls", data["souls"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Paid Souls", data["paid_souls"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Soul Well Uses", data["soul_well"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Souls Gathered", data["souls_gathered"].intValue), sectionData: []),
+            CellData(headerData: ("Current Souls", data["souls"].intValue), sectionData: []),
+            CellData(headerData: ("Paid Souls", data["paid_souls"].intValue), sectionData: []),
+            CellData(headerData: ("Soul Well Uses", data["soul_well"].intValue), sectionData: []),
         ]
         
         ret.append(contentsOf: generalStats)
@@ -115,7 +127,7 @@ class SkyWarsStatsManager: NSObject, StatsManager {
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
 
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
 
         ret.append(contentsOf: modeStats)
@@ -178,13 +190,33 @@ class SkyWarsStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [2, 6, 10, 14, 17, 19, 22, 24, 28]
-        
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

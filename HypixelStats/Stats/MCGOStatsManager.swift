@@ -17,6 +17,12 @@ class MCGOStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        2: "",
+        6: "",
+        9: "",
+        11: "Modes"
+    ]
     
     lazy var statsTableData: [CellData] = {
         
@@ -32,20 +38,20 @@ class MCGOStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Wins", getTotalStats(id: "game_wins")), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Round Wins", data["round_wins"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", getTotalStats(id: "game_wins")), sectionData: []),
+            CellData(headerData: ("Round Wins", data["round_wins"].intValue), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", getTotalStats(id: "assists")), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Assists", getTotalStats(id: "assists")), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
             
-            CellData(headerData: ("Shots Fired", data["shots_fired"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Headshot Kills", headshotKills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Headshot Kill Percentage", percentageHeadshot), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Shots Fired", data["shots_fired"].intValue), sectionData: []),
+            CellData(headerData: ("Headshot Kills", headshotKills), sectionData: []),
+            CellData(headerData: ("Headshot Kill Percentage", percentageHeadshot), sectionData: []),
             
-            CellData(headerData: ("Bombs Planted", data["bombs_planted"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Bombs Defused", data["bombs_defused"].intValue), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Bombs Planted", data["bombs_planted"].intValue), sectionData: []),
+            CellData(headerData: ("Bombs Defused", data["bombs_defused"].intValue), sectionData: [])
             
         ]
         
@@ -79,7 +85,7 @@ class MCGOStatsManager: NSObject, StatsManager {
                 statsForThisMode.append((category, dataForThisMode[index]))
             }
 
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
 
         ret.append(contentsOf: modeStats)
@@ -142,13 +148,33 @@ class MCGOStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [2, 6, 9, 11]
-        
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

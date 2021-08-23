@@ -39,19 +39,19 @@ class Walls3StatsManager: NSObject, StatsManager {
       
         
         var generalStats = [
-            CellData(headerData: ("Wins", wins), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", assists), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Assists", assists), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
             
-            CellData(headerData: ("Final Kills", finalKills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final Assists", finalAssists), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Final K/D", finalKDR), sectionData: [], isHeader: false, isOpened: false)
+            CellData(headerData: ("Final Kills", finalKills), sectionData: []),
+            CellData(headerData: ("Final Assists", finalAssists), sectionData: []),
+            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: []),
+            CellData(headerData: ("Final K/D", finalKDR), sectionData: [])
         ]
         
         ret.append(contentsOf: generalStats)
@@ -88,7 +88,7 @@ class Walls3StatsManager: NSObject, StatsManager {
             }
             
             
-            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode, isHeader: false, isOpened: false))
+            modeStats.append(CellData(headerData: (mode.name, ""), sectionData: statsForThisMode))
         }
         
         ret.append(contentsOf: modeStats)
@@ -155,7 +155,7 @@ class Walls3StatsManager: NSObject, StatsManager {
                 statsForThisKit.append((category, dataForThisKit[index]))
             }
             
-            kitStats.append(CellData(headerData: (kit.name, kitPrestigeString), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+            kitStats.append(CellData(headerData: (kit.name, kitPrestigeString), sectionData: statsForThisKit))
         }
         
         ret.append(contentsOf: kitStats)
@@ -217,13 +217,58 @@ class Walls3StatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 7, 11, 11 + modeCount]
+        let headers = [
+            3: "",
+            7: "",
+            11: "Modes"
+        ]
         
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
+        }
+        
+        if section == 11 + modeCount {
+            return 64
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var headers = [
+            3: "",
+            7: "",
+            11: "Modes",
+        ]
+        
+        if modeCount == 0 {
+            headers[11] = "Kits"
+        } else {
+            headers[11 + modeCount] = "Kits"
+        }
+        
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+                
+            } else {
+                
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

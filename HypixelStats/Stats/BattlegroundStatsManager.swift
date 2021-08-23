@@ -17,6 +17,15 @@ class BattlegroundStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        3: "",
+        6: "",
+        8: "",
+        10: "",
+        13: "",
+        16: "Kits"
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var ret: [CellData] = []
@@ -39,27 +48,27 @@ class BattlegroundStatsManager: NSObject, StatsManager {
         ]
         
         var generalStats = [
-            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winStats, isHeader: false, isOpened: false),
-            CellData(headerData: ("Losses", losses), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("W/L", wlr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winStats),
+            CellData(headerData: ("Losses", losses), sectionData: []),
+            CellData(headerData: ("W/L", wlr), sectionData: []),
             
-            CellData(headerData: ("Kills", kills), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists", assists), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Deaths", deaths), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Kills", kills), sectionData: []),
+            CellData(headerData: ("Assists", assists), sectionData: []),
+            CellData(headerData: ("Deaths", deaths), sectionData: []),
             
-            CellData(headerData: ("K/D", kdr), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Assists/Kill", akr), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Assists/Kill", akr), sectionData: []),
             
-            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: []),
+            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: []),
             
-            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue), sectionData: []),
+            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue), sectionData: []),
+            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue), sectionData: []),
             
-            CellData(headerData: ("Damage", data["damage"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue), sectionData: [], isHeader: false, isOpened: false),
-            CellData(headerData: ("Healing", data["heal"].intValue), sectionData: [], isHeader: false, isOpened: false),
+            CellData(headerData: ("Damage", data["damage"].intValue), sectionData: []),
+            CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue), sectionData: []),
+            CellData(headerData: ("Healing", data["heal"].intValue), sectionData: []),
         ]
 
         ret.append(contentsOf: generalStats)
@@ -97,7 +106,7 @@ class BattlegroundStatsManager: NSObject, StatsManager {
                 kitLevel += data[kit + "_" + upgrade].intValue
             }
             
-            kitStats.append(CellData(headerData: (kit.capitalized, "Lv\(kitLevel)"), sectionData: statsForThisKit, isHeader: false, isOpened: false))
+            kitStats.append(CellData(headerData: (kit.capitalized, "Lv\(kitLevel)"), sectionData: statsForThisKit))
             
         }
         
@@ -161,13 +170,33 @@ class BattlegroundStatsManager: NSObject, StatsManager {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sectionsThatNeedHeader = [3, 6, 8, 10, 13, 16]
-        
-        if sectionsThatNeedHeader.contains(section) {
-            return 32
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                return 32
+            } else {
+                return 64
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerTitle = headers[section] {
+            if headerTitle == "" {
+                let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                headerView.backgroundColor = .clear
+                
+                return headerView
+            } else {
+                let headerView = GenericHeaderView.instanceFromNib()
+                headerView.title.text = headerTitle
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

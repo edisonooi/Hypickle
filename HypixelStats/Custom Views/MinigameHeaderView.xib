@@ -14,13 +14,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fop-te-mhn">
-                    <rect key="frame" x="20" y="35" width="45" height="45"/>
+                    <rect key="frame" x="10" y="35" width="45" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Fop-te-mhn" secondAttribute="height" multiplier="1:1" id="5wq-7a-Tfc"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUH-Os-FrA">
-                    <rect key="frame" x="75" y="39" width="319" height="37"/>
+                    <rect key="frame" x="65" y="39" width="329" height="37"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
             <constraints>
                 <constraint firstItem="tUH-Os-FrA" firstAttribute="height" secondItem="Fop-te-mhn" secondAttribute="height" multiplier="0.822222" id="6xf-iZ-uII"/>
                 <constraint firstAttribute="bottom" secondItem="Fop-te-mhn" secondAttribute="bottom" constant="20" id="8Bo-e1-k2y"/>
-                <constraint firstItem="Fop-te-mhn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="MBj-j0-07g"/>
+                <constraint firstItem="Fop-te-mhn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="MBj-j0-07g"/>
                 <constraint firstAttribute="trailing" secondItem="tUH-Os-FrA" secondAttribute="trailing" constant="20" id="WCv-aq-vSs"/>
                 <constraint firstItem="tUH-Os-FrA" firstAttribute="leading" secondItem="Fop-te-mhn" secondAttribute="trailing" constant="10" id="ilS-El-GgG"/>
                 <constraint firstItem="Fop-te-mhn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="lCq-FT-CL9"/>

@@ -17,6 +17,15 @@ class TNTGamesStatsManager: NSObject, StatsManager {
         self.data = data
     }
     
+    let headers = [
+        0: (image: "walls_icon", title: "TNT Run"),
+        4: (image: "pvp_run_icon", title: "PVP Run"),
+        10: (image: "murdermystery_icon", title: "Bow Spleef"),
+        13: (image: "tnt_tag_icon", title: "TNT Tag"),
+        14: (image: "quake_icon", title: "Wizards"),
+        19: (image: "", title: "Kits")
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         //Yes this is gross and inefficient, I know
@@ -237,13 +246,45 @@ class TNTGamesStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let headers = [4, 10, 13, 14, 19]
-        
-        if headers.contains(section) {
-            return 32
+        if let headerInfo = headers[section] {
+            if headerInfo.image == "" {
+                if headerInfo.title == "" {
+                    return 32
+                } else {
+                    return 64
+                }
+            } else {
+                return 100
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerInfo = headers[section] {
+            if headerInfo.image == "" {
+                if headerInfo.title == "" {
+                    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                    headerView.backgroundColor = .clear
+                    
+                    return headerView
+                } else {
+                    let headerView = GenericHeaderView.instanceFromNib()
+                    headerView.title.text = headerInfo.title
+                    
+                    return headerView
+                }
+            } else {
+                let headerView = MinigameHeaderView.instanceFromNib()
+                headerView.icon.image = UIImage(named: headerInfo.image)
+                headerView.title.text = headerInfo.title
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

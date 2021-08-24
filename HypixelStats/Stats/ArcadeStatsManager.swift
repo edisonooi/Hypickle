@@ -19,6 +19,44 @@ class ArcadeStatsManager: NSObject, StatsManager {
         self.achievementsData = achievementsData
     }
     
+    let headers = [
+        0: (image: "blocking_dead_icon", title: "Blocking Dead"),
+        3: (image: "murdermystery_icon", title: "Bounty Hunters"),
+        7: (image: "capture_the_wool_icon", title: "Capture the Wool"),
+        9: (image: "creeper_attack_icon", title: "Creeper Attack"),
+        10: (image: "dragon_wars_icon", title: "Dragon Wars"),
+        12: (image: "ender_spleef_icon", title: "Ender Spleef"),
+        13: (image: "farm_hunt_icon", title: "Farm Hunt"),
+        15: (image: "football_icon", title: "Football"),
+        19: (image: "quake_icon", title: "Galaxy Wars"),
+        26: (image: "hide_and_seek_icon", title: "Hide and Seek"),
+        28: (image: "hole_in_the_wall_icon", title: "Hole in the Wall"),
+        31: (image: "hypixel_says_icon", title: "Hypixel Says"),
+        
+        32: (image: "mini_walls_icon", title: "Mini Walls"),
+        33: (image: "", title: ""),
+        38: (image: "", title: ""),
+        
+        41: (image: "party_games_icon", title: "Party Games"),
+        44: (image: "pixel_painters_icon", title: "Pixel Painters"),
+        45: (image: "paintball_icon", title: "Throw Out"),
+        
+        49: (image: "zombies_icon", title: "Zombies"),
+        51: (image: "", title: ""),
+        53: (image: "", title: ""),
+        58: (image: "", title: ""),
+        60: (image: "", title: ""),
+        62: (image: "", title: "Maps"),
+        65: (image: "", title: "Zombie Types"),
+        
+        66: (image: "easter_simulator_icon", title: "Easter Simulator"),
+        68: (image: "grinch_simulator_icon", title: "Grinch Simulator v2"),
+        70: (image: "halloween_simulator_icon", title: "Halloween Simulator"),
+        72: (image: "santa_says_icon", title: "Santa Says"),
+        73: (image: "santa_says_icon", title: "Santa Simulator"),
+        75: (image: "scuba_simulator_icon", title: "Scuba Simulator")
+    ]
+    
     lazy var statsTableData: [CellData] = {
         
         var ret: [CellData] = []
@@ -370,13 +408,45 @@ class ArcadeStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        let headers = [0, 3, 7, 9, 10, 12, 13, 15, 19, 26, 28, 31, 32, 41, 44, 45, 49, 51, 53, 58, 60, 62, 65, 66, 68, 70, 72, 73, 75]
-        
-        if headers.contains(section) {
-            return 32
+        if let headerInfo = headers[section] {
+            if headerInfo.image == "" {
+                if headerInfo.title == "" {
+                    return 32
+                } else {
+                    return 64
+                }
+            } else {
+                return 100
+            }
         }
         
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerInfo = headers[section] {
+            if headerInfo.image == "" {
+                if headerInfo.title == "" {
+                    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+                    headerView.backgroundColor = .clear
+                    
+                    return headerView
+                } else {
+                    let headerView = GenericHeaderView.instanceFromNib()
+                    headerView.title.text = headerInfo.title
+                    
+                    return headerView
+                }
+            } else {
+                let headerView = MinigameHeaderView.instanceFromNib()
+                headerView.icon.image = UIImage(named: headerInfo.image)
+                headerView.title.text = headerInfo.title
+                
+                return headerView
+            }
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

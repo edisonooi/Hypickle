@@ -265,7 +265,7 @@ class ArcadeStatsManager: NSObject, StatsManager {
             let mapKills = data["zombie_kills_zombies_" + map.id].intValue
             let mapDeaths = data["deaths_zombies_" + map.id].intValue
             
-            let mapKnocked = data["timed_knocked_down_zombies_" + map.id].intValue
+            let mapKnocked = data["times_knocked_down_zombies_" + map.id].intValue
             let mapRevives = data["players_revived_zombies_" + map.id].intValue
             
             let mapDoorsOpened = data["doors_opened_zombies_" + map.id].intValue

@@ -15,12 +15,10 @@ class ViewController: UIViewController {
     
     var user: MinecraftUser?
     
-    let searchController = UISearchController(searchResultsController: nil)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.searchController = searchController
+        
         
         // Do any additional setup after loading the view.
     }

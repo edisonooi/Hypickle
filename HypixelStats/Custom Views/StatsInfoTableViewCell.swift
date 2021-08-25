@@ -24,7 +24,12 @@ class StatsInfoTableViewCell: UITableViewCell {
         statValue.text = value
     }
     
-    
+    override func prepareForReuse() {
+        self.statCategory.textColor = .label
+        self.statCategory.font = UIFont.systemFont(ofSize: 17)
+        self.statValue.textColor = .label
+        self.statValue.font = UIFont.boldSystemFont(ofSize: 17)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -83,6 +83,7 @@ class GenericStatsViewController: UIViewController {
         statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         statsTable.dataSource = dataManager
         statsTable.delegate = dataManager
+        statsTable.estimatedRowHeight = 0
         
     }
     

@@ -25,7 +25,6 @@ class GamesTableController: UITableViewController {
         
         gamesTable.register(GamesTableViewCell.nib(), forCellReuseIdentifier: GamesTableViewCell.identifier)
         gamesTable.dataSource = self
-        gamesTable.backgroundColor = .black
         gamesTable.rowHeight = 64
 
     }
@@ -43,15 +42,6 @@ class GamesTableController: UITableViewController {
         
         cell.configure(imageName: iconID, title: gameTitle)
         
-        
-//        let verticalPadding: CGFloat = 8
-//
-//        let maskLayer = CALayer()
-//        maskLayer.cornerRadius = 10
-//        maskLayer.backgroundColor = UIColor.black.cgColor
-//        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: tableView.frame.size.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
-//        cell.layer.mask = maskLayer
-        
         return cell
         
     }
@@ -61,41 +51,40 @@ class GamesTableController: UITableViewController {
         
         selectedGame = gameList[indexPath.section][indexPath.row]
         
-        
         performSegue(withIdentifier: "showGameStats", sender: self)
-        
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return gameList.count
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if section == 0 {
-//            return nil
-//        }
-//
-//        let label = UILabel()
-//        label.text = "Removed Games"
-//        label.backgroundColor = .systemPink
-//        return label
-//    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section != 0 {
+            return 64
+        }
+        
+        return CGFloat.leastNormalMagnitude
+    }
     
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return section == 0 ? CGFloat.leastNormalMagnitude : 32
-//    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section != 0 {
+            let headerView = GenericHeaderView.instanceFromNib()
+            headerView.title.text = "Removed Games"
+            
+            return headerView
+        }
+        
+        return nil
+    }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "" : "Removed Games"
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         let destVC = segue.destination as! GenericStatsViewController
-        
-        
         
         destVC.data = data["stats"][selectedGame] ?? ["": ""]
         destVC.gameID = selectedGame

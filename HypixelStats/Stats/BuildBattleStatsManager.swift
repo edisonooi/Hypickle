@@ -72,6 +72,11 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
+            
+            cell.statCategory.textColor = UIColor(named: "gray_label")
+            cell.statCategory.font = UIFont.systemFont(ofSize: 14)
+            cell.statValue.textColor = UIColor(named: "gray_label")
+            cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
         if value is Int {
@@ -83,13 +88,24 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 44
+        }
+
+        return 41
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if !statsTableData[indexPath.section].sectionData.isEmpty && indexPath.row == 0 {
             statsTableData[indexPath.section].isOpened = !statsTableData[indexPath.section].isOpened
+            
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
+            
+            tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.middle, animated: true)
         }
     }
     

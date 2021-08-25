@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klF-Xg-OEm">
-                        <rect key="frame" x="16" y="12" width="42" height="20"/>
+                        <rect key="frame" x="16" y="12" width="41.5" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="soE-Ym-aaT" secondAttribute="trailing" constant="16" id="E2w-2L-QaD"/>
                     <constraint firstAttribute="bottom" secondItem="klF-Xg-OEm" secondAttribute="bottom" constant="12" id="Gcq-gZ-ZBm"/>
@@ -41,6 +41,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
             <connections>
                 <outlet property="statCategory" destination="klF-Xg-OEm" id="UVP-aU-dEd"/>
                 <outlet property="statValue" destination="soE-Ym-aaT" id="03o-Ri-Imc"/>

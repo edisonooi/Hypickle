@@ -104,9 +104,9 @@ class GingerBreadStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: []),
-            CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: []),
-            CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: []),
+            CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!),
+            CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_gray")!),
+            CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_bronze")!),
             CellData(headerData: ("Games Played", gamesPlayed), sectionData: []),
             CellData(headerData: ("% Games on Podium", podiumPercentage + "%"), sectionData: []),
             
@@ -139,6 +139,11 @@ class GingerBreadStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1

@@ -29,6 +29,10 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         var losses = gamesPlayed - wins
         var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
+        var titleAndColor = calculateTitle(score: data["score"].intValue)
+        
+        
+        
         let winsDivisions = [
             ("Solo", data["wins_solo_normal"].intValue),
             ("Teams", data["wins_teams_normal"].intValue),
@@ -38,9 +42,9 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         
         return [
             CellData(headerData: ("Score", data["score"].intValue), sectionData: []),
-            CellData(headerData: ("Title", calculateTitle(score: data["score"].intValue)), sectionData: []),
+            CellData(headerData: ("Title", titleAndColor.0), sectionData: [], color: titleAndColor.1),
             CellData(headerData: ("Overall Wins (tap for details)", wins), sectionData: winsDivisions),
-            CellData(headerData: ("Overall Losses", Int(losses)), sectionData: []),
+            CellData(headerData: ("Overall Losses", losses), sectionData: []),
             CellData(headerData: ("W/L", wlr), sectionData: []),
             CellData(headerData: ("Total Votes", data["total_votes"].intValue), sectionData: []),
             CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue), sectionData: []),
@@ -69,6 +73,11 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
@@ -151,35 +160,35 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         return CGFloat.leastNormalMagnitude
     }
     
-    func calculateTitle(score: Int) -> String {
+    func calculateTitle(score: Int) -> (String, UIColor) {
         if (0..<100).contains(score) {
-            return "Rookie"
+            return ("Rookie", .label)
         } else if (100..<250).contains(score) {
-            return "Untrained"
+            return ("Untrained", .systemGray)
         } else if (250..<500).contains(score) {
-            return "Amateur"
+            return ("Amateur", UIColor(named: "mc_yellow")!)
         } else if (500..<1000).contains(score) {
-            return "Apprentice"
+            return ("Apprentice", UIColor(named: "mc_green")!)
         } else if (1000..<2000).contains(score) {
-            return "Experienced"
+            return ("Experienced", UIColor(named: "mc_pink")!)
         } else if (2000..<3500).contains(score) {
-            return "Seasoned"
+            return ("Seasoned", UIColor(named: "mc_blue")!)
         } else if (3500..<5000).contains(score) {
-            return "Trained"
+            return ("Trained", UIColor(named: "mc_dark_green")!)
         } else if (5000..<7500).contains(score) {
-            return "Skilled"
+            return ("Skilled", UIColor(named: "mc_dark_aqua")!)
         } else if (7500..<10000).contains(score) {
-            return "Talented"
+            return ("Talented", UIColor(named: "mc_red")!)
         } else if (10000..<15000).contains(score) {
-            return "Professional"
+            return ("Professional", UIColor(named: "mc_dark_purple")!)
         } else if (15000..<20000).contains(score) {
-            return "Expert"
+            return ("Expert", UIColor(named: "mc_dark_blue")!)
         } else if score >= 20000 {
-            return "Master"
+            return ("Master", UIColor(named: "mc_dark_red")!)
         } //Check for title #1 buider
         
         
-        return "Rookie"
+        return ("Rookie", .label)
         
     }
     

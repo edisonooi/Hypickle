@@ -59,8 +59,8 @@ class BattlegroundStatsManager: NSObject, StatsManager {
             CellData(headerData: ("K/D", kdr), sectionData: []),
             CellData(headerData: ("Assists/Kill", akr), sectionData: []),
             
-            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: []),
-            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: []),
+            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
+            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: [], color: UIColor(named: "mc_light_purple")!),
             
             CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue), sectionData: []),
             CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue), sectionData: []),
@@ -106,7 +106,13 @@ class BattlegroundStatsManager: NSObject, StatsManager {
                 kitLevel += data[kit + "_" + upgrade].intValue
             }
             
-            kitStats.append(CellData(headerData: (kit.capitalized, "Lv\(kitLevel)"), sectionData: statsForThisKit))
+            var color = UIColor.label
+            
+            if kitLevel == 90 {
+                color = UIColor(named: "mc_gold")!
+            }
+            
+            kitStats.append(CellData(headerData: (kit.capitalized, "Lv\(kitLevel)"), sectionData: statsForThisKit, color: color))
             
         }
         
@@ -137,6 +143,16 @@ class BattlegroundStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1

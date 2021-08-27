@@ -27,14 +27,14 @@ class DuelsStatsManager: NSObject, StatsManager {
     ]
     
     let divisions = [
-        (name: "Rookie",      color: "darkgray"),
-        (name: "Iron",        color: "white"),
-        (name: "Gold",        color: "gold"),
-        (name: "Diamond",     color: "aqua"),
-        (name: "Master",      color: "darkgreen"),
-        (name: "Legend",      color: "darkred"),
-        (name: "Grandmaster", color: "yellow"),
-        (name: "Godlike",     color: "purple"),
+        (name: "Rookie",      color: UIColor(named: "mc_dark_gray")),
+        (name: "Iron",        color: .label),
+        (name: "Gold",        color: UIColor(named: "mc_gold")),
+        (name: "Diamond",     color: UIColor(named: "mc_cyan")),
+        (name: "Master",      color: UIColor(named: "mc_dark_green")),
+        (name: "Legend",      color: UIColor(named: "mc_dark_red")),
+        (name: "Grandmaster", color: UIColor(named: "mc_yellow")),
+        (name: "Godlike",     color: UIColor(named: "mc_dark_purple")),
     ]
     
     lazy var statsTableData: [CellData] = {
@@ -57,9 +57,11 @@ class DuelsStatsManager: NSObject, StatsManager {
         var bowHits = data["bow_hits"].intValue
         var bowAccuracy = Utils.calculatePercentage(numerator: bowHits, denominator: bowShots)
         
+        var divisionAndColor = getDivision(modeID: "all_modes")
+        
         
         var generalStats = [
-            CellData(headerData: ("Overall Division", getDivision(modeID: "all_modes")), sectionData: []),
+            CellData(headerData: ("Overall Division", divisionAndColor.0), sectionData: [], color: divisionAndColor.1),
             
             CellData(headerData: ("Wins", wins), sectionData: []),
             CellData(headerData: ("Losses", losses), sectionData: []),
@@ -131,6 +133,8 @@ class DuelsStatsManager: NSObject, StatsManager {
             var modeCurrentWS = data["current_winstreak_mode_" + mode.id].intValue
             var modeBestWS = data["best_winstreak_mode_" + mode.id].intValue
             
+            var modeDivisonAndColor = getDivision(modeID: mode.divisionId)
+            
             var dataForThisMode = [modeWins, modeLosses, modeWLR, modeKills, modeDeaths, modeKDR, modeBestWS, modeCurrentWS] as [Any]
             
             for (index, category) in desiredStats.enumerated() {
@@ -142,7 +146,7 @@ class DuelsStatsManager: NSObject, StatsManager {
                 statsForThisMode.append(("Goals", goals))
             }
             
-            modeStats.append(CellData(headerData: (mode.name, getDivision(modeID: mode.divisionId)), sectionData: statsForThisMode))
+            modeStats.append(CellData(headerData: (mode.name, modeDivisonAndColor.0), sectionData: statsForThisMode, color: modeDivisonAndColor.1))
         }
         
         ret.append(contentsOf: modeStats)
@@ -172,6 +176,11 @@ class DuelsStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
@@ -254,17 +263,17 @@ class DuelsStatsManager: NSObject, StatsManager {
         return CGFloat.leastNormalMagnitude
     }
     
-    func getDivision(modeID: String) -> String {
+    func getDivision(modeID: String) -> (String, UIColor) {
         for division in divisions.reversed() {
             let divisionData = data[modeID + "_" + division.name.lowercased() + "_title_prestige"].intValue
             
             if divisionData != 0 {
                 let romanNumeral = Utils.convertToRomanNumerals(number: divisionData)
                 
-                return division.name + " " + romanNumeral
+                return (division.name + " " + romanNumeral, division.color!)
             }
         }
         
-        return ""
+        return ("", .label)
     }
 }

@@ -103,8 +103,8 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Fastest Murderer Win", murdWinString), sectionData: []),
             CellData(headerData: ("Fastest Detective Win", detWinString), sectionData: []),
             
-            CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: []),
-            CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue), sectionData: [])
+            CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: [], color: UIColor(named: "mc_dark_red")!),
+            CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!)
         ]
         
         ret.append(contentsOf: generalStats)
@@ -208,6 +208,11 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1

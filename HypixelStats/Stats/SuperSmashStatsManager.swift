@@ -41,7 +41,7 @@ class SuperSmashStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Wins", wins), sectionData: []),
             CellData(headerData: ("Losses", losses), sectionData: []),
             CellData(headerData: ("W/L", wlr), sectionData: []),
-            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: []),
+            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
             CellData(headerData: ("Kills", kills), sectionData: []),
             CellData(headerData: ("Deaths", deaths), sectionData: []),
             CellData(headerData: ("K/D", kdr), sectionData: [])
@@ -150,6 +150,11 @@ class SuperSmashStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1

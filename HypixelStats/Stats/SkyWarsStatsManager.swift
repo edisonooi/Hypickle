@@ -18,15 +18,15 @@ class SkyWarsStatsManager: NSObject, StatsManager {
     }
     
     let headers = [
-        2: "",
-        6: "",
-        10: "",
-        14: "",
-        17: "",
-        19: "",
-        22: "",
-        24: "",
-        28: "Modes"
+        3: "",
+        7: "",
+        11: "",
+        15: "",
+        18: "",
+        20: "",
+        23: "",
+        25: "",
+        29: "Modes"
     ]
     
     
@@ -35,7 +35,7 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         var ret: [CellData] = []
         
         var level = getLevel(playerXP: data["skywars_experience"].intValue)
-        var prestige = getPrestige(level: level)
+        var prestigeAndColor = getPrestige(level: level)
         
         var wins = data["wins"].intValue
         var losses = data["losses"].intValue
@@ -52,8 +52,9 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: []),
-            CellData(headerData: ("Prestige", prestige), sectionData: []),
+            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: [], color: prestigeAndColor.1),
+            CellData(headerData: ("Prestige", prestigeAndColor.0), sectionData: [], color: prestigeAndColor.1),
+            CellData(headerData: ("Tokens", data["cosmetic_tokens"].intValue), sectionData: [], color: UIColor(named: "mc_dark_green")!),
             
             CellData(headerData: ("Wins", wins), sectionData: []),
             CellData(headerData: ("Lab Wins", data["wins_lab"].intValue), sectionData: []),
@@ -84,9 +85,9 @@ class SkyWarsStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Heads Gathered", data["heads"].intValue), sectionData: []),
             CellData(headerData: ("Corruption Chance", getCorruptionChance()), sectionData: []),
             
-            CellData(headerData: ("Souls Gathered", data["souls_gathered"].intValue), sectionData: []),
-            CellData(headerData: ("Current Souls", data["souls"].intValue), sectionData: []),
-            CellData(headerData: ("Paid Souls", data["paid_souls"].intValue), sectionData: []),
+            CellData(headerData: ("Souls Gathered", data["souls_gathered"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
+            CellData(headerData: ("Current Souls", data["souls"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
+            CellData(headerData: ("Paid Souls", data["paid_souls"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
             CellData(headerData: ("Soul Well Uses", data["soul_well"].intValue), sectionData: []),
         ]
         
@@ -157,6 +158,11 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
@@ -273,21 +279,22 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         return 0.0
     }
     
-    func getPrestige(level: Double) -> String {
+    func getPrestige(level: Double) -> (String, UIColor) {
         let prestiges = [
-            (level: 0,   color: "gray", name: "None"),
-            (level: 5,   color: "white", name: "Iron"),
-            (level: 10,  color: "gold", name: "Gold"),
-            (level: 15,  color: "aqua", name: "Diamond"),
-            (level: 20,  color: "darkgreen", name: "Emerald"),
-            (level: 25,  color: "darkaqua", name: "Sapphire"),
-            (level: 30,  color: "darkred", name: "Ruby"),
-            (level: 35,  color: "pink", name: "Crystal"),
-            (level: 40,  color: "blue", name: "Opal"),
-            (level: 45,  color: "purple", name: "Amethyst"),
-            (level: 50,  color: "rainbow", name: "Rainbow"),
-            (level: 60, color: "rainbow", name: "Mythic"),
-            (level: 100, color: "rainbow font-bold", name: "Mythic")
+            (level: 0,   color: UIColor(named: "mc_gray")!, name: "None"),
+            (level: 5,   color: .label, name: "Iron"),
+            (level: 10,  color: UIColor(named: "mc_gold")!, name: "Gold"),
+            (level: 15,  color: UIColor(named: "mc_aqua")!, name: "Diamond"),
+            (level: 20,  color: UIColor(named: "mc_dark_green")!, name: "Emerald"),
+            (level: 25,  color: UIColor(named: "mc_dark_aqua")!, name: "Sapphire"),
+            (level: 30,  color: UIColor(named: "mc_dark_red")!, name: "Ruby"),
+            (level: 35,  color: UIColor(named: "mc_pink")!, name: "Crystal"),
+            (level: 40,  color: UIColor(named: "mc_blue")!, name: "Opal"),
+            (level: 45,  color: UIColor(named: "mc_dark_purple")!, name: "Amethyst"),
+            //Add rainbow colors
+            (level: 50,  color: UIColor(named: "mc_dark_purple")!, name: "Rainbow"),
+            (level: 60, color: UIColor(named: "mc_dark_purple")!, name: "Mythic"),
+            (level: 100, color: UIColor(named: "mc_dark_purple")!, name: "Mythic")
         ]
         
         let icons = [
@@ -320,10 +327,12 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         ]
         
         var prestigeString = ""
+        var color = UIColor.label
         
         for prestige in prestiges.reversed() {
             if Double(prestige.level) <= floor(level) {
                 prestigeString += prestige.name
+                color = prestige.color
                 break
             }
         }
@@ -337,6 +346,6 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         prestigeString += " "
         prestigeString += prestigeIcon
         
-        return prestigeString
+        return (prestigeString, color)
     }
 }

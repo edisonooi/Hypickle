@@ -125,13 +125,21 @@ class SkyClashStatsManager: NSObject, StatsManager {
                 continue
             }
             
+            var kitLevel = getKitLevel(kitID: kit.id)
+            
+            var color = UIColor.label
+            
+            if kitLevel == "VIII" {
+                color = UIColor(named: "mc_gold")!
+            }
+            
             var dataForThisMode = [kitWins, kitKills, kitAssists, kitDeaths, kitKDR] as [Any]
             
             for (index, category) in desiredKitStats.enumerated() {
                 statsForThisKit.append((category, dataForThisMode[index]))
             }
             
-            kitStats.append(CellData(headerData: (kit.name + " " + getKitLevel(kitID: kit.id), ""), sectionData: statsForThisKit))
+            kitStats.append(CellData(headerData: (kit.name + " " + kitLevel, ""), sectionData: statsForThisKit, color: color))
             
         }
         
@@ -161,6 +169,11 @@ class SkyClashStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statCategory.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1

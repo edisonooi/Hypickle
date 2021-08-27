@@ -47,11 +47,11 @@ class PitStatsManager: NSObject, StatsManager {
         return [
             CellData(headerData: ("Prestige", prestigeString), sectionData: []),
             CellData(headerData: ("Level", prestigeAndLevel.1), sectionData: []),
-            CellData(headerData: ("XP", xp), sectionData: []),
-            CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: []),
+            CellData(headerData: ("XP", xp), sectionData: [], color: UIColor(named: "mc_aqua")!),
+            CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: [], color: UIColor(named: "mc_yellow")!),
             
-            CellData(headerData: ("Current Gold", Int(floor(profile["cash"].doubleValue))), sectionData: []),
-            CellData(headerData: ("Lifetime Gold", stats["cash_earned"].intValue), sectionData: []),
+            CellData(headerData: ("Current Gold", Int(floor(profile["cash"].doubleValue))), sectionData: [], color: UIColor(named: "mc_gold")!),
+            CellData(headerData: ("Lifetime Gold", stats["cash_earned"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!),
             
             CellData(headerData: ("Kills", kills), sectionData: []),
             CellData(headerData: ("Assists", assists), sectionData: []),
@@ -63,8 +63,8 @@ class PitStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Playtime", Utils.convertToHoursMinutesSeconds(seconds: playtimeMinutes * 60)), sectionData: []),
             CellData(headerData: ("Kills/Hour", String(format: "%.2f", killsPerHour)), sectionData: []),
             CellData(headerData: ("KA/Hour", String(format: "%.2f", kaPerHour)), sectionData: []),
-            CellData(headerData: ("XP/Hour", String(format: "%.2f", xpPerHour)), sectionData: []),
-            CellData(headerData: ("Gold/Hour", String(format: "%.2f", goldPerHour)), sectionData: []),
+            CellData(headerData: ("XP/Hour", String(format: "%.2f", xpPerHour)), sectionData: [], color: UIColor(named: "mc_aqua")!),
+            CellData(headerData: ("Gold/Hour", String(format: "%.2f", goldPerHour)), sectionData: [], color: UIColor(named: "mc_gold")!),
             
             CellData(headerData: ("Jumps into Pit", stats["jumped_into_pit"].intValue), sectionData: []),
             CellData(headerData: ("Launcher Launches", stats["launched_by_launchers"].intValue), sectionData: []),
@@ -117,6 +117,11 @@ class PitStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1

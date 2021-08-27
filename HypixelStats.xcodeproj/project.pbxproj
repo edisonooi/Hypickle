@@ -16,6 +16,7 @@
 		4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998F26CB5B890042F1E0 /* StatsManager.swift */; };
 		4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */; };
 		4C7CC51526C8AAF0006F6EEE /* ArcadeStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */; };
+		4C98565426D855C600FBD2EF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98565326D855C600FBD2EF /* UIColorExtension.swift */; };
 		4C9AAC8E26D453B30058CFA3 /* MinigameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */; };
 		4C9AAC9026D4582D0058CFA3 /* MinigameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */; };
 		4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC234A726CCA34600D95D38 /* CoinsView.xib */; };
@@ -96,6 +97,7 @@
 		4C54998F26CB5B890042F1E0 /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
 		4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedwarsStatsManager.swift; sourceTree = "<group>"; };
 		4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeStatsManager.swift; sourceTree = "<group>"; };
+		4C98565326D855C600FBD2EF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MinigameHeaderView.xib; sourceTree = "<group>"; };
 		4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameHeaderView.swift; sourceTree = "<group>"; };
 		4CC234A726CCA34600D95D38 /* CoinsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsView.xib; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				BE59FAF226B7294F000F7799 /* StringExtension.swift */,
 				4C070DD726CC2DF8000B88C4 /* IntExtension.swift */,
+				4C98565326D855C600FBD2EF /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				BEAFEC0626AA3F3B00349728 /* ArenaStatsManager.swift in Sources */,
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,
 				BE8ACD9A26A277F90063ECB1 /* StatsViewController.swift in Sources */,
+				4C98565426D855C600FBD2EF /* UIColorExtension.swift in Sources */,
 				BE59FAF026B70B17000F7799 /* GingerBreadStatsManager.swift in Sources */,
 				4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */,
 				BEDAAF4026BE38BB002592A1 /* GamesTable.swift in Sources */,

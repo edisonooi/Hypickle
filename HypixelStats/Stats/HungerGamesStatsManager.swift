@@ -131,6 +131,12 @@ class HungerGamesStatsManager: NSObject, StatsManager {
                     kitLevel = calculateKitLevel(kitEXP: kitEXP)
                 }
                 
+                var color = UIColor.label
+                
+                if kitLevel == 10 {
+                    color = .systemRed
+                }
+                
                 var dataForThisKit = [kitEXP, kitWins, kitLosses, kitWLR, kitKills, kitTimePlayed] as [Any]
                 
                 for (index, category) in desiredStats.enumerated() {
@@ -148,7 +154,7 @@ class HungerGamesStatsManager: NSObject, StatsManager {
                         kitName = kit.capitalized
                 }
                 
-                kitStats.append(CellData(headerData: (kitName + " " + Utils.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit))
+                kitStats.append(CellData(headerData: (kitName + " " + Utils.convertToRomanNumerals(number: kitLevel), prestigeString), sectionData: statsForThisKit, color: color))
             }
         }
         
@@ -178,6 +184,13 @@ class HungerGamesStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                cell.statCategory.textColor = statsTableData[indexPath.section].color
+                cell.statCategory.font = UIFont.boldSystemFont(ofSize: 17)
+                cell.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1

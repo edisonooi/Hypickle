@@ -107,14 +107,14 @@ class GingerBreadStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!),
             CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_gray")!),
             CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_bronze")!),
-            CellData(headerData: ("Games Played", gamesPlayed), sectionData: []),
-            CellData(headerData: ("% Games on Podium", podiumPercentage + "%"), sectionData: []),
+            CellData(headerData: ("Games Played", gamesPlayed)),
+            CellData(headerData: ("% Games on Podium", podiumPercentage + "%")),
             
-            CellData(headerData: ("Coins Picked Up", data["coins_picked_up"].intValue), sectionData: []),
-            CellData(headerData: ("Powerups Picked Up", data["box_pickups"].intValue), sectionData: []),
-            CellData(headerData: ("Blue Torpedoes Hit", data["blue_torpedo_hit"].intValue), sectionData: []),
-            CellData(headerData: ("Banana Hits Sent", data["banana_hits_sent"].intValue), sectionData: []),
-            CellData(headerData: ("Banana Hits Received", data["banana_hits_received"].intValue), sectionData: []),
+            CellData(headerData: ("Coins Picked Up", data["coins_picked_up"].intValue)),
+            CellData(headerData: ("Powerups Picked Up", data["box_pickups"].intValue)),
+            CellData(headerData: ("Blue Torpedoes Hit", data["blue_torpedo_hit"].intValue)),
+            CellData(headerData: ("Banana Hits Sent", data["banana_hits_sent"].intValue)),
+            CellData(headerData: ("Banana Hits Received", data["banana_hits_received"].intValue)),
         ]
     }()
     

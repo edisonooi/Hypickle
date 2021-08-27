@@ -34,16 +34,16 @@ class VampireZStatsManager: NSObject, StatsManager {
         var vampireKDR = Utils.calculateRatio(numerator: vampireKills, denominator: vampireDeaths)
         
         return [
-            CellData(headerData: ("Human Wins", data["human_wins"].intValue), sectionData: []),
-            CellData(headerData: ("Human Kills", humanKills), sectionData: []),
-            CellData(headerData: ("Human Deaths", humanDeaths), sectionData: []),
-            CellData(headerData: ("Human K/D", humanKDR), sectionData: []),
-            CellData(headerData: ("Zombie Kills", data["zombie_kills"].intValue), sectionData: []),
+            CellData(headerData: ("Human Wins", data["human_wins"].intValue)),
+            CellData(headerData: ("Human Kills", humanKills)),
+            CellData(headerData: ("Human Deaths", humanDeaths)),
+            CellData(headerData: ("Human K/D", humanKDR)),
+            CellData(headerData: ("Zombie Kills", data["zombie_kills"].intValue)),
             
-            CellData(headerData: ("Vampire Wins", data["vampire_wins"].intValue), sectionData: []),
-            CellData(headerData: ("Vampire Kills", vampireKills), sectionData: []),
-            CellData(headerData: ("Vampire Deaths", vampireDeaths), sectionData: []),
-            CellData(headerData: ("Vampire K/D", vampireKDR), sectionData: [])
+            CellData(headerData: ("Vampire Wins", data["vampire_wins"].intValue)),
+            CellData(headerData: ("Vampire Kills", vampireKills)),
+            CellData(headerData: ("Vampire Deaths", vampireDeaths)),
+            CellData(headerData: ("Vampire K/D", vampireKDR))
         ]
     }()
     

@@ -38,20 +38,20 @@ class MCGOStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Wins", getTotalStats(id: "game_wins")), sectionData: []),
-            CellData(headerData: ("Round Wins", data["round_wins"].intValue), sectionData: []),
+            CellData(headerData: ("Wins", getTotalStats(id: "game_wins"))),
+            CellData(headerData: ("Round Wins", data["round_wins"].intValue)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Assists", getTotalStats(id: "assists")), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Assists", getTotalStats(id: "assists"))),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             
-            CellData(headerData: ("Shots Fired", data["shots_fired"].intValue), sectionData: []),
-            CellData(headerData: ("Headshot Kills", headshotKills), sectionData: []),
-            CellData(headerData: ("Headshot Kill Percentage", percentageHeadshot), sectionData: []),
+            CellData(headerData: ("Shots Fired", data["shots_fired"].intValue)),
+            CellData(headerData: ("Headshot Kills", headshotKills)),
+            CellData(headerData: ("Headshot Kill Percentage", percentageHeadshot)),
             
-            CellData(headerData: ("Bombs Planted", data["bombs_planted"].intValue), sectionData: []),
-            CellData(headerData: ("Bombs Defused", data["bombs_defused"].intValue), sectionData: [])
+            CellData(headerData: ("Bombs Planted", data["bombs_planted"].intValue)),
+            CellData(headerData: ("Bombs Defused", data["bombs_defused"].intValue))
             
         ]
         

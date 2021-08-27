@@ -62,135 +62,135 @@ class ArcadeStatsManager: NSObject, StatsManager {
         var ret: [CellData] = []
         
         var blockingDeadStats = [
-            CellData(headerData: ("Wins", data["wins_dayone"].intValue), sectionData: []),
-            CellData(headerData: ("Kills", data["kills_dayone"].intValue), sectionData: []),
-            CellData(headerData: ("Headshots", data["headshots_dayone"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_dayone"].intValue)),
+            CellData(headerData: ("Kills", data["kills_dayone"].intValue)),
+            CellData(headerData: ("Headshots", data["headshots_dayone"].intValue))
         ]
         
         var bountyHuntersStats = [
-            CellData(headerData: ("Wins", data["wins_oneinthequiver"].intValue), sectionData: []),
-            CellData(headerData: ("Kills", data["kills_oneinthequiver"].intValue), sectionData: []),
-            CellData(headerData: ("Deaths", data["deaths_oneinthequiver"].intValue), sectionData: []),
-            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_oneinthequiver"].intValue, denominator: data["deaths_oneinthequiver"].intValue)), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_oneinthequiver"].intValue)),
+            CellData(headerData: ("Kills", data["kills_oneinthequiver"].intValue)),
+            CellData(headerData: ("Deaths", data["deaths_oneinthequiver"].intValue)),
+            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_oneinthequiver"].intValue, denominator: data["deaths_oneinthequiver"].intValue)))
         ]
         
         var captureTheWoolStats = [
-            CellData(headerData: ("Kills", achievementsData["arcade_ctw_slayer"].intValue), sectionData: []),
-            CellData(headerData: ("Wool Captures", achievementsData["arcade_ctw_oh_sheep"].intValue), sectionData: [])
+            CellData(headerData: ("Kills", achievementsData["arcade_ctw_slayer"].intValue)),
+            CellData(headerData: ("Wool Captures", achievementsData["arcade_ctw_oh_sheep"].intValue))
         ]
         
         var creeperAttackStats = [
-            CellData(headerData: ("Highest Wave", data["max_wave"].intValue), sectionData: [])
+            CellData(headerData: ("Highest Wave", data["max_wave"].intValue))
         ]
         
         var dragonWarsStats = [
-            CellData(headerData: ("Wins", data["wins_dragonwars2"].intValue), sectionData: []),
-            CellData(headerData: ("Kills", data["kills_dragonwars2"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_dragonwars2"].intValue)),
+            CellData(headerData: ("Kills", data["kills_dragonwars2"].intValue))
         ]
         
         var enderSpleefStats = [
-            CellData(headerData: ("Wins", data["wins_ender"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_ender"].intValue))
         ]
         
         var farmHuntStats = [
-            CellData(headerData: ("Wins", data["wins_farm_hunt"].intValue), sectionData: []),
-            CellData(headerData: ("Poop Collected", data["poop_collected"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_farm_hunt"].intValue)),
+            CellData(headerData: ("Poop Collected", data["poop_collected"].intValue))
         ]
         
         var footballStats = [
-            CellData(headerData: ("Wins", data["wins_soccer"].intValue), sectionData: []),
-            CellData(headerData: ("Goals", data["goals_soccer"].intValue), sectionData: []),
-            CellData(headerData: ("Kicks", data["kicks_soccer"].intValue), sectionData: []),
-            CellData(headerData: ("Power Kicks", data["powerkicks_soccer"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_soccer"].intValue)),
+            CellData(headerData: ("Goals", data["goals_soccer"].intValue)),
+            CellData(headerData: ("Kicks", data["kicks_soccer"].intValue)),
+            CellData(headerData: ("Power Kicks", data["powerkicks_soccer"].intValue))
         ]
         
         var galaxyWarsStats = [
-            CellData(headerData: ("Wins", data["sw_game_wins"].intValue), sectionData: []),
-            CellData(headerData: ("Kills", data["sw_kills"].intValue), sectionData: []),
-            CellData(headerData: ("Empire Kills", data["sw_empire_kills"].intValue), sectionData: []),
-            CellData(headerData: ("Rebel Kills", data["sw_rebel_kills"].intValue), sectionData: []),
-            CellData(headerData: ("Deaths", data["sw_deaths"].intValue), sectionData: []),
-            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["sw_kills"].intValue, denominator: data["sw_deaths"].intValue)), sectionData: []),
-            CellData(headerData: ("Shots Fired", data["sw_shots_fired"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["sw_game_wins"].intValue)),
+            CellData(headerData: ("Kills", data["sw_kills"].intValue)),
+            CellData(headerData: ("Empire Kills", data["sw_empire_kills"].intValue)),
+            CellData(headerData: ("Rebel Kills", data["sw_rebel_kills"].intValue)),
+            CellData(headerData: ("Deaths", data["sw_deaths"].intValue)),
+            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["sw_kills"].intValue, denominator: data["sw_deaths"].intValue))),
+            CellData(headerData: ("Shots Fired", data["sw_shots_fired"].intValue))
         ]
         
         var hideAndSeekStats = [
-            CellData(headerData: ("Seeker Wins", data["seeker_wins_hide_and_seek"].intValue), sectionData: []),
-            CellData(headerData: ("Hider Wins", data["hider_wins_hide_and_seek"].intValue), sectionData: [])
+            CellData(headerData: ("Seeker Wins", data["seeker_wins_hide_and_seek"].intValue)),
+            CellData(headerData: ("Hider Wins", data["hider_wins_hide_and_seek"].intValue))
         ]
         
         var holeInTheWallStats = [
-            CellData(headerData: ("Wins", data["wins_hole_in_the_wall"].intValue), sectionData: []),
-            CellData(headerData: ("Highest Score Qualifications", data["hitw_record_q"].intValue), sectionData: []),
-            CellData(headerData: ("Highest Score Finals", data["hitw_record_f"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_hole_in_the_wall"].intValue)),
+            CellData(headerData: ("Highest Score Qualifications", data["hitw_record_q"].intValue)),
+            CellData(headerData: ("Highest Score Finals", data["hitw_record_f"].intValue))
         ]
         
         var hypixelSaysStats = [
-            CellData(headerData: ("Wins", data["wins_simon_says"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_simon_says"].intValue))
         ]
         
         var miniWallsStats = [
-            CellData(headerData: ("Wins", data["wins_mini_walls"].intValue), sectionData: []),
+            CellData(headerData: ("Wins", data["wins_mini_walls"].intValue)),
             
-            CellData(headerData: ("Kills", data["kills_mini_walls"].intValue), sectionData: []),
-            CellData(headerData: ("Final Kills", data["final_kills_mini_walls"].intValue), sectionData: []),
-            CellData(headerData: ("Deaths", data["deaths_mini_walls"].intValue), sectionData: []),
-            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_mini_walls"].intValue + data["final_kills_mini_walls"].intValue, denominator: data["deaths_mini_walls"].intValue)), sectionData: []),
+            CellData(headerData: ("Kills", data["kills_mini_walls"].intValue)),
+            CellData(headerData: ("Final Kills", data["final_kills_mini_walls"].intValue)),
+            CellData(headerData: ("Deaths", data["deaths_mini_walls"].intValue)),
+            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_mini_walls"].intValue + data["final_kills_mini_walls"].intValue, denominator: data["deaths_mini_walls"].intValue))),
             
-            CellData(headerData: ("Withers Killed", data["wither_kills_mini_walls"].intValue), sectionData: []),
+            CellData(headerData: ("Withers Killed", data["wither_kills_mini_walls"].intValue)),
             
-            CellData(headerData: ("Arrows Shot", data["arrows_shot_mini_walls"].intValue), sectionData: []),
-            CellData(headerData: ("Arrows Hit", data["arrows_hit_mini_walls"].intValue), sectionData: []),
-            CellData(headerData: ("Arrow Accuracy", Utils.calculatePercentage(numerator: data["arrows_hit_mini_walls"].intValue, denominator: data["arrows_shot_mini_walls"].intValue)), sectionData: [])
+            CellData(headerData: ("Arrows Shot", data["arrows_shot_mini_walls"].intValue)),
+            CellData(headerData: ("Arrows Hit", data["arrows_hit_mini_walls"].intValue)),
+            CellData(headerData: ("Arrow Accuracy", Utils.calculatePercentage(numerator: data["arrows_hit_mini_walls"].intValue, denominator: data["arrows_shot_mini_walls"].intValue)))
         ]
         
         var partyGamesStats = [
-            CellData(headerData: ("Wins Party Games 1", data["wins_party"].intValue), sectionData: []),
-            CellData(headerData: ("Wins Party Games 2", data["wins_party_2"].intValue), sectionData: []),
-            CellData(headerData: ("Wins Party Games 3", data["wins_party_3"].intValue), sectionData: [])
+            CellData(headerData: ("Wins Party Games 1", data["wins_party"].intValue)),
+            CellData(headerData: ("Wins Party Games 2", data["wins_party_2"].intValue)),
+            CellData(headerData: ("Wins Party Games 3", data["wins_party_3"].intValue))
         ]
         
         var pixelPaintersStats = [
-            CellData(headerData: ("Wins", data["wins_draw_their_thing"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_draw_their_thing"].intValue))
         ]
         
         var throwOutStats = [
-            CellData(headerData: ("Wins", data["wins_throw_out"].intValue), sectionData: []),
-            CellData(headerData: ("Kills", data["kills_throw_out"].intValue), sectionData: []),
-            CellData(headerData: ("Deaths", data["deaths_throw_out"].intValue), sectionData: []),
-            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_throw_out"].intValue, denominator: data["deaths_throw_out"].intValue)), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_throw_out"].intValue)),
+            CellData(headerData: ("Kills", data["kills_throw_out"].intValue)),
+            CellData(headerData: ("Deaths", data["deaths_throw_out"].intValue)),
+            CellData(headerData: ("K/D", Utils.calculateRatio(numerator: data["kills_throw_out"].intValue, denominator: data["deaths_throw_out"].intValue)))
         ]
         
         var zombiesStats = getZombiesStats()
         
         var easterSimulatorStats = [
-            CellData(headerData: ("Wins", data["wins_easter_simulator"].intValue), sectionData: []),
-            CellData(headerData: ("Eggs Found", data["eggs_found_easter_simulator"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_easter_simulator"].intValue)),
+            CellData(headerData: ("Eggs Found", data["eggs_found_easter_simulator"].intValue))
         ]
         
         var grinchSimulatorV2Stats = [
-            CellData(headerData: ("Wins", data["wins_grinch_simulator_v2"].intValue), sectionData: []),
-            CellData(headerData: ("Presents Stolen", data["gifts_grinch_simulator_v2"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_grinch_simulator_v2"].intValue)),
+            CellData(headerData: ("Presents Stolen", data["gifts_grinch_simulator_v2"].intValue))
         ]
         
         var halloweenSimulatorStats = [
-            CellData(headerData: ("Wins", data["wins_halloween_simulator"].intValue), sectionData: []),
-            CellData(headerData: ("Candy Found", data["candy_found_halloween_simulator"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_halloween_simulator"].intValue)),
+            CellData(headerData: ("Candy Found", data["candy_found_halloween_simulator"].intValue))
         ]
         
         var santaSaysStats = [
-            CellData(headerData: ("Wins", data["wins_santa_says"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_santa_says"].intValue))
         ]
         
         var santaSimulatorStats = [
-            CellData(headerData: ("Presents Delivered", data["delivered_santa_simulator"].intValue), sectionData: []),
-            CellData(headerData: ("Times Spotted", data["spotted_santa_simulator"].intValue), sectionData: [])
+            CellData(headerData: ("Presents Delivered", data["delivered_santa_simulator"].intValue)),
+            CellData(headerData: ("Times Spotted", data["spotted_santa_simulator"].intValue))
         ]
         
         var scubaSimulatorStats = [
-            CellData(headerData: ("Wins", data["wins_scuba_simulator"].intValue), sectionData: []),
-            CellData(headerData: ("Items Found", data["items_found_scuba_simulator"].intValue), sectionData: []),
-            CellData(headerData: ("Total Points", data["total_points_scuba_simulator"].intValue), sectionData: [])
+            CellData(headerData: ("Wins", data["wins_scuba_simulator"].intValue)),
+            CellData(headerData: ("Items Found", data["items_found_scuba_simulator"].intValue)),
+            CellData(headerData: ("Total Points", data["total_points_scuba_simulator"].intValue))
         ]
         
         ret.append(contentsOf: blockingDeadStats)
@@ -225,23 +225,23 @@ class ArcadeStatsManager: NSObject, StatsManager {
         var ret: [CellData] = []
         
         var generalStats = [
-            CellData(headerData: ("Wins", data["wins_zombies"].intValue), sectionData: []),
-            CellData(headerData: ("Zombies Killed", data["zombie_kills_zombies"].intValue), sectionData: []),
+            CellData(headerData: ("Wins", data["wins_zombies"].intValue)),
+            CellData(headerData: ("Zombies Killed", data["zombie_kills_zombies"].intValue)),
             
-            CellData(headerData: ("Best Round", data["best_round_zombies"].intValue), sectionData: []),
-            CellData(headerData: ("Total Rounds Survived", data["total_rounds_survived_zombies"].intValue), sectionData: []),
+            CellData(headerData: ("Best Round", data["best_round_zombies"].intValue)),
+            CellData(headerData: ("Total Rounds Survived", data["total_rounds_survived_zombies"].intValue)),
             
-            CellData(headerData: ("Bullets Shot", data["bullets_shot_zombies"].intValue), sectionData: []),
-            CellData(headerData: ("Bullets Hit", data["bullets_hit_zombies"].intValue), sectionData: []),
-            CellData(headerData: ("Bullet Accuracy", Utils.calculatePercentage(numerator: data["bullets_hit_zombies"].intValue, denominator: data["bullets_shot_zombies"].intValue)), sectionData: []),
-            CellData(headerData: ("Headshots", data["headshots_zombies"].intValue), sectionData: []),
-            CellData(headerData: ("Headshot Percentage", Utils.calculatePercentage(numerator: data["headshots_zombies"].intValue, denominator: data["bullets_hit_zombies"].intValue)), sectionData: []),
+            CellData(headerData: ("Bullets Shot", data["bullets_shot_zombies"].intValue)),
+            CellData(headerData: ("Bullets Hit", data["bullets_hit_zombies"].intValue)),
+            CellData(headerData: ("Bullet Accuracy", Utils.calculatePercentage(numerator: data["bullets_hit_zombies"].intValue, denominator: data["bullets_shot_zombies"].intValue))),
+            CellData(headerData: ("Headshots", data["headshots_zombies"].intValue)),
+            CellData(headerData: ("Headshot Percentage", Utils.calculatePercentage(numerator: data["headshots_zombies"].intValue, denominator: data["bullets_hit_zombies"].intValue))),
             
-            CellData(headerData: ("Players Revived", data["players_revived_zombies"].intValue), sectionData: []),
-            CellData(headerData: ("Times Knocked Down", data["times_knocked_down_zombies"].intValue), sectionData: []),
+            CellData(headerData: ("Players Revived", data["players_revived_zombies"].intValue)),
+            CellData(headerData: ("Times Knocked Down", data["times_knocked_down_zombies"].intValue)),
             
-            CellData(headerData: ("Doors Opened", data["doors_opened_zombies"].intValue), sectionData: []),
-            CellData(headerData: ("Windows Repaired Killed", data["windows_repaired_zombies"].intValue), sectionData: [])
+            CellData(headerData: ("Doors Opened", data["doors_opened_zombies"].intValue)),
+            CellData(headerData: ("Windows Repaired Killed", data["windows_repaired_zombies"].intValue))
         ]
         
         ret.append(contentsOf: generalStats)

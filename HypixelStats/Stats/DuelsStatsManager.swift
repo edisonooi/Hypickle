@@ -63,24 +63,24 @@ class DuelsStatsManager: NSObject, StatsManager {
         var generalStats = [
             CellData(headerData: ("Overall Division", divisionAndColor.0), sectionData: [], color: divisionAndColor.1),
             
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             
-            CellData(headerData: ("Best Overall Winstreak", data["best_overall_winstreak"].intValue), sectionData: []),
-            CellData(headerData: ("Current Winstreak", data["current_winstreak"].intValue), sectionData: []),
+            CellData(headerData: ("Best Overall Winstreak", data["best_overall_winstreak"].intValue)),
+            CellData(headerData: ("Current Winstreak", data["current_winstreak"].intValue)),
             
-            CellData(headerData: ("Melee Swings", swings), sectionData: []),
-            CellData(headerData: ("Melee Hits", hits), sectionData: []),
-            CellData(headerData: ("Melee Accuracy", meleeAccuracy), sectionData: []),
+            CellData(headerData: ("Melee Swings", swings)),
+            CellData(headerData: ("Melee Hits", hits)),
+            CellData(headerData: ("Melee Accuracy", meleeAccuracy)),
             
-            CellData(headerData: ("Arrow Shots", bowShots), sectionData: []),
-            CellData(headerData: ("Arrow Hits", bowHits), sectionData: []),
-            CellData(headerData: ("Arrow Accuracy", bowAccuracy), sectionData: []),
+            CellData(headerData: ("Arrow Shots", bowShots)),
+            CellData(headerData: ("Arrow Hits", bowHits)),
+            CellData(headerData: ("Arrow Accuracy", bowAccuracy)),
 
         ]
         

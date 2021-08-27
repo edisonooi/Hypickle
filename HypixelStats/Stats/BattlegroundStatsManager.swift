@@ -49,26 +49,26 @@ class BattlegroundStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             CellData(headerData: ("Wins (tap for details)", wins), sectionData: winStats),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Assists", assists), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Assists", assists)),
+            CellData(headerData: ("Deaths", deaths)),
             
-            CellData(headerData: ("K/D", kdr), sectionData: []),
-            CellData(headerData: ("Assists/Kill", akr), sectionData: []),
+            CellData(headerData: ("K/D", kdr)),
+            CellData(headerData: ("Assists/Kill", akr)),
             
             CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
             CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: [], color: UIColor(named: "mc_light_purple")!),
             
-            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue), sectionData: []),
-            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue), sectionData: []),
-            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue), sectionData: []),
+            CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue)),
+            CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue)),
+            CellData(headerData: ("Points Captured Domination", data["dom_point_captures"].intValue)),
             
-            CellData(headerData: ("Damage", data["damage"].intValue), sectionData: []),
-            CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue), sectionData: []),
-            CellData(headerData: ("Healing", data["heal"].intValue), sectionData: []),
+            CellData(headerData: ("Damage", data["damage"].intValue)),
+            CellData(headerData: ("Damage Prevented", data["damage_prevented"].intValue)),
+            CellData(headerData: ("Healing", data["heal"].intValue)),
         ]
 
         ret.append(contentsOf: generalStats)

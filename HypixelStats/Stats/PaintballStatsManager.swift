@@ -42,24 +42,24 @@ class PaintballStatsManager: NSObject, StatsManager {
         }
         
         return [
-            CellData(headerData: ("Wins", data["wins"].intValue), sectionData: []),
+            CellData(headerData: ("Wins", data["wins"].intValue)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
-            CellData(headerData: ("Shots Fired", shotsFired), sectionData: []),
-            CellData(headerData: ("Shots/Kill", String(format: "%.2f", shotsPerKill)), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
+            CellData(headerData: ("Shots Fired", shotsFired)),
+            CellData(headerData: ("Shots/Kill", String(format: "%.2f", shotsPerKill))),
             
-            CellData(headerData: ("Killstreaks", data["killstreaks"].intValue), sectionData: []),
-            CellData(headerData: ("Forcefield Time (seconds)", data["forcefieldTime"].intValue), sectionData: []),
+            CellData(headerData: ("Killstreaks", data["killstreaks"].intValue)),
+            CellData(headerData: ("Forcefield Time (seconds)", data["forcefieldTime"].intValue)),
             
-            CellData(headerData: ("Adrenaline", (data["adrenaline"].intValue) + 1), sectionData: []),
-            CellData(headerData: ("Endurance", (data["endurance"].intValue) + 1), sectionData: []),
-            CellData(headerData: ("Fortune", (data["fortune"].intValue) + 1), sectionData: []),
-            CellData(headerData: ("Godfather", (data["godfather"].intValue) + 1), sectionData: []),
-            CellData(headerData: ("Head Start", headStart), sectionData: []),
-            CellData(headerData: ("Superluck", (data["superluck"].intValue) + 1), sectionData: []),
-            CellData(headerData: ("Transfusion", (data["transfusion"].intValue) + 1), sectionData: []),
+            CellData(headerData: ("Adrenaline", (data["adrenaline"].intValue) + 1)),
+            CellData(headerData: ("Endurance", (data["endurance"].intValue) + 1)),
+            CellData(headerData: ("Fortune", (data["fortune"].intValue) + 1)),
+            CellData(headerData: ("Godfather", (data["godfather"].intValue) + 1)),
+            CellData(headerData: ("Head Start", headStart)),
+            CellData(headerData: ("Superluck", (data["superluck"].intValue) + 1)),
+            CellData(headerData: ("Transfusion", (data["transfusion"].intValue) + 1)),
             
         ]
     }()

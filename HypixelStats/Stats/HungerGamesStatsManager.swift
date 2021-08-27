@@ -46,12 +46,12 @@ class HungerGamesStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions),
-            CellData(headerData: ("Losses", deaths), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
-            CellData(headerData: ("Kills/Game", killsPerGame), sectionData: [])
+            CellData(headerData: ("Losses", deaths)),
+            CellData(headerData: ("W/L", wlr)),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
+            CellData(headerData: ("Kills/Game", killsPerGame))
         ]
         
         ret.append(contentsOf: generalStats)

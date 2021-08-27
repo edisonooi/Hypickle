@@ -20,8 +20,8 @@ class SpeedUHCStatsManager: NSObject, StatsManager {
     let headers = [
         3: "",
         6: "",
-        9: "",
-        11: "Modes"
+        10: "",
+        12: "Modes"
     ]
     
     lazy var statsTableData: [CellData] = {
@@ -40,20 +40,21 @@ class SpeedUHCStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             
-            CellData(headerData: ("Score", data["score"].intValue), sectionData: []),
-            CellData(headerData: ("Stars", titleAndStar.1), sectionData: []),
-            CellData(headerData: ("Title", titleAndStar.0), sectionData: []),
+            CellData(headerData: ("Score", data["score"].intValue)),
+            CellData(headerData: ("Stars", titleAndStar.1)),
+            CellData(headerData: ("Title", titleAndStar.0)),
+            CellData(headerData: ("Salt", data["salt"].intValue)),
             
-            CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue), sectionData: []),
-            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: [])
+            CellData(headerData: ("Best Overall Winstreak", data["highestWinstreak"].intValue)),
+            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue))
 
         ]
         

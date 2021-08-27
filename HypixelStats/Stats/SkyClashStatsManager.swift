@@ -43,14 +43,14 @@ class SkyClashStatsManager: NSObject, StatsManager {
         ]
         
         var generalStats = [
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
             CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions),
-            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: [])
+            CellData(headerData: ("Assists", data["assists"].intValue)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr))
         ]
         
         ret.append(contentsOf: generalStats)

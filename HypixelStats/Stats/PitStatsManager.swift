@@ -45,54 +45,54 @@ class PitStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Prestige", prestigeString), sectionData: []),
-            CellData(headerData: ("Level", prestigeAndLevel.1), sectionData: []),
+            CellData(headerData: ("Prestige", prestigeString)),
+            CellData(headerData: ("Level", prestigeAndLevel.1)),
             CellData(headerData: ("XP", xp), sectionData: [], color: UIColor(named: "mc_aqua")!),
             CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: [], color: UIColor(named: "mc_yellow")!),
             
             CellData(headerData: ("Current Gold", Int(floor(profile["cash"].doubleValue))), sectionData: [], color: UIColor(named: "mc_gold")!),
             CellData(headerData: ("Lifetime Gold", stats["cash_earned"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Assists", assists), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
-            CellData(headerData: ("KA/D", kadr), sectionData: []),
-            CellData(headerData: ("Highest Killstreak", stats["max_streak"].intValue), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Assists", assists)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
+            CellData(headerData: ("KA/D", kadr)),
+            CellData(headerData: ("Highest Killstreak", stats["max_streak"].intValue)),
             
-            CellData(headerData: ("Playtime", Utils.convertToHoursMinutesSeconds(seconds: playtimeMinutes * 60)), sectionData: []),
-            CellData(headerData: ("Kills/Hour", String(format: "%.2f", killsPerHour)), sectionData: []),
-            CellData(headerData: ("KA/Hour", String(format: "%.2f", kaPerHour)), sectionData: []),
+            CellData(headerData: ("Playtime", Utils.convertToHoursMinutesSeconds(seconds: playtimeMinutes * 60))),
+            CellData(headerData: ("Kills/Hour", String(format: "%.2f", killsPerHour))),
+            CellData(headerData: ("KA/Hour", String(format: "%.2f", kaPerHour))),
             CellData(headerData: ("XP/Hour", String(format: "%.2f", xpPerHour)), sectionData: [], color: UIColor(named: "mc_aqua")!),
             CellData(headerData: ("Gold/Hour", String(format: "%.2f", goldPerHour)), sectionData: [], color: UIColor(named: "mc_gold")!),
             
-            CellData(headerData: ("Jumps into Pit", stats["jumped_into_pit"].intValue), sectionData: []),
-            CellData(headerData: ("Launcher Launches", stats["launched_by_launchers"].intValue), sectionData: []),
+            CellData(headerData: ("Jumps into Pit", stats["jumped_into_pit"].intValue)),
+            CellData(headerData: ("Launcher Launches", stats["launched_by_launchers"].intValue)),
             
-            CellData(headerData: ("Contracts Completed", stats["contracts_completed"].intValue), sectionData: []),
-            CellData(headerData: ("Night Quests Completed", stats["night_quests_completed"].intValue), sectionData: []),
-            CellData(headerData: ("King's Quest Completions", stats["king_quest_completion"].intValue), sectionData: []),
+            CellData(headerData: ("Contracts Completed", stats["contracts_completed"].intValue)),
+            CellData(headerData: ("Night Quests Completed", stats["night_quests_completed"].intValue)),
+            CellData(headerData: ("King's Quest Completions", stats["king_quest_completion"].intValue)),
             
-            CellData(headerData: ("Tier 1 Mystics Enchanted", stats["enchanted_tier1"].intValue), sectionData: []),
-            CellData(headerData: ("Tier 2 Mystics Enchanted", stats["enchanted_tier2"].intValue), sectionData: []),
-            CellData(headerData: ("Tier 3 Mystics Enchanted", stats["enchanted_tier3"].intValue), sectionData: []),
+            CellData(headerData: ("Tier 1 Mystics Enchanted", stats["enchanted_tier1"].intValue)),
+            CellData(headerData: ("Tier 2 Mystics Enchanted", stats["enchanted_tier2"].intValue)),
+            CellData(headerData: ("Tier 3 Mystics Enchanted", stats["enchanted_tier3"].intValue)),
             
-            CellData(headerData: ("Wheat Farmed", stats["wheat_farmed"].intValue), sectionData: []),
-            CellData(headerData: ("Diamond Items Purchased", stats["diamond_items_purchased"].intValue), sectionData: []),
+            CellData(headerData: ("Wheat Farmed", stats["wheat_farmed"].intValue)),
+            CellData(headerData: ("Diamond Items Purchased", stats["diamond_items_purchased"].intValue)),
             
-            CellData(headerData: ("Golden Heads Eaten", stats["ghead_eaten"].intValue), sectionData: []),
-            CellData(headerData: ("Golden Apples Eaten", stats["gapple_eaten"].intValue), sectionData: []),
-            CellData(headerData: ("Soups Drank", stats["soups_drank"].intValue), sectionData: []),
-            CellData(headerData: ("Rage Potatoes Eaten", stats["rage_potatoes_eaten"].intValue), sectionData: []),
+            CellData(headerData: ("Golden Heads Eaten", stats["ghead_eaten"].intValue)),
+            CellData(headerData: ("Golden Apples Eaten", stats["gapple_eaten"].intValue)),
+            CellData(headerData: ("Soups Drank", stats["soups_drank"].intValue)),
+            CellData(headerData: ("Rage Potatoes Eaten", stats["rage_potatoes_eaten"].intValue)),
             
-            CellData(headerData: ("Lava Buckets Emptied", stats["lava_bucket_emptied"].intValue), sectionData: []),
-            CellData(headerData: ("Fishing Rods Launched", stats["fishing_rod_launched"].intValue), sectionData: []),
-            CellData(headerData: ("Items Fished", stats["fished_anything"].intValue), sectionData: []),
-            CellData(headerData: ("Fish Fished", stats["fishes_fished"].intValue), sectionData: []),
+            CellData(headerData: ("Lava Buckets Emptied", stats["lava_bucket_emptied"].intValue)),
+            CellData(headerData: ("Fishing Rods Launched", stats["fishing_rod_launched"].intValue)),
+            CellData(headerData: ("Items Fished", stats["fished_anything"].intValue)),
+            CellData(headerData: ("Fish Fished", stats["fishes_fished"].intValue)),
             
-            CellData(headerData: ("Blocks Placed", stats["blocks_placed"].intValue), sectionData: []),
-            CellData(headerData: ("Blocks Broken", stats["blocks_broken"].intValue), sectionData: []),
-            CellData(headerData: ("Obsidian Broken", stats["obsidian_broken"].intValue), sectionData: [])
+            CellData(headerData: ("Blocks Placed", stats["blocks_placed"].intValue)),
+            CellData(headerData: ("Blocks Broken", stats["blocks_broken"].intValue)),
+            CellData(headerData: ("Obsidian Broken", stats["obsidian_broken"].intValue))
         ]
     }()
     

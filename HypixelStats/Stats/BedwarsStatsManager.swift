@@ -42,31 +42,31 @@ class BedwarsStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: []),
-            CellData(headerData: ("Prestige", prestige), sectionData: []),
+            CellData(headerData: ("Level", String(format: "%.2f", level))),
+            CellData(headerData: ("Prestige", prestige)),
             
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue), sectionData: []),
+            CellData(headerData: ("Current Winstreak", data["winstreak"].intValue)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
-            CellData(headerData: ("Final Kills", finalKills), sectionData: []),
-            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: []),
-            CellData(headerData: ("Final K/D", finalKDR), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
+            CellData(headerData: ("Final Kills", finalKills)),
+            CellData(headerData: ("Final Deaths", finalDeaths)),
+            CellData(headerData: ("Final K/D", finalKDR)),
             
-            CellData(headerData: ("Beds Broken", data["beds_broken_bedwars"].intValue), sectionData: []),
-            CellData(headerData: ("Beds Lost", data["beds_lost_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Beds Broken", data["beds_broken_bedwars"].intValue)),
+            CellData(headerData: ("Beds Lost", data["beds_lost_bedwars"].intValue)),
             
-            CellData(headerData: ("Iron Collected", data["iron_resources_collected_bedwars"].intValue), sectionData: []),
-            CellData(headerData: ("Gold Collected", data["gold_resources_collected_bedwars"].intValue), sectionData: []),
-            CellData(headerData: ("Diamonds Collected", data["diamond_resources_collected_bedwars"].intValue), sectionData: []),
-            CellData(headerData: ("Emeralds Collected", data["emerald_resources_collected_bedwars"].intValue), sectionData: []),
-            CellData(headerData: ("Wrapped Presents Collected", data["wrapped_present_resources_collected_bedwars"].intValue), sectionData: []),
-            CellData(headerData: ("Shop Purchases", data["_items_purchased_bedwars"].intValue), sectionData: []),
+            CellData(headerData: ("Iron Collected", data["iron_resources_collected_bedwars"].intValue)),
+            CellData(headerData: ("Gold Collected", data["gold_resources_collected_bedwars"].intValue)),
+            CellData(headerData: ("Diamonds Collected", data["diamond_resources_collected_bedwars"].intValue)),
+            CellData(headerData: ("Emeralds Collected", data["emerald_resources_collected_bedwars"].intValue)),
+            CellData(headerData: ("Wrapped Presents Collected", data["wrapped_present_resources_collected_bedwars"].intValue)),
+            CellData(headerData: ("Shop Purchases", data["_items_purchased_bedwars"].intValue)),
             
             
         ]

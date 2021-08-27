@@ -153,29 +153,29 @@ class TNTGamesStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Wins", winsTNTRun), sectionData: []),
-            CellData(headerData: ("Losses", lossesTNTRun), sectionData: []),
-            CellData(headerData: ("W/L", wlrTNTRun), sectionData: []),
-            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue)), sectionData: []),
+            CellData(headerData: ("Wins", winsTNTRun)),
+            CellData(headerData: ("Losses", lossesTNTRun)),
+            CellData(headerData: ("W/L", wlrTNTRun)),
+            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_tntrun"].intValue))),
             
-            CellData(headerData: ("Wins", winsPVPRun), sectionData: []),
-            CellData(headerData: ("Kills", killsPVPRun), sectionData: []),
-            CellData(headerData: ("Deaths", lossesPVPRun), sectionData: []),
-            CellData(headerData: ("W/L", wlrPVPRun), sectionData: []),
-            CellData(headerData: ("K/D", kdrPVPRun), sectionData: []),
-            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue)), sectionData: []),
+            CellData(headerData: ("Wins", winsPVPRun)),
+            CellData(headerData: ("Kills", killsPVPRun)),
+            CellData(headerData: ("Deaths", lossesPVPRun)),
+            CellData(headerData: ("W/L", wlrPVPRun)),
+            CellData(headerData: ("K/D", kdrPVPRun)),
+            CellData(headerData: ("Record Time", Utils.formatMinuteSeconds(totalSeconds: data["record_pvprun"].intValue))),
             
-            CellData(headerData: ("Wins", winsSpleef), sectionData: []),
-            CellData(headerData: ("Losses", lossesSpleef), sectionData: []),
-            CellData(headerData: ("W/L", wlrSpleef), sectionData: []),
+            CellData(headerData: ("Wins", winsSpleef)),
+            CellData(headerData: ("Losses", lossesSpleef)),
+            CellData(headerData: ("W/L", wlrSpleef)),
             
-            CellData(headerData: ("Wins", winsTag), sectionData: []),
+            CellData(headerData: ("Wins", winsTag)),
             
-            CellData(headerData: ("Wins", winsWizards), sectionData: []),
-            CellData(headerData: ("Kills", killsWizards), sectionData: []),
-            CellData(headerData: ("Deaths", deathsWizards), sectionData: []),
-            CellData(headerData: ("Assists", data["assists_capture"].intValue), sectionData: []),
-            CellData(headerData: ("K/D", kdrWizards), sectionData: []),
+            CellData(headerData: ("Wins", winsWizards)),
+            CellData(headerData: ("Kills", killsWizards)),
+            CellData(headerData: ("Deaths", deathsWizards)),
+            CellData(headerData: ("Assists", data["assists_capture"].intValue)),
+            CellData(headerData: ("K/D", kdrWizards)),
             
             CellData(headerData: ("Ancient", ""), sectionData: statsAncient),
             CellData(headerData: ("Blood", ""), sectionData: statsBlood),

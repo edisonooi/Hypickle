@@ -82,12 +82,12 @@ class ArenaStatsManager: NSObject, StatsManager {
         ]
         
         return [
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             CellData(headerData: ("1v1", ""), sectionData: stats1v1),
             CellData(headerData: ("2v2", ""), sectionData: stats2v2),
             CellData(headerData: ("4v4", ""), sectionData: stats4v4)

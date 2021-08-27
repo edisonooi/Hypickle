@@ -32,14 +32,14 @@ class WallsStatsManager: NSObject, StatsManager {
         var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         return [
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Assists", data["assists"].intValue)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
         ]
     }()
     

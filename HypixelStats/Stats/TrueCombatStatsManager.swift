@@ -42,17 +42,17 @@ class TrueCombatStatsManager: NSObject, StatsManager {
         
         var generalStats = [
 
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             
-            CellData(headerData: ("Arrows Shot", arrowsShot), sectionData: []),
-            CellData(headerData: ("Arrows Hit", arrowsHit), sectionData: []),
-            CellData(headerData: ("Arrow Accuracy", arrowAccuracy), sectionData: [])
+            CellData(headerData: ("Arrows Shot", arrowsShot)),
+            CellData(headerData: ("Arrows Hit", arrowsHit)),
+            CellData(headerData: ("Arrow Accuracy", arrowAccuracy))
         ]
         
         ret.append(contentsOf: generalStats)

@@ -82,18 +82,18 @@ class UHCStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Wins", wins), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             
-            CellData(headerData: ("Score", data["score"].intValue), sectionData: []),
-            CellData(headerData: ("Stars", titleAndStar.1), sectionData: []),
-            CellData(headerData: ("Title", titleAndStar.0), sectionData: []),
+            CellData(headerData: ("Score", data["score"].intValue)),
+            CellData(headerData: ("Stars", titleAndStar.1)),
+            CellData(headerData: ("Title", titleAndStar.0)),
             
-            CellData(headerData: ("Heads Eaten", headsEaten), sectionData: []),
-            CellData(headerData: ("Ultimates Crafted", (data["ultimates_crafted"].intValue) + (data["ultimates_crafted_solo"].intValue)), sectionData: []),
+            CellData(headerData: ("Heads Eaten", headsEaten)),
+            CellData(headerData: ("Ultimates Crafted", (data["ultimates_crafted"].intValue) + (data["ultimates_crafted_solo"].intValue))),
 
         ]
         

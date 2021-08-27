@@ -93,15 +93,15 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         var generalStats = [
             
             CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
             CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             
-            CellData(headerData: ("Fastest Murderer Win", murdWinString), sectionData: []),
-            CellData(headerData: ("Fastest Detective Win", detWinString), sectionData: []),
+            CellData(headerData: ("Fastest Murderer Win", murdWinString)),
+            CellData(headerData: ("Fastest Detective Win", detWinString)),
             
             CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: [], color: UIColor(named: "mc_dark_red")!),
             CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!)
@@ -125,7 +125,7 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         for mode in modes {
             
             if mode.id == "_MURDER_HARDCORE" && (data["games" + mode.id].exists() || data["games_MURDER_SHOWDOWN"].exists()) {
-                modeStats.append(CellData(headerData: ("LEGACY MODES", ""), sectionData: []))
+                modeStats.append(CellData(headerData: ("LEGACY MODES", "")))
             }
             
             if !data["games" + mode.id].exists() {

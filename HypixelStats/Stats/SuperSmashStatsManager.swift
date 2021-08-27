@@ -38,13 +38,13 @@ class SuperSmashStatsManager: NSObject, StatsManager {
         var kdr = Utils.calculateRatio(numerator: kills, denominator: deaths)
         
         var generalStats = [
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: [])
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr))
         ]
         
         ret.append(contentsOf: generalStats)

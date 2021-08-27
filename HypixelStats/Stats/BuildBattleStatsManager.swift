@@ -41,14 +41,14 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         ]
         
         return [
-            CellData(headerData: ("Score", data["score"].intValue), sectionData: []),
+            CellData(headerData: ("Score", data["score"].intValue)),
             CellData(headerData: ("Title", titleAndColor.0), sectionData: [], color: titleAndColor.1),
             CellData(headerData: ("Overall Wins (tap for details)", wins), sectionData: winsDivisions),
-            CellData(headerData: ("Overall Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
-            CellData(headerData: ("Total Votes", data["total_votes"].intValue), sectionData: []),
-            CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue), sectionData: []),
-            CellData(headerData: ("Super Votes", data["super_votes"].intValue), sectionData: []),
+            CellData(headerData: ("Overall Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
+            CellData(headerData: ("Total Votes", data["total_votes"].intValue)),
+            CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue)),
+            CellData(headerData: ("Super Votes", data["super_votes"].intValue)),
         ]
     }()
     

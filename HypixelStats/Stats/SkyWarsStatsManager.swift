@@ -56,39 +56,39 @@ class SkyWarsStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Prestige", prestigeAndColor.0), sectionData: [], color: prestigeAndColor.1),
             CellData(headerData: ("Tokens", data["cosmetic_tokens"].intValue), sectionData: [], color: UIColor(named: "mc_dark_green")!),
             
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Lab Wins", data["wins_lab"].intValue), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Lab Wins", data["wins_lab"].intValue)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Assists", data["assists"].intValue), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Assists", data["assists"].intValue)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             
-            CellData(headerData: ("Melee Kills", data["melee_kills"].intValue), sectionData: []),
-            CellData(headerData: ("Bow Kills", data["bow_kills"].intValue), sectionData: []),
-            CellData(headerData: ("Void Kills", data["void_kills"].intValue), sectionData: []),
-            CellData(headerData: ("Mob Kills", data["mob_kills"].intValue), sectionData: []),
+            CellData(headerData: ("Melee Kills", data["melee_kills"].intValue)),
+            CellData(headerData: ("Bow Kills", data["bow_kills"].intValue)),
+            CellData(headerData: ("Void Kills", data["void_kills"].intValue)),
+            CellData(headerData: ("Mob Kills", data["mob_kills"].intValue)),
             
-            CellData(headerData: ("Arrows Shot", arrowsShot), sectionData: []),
-            CellData(headerData: ("Arrows Hit", arrowsHit), sectionData: []),
-            CellData(headerData: ("Arrow Accuracy", arrowAccuracy), sectionData: []),
+            CellData(headerData: ("Arrows Shot", arrowsShot)),
+            CellData(headerData: ("Arrows Hit", arrowsHit)),
+            CellData(headerData: ("Arrow Accuracy", arrowAccuracy)),
             
-            CellData(headerData: ("Eggs Thrown", data["egg_thrown"].intValue), sectionData: []),
-            CellData(headerData: ("Pearls Thrown", data["enderpearls_thrown"].intValue), sectionData: []),
+            CellData(headerData: ("Eggs Thrown", data["egg_thrown"].intValue)),
+            CellData(headerData: ("Pearls Thrown", data["enderpearls_thrown"].intValue)),
             
-            CellData(headerData: ("Blocks Placed", data["blocks_placed"].intValue), sectionData: []),
-            CellData(headerData: ("Blocks Broken", data["blocks_broken"].intValue), sectionData: []),
-            CellData(headerData: ("Chests Opened", data["chests_opened"].intValue), sectionData: []),
+            CellData(headerData: ("Blocks Placed", data["blocks_placed"].intValue)),
+            CellData(headerData: ("Blocks Broken", data["blocks_broken"].intValue)),
+            CellData(headerData: ("Chests Opened", data["chests_opened"].intValue)),
             
-            CellData(headerData: ("Heads Gathered", data["heads"].intValue), sectionData: []),
-            CellData(headerData: ("Corruption Chance", getCorruptionChance()), sectionData: []),
+            CellData(headerData: ("Heads Gathered", data["heads"].intValue)),
+            CellData(headerData: ("Corruption Chance", getCorruptionChance())),
             
             CellData(headerData: ("Souls Gathered", data["souls_gathered"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
             CellData(headerData: ("Current Souls", data["souls"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
             CellData(headerData: ("Paid Souls", data["paid_souls"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
-            CellData(headerData: ("Soul Well Uses", data["soul_well"].intValue), sectionData: []),
+            CellData(headerData: ("Soul Well Uses", data["soul_well"].intValue)),
         ]
         
         ret.append(contentsOf: generalStats)

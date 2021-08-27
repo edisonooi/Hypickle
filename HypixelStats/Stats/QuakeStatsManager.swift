@@ -86,20 +86,20 @@ class QuakeStatsManager: NSObject, StatsManager {
         ]
         
         return [
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
-            CellData(headerData: ("Killstreaks", killstreaks), sectionData: []),
-            CellData(headerData: ("Headshots", headshots), sectionData: []),
-            CellData(headerData: ("Shots Fired", shotsFired), sectionData: []),
-            CellData(headerData: ("Headshots/Kill", headshotsPerKill), sectionData: []),
-            CellData(headerData: ("Kills/Shot", killsPerShot), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
+            CellData(headerData: ("Killstreaks", killstreaks)),
+            CellData(headerData: ("Headshots", headshots)),
+            CellData(headerData: ("Shots Fired", shotsFired)),
+            CellData(headerData: ("Headshots/Kill", headshotsPerKill)),
+            CellData(headerData: ("Kills/Shot", killsPerShot)),
             
-            CellData(headerData: ("Highest Killstreak", data["highest_killstreak"].intValue), sectionData: []),
+            CellData(headerData: ("Highest Killstreak", data["highest_killstreak"].intValue)),
             
-            CellData(headerData: ("Dash Cooldown", (data["dash_cooldown"].intValue) + 1), sectionData: []),
-            CellData(headerData: ("Dash Power", (data["dash_power"].intValue) + 1), sectionData: []),
+            CellData(headerData: ("Dash Cooldown", (data["dash_cooldown"].intValue) + 1)),
+            CellData(headerData: ("Dash Power", (data["dash_power"].intValue) + 1)),
             
             CellData(headerData: ("Solo", ""), sectionData: statsSolo),
             

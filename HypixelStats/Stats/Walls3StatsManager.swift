@@ -39,19 +39,19 @@ class Walls3StatsManager: NSObject, StatsManager {
       
         
         var generalStats = [
-            CellData(headerData: ("Wins", wins), sectionData: []),
-            CellData(headerData: ("Losses", losses), sectionData: []),
-            CellData(headerData: ("W/L", wlr), sectionData: []),
+            CellData(headerData: ("Wins", wins)),
+            CellData(headerData: ("Losses", losses)),
+            CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills", kills), sectionData: []),
-            CellData(headerData: ("Assists", assists), sectionData: []),
-            CellData(headerData: ("Deaths", deaths), sectionData: []),
-            CellData(headerData: ("K/D", kdr), sectionData: []),
+            CellData(headerData: ("Kills", kills)),
+            CellData(headerData: ("Assists", assists)),
+            CellData(headerData: ("Deaths", deaths)),
+            CellData(headerData: ("K/D", kdr)),
             
-            CellData(headerData: ("Final Kills", finalKills), sectionData: []),
-            CellData(headerData: ("Final Assists", finalAssists), sectionData: []),
-            CellData(headerData: ("Final Deaths", finalDeaths), sectionData: []),
-            CellData(headerData: ("Final K/D", finalKDR), sectionData: [])
+            CellData(headerData: ("Final Kills", finalKills)),
+            CellData(headerData: ("Final Assists", finalAssists)),
+            CellData(headerData: ("Final Deaths", finalDeaths)),
+            CellData(headerData: ("Final K/D", finalKDR))
         ]
         
         ret.append(contentsOf: generalStats)

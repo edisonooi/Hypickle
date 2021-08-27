@@ -160,7 +160,12 @@ class SkyWarsStatsManager: NSObject, StatsManager {
             value = statsTableData[indexPath.section].headerData.1
             
             if statsTableData[indexPath.section].color != .label {
-                cell.statValue.textColor = statsTableData[indexPath.section].color
+                if statsTableData[indexPath.section].color == .clear {
+                    let gradientImage = UIImage.gradientImageWithBounds(bounds: cell.statValue.bounds, colors: [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor, UIColor.purple.cgColor])
+                    cell.statValue.textColor = UIColor.init(patternImage: gradientImage)
+                } else {
+                    cell.statValue.textColor = statsTableData[indexPath.section].color
+                }
             }
             
         } else {
@@ -280,6 +285,7 @@ class SkyWarsStatsManager: NSObject, StatsManager {
     }
     
     func getPrestige(level: Double) -> (String, UIColor) {
+        
         let prestiges = [
             (level: 0,   color: UIColor(named: "mc_gray")!, name: "None"),
             (level: 5,   color: .label, name: "Iron"),
@@ -291,10 +297,10 @@ class SkyWarsStatsManager: NSObject, StatsManager {
             (level: 35,  color: UIColor(named: "mc_pink")!, name: "Crystal"),
             (level: 40,  color: UIColor(named: "mc_blue")!, name: "Opal"),
             (level: 45,  color: UIColor(named: "mc_dark_purple")!, name: "Amethyst"),
-            //Add rainbow colors
-            (level: 50,  color: UIColor(named: "mc_dark_purple")!, name: "Rainbow"),
-            (level: 60, color: UIColor(named: "mc_dark_purple")!, name: "Mythic"),
-            (level: 100, color: UIColor(named: "mc_dark_purple")!, name: "Mythic")
+            //Clear color indicates it should be rainbow gradient
+            (level: 50,  color: .clear, name: "Rainbow"),
+            (level: 60, color: .clear, name: "Mythic"),
+            (level: 100, color: .clear, name: "Mythic")
         ]
         
         let icons = [

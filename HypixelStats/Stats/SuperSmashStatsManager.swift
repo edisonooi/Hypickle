@@ -116,11 +116,13 @@ class SuperSmashStatsManager: NSObject, StatsManager {
                 
                 var dataForThisMode = [kitWins, kitLosses, kitWLR, kitKills, kitDeaths, kitKDR] as [Any]
                 
+                var prestigeAndColor = getPrestigeAndColor(kitName: kit.0)
+                
                 for (index, category) in desiredStats.enumerated() {
                     statsForThisKit.append((category, dataForThisMode[index]))
                 }
                 
-                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue), data["pg_" + kit.0].intValue), sectionData: statsForThisKit))
+                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue), prestigeAndColor.0), sectionData: statsForThisKit, color: prestigeAndColor.1))
             }
         }
         
@@ -235,5 +237,30 @@ class SuperSmashStatsManager: NSObject, StatsManager {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
+    }
+    
+    func getPrestigeAndColor(kitName: String) -> (String, UIColor) {
+        var prestige = data["pg_" + kitName].intValue
+        var prestigeString = ""
+        
+        if prestige != 0 {
+            prestigeString = "\(prestige)"
+        }
+        var color = UIColor.label
+        
+        switch prestige {
+        case 2:
+            color = UIColor(named: "mc_green")!
+        case 3:
+            color = UIColor(named: "mc_blue")!
+        case 4:
+            color = UIColor(named: "mc_dark_purple")!
+        case 5:
+            color = UIColor(named: "mc_gold")!
+        default:
+            color = .label
+        }
+        
+        return (prestigeString, color)
     }
 }

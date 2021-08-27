@@ -11,6 +11,8 @@
 		4C020A7F26CECA3600732E71 /* HidingUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C020A7E26CECA3600732E71 /* HidingUINavigationController.swift */; };
 		4C070DD826CC2DF8000B88C4 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C070DD726CC2DF8000B88C4 /* IntExtension.swift */; };
 		4C31D2CC26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */; };
+		4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C526E4926D94EA900B85E0B /* UILabelExtension.swift */; };
+		4C526E4C26D9537300B85E0B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C526E4B26D9537300B85E0B /* UIImageExtension.swift */; };
 		4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */; };
 		4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */; };
 		4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998F26CB5B890042F1E0 /* StatsManager.swift */; };
@@ -92,6 +94,8 @@
 		4C020A7E26CECA3600732E71 /* HidingUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidingUINavigationController.swift; sourceTree = "<group>"; };
 		4C070DD726CC2DF8000B88C4 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoTabBarController.swift; sourceTree = "<group>"; };
+		4C526E4926D94EA900B85E0B /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		4C526E4B26D9537300B85E0B /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewCell.swift; sourceTree = "<group>"; };
 		4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesTableViewCell.xib; sourceTree = "<group>"; };
 		4C54998F26CB5B890042F1E0 /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
@@ -351,6 +355,8 @@
 				BE59FAF226B7294F000F7799 /* StringExtension.swift */,
 				4C070DD726CC2DF8000B88C4 /* IntExtension.swift */,
 				4C98565326D855C600FBD2EF /* UIColorExtension.swift */,
+				4C526E4926D94EA900B85E0B /* UILabelExtension.swift */,
+				4C526E4B26D9537300B85E0B /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
 				BEC6822A26BCD15F0042D947 /* Walls3StatsManager.swift in Sources */,
 				4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */,
+				4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */,
 				BE10349026A627FA00153FBE /* Utils.swift in Sources */,
 				4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */,
 				BEAFEC0126AA11E000349728 /* CellData.swift in Sources */,
@@ -641,6 +648,7 @@
 				BEDAAF4026BE38BB002592A1 /* GamesTable.swift in Sources */,
 				BE0DBF7E26B5F26800344E8B /* SuperSmashStatsManager.swift in Sources */,
 				BE59FAF326B7294F000F7799 /* StringExtension.swift in Sources */,
+				4C526E4C26D9537300B85E0B /* UIImageExtension.swift in Sources */,
 				4CCF9C0B26CA1292004BDF5E /* TrueCombatStatsManager.swift in Sources */,
 				BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */,
 				BE667DBD26A766D500325338 /* StatsInfoTableViewCell.swift in Sources */,

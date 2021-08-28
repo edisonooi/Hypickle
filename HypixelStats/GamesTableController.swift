@@ -18,7 +18,7 @@ class GamesTableController: UITableViewController {
         ["TrueCombat", "SkyClash"]
     ]
     
-    @IBOutlet var gamesTable: GamesTable!
+    @IBOutlet var gamesTable: NonScrollingTable!
     
     override func viewDidLoad() {
         super.viewDidLoad()

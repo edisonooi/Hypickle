@@ -13,6 +13,7 @@
 		4C31D2CC26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */; };
 		4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C526E4926D94EA900B85E0B /* UILabelExtension.swift */; };
 		4C526E4C26D9537300B85E0B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C526E4B26D9537300B85E0B /* UIImageExtension.swift */; };
+		4C526E5626DC456E00B85E0B /* minecraft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C526E5526DC456E00B85E0B /* minecraft.ttf */; };
 		4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */; };
 		4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */; };
 		4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998F26CB5B890042F1E0 /* StatsManager.swift */; };
@@ -96,6 +97,7 @@
 		4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoTabBarController.swift; sourceTree = "<group>"; };
 		4C526E4926D94EA900B85E0B /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4C526E4B26D9537300B85E0B /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		4C526E5526DC456E00B85E0B /* minecraft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = minecraft.ttf; sourceTree = "<group>"; };
 		4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewCell.swift; sourceTree = "<group>"; };
 		4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesTableViewCell.xib; sourceTree = "<group>"; };
 		4C54998F26CB5B890042F1E0 /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
@@ -220,6 +222,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4C526E5426DC455600B85E0B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4C526E5526DC456E00B85E0B /* minecraft.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		8EA4070C3391C1FB18CBBC14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +311,7 @@
 		BE14330026A0DDA00054E475 /* HypixelStats */ = {
 			isa = PBXGroup;
 			children = (
+				4C526E5426DC455600B85E0B /* Fonts */,
 				BE59FAF126B72940000F7799 /* Extensions */,
 				BE14333626A0E94F0054E475 /* Utils */,
 				4C266D9326CB695400E91DA8 /* Models */,
@@ -474,6 +485,7 @@
 				4C9AAC8E26D453B30058CFA3 /* MinigameHeaderView.xib in Resources */,
 				4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */,
 				BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */,
+				4C526E5626DC456E00B85E0B /* minecraft.ttf in Resources */,
 				BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */,
 				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
 				4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */,

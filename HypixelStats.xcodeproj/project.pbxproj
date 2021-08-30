@@ -22,6 +22,10 @@
 		4C98565426D855C600FBD2EF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98565326D855C600FBD2EF /* UIColorExtension.swift */; };
 		4C9AAC8E26D453B30058CFA3 /* MinigameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */; };
 		4C9AAC9026D4582D0058CFA3 /* MinigameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */; };
+		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
+		4CB192AC26DD39370077D6AC /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AB26DD39370077D6AC /* PlayerView.swift */; };
+		4CB192AE26DD394B0077D6AC /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB192AD26DD394B0077D6AC /* PlayerView.xib */; };
+		4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AF26DD3E110077D6AC /* RankManager.swift */; };
 		4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC234A726CCA34600D95D38 /* CoinsView.xib */; };
 		4CC234AA26CCAF1400D95D38 /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC234A926CCAF1400D95D38 /* CoinsView.swift */; };
 		4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsManager.swift */; };
@@ -106,6 +110,10 @@
 		4C98565326D855C600FBD2EF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MinigameHeaderView.xib; sourceTree = "<group>"; };
 		4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameHeaderView.swift; sourceTree = "<group>"; };
+		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
+		4CB192AB26DD39370077D6AC /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		4CB192AD26DD394B0077D6AC /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		4CB192AF26DD3E110077D6AC /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
 		4CC234A726CCA34600D95D38 /* CoinsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsView.xib; sourceTree = "<group>"; };
 		4CC234A926CCAF1400D95D38 /* CoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsView.swift; sourceTree = "<group>"; };
 		4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyWarsStatsManager.swift; sourceTree = "<group>"; };
@@ -208,6 +216,8 @@
 				4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */,
 				4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */,
 				4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */,
+				4CB192AB26DD39370077D6AC /* PlayerView.swift */,
+				4CB192AD26DD394B0077D6AC /* PlayerView.xib */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -356,6 +366,7 @@
 				BE14333426A0E1FA0054E475 /* APIManager.swift */,
 				BE14333926A0E97A0054E475 /* MojangAPIManager.swift */,
 				BE10348F26A627FA00153FBE /* Utils.swift */,
+				4CB192AF26DD3E110077D6AC /* RankManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -368,6 +379,7 @@
 				4C98565326D855C600FBD2EF /* UIColorExtension.swift */,
 				4C526E4926D94EA900B85E0B /* UILabelExtension.swift */,
 				4C526E4B26D9537300B85E0B /* UIImageExtension.swift */,
+				4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -489,6 +501,7 @@
 				BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */,
 				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
 				4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */,
+				4CB192AE26DD394B0077D6AC /* PlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,13 +650,16 @@
 				4CC234AA26CCAF1400D95D38 /* CoinsView.swift in Sources */,
 				BE8FFE3126B3B0850033A8C2 /* QuakeStatsManager.swift in Sources */,
 				4CF034F726D2DE0E000B91C0 /* GenericHeaderView.swift in Sources */,
+				4CB192AC26DD39370077D6AC /* PlayerView.swift in Sources */,
 				4C31D2CC26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift in Sources */,
 				4C9AAC9026D4582D0058CFA3 /* MinigameHeaderView.swift in Sources */,
 				BE0DBF8026B6157700344E8B /* HungerGamesStatsManager.swift in Sources */,
 				BE667DC226A77E5700325338 /* PaintballStatsManager.swift in Sources */,
 				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
+				4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */,
 				BEC6822A26BCD15F0042D947 /* Walls3StatsManager.swift in Sources */,
 				4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */,
+				4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */,
 				4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */,
 				BE10349026A627FA00153FBE /* Utils.swift in Sources */,
 				4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */,

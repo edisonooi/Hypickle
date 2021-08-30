@@ -24,7 +24,7 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         if let username = user?.username {
-            usernameTextField.text = username
+            usernameTextField.attributedText = RankManager.getAttributedStringForRank(data: allStatsData)
             self.tabBarController?.navigationItem.title = username + "'s Stats"
         } else {
             self.tabBarController?.navigationItem.title = "No User Found"

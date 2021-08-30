@@ -120,6 +120,17 @@ class Utils {
         return formattedString
     }
     
+    static func convertToDateFormat(milliseconds: UInt64) -> String {
+        var secondsSince1970 = milliseconds / 1000
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(secondsSince1970))
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy HH:mm"
+        
+        return dateFormatter.string(from: date)
+    }
+    
     static let databaseNameToCleanName: [String: String] = [
         "Arcade": "Arcade",
         "Bedwars": "Bedwars",

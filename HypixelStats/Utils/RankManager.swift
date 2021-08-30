@@ -116,6 +116,41 @@ class RankManager {
         
         return attributedString
         
+    }
+    
+    static func getAttributedStringForRank(data: JSON, rankID: String) -> NSMutableAttributedString {
+        let ranks = [
+            "VIP" : "[VIP]",
+            "VIP_PLUS" : "[VIP+]",
+            "MVP" : "[MVP]",
+            "MVP_PLUS" : "[MVP+]",
+        ]
+        
+        let plusColor = data["rankPlusColor"].stringValue
+        
+        let rankString = ranks[rankID]
+        let attributedString = NSMutableAttributedString(string: rankString!)
+        
+        switch rankID {
+        case "VIP":
+            attributedString.setColor(color: colors["GREEN"]!)
+            
+        case "VIP_PLUS":
+            attributedString.setColor(color: colors["GREEN"]!)
+            attributedString.setColor(color: colors["GOLD"]!, stringValue: "+")
+            
+        case "MVP":
+            attributedString.setColor(color: colors["AQUA"]!)
+            
+        case "MVP_PLUS":
+            attributedString.setColor(color: colors["AQUA"]!)
+            attributedString.setColor(color: colors[plusColor] ?? colors["RED"]!, stringValue: "+")
+        default:
+            attributedString.setColor(color: colors["GRAY"]!)
+        
+        }
+        
+        return attributedString
         
     }
     

@@ -22,6 +22,8 @@
 		4C98565426D855C600FBD2EF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98565326D855C600FBD2EF /* UIColorExtension.swift */; };
 		4C9AAC8E26D453B30058CFA3 /* MinigameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */; };
 		4C9AAC9026D4582D0058CFA3 /* MinigameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */; };
+		4C9D142926DD7AAA00E6695C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D142826DD7AAA00E6695C /* ProfileViewController.swift */; };
+		4C9D142B26DD7B2400E6695C /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D142A26DD7B2400E6695C /* ProfileTableViewController.swift */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
 		4CB192AC26DD39370077D6AC /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AB26DD39370077D6AC /* PlayerView.swift */; };
 		4CB192AE26DD394B0077D6AC /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB192AD26DD394B0077D6AC /* PlayerView.xib */; };
@@ -110,6 +112,8 @@
 		4C98565326D855C600FBD2EF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MinigameHeaderView.xib; sourceTree = "<group>"; };
 		4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigameHeaderView.swift; sourceTree = "<group>"; };
+		4C9D142826DD7AAA00E6695C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4C9D142A26DD7B2400E6695C /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
 		4CB192AB26DD39370077D6AC /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		4CB192AD26DD394B0077D6AC /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
@@ -240,6 +244,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4C9D142726DD7A9000E6695C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4C9D142826DD7AAA00E6695C /* ProfileViewController.swift */,
+				4C9D142A26DD7B2400E6695C /* ProfileTableViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		8EA4070C3391C1FB18CBBC14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +334,7 @@
 		BE14330026A0DDA00054E475 /* HypixelStats */ = {
 			isa = PBXGroup;
 			children = (
+				4C9D142726DD7A9000E6695C /* Profile */,
 				4C526E5426DC455600B85E0B /* Fonts */,
 				BE59FAF126B72940000F7799 /* Extensions */,
 				BE14333626A0E94F0054E475 /* Utils */,
@@ -661,9 +675,11 @@
 				4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */,
 				4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */,
 				4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */,
+				4C9D142926DD7AAA00E6695C /* ProfileViewController.swift in Sources */,
 				BE10349026A627FA00153FBE /* Utils.swift in Sources */,
 				4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */,
 				BEAFEC0126AA11E000349728 /* CellData.swift in Sources */,
+				4C9D142B26DD7B2400E6695C /* ProfileTableViewController.swift in Sources */,
 				BE51723226A8F65100DE85DC /* VampireZStatsManager.swift in Sources */,
 				BE51723626A914C200DE85DC /* BuildBattleStatsManager.swift in Sources */,
 				BE51723426A90A0E00DE85DC /* WallsStatsManager.swift in Sources */,

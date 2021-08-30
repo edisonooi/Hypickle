@@ -380,7 +380,7 @@ class BedwarsStatsManager: NSObject, StatsManager {
     }
     
     func getPrestige(level: Double) -> String {
-        var prestiges = [
+        let prestiges = [
             (level: 0, colormap: "7", color: "gray", name: "None"),
             (level: 100, colormap: "f", color: "white", name: "Iron"),
             (level: 200, colormap: "6", color: "gold", name: "Gold"),
@@ -414,7 +414,7 @@ class BedwarsStatsManager: NSObject, StatsManager {
             (level: 3000, colormap: "ee66cc4", color: "red", name: "Fire"),
         ]
         
-        var levelFloor = Int(floor(level))
+        let levelFloor = Int(floor(level))
         
         for prestige in prestiges.reversed() {
             if prestige.level <= levelFloor {

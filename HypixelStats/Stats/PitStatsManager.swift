@@ -250,8 +250,8 @@ class PitStatsManager: NSObject, StatsManager {
         
         var xp = playerXP
         
-        for (i, row) in xpLevels.enumerated() {
-            for (j, rowItem) in xpLevels[i].enumerated() {
+        for i in 0..<xpLevels.count {
+            for j in 0..<xpLevels[i].count {
                 for k in 0...9 {
                     let step = xpLevels[i][j]
                     

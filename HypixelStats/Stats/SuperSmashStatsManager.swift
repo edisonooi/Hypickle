@@ -240,7 +240,7 @@ class SuperSmashStatsManager: NSObject, StatsManager {
     }
     
     func getPrestigeAndColor(kitName: String) -> (String, UIColor) {
-        var prestige = data["pg_" + kitName].intValue
+        let prestige = data["pg_" + kitName].intValue
         var prestigeString = ""
         
         if prestige != 0 {

@@ -269,12 +269,12 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         let initialXP = [0.0, 20.0, 70.0, 150.0, 250.0, 500.0, 1000.0, 2000.0, 3500.0, 6000.0, 10000.0, 15000.0]
         let recurringXP = 10000.0
         
-        var xp = Double(playerXP)
+        let xp = Double(playerXP)
         
         if xp >= 15000 {
             return (xp - 15000) / recurringXP + 12
         } else {
-            for (i, xpLevel) in initialXP.enumerated() {
+            for i in 0..<initialXP.count {
                 if xp < initialXP[i] {
                     return Double(i) + (xp - initialXP[i-1]) / (initialXP[i] - initialXP[i-1])
                 }

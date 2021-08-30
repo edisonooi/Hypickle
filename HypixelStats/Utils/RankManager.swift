@@ -26,11 +26,13 @@ class RankManager {
         "RED" : UIColor(named: "mc_red")!,
         "LIGHT_PURPLE" : UIColor(named: "mc_light_purple")!,
         "YELLOW" : UIColor(named: "mc_yellow")!,
-        "WHITE" : .white
+        "WHITE" : UIColor(named: "white_label")!
     ]
     
     static func getAttributedStringForRank(data: JSON) -> NSMutableAttributedString {
         let username = data["displayname"].stringValue
+        
+        //TODO: Get custom ranks from data["prefix"]
         
         let ranks = [
             "NONE" : "\(username)",
@@ -66,8 +68,8 @@ class RankManager {
             }
         }
         
-        var rankString = ranks[userRank]
-        var attributedString = NSMutableAttributedString(string: rankString!)
+        let rankString = ranks[userRank]
+        let attributedString = NSMutableAttributedString(string: rankString!)
         
         //Set colors based on rank
         switch userRank {
@@ -103,10 +105,10 @@ class RankManager {
             
         case "ADMIN":
             attributedString.setColor(color: colors["RED"]!)
-            
-        //TODO: Make YOUTUBE text white
+        
         case "YOUTUBER":
             attributedString.setColor(color: colors["RED"]!)
+            attributedString.setColor(color: colors["WHITE"]!, stringValue: "YOUTUBE")
             
         default:
             attributedString.setColor(color: colors["GRAY"]!)
@@ -116,4 +118,6 @@ class RankManager {
         
         
     }
+    
+    
 }

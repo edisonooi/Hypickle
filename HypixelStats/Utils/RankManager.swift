@@ -29,6 +29,26 @@ class RankManager {
         "WHITE" : UIColor(named: "white_label")!
     ]
     
+    static func getRank(data: JSON) -> String {
+        let possibleRanks = [
+            data["rank"].stringValue,
+            data["monthlyPackageRank"].stringValue,
+            data["newPackageRank"].stringValue,
+            data["packageRank"].stringValue
+        ]
+        
+        var userRank = "NONE"
+        
+        for rank in possibleRanks {
+            if rank != "" && rank != "NONE" && rank != "NORMAL" {
+                userRank = rank
+                break
+            }
+        }
+        
+        return userRank
+    }
+    
     static func getAttributedStringForRank(data: JSON) -> NSMutableAttributedString {
         let username = data["displayname"].stringValue
         
@@ -52,21 +72,7 @@ class RankManager {
         
         let monthlyRankColor = data["monthlyRankColor"].stringValue
         
-        let possibleRanks = [
-            data["rank"].stringValue,
-            data["monthlyPackageRank"].stringValue,
-            data["newPackageRank"].stringValue,
-            data["packageRank"].stringValue
-        ]
-        
-        var userRank = "NONE"
-        
-        for rank in possibleRanks {
-            if rank != "" && rank != "NONE" && rank != "NORMAL" {
-                userRank = rank
-                break
-            }
-        }
+        let userRank = getRank(data: data)
         
         let rankString = ranks[userRank]
         let attributedString = NSMutableAttributedString(string: rankString!)

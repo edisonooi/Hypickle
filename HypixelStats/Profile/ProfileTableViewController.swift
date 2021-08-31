@@ -14,37 +14,56 @@ class ProfileTableViewController: UITableViewController {
     var data: JSON = [:]
     
     let headers = [
-        3: ""
+        2: "",
+        4: ""
     ]
+    
+    var hasNameHistory: Bool = true
+    var hasRankHistory: Bool = true
 
     @IBOutlet var profileTable: NonScrollingTable!
     
     lazy var profileTableData: [CellData] = {
         var ret: [CellData] = []
         
+        var nameHistory = getNameHistory()
+        var rankHistory = getRankHistory()
         
+        if !nameHistory.isEmpty {
+            ret.append(CellData(headerData: ("Name History", ""), sectionData: nameHistory))
+        } else {
+            hasNameHistory = false
+        }
         
-        return  [
-            CellData(headerData: ("Name History", ""), sectionData: getNameHistory()),
-            CellData(headerData: ("Rank History", ""), attributedData: getRankHistory()),
+        if !rankHistory.isEmpty {
+            ret.append(CellData(headerData: ("Rank History", ""), attributedData: rankHistory))
+        } else {
+            hasRankHistory = false
+        }
+        
+        var didClaimReward = dailyRewardClaimed()
+        var claimedString = didClaimReward ? "Claimed!" : "Not Claimed"
+        var claimedColor = didClaimReward ? UIColor(named: "mc_green")! : UIColor(named: "mc_red")!
+        
+        var generalStats =  [
             
-            CellData(headerData: ("Network Level", getNetworkLevel())),
+            CellData(headerData: ("Network Level", String(format: "%.2f", getNetworkLevel()))),
             CellData(headerData: ("Total EXP", data["networkExp"].uInt64Value)),
             CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor(named: "mc_light_purple")!),
             
-            CellData(headerData: ("Achievement Points", "")),
-            CellData(headerData: ("Quests Completed", "")),
+            CellData(headerData: ("Achievement Points", data["achievementPoints"].intValue)),
+            CellData(headerData: ("Quests Completed", getQuestsCompleted())),
             
-            CellData(headerData: ("Coin Multiplier", "")),
-            CellData(headerData: ("Total Coins", "")),
+            CellData(headerData: ("Coin Multiplier", getCoinMultiplier())),
+            CellData(headerData: ("Total Coins", getTotalCoins()), color: UIColor(named: "mc_gold")!),
             
-            CellData(headerData: ("Total Wins", "")),
-            CellData(headerData: ("Total Kills", "")),
+            CellData(headerData: ("Total Wins", getTotalWins())),
+            CellData(headerData: ("Total Kills", getTotalKills())),
             
-            CellData(headerData: ("Daily Reward", "")),
-            CellData(headerData: ("Rewards Claimed", "")),
-            CellData(headerData: ("Current Streak", "")),
-            CellData(headerData: ("Highest Streak", "")),
+            CellData(headerData: ("Daily Reward", claimedString), color: claimedColor),
+            CellData(headerData: ("Rewards Claimed", data["totalRewards"].intValue)),
+            CellData(headerData: ("Current Streak", data["rewardScore"].intValue)),
+            CellData(headerData: ("Highest Streak", data["rewardHighScore"].intValue)),
             
             //STATUS
             CellData(headerData: ("Online/Offline", "Last seen")),
@@ -56,6 +75,10 @@ class ProfileTableViewController: UITableViewController {
             
             
         ]
+        
+        ret.append(contentsOf: generalStats)
+        
+        return ret
     }()
     
     override func viewDidLoad() {
@@ -97,12 +120,13 @@ class ProfileTableViewController: UITableViewController {
             
             if !profileTableData[indexPath.section].attributedData.isEmpty {
                 cell.statCategory.attributedText = profileTableData[indexPath.section].attributedData[indexPath.row - 1].0
-                cell.statValue.text = profileTableData[indexPath.section].attributedData[indexPath.row - 1].1 as! String
+                cell.statValue.text = profileTableData[indexPath.section].attributedData[indexPath.row - 1].1 as? String
                 
                 cell.statCategory.font = UIFont(name: "Minecraftia", size: 14.0)
                 cell.statValue.textColor = UIColor(named: "gray_label")
                 cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
                 return cell
+                
             } else {
                 
                 category = profileTableData[indexPath.section].sectionData[indexPath.row - 1].0
@@ -119,6 +143,10 @@ class ProfileTableViewController: UITableViewController {
         
         if value is Int {
             value = (value as! Int).withCommas
+        }
+        
+        if value is UInt64 {
+            value = (value as! UInt64).withCommas
         }
         
         cell.configure(category: category, value: "\(value)")
@@ -227,15 +255,122 @@ class ProfileTableViewController: UITableViewController {
         return ret
     }
     
-    func getNetworkLevel() -> String {
-        var xp = data["networkExp"].doubleValue
-        print(xp)
+    func getNetworkLevel() -> Double {
+        let xp = data["networkExp"].doubleValue
         
         var level = (sqrt(Double(xp) + 15312.5) - (125.0 / sqrt(2)))
         level /= (25.0 * sqrt(2))
 
-        return String(format: "%.2f", level)
+        return level
         
+    }
+    
+    func getQuestsCompleted() -> Int {
+        var questsCompleted = 0
+        
+        for (_, subJSON):(String, JSON) in data["quests"] {
+            questsCompleted += subJSON["completions"].arrayValue.count
+        }
+        
+        return questsCompleted
+    }
+    
+    func getTotalCoins() -> UInt64 {
+        var totalCoins: UInt64 = 0
+        
+        for (key, _) in Utils.databaseNameToCleanName {
+            totalCoins += data["stats"][key]["coins"].uInt64Value
+        }
+        
+        return totalCoins
+    }
+    
+    func getTotalWins() -> Int {
+        var totalWins = 0
+        
+        for path in CumulativeStatsKeys.totalWinsKeys {
+            totalWins += data[path].intValue
+        }
+        
+        return totalWins
+    }
+    
+    func getTotalKills() -> Int {
+        var totalKills = 0
+        
+        for path in CumulativeStatsKeys.totalKillsKeys {
+            totalKills += data[path].intValue
+        }
+        
+        return totalKills
+    }
+    
+    func dailyRewardClaimed() -> Bool {
+        if !data["eugene"]["dailyTwoKExp"].exists() {
+            return false
+        }
+        
+        let milliseconds = data["eugene"]["dailyTwoKExp"].uInt64Value
+        var secondsSince1970 = milliseconds / 1000
+        
+        let dateClaimed = Date(timeIntervalSince1970: TimeInterval(secondsSince1970))
+        let currentDate = Date()
+        
+        let dateClaimedComponents = NSCalendar.current.dateComponents(in: TimeZone(abbreviation: "EST")!, from: dateClaimed)
+        let currentDateComponents = NSCalendar.current.dateComponents(in: TimeZone(abbreviation: "EST")!, from: currentDate)
+        
+        return dateClaimedComponents.year == currentDateComponents.year && dateClaimedComponents.month == currentDateComponents.month && dateClaimedComponents.day == currentDateComponents.day
+    }
+    
+    func getCoinMultiplier() -> String {
+        let rankMultipliers = [
+            "VIP": (value: 2, name: "VIP"),
+            "VIP_PLUS": (value: 3, name: "VIP+"),
+            "MVP": (value: 4, name: "MVP"),
+            "MVP_PLUS": (value: 5, name: "MVP+"),
+            "YOUTUBER": (value: 7, name: "YouTuber"),
+        ]
+        
+        let levelMultipliers = [
+            (level: 0, value: 1),
+            (level: 5, value: 1.5),
+            (level: 10, value: 2),
+            (level: 15, value: 2.5),
+            (level: 20, value: 3),
+            (level: 25, value: 3.5),
+            (level: 30, value: 4),
+            (level: 40, value: 4.5),
+            (level: 50, value: 5),
+            (level: 100, value: 5.5),
+            (level: 125, value: 6),
+            (level: 150, value: 6.5),
+            (level: 200, value: 7),
+            (level: 250, value: 8),
+        ]
+        
+        var multiplier = 1.0
+        let level = getNetworkLevel()
+        let rank = RankManager.getRank(data: data)
+        var name = ""
+        
+        for m in levelMultipliers.reversed() {
+            if level >= Double(m.level) {
+                multiplier = m.value
+                name = "(Level \(Int(level)))"
+                break
+            }
+        }
+        
+        if data["eulaCoins"].boolValue || rank == "YOUTUBER" {
+            if let rankMultiplier = rankMultipliers[rank] {
+                if Double(rankMultiplier.value) > multiplier {
+                    multiplier = Double(rankMultiplier.value)
+                    name = "(\(rankMultiplier.name))"
+                }
+            }
+        }
+        
+        return "x" + String(format: "%.1f", multiplier) + " " + name
     }
 
 

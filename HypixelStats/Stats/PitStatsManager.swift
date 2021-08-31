@@ -42,8 +42,6 @@ class PitStatsManager: NSObject, StatsManager {
         var goldPerHour = stats["cash_earned"].doubleValue / playtimeHours
         var xpPerHour = Double(xp) / playtimeHours
         
-        
-        
         return [
             CellData(headerData: ("Prestige", prestigeString)),
             CellData(headerData: ("Level", prestigeAndLevel.1)),

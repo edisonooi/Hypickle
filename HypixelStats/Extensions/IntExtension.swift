@@ -18,3 +18,15 @@ extension Int {
         return Int.commaFormatter.string(from: NSNumber(value: self)) ?? ""
     }
 }
+
+extension UInt64 {
+    private static var commaFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
+    internal var withCommas: String {
+        return UInt64.commaFormatter.string(from: NSNumber(value: self)) ?? ""
+    }
+}

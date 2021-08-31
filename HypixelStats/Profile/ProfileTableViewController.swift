@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 import SwiftyJSON
 
 class ProfileTableViewController: UITableViewController {
@@ -27,8 +28,8 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("Name History", ""), sectionData: getNameHistory()),
             CellData(headerData: ("Rank History", ""), attributedData: getRankHistory()),
             
-            CellData(headerData: ("Network Level", "")),
-            CellData(headerData: ("Total EXP", "")),
+            CellData(headerData: ("Network Level", getNetworkLevel())),
+            CellData(headerData: ("Total EXP", data["networkExp"].uInt64Value)),
             CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor(named: "mc_light_purple")!),
             
             CellData(headerData: ("Achievement Points", "")),
@@ -52,12 +53,6 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("First Login", Utils.convertToDateFormat(milliseconds: data["firstLogin"].uInt64Value))),
             CellData(headerData: ("Last Login", Utils.convertToDateFormat(milliseconds: data["lastLogin"].uInt64Value))),
             CellData(headerData: ("Last Logout", Utils.convertToDateFormat(milliseconds: data["lastLogout"].uInt64Value))),
-            
-            
-            
-            
-            
-            
             
             
         ]
@@ -233,7 +228,14 @@ class ProfileTableViewController: UITableViewController {
     }
     
     func getNetworkLevel() -> String {
-        let xp = 0
+        var xp = data["networkExp"].doubleValue
+        print(xp)
+        
+        var level = (sqrt(Double(xp) + 15312.5) - (125.0 / sqrt(2)))
+        level /= (25.0 * sqrt(2))
+
+        return String(format: "%.2f", level)
+        
     }
 
 

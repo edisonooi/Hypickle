@@ -21,22 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Minecraft Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4a-ZG-Vhv">
-                                <rect key="frame" x="105" y="402" width="288" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Minecraft Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4a-ZG-Vhv">
+                                <rect key="frame" x="63" y="395" width="288" height="26"/>
                                 <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMc-jk-A0i">
-                                <rect key="frame" x="159" y="431" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMc-jk-A0i">
+                                <rect key="frame" x="63" y="431" width="288" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8I-yj-sop">
-                                <rect key="frame" x="183" y="473" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8I-yj-sop">
+                                <rect key="frame" x="183" y="475" width="48" height="30"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fEn-M2-jTm"/>
@@ -54,6 +51,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wMc-jk-A0i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DO9-ja-zQ7"/>
+                            <constraint firstItem="wMc-jk-A0i" firstAttribute="top" secondItem="d4a-ZG-Vhv" secondAttribute="bottom" constant="10" id="Rly-wc-ALz"/>
+                            <constraint firstItem="d4a-ZG-Vhv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hiN-ZU-AAG"/>
+                            <constraint firstItem="wMc-jk-A0i" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jWa-Gr-JQz"/>
+                            <constraint firstItem="B8I-yj-sop" firstAttribute="top" secondItem="wMc-jk-A0i" secondAttribute="bottom" constant="10" id="w5R-xG-fTK"/>
+                            <constraint firstItem="wMc-jk-A0i" firstAttribute="width" secondItem="d4a-ZG-Vhv" secondAttribute="width" id="yPe-84-XaQ"/>
+                            <constraint firstItem="B8I-yj-sop" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yXS-kS-tZ0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search Player Stats" id="quX-wx-IkO">
                         <barButtonItem key="backBarButtonItem" title=" " id="kGd-Lv-sya"/>
@@ -111,9 +117,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="rVa-Og-K5j" kind="relationship" relationship="viewControllers" id="eC8-Op-248"/>
                         <segue destination="I3E-YT-o2K" kind="relationship" relationship="viewControllers" id="doS-cE-KY1"/>
                         <segue destination="PUB-Vz-se0" kind="relationship" relationship="viewControllers" id="Akk-WG-sDH"/>
-                        <segue destination="rVa-Og-K5j" kind="relationship" relationship="viewControllers" id="eC8-Op-248"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcc-fn-0XU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -222,17 +228,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" systemColor="systemGray2Color"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="gameCell" rowHeight="64" id="hQ8-yT-S52">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="64"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hQ8-yT-S52" id="xxQ-5F-2yD">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableViewCell>
-                        </prototypes>
                     </tableView>
                     <connections>
                         <outlet property="gamesTable" destination="MYM-og-vvR" id="GF5-PL-Sns"/>
@@ -277,7 +272,7 @@
             </objects>
             <point key="canvasLocation" x="2517" y="925"/>
         </scene>
-        <!--Stats-->
+        <!--Profile-->
         <scene sceneID="2d9-vy-RFL">
             <objects>
                 <viewController id="rVa-Og-K5j" customClass="ProfileViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
@@ -306,7 +301,7 @@
                                                 <rect key="frame" x="0.0" y="394" width="414" height="532"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
-                                                    <segue destination="QGj-Da-GCd" kind="embed" identifier="showProfileTable" id="gzI-fv-3DW"/>
+                                                    <segue destination="QGj-Da-GCd" kind="embed" identifier="showProfileTable" id="HRd-SB-q2b"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
@@ -352,17 +347,17 @@
                             <constraint firstItem="9Dw-nu-KJa" firstAttribute="width" secondItem="dcT-iT-pvz" secondAttribute="width" id="vn3-jT-s36"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stats" image="outline_bar_chart_black_24pt" id="aj1-gv-31a"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="outline_person_outline_black_24pt" id="aj1-gv-31a"/>
                     <navigationItem key="navigationItem" id="DDt-nl-bMi">
                         <barButtonItem key="backBarButtonItem" title=" " id="J6w-Ts-KVk"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
-                        <outlet property="mainScrollView" destination="9Dw-nu-KJa" id="kOD-a3-cw1"/>
-                        <outlet property="profileTableContainerView" destination="Y1M-kw-MvA" id="3or-31-pcn"/>
-                        <outlet property="skinImageView" destination="5h7-FO-Ovf" id="PjO-Zk-feX"/>
-                        <outlet property="usernameLabel" destination="MjQ-sw-5QW" id="SBE-Gv-znI"/>
+                        <outlet property="mainScrollView" destination="9Dw-nu-KJa" id="hTt-Dn-IdS"/>
+                        <outlet property="profileTableContainerView" destination="Y1M-kw-MvA" id="mij-8Z-5IL"/>
+                        <outlet property="skinImageView" destination="5h7-FO-Ovf" id="fKE-cR-0Mf"/>
+                        <outlet property="usernameLabel" destination="MjQ-sw-5QW" id="7f8-vj-6Ph"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOJ-eS-DeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -373,20 +368,11 @@
         <scene sceneID="mTc-7Z-EKu">
             <objects>
                 <tableViewController id="QGj-Da-GCd" customClass="ProfileTableViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FyY-JG-KHj">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FyY-JG-KHj" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gjk-Jp-sbU">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gjk-Jp-sbU" id="bxd-oS-6pZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="separatorColor" systemColor="systemGray2Color"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <connections>
                             <outlet property="dataSource" destination="QGj-Da-GCd" id="LY9-k3-KTP"/>
                             <outlet property="delegate" destination="QGj-Da-GCd" id="rJd-72-N5y"/>
@@ -404,6 +390,7 @@
     <resources>
         <image name="outline_bar_chart_black_24pt" width="24" height="24"/>
         <image name="outline_emoji_events_black_24pt" width="24" height="24"/>
+        <image name="outline_person_outline_black_24pt" width="24" height="24"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

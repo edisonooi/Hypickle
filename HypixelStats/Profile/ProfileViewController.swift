@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyJSON
+import AMScrollingNavbar
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
@@ -23,7 +24,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
         if let username = user?.username {
             usernameLabel.attributedText = RankManager.getAttributedStringForRank(data: allStatsData)
-            self.tabBarController?.navigationItem.title = username + "'s Stats"
+            self.tabBarController?.navigationItem.title = username + "'s Profile"
         } else {
             self.tabBarController?.navigationItem.title = "No User Found"
         }
@@ -35,6 +36,31 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         if let skinURL = user?.skin, skinURL != "" {
             downloadSkinImage(from: URL(string: skinURL)!)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+            navigationController.followScrollView(mainScrollView, delay: 20.0)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+            navigationController.stopFollowingScrollView()
+        }
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar()
+        }
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

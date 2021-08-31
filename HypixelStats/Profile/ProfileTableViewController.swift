@@ -13,10 +13,10 @@ class ProfileTableViewController: UITableViewController {
     var data: JSON = [:]
     
     let headers = [
-        0: ""
+        3: ""
     ]
 
-    @IBOutlet var profileTable: UITableView!
+    @IBOutlet var profileTable: NonScrollingTable!
     
     lazy var profileTableData: [CellData] = {
         var ret: [CellData] = []
@@ -25,7 +25,41 @@ class ProfileTableViewController: UITableViewController {
         
         return  [
             CellData(headerData: ("Name History", ""), sectionData: getNameHistory()),
-            CellData(headerData: ("Rank History", ""), attributedData: getRankHistory())
+            CellData(headerData: ("Rank History", ""), attributedData: getRankHistory()),
+            
+            CellData(headerData: ("Network Level", "")),
+            CellData(headerData: ("Total EXP", "")),
+            CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor(named: "mc_light_purple")!),
+            
+            CellData(headerData: ("Achievement Points", "")),
+            CellData(headerData: ("Quests Completed", "")),
+            
+            CellData(headerData: ("Coin Multiplier", "")),
+            CellData(headerData: ("Total Coins", "")),
+            
+            CellData(headerData: ("Total Wins", "")),
+            CellData(headerData: ("Total Kills", "")),
+            
+            CellData(headerData: ("Daily Reward", "")),
+            CellData(headerData: ("Rewards Claimed", "")),
+            CellData(headerData: ("Current Streak", "")),
+            CellData(headerData: ("Highest Streak", "")),
+            
+            //STATUS
+            CellData(headerData: ("Online/Offline", "Last seen")),
+            CellData(headerData: ("Game", "")),
+            
+            CellData(headerData: ("First Login", Utils.convertToDateFormat(milliseconds: data["firstLogin"].uInt64Value))),
+            CellData(headerData: ("Last Login", Utils.convertToDateFormat(milliseconds: data["lastLogin"].uInt64Value))),
+            CellData(headerData: ("Last Logout", Utils.convertToDateFormat(milliseconds: data["lastLogout"].uInt64Value))),
+            
+            
+            
+            
+            
+            
+            
+            
         ]
     }()
     
@@ -34,10 +68,8 @@ class ProfileTableViewController: UITableViewController {
         
         profileTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         profileTable.dataSource = self
-        profileTable.allowsSelection = true
         profileTable.estimatedRowHeight = 0
         
-
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -120,6 +152,7 @@ class ProfileTableViewController: UITableViewController {
         }
     }
     
+    
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         if (profileTableData[indexPath.section].sectionData.isEmpty && profileTableData[indexPath.section].attributedData.isEmpty) || indexPath.row != 0 {
             return false
@@ -169,7 +202,7 @@ class ProfileTableViewController: UITableViewController {
         
         var nameList: [(String, Any)] = []
         
-        for name in data["knownAliases"].arrayValue {
+        for name in data["knownAliases"].arrayValue.reversed() {
             nameList.append((name.stringValue, ""))
         }
         
@@ -197,6 +230,10 @@ class ProfileTableViewController: UITableViewController {
         }
         
         return ret
+    }
+    
+    func getNetworkLevel() -> String {
+        let xp = 0
     }
 
 

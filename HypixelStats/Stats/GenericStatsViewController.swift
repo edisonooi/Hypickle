@@ -77,7 +77,7 @@ class GenericStatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = Utils.databaseNameToCleanName[gameID]
+        title = GameTypes.databaseNameToCleanName[gameID]
         
         statsTable.allowsSelection = true
         statsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)

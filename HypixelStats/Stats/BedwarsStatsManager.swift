@@ -292,8 +292,6 @@ class BedwarsStatsManager: NSObject, StatsManager {
             20: "Modes"
         ]
         
-        
-        
         if let headerTitle = headers[section] {
             if headerTitle == "" {
                 return 32

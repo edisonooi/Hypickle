@@ -14,6 +14,8 @@ class MinecraftUser {
     var uuid: String
     var skin: String
     var playerHypixelData: JSON
+    var isOnline: Bool = false
+    var gameType: String = "-"
     
     init(username: String, uuid: String) {
         self.username = username

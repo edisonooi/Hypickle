@@ -76,6 +76,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
             self.allStatsData = tabBar.user!.playerHypixelData
             
             profileTableVC.data = self.allStatsData
+            
+            if let safeUser = self.user {
+                profileTableVC.user = safeUser
+            }
         }
     }
     

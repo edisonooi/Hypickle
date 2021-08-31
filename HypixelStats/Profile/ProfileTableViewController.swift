@@ -12,6 +12,7 @@ import SwiftyJSON
 class ProfileTableViewController: UITableViewController {
     
     var data: JSON = [:]
+    var user: MinecraftUser?
     
     let headers = [
         2: "",
@@ -20,6 +21,7 @@ class ProfileTableViewController: UITableViewController {
     
     var hasNameHistory: Bool = true
     var hasRankHistory: Bool = true
+    
 
     @IBOutlet var profileTable: NonScrollingTable!
     
@@ -43,7 +45,9 @@ class ProfileTableViewController: UITableViewController {
         
         var didClaimReward = dailyRewardClaimed()
         var claimedString = didClaimReward ? "Claimed!" : "Not Claimed"
-        var claimedColor = didClaimReward ? UIColor(named: "mc_green")! : UIColor(named: "mc_red")!
+        var claimedColor = didClaimReward ? UIColor.systemGreen : UIColor.systemRed
+        
+        var onlineStatus = getOnlineStatus()
         
         var generalStats =  [
             
@@ -66,17 +70,22 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("Highest Streak", data["rewardHighScore"].intValue)),
             
             //STATUS
-            CellData(headerData: ("Online/Offline", "Last seen")),
-            CellData(headerData: ("Game", "")),
-            
-            CellData(headerData: ("First Login", Utils.convertToDateFormat(milliseconds: data["firstLogin"].uInt64Value))),
-            CellData(headerData: ("Last Login", Utils.convertToDateFormat(milliseconds: data["lastLogin"].uInt64Value))),
-            CellData(headerData: ("Last Logout", Utils.convertToDateFormat(milliseconds: data["lastLogout"].uInt64Value))),
-            
+            CellData(headerData: ("Status", onlineStatus.0), color: onlineStatus.1),
+            CellData(headerData: ("Game", self.user!.gameType)),
             
         ]
         
         ret.append(contentsOf: generalStats)
+        
+        if data["firstLogin"].exists() {
+            var loginHistory = [
+                CellData(headerData: ("First Login", Utils.convertToDateStringFormat(milliseconds: data["firstLogin"].uInt64Value))),
+                CellData(headerData: ("Last Login", Utils.convertToDateStringFormat(milliseconds: data["lastLogin"].uInt64Value))),
+                CellData(headerData: ("Last Logout", Utils.convertToDateStringFormat(milliseconds: data["lastLogout"].uInt64Value))),
+            ]
+            
+            ret.append(contentsOf: loginHistory)
+        }
         
         return ret
     }()
@@ -246,7 +255,7 @@ class ProfileTableViewController: UITableViewController {
             if data[levelUp.0].exists() {
                 var attributedString = RankManager.getAttributedStringForRank(data: data, rankID: levelUp.1)
                 
-                var dateString = Utils.convertToDateFormat(milliseconds: data[levelUp.0].uInt64Value)
+                var dateString = Utils.convertToDateStringFormat(milliseconds: data[levelUp.0].uInt64Value)
                 
                 ret.append((attributedString, dateString))
             }
@@ -278,7 +287,7 @@ class ProfileTableViewController: UITableViewController {
     func getTotalCoins() -> UInt64 {
         var totalCoins: UInt64 = 0
         
-        for (key, _) in Utils.databaseNameToCleanName {
+        for (key, _) in GameTypes.databaseNameToCleanName {
             totalCoins += data["stats"][key]["coins"].uInt64Value
         }
         
@@ -372,6 +381,22 @@ class ProfileTableViewController: UITableViewController {
         
         return "x" + String(format: "%.1f", multiplier) + " " + name
     }
+    
+    func getOnlineStatus() -> (String, UIColor) {
+        
+        if self.user!.isOnline {
+            return ("Online", .systemGreen)
+        }
+        
+        if !data["firstLogin"].exists() {
+            return ("Never logged into Hypixel", UIColor(named: "gray_label")!)
+        }
+        
+        var lastLogoff = Utils.convertToDate(milliseconds: data["lastLogout"].uInt64Value)
+        
+        return ("Offline (Last seen \(lastLogoff.timeAgoDisplay()))", .systemRed)
+    }
+    
 
 
 }

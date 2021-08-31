@@ -54,8 +54,25 @@ class ViewController: UIViewController {
                     if playerData["player"].exists() {
                         self.user?.playerHypixelData = playerData["player"]
                         
-                        self.performSegue(withIdentifier: "showUserInfo", sender: self)
+                        let hypixelAPIStatusUrl = "https://api.hypixel.net/status?uuid=\(uuid)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
+                        
+                        APIManager.getJSON(url: hypixelAPIStatusUrl) {statusData in
+                            if statusData["success"].boolValue {
+                                if statusData["session"]["online"].boolValue {
+                                    self.user?.isOnline = true
+                                    self.user?.gameType = GameTypes.allGames[statusData["session"]["gameType"].stringValue]?.cleanName ?? "-"
+                                    
+                                }
+                            } else {
+                                print("Error getting online status")
+                            }
+                            
+                            self.performSegue(withIdentifier: "showUserInfo", sender: self)
+                            
+                        }
+                        
                     } else {
+                        //TODO: UI Component that indicates hypixel API failure
                         print("Unable to retrieve data from Hypixel API")
                         return
                     }
@@ -63,6 +80,7 @@ class ViewController: UIViewController {
                 }
                 
             } else {
+                //TODO: UI component that indicates invalid username
                 print("Error, invalid username")
                 return
             }

@@ -25,9 +25,6 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
         
         if let username = user?.username {
             usernameTextField.attributedText = RankManager.getAttributedStringForRank(data: allStatsData)
-            self.tabBarController?.navigationItem.title = username + "'s Stats"
-        } else {
-            self.tabBarController?.navigationItem.title = "No User Found"
         }
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "   ", style: .plain, target: nil, action: nil)
@@ -45,6 +42,12 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
         if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
             navigationController.showNavbar(animated: true)
             navigationController.followScrollView(mainScrollView, delay: 20.0)
+        }
+        
+        if let username = user?.username {
+            self.tabBarController?.navigationItem.title = username + "'s Stats"
+        } else {
+            self.tabBarController?.navigationItem.title = "No User Found"
         }
     }
     

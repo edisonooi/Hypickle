@@ -14,11 +14,6 @@ class ProfileTableViewController: UITableViewController {
     var data: JSON = [:]
     var user: MinecraftUser?
     
-    let headers = [
-        2: "",
-        4: ""
-    ]
-    
     var hasNameHistory: Bool = true
     var hasRankHistory: Bool = true
     
@@ -51,12 +46,13 @@ class ProfileTableViewController: UITableViewController {
         
         var generalStats =  [
             
-            CellData(headerData: ("Network Level", String(format: "%.2f", getNetworkLevel()))),
-            CellData(headerData: ("Total EXP", data["networkExp"].uInt64Value)),
-            CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor(named: "mc_light_purple")!),
+            CellData(headerData: ("Network Level", String(format: "%.2f", getNetworkLevel())), color: UIColor(named: "mc_cyan")!),
+            CellData(headerData: ("Total EXP", data["networkExp"].uInt64Value), color: UIColor(named: "mc_cyan")!),
+            CellData(headerData: ("EXP to Next Level", getXPToNextLevel(currentXP: data["networkExp"].uInt64Value)), color: UIColor(named: "mc_cyan")!),
             
-            CellData(headerData: ("Achievement Points", data["achievementPoints"].intValue)),
-            CellData(headerData: ("Quests Completed", getQuestsCompleted())),
+            CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor(named: "mc_light_purple")!),
+            CellData(headerData: ("Achievement Points", data["achievementPoints"].intValue), color: UIColor(named: "mc_yellow")!),
+            CellData(headerData: ("Quests Completed", getQuestsCompleted()), color: UIColor(named: "mc_green")!),
             
             CellData(headerData: ("Coin Multiplier", getCoinMultiplier())),
             CellData(headerData: ("Total Coins", getTotalCoins()), color: UIColor(named: "mc_gold")!),
@@ -69,7 +65,8 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("Current Streak", data["rewardScore"].intValue)),
             CellData(headerData: ("Highest Streak", data["rewardHighScore"].intValue)),
             
-            //STATUS
+            CellData(headerData: ("Ranks Gifted", data["giftingMeta"]["ranksGiven"].intValue), color: UIColor(named: "mc_dark_purple")!),
+            
             CellData(headerData: ("Status", onlineStatus.0), color: onlineStatus.1),
             CellData(headerData: ("Game", self.user!.gameType)),
             
@@ -194,6 +191,27 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        var historyCount = 0
+        
+        if hasNameHistory {
+            historyCount += 1
+        }
+        
+        if hasRankHistory {
+            historyCount += 1
+        }
+        
+        let headers = [
+            historyCount: "",
+            historyCount + 3: "",
+            historyCount + 6: "",
+            historyCount + 8: "",
+            historyCount + 10: "",
+            historyCount + 14: "",
+            historyCount + 15: "Status",
+            historyCount + 17: "",
+        ]
+        
         if let headerTitle = headers[section] {
             if headerTitle == "" {
                 return 32
@@ -206,6 +224,27 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var historyCount = 0
+        
+        if hasNameHistory {
+            historyCount += 1
+        }
+        
+        if hasRankHistory {
+            historyCount += 1
+        }
+        
+        let headers = [
+            historyCount: "",
+            historyCount + 3: "",
+            historyCount + 6: "",
+            historyCount + 8: "",
+            historyCount + 10: "",
+            historyCount + 14: "",
+            historyCount + 15: "Status",
+            historyCount + 17: "",
+        ]
+        
         if let headerTitle = headers[section] {
             if headerTitle == "" {
                 let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
@@ -267,11 +306,20 @@ class ProfileTableViewController: UITableViewController {
     func getNetworkLevel() -> Double {
         let xp = data["networkExp"].doubleValue
         
-        var level = (sqrt(Double(xp) + 15312.5) - (125.0 / sqrt(2)))
+        var level = sqrt(Double(xp) + 15312.5) - (125.0 / sqrt(2))
         level /= (25.0 * sqrt(2))
 
         return level
         
+    }
+    
+    func getXPToNextLevel(currentXP: UInt64) -> UInt64 {
+        let currentLevel = getNetworkLevel()
+        let targetLevel = floor(currentLevel) + 1
+        
+        let neededXP = (2500 * pow(targetLevel + 2.5, 2)) / 2 - 15312.5
+        
+        return UInt64(neededXP) - currentXP
     }
     
     func getQuestsCompleted() -> Int {
@@ -389,14 +437,11 @@ class ProfileTableViewController: UITableViewController {
         }
         
         if !data["firstLogin"].exists() {
-            return ("Never logged into Hypixel", UIColor(named: "gray_label")!)
+            return ("Never logged into Hypixel :(", UIColor(named: "gray_label")!)
         }
         
         var lastLogoff = Utils.convertToDate(milliseconds: data["lastLogout"].uInt64Value)
         
         return ("Offline (Last seen \(lastLogoff.timeAgoDisplay()))", .systemRed)
     }
-    
-
-
 }

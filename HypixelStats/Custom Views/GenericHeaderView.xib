@@ -14,7 +14,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFM-5C-wWX">
-                    <rect key="frame" x="5" y="29" width="59" height="30"/>
+                    <rect key="frame" x="10" y="29" width="59" height="25"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -24,8 +24,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="KFM-5C-wWX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="Bfm-im-nxY"/>
-                <constraint firstItem="KFM-5C-wWX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="QEh-Wi-74a"/>
-                <constraint firstAttribute="bottom" secondItem="KFM-5C-wWX" secondAttribute="bottom" constant="5" id="tXh-ak-9VJ"/>
+                <constraint firstItem="KFM-5C-wWX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="QEh-Wi-74a"/>
+                <constraint firstAttribute="bottom" secondItem="KFM-5C-wWX" secondAttribute="bottom" constant="10" id="tXh-ak-9VJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

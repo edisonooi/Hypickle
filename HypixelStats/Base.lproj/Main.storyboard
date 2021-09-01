@@ -90,22 +90,6 @@
             </objects>
             <point key="canvasLocation" x="-784" y="117"/>
         </scene>
-        <!--Achievements-->
-        <scene sceneID="QVa-4D-oc6">
-            <objects>
-                <viewController id="PUB-Vz-se0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qt6-LR-wm8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Nff-JR-TdW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Achievements" image="outline_emoji_events_black_24pt" id="iu6-fr-AmT"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ux3-xU-ErV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2051" y="310"/>
-        </scene>
         <!--Player Info Tab Bar Controller-->
         <scene sceneID="zQp-2R-iuM">
             <objects>
@@ -119,7 +103,6 @@
                     <connections>
                         <segue destination="rVa-Og-K5j" kind="relationship" relationship="viewControllers" id="eC8-Op-248"/>
                         <segue destination="I3E-YT-o2K" kind="relationship" relationship="viewControllers" id="doS-cE-KY1"/>
-                        <segue destination="PUB-Vz-se0" kind="relationship" relationship="viewControllers" id="Akk-WG-sDH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcc-fn-0XU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -249,7 +232,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="my2-Co-vT4">
                                 <rect key="frame" x="0.0" y="43" width="414" height="435"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -371,6 +354,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FyY-JG-KHj" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" systemColor="systemGray2Color"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <connections>
@@ -389,13 +373,12 @@
     </scenes>
     <resources>
         <image name="outline_bar_chart_black_24pt" width="24" height="24"/>
-        <image name="outline_emoji_events_black_24pt" width="24" height="24"/>
         <image name="outline_person_outline_black_24pt" width="24" height="24"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

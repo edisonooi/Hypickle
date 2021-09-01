@@ -124,7 +124,7 @@ class RankManager {
         
     }
     
-    static func getAttributedStringForRank(data: JSON, rankID: String) -> NSMutableAttributedString {
+    static func getAttributedStringForPurchasedRank(data: JSON, rankID: String) -> NSMutableAttributedString {
         let ranks = [
             "VIP" : "[VIP]",
             "VIP_PLUS" : "[VIP+]",

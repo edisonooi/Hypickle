@@ -7,6 +7,7 @@
 
 import Foundation
 
+//This class is currently not in use
 class MojangAPIManager {
     
     //Returns full skin image from Mojang API

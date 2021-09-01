@@ -53,6 +53,7 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor(named: "mc_light_purple")!),
             CellData(headerData: ("Achievement Points", data["achievementPoints"].intValue), color: UIColor(named: "mc_yellow")!),
             CellData(headerData: ("Quests Completed", getQuestsCompleted()), color: UIColor(named: "mc_green")!),
+            CellData(headerData: ("Challenges Completed", getChallengesCompleted()), color: UIColor(named: "mc_green")!),
             
             CellData(headerData: ("Coin Multiplier", getCoinMultiplier())),
             CellData(headerData: ("Total Coins", getTotalCoins()), color: UIColor(named: "mc_gold")!),
@@ -66,6 +67,8 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("Highest Streak", data["rewardHighScore"].intValue)),
             
             CellData(headerData: ("Ranks Gifted", data["giftingMeta"]["ranksGiven"].intValue), color: UIColor(named: "mc_dark_purple")!),
+            CellData(headerData: ("Gifts Given", data["giftingMeta"]["bundlesGiven"].intValue), color: UIColor(named: "mc_light_purple")!),
+            CellData(headerData: ("Gifts Received", data["giftingMeta"]["bundlesReceived"].intValue), color: UIColor(named: "mc_light_purple")!),
             
             CellData(headerData: ("Status", onlineStatus.0), color: onlineStatus.1),
             CellData(headerData: ("Game", self.user!.gameType)),
@@ -204,12 +207,12 @@ class ProfileTableViewController: UITableViewController {
         let headers = [
             historyCount: "",
             historyCount + 3: "",
-            historyCount + 6: "",
-            historyCount + 8: "",
-            historyCount + 10: "",
-            historyCount + 14: "",
-            historyCount + 15: "Status",
-            historyCount + 17: "",
+            historyCount + 7: "",
+            historyCount + 9: "",
+            historyCount + 11: "",
+            historyCount + 15: "",
+            historyCount + 18: "Status",
+            historyCount + 20: "",
         ]
         
         if let headerTitle = headers[section] {
@@ -237,12 +240,12 @@ class ProfileTableViewController: UITableViewController {
         let headers = [
             historyCount: "",
             historyCount + 3: "",
-            historyCount + 6: "",
-            historyCount + 8: "",
-            historyCount + 10: "",
-            historyCount + 14: "",
-            historyCount + 15: "Status",
-            historyCount + 17: "",
+            historyCount + 7: "",
+            historyCount + 9: "",
+            historyCount + 11: "",
+            historyCount + 15: "",
+            historyCount + 18: "Status",
+            historyCount + 20: "",
         ]
         
         if let headerTitle = headers[section] {
@@ -292,7 +295,7 @@ class ProfileTableViewController: UITableViewController {
         
         for levelUp in levelUps {
             if data[levelUp.0].exists() {
-                var attributedString = RankManager.getAttributedStringForRank(data: data, rankID: levelUp.1)
+                var attributedString = RankManager.getAttributedStringForPurchasedRank(data: data, rankID: levelUp.1)
                 
                 var dateString = Utils.convertToDateStringFormat(milliseconds: data[levelUp.0].uInt64Value)
                 
@@ -330,6 +333,16 @@ class ProfileTableViewController: UITableViewController {
         }
         
         return questsCompleted
+    }
+    
+    func getChallengesCompleted() -> Int {
+        var challengesCompleted = 0
+        
+        for (key,subJson):(String, JSON) in data["challenges"]["all_time"] {
+            challengesCompleted += subJson.intValue
+        }
+        
+        return challengesCompleted
     }
     
     func getTotalCoins() -> UInt64 {

@@ -295,9 +295,9 @@ class ProfileTableViewController: UITableViewController {
         
         for levelUp in levelUps {
             if data[levelUp.0].exists() {
-                var attributedString = RankManager.getAttributedStringForPurchasedRank(data: data, rankID: levelUp.1)
+                let attributedString = RankManager.getAttributedStringForPurchasedRank(data: data, rankID: levelUp.1)
                 
-                var dateString = Utils.convertToDateStringFormat(milliseconds: data[levelUp.0].uInt64Value)
+                let dateString = Utils.convertToDateStringFormat(milliseconds: data[levelUp.0].uInt64Value)
                 
                 ret.append((attributedString, dateString))
             }
@@ -338,7 +338,7 @@ class ProfileTableViewController: UITableViewController {
     func getChallengesCompleted() -> Int {
         var challengesCompleted = 0
         
-        for (key,subJson):(String, JSON) in data["challenges"]["all_time"] {
+        for (_,subJson):(String, JSON) in data["challenges"]["all_time"] {
             challengesCompleted += subJson.intValue
         }
         
@@ -381,7 +381,7 @@ class ProfileTableViewController: UITableViewController {
         }
         
         let milliseconds = data["eugene"]["dailyTwoKExp"].uInt64Value
-        var secondsSince1970 = milliseconds / 1000
+        let secondsSince1970 = milliseconds / 1000
         
         let dateClaimed = Date(timeIntervalSince1970: TimeInterval(secondsSince1970))
         let currentDate = Date()
@@ -453,7 +453,13 @@ class ProfileTableViewController: UITableViewController {
             return ("Never logged into Hypixel :(", UIColor(named: "gray_label")!)
         }
         
-        var lastLogoff = Utils.convertToDate(milliseconds: data["lastLogout"].uInt64Value)
+        //Sometimes status endpoint doesn't update properly. If the user's last login is more recent than last logout, they must be online
+        if data["lastLogin"].uInt64Value > data["lastLogout"].uInt64Value {
+            self.user?.gameType = GameTypes.allGames[data["mostRecentGameType"].stringValue]?.cleanName ?? "-"
+            return ("Online", .systemGreen)
+        }
+        
+        let lastLogoff = Utils.convertToDate(milliseconds: data["lastLogout"].uInt64Value)
         
         return ("Offline (Last seen \(lastLogoff.timeAgoDisplay()))", .systemRed)
     }

@@ -44,7 +44,7 @@ class GenericStatsViewController: UIViewController {
         case "Pit":
             return PitStatsManager(data: data)
         case "Quake":
-            return QuakeStatsManager(data: data)
+            return QuakeStatsManager(data: data, achievementsData: achievementsData)
         case "SkyWars":
             return SkyWarsStatsManager(data: data)
         case "SuperSmash":
@@ -122,8 +122,8 @@ class GenericStatsViewController: UIViewController {
             coinsView?.coinAmount.text = data["coins"].intValue.withCommas
         }
         
-        coinsView!.backgroundColor = .systemGray5
-        coinsView!.layer.cornerRadius = 16
+        coinsView!.backgroundColor = UIColor(named: "coins_view_background")!
+        coinsView!.layer.cornerRadius = 14
         coinsView!.layer.masksToBounds = true
     }
 

@@ -89,7 +89,7 @@ class GamesTableController: UITableViewController {
         destVC.data = data["stats"][selectedGame] ?? ["": ""]
         destVC.gameID = selectedGame
         
-        if selectedGame == "Arcade" {
+        if selectedGame == "Arcade" || selectedGame == "Quake" {
             destVC.achievementsData = data["achievements"]
         }
         

@@ -12,17 +12,19 @@ import SwiftyJSON
 class QuakeStatsManager: NSObject, StatsManager {
     
     var data: JSON = [:]
+    var achievementsData: JSON = [:]
     
-    init(data: JSON) {
+    init(data: JSON, achievementsData: JSON) {
         self.data = data
+        self.achievementsData = achievementsData
     }
     
     let headers = [
         1: "",
-        5: "",
-        9: "",
+        6: "",
         10: "",
-        12: "Modes"
+        11: "",
+        13: "Modes"
     ]
     
     lazy var statsTableData: [CellData] = {
@@ -63,6 +65,9 @@ class QuakeStatsManager: NSObject, StatsManager {
         var killstreaksTeams = data["killstreaks_teams"].intValue
         var killstreaks = killstreaksSolo + killstreaksTeams
         
+        var godlikes = achievementsData["quake_godlikes"].intValue
+        var godlikeColor = godlikes == 0 ? UIColor.label : UIColor(named: "mc_gold")!
+        
         let statsSolo: [(String, Any)] = [
             ("Wins", winsSolo),
             ("Kills", killsSolo),
@@ -87,10 +92,13 @@ class QuakeStatsManager: NSObject, StatsManager {
         
         return [
             CellData(headerData: ("Wins", wins)),
+            
             CellData(headerData: ("Kills", kills)),
             CellData(headerData: ("Deaths", deaths)),
             CellData(headerData: ("K/D", kdr)),
             CellData(headerData: ("Killstreaks", killstreaks)),
+            CellData(headerData: ("Godlikes", godlikes), color: godlikeColor),
+            
             CellData(headerData: ("Headshots", headshots)),
             CellData(headerData: ("Shots Fired", shotsFired)),
             CellData(headerData: ("Headshots/Kill", headshotsPerKill)),

@@ -12,6 +12,7 @@
 		4C070DD826CC2DF8000B88C4 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C070DD726CC2DF8000B88C4 /* IntExtension.swift */; };
 		4C31D2CC26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */; };
 		4C3574F126E1686A00B86AD0 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3574F026E1686A00B86AD0 /* SpinnerViewController.swift */; };
+		4C3574F326E171D000B86AD0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3574F226E171D000B86AD0 /* UIViewControllerExtension.swift */; };
 		4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C526E4926D94EA900B85E0B /* UILabelExtension.swift */; };
 		4C526E4C26D9537300B85E0B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C526E4B26D9537300B85E0B /* UIImageExtension.swift */; };
 		4C526E5626DC456E00B85E0B /* minecraft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C526E5526DC456E00B85E0B /* minecraft.ttf */; };
@@ -107,6 +108,7 @@
 		4C070DD726CC2DF8000B88C4 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoTabBarController.swift; sourceTree = "<group>"; };
 		4C3574F026E1686A00B86AD0 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		4C3574F226E171D000B86AD0 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		4C526E4926D94EA900B85E0B /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4C526E4B26D9537300B85E0B /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4C526E5526DC456E00B85E0B /* minecraft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = minecraft.ttf; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */,
 				4C9D142C26DDFA5000E6695C /* DoubleExtension.swift */,
 				4C9D143226DED53E00E6695C /* DateExtension.swift */,
+				4C3574F226E171D000B86AD0 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */,
 				BEC6822A26BCD15F0042D947 /* Walls3StatsManager.swift in Sources */,
 				4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */,
+				4C3574F326E171D000B86AD0 /* UIViewControllerExtension.swift in Sources */,
 				4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */,
 				4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */,
 				4C9D142926DD7AAA00E6695C /* ProfileViewController.swift in Sources */,

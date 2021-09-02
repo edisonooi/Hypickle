@@ -28,10 +28,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="wMc-jk-A0i">
-                                <rect key="frame" x="51" y="405" width="288" height="34"/>
+                                <rect key="frame" x="50.666666666666657" y="405" width="288.66666666666674" height="34"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8I-yj-sop">
                                 <rect key="frame" x="171" y="449" width="48" height="30"/>
@@ -54,7 +54,7 @@
                             <constraint firstItem="d4a-ZG-Vhv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hiN-ZU-AAG"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jWa-Gr-JQz"/>
                             <constraint firstItem="B8I-yj-sop" firstAttribute="top" secondItem="wMc-jk-A0i" secondAttribute="bottom" constant="10" id="w5R-xG-fTK"/>
-                            <constraint firstItem="wMc-jk-A0i" firstAttribute="width" secondItem="d4a-ZG-Vhv" secondAttribute="width" id="yPe-84-XaQ"/>
+                            <constraint firstItem="wMc-jk-A0i" firstAttribute="width" secondItem="d4a-ZG-Vhv" secondAttribute="width" constant="0.5" id="yPe-84-XaQ"/>
                             <constraint firstItem="B8I-yj-sop" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yXS-kS-tZ0"/>
                         </constraints>
                     </view>

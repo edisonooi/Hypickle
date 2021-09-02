@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
@@ -16,13 +16,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        for family in UIFont.familyNames.sorted() {
-//            let names = UIFont.fontNames(forFamilyName: family)
-//            print("Family: \(family) Font names: \(names)")
-//        }
-        
-        
-        // Do any additional setup after loading the view.
+        usernameTextField.delegate = self
+        self.hideKeyboardWhenTappedAround()
+
     }
 
 
@@ -42,7 +38,6 @@ class ViewController: UIViewController {
         //Show loading screen
         let child = SpinnerViewController()
         
-        // add the spinner view controller
         addChild(child)
         child.view.frame = view.frame
         view.addSubview(child.view)
@@ -99,7 +94,7 @@ class ViewController: UIViewController {
                 }
                 
                 group.notify(queue: .main, execute: {
-                    //Remove loading view
+                    //Remove loading view upon completion of Hypixel API calls
                     child.willMove(toParent: nil)
                     child.view.removeFromSuperview()
                     child.removeFromParent()
@@ -112,6 +107,8 @@ class ViewController: UIViewController {
             } else {
                 //TODO: UI component that indicates invalid username
                 print("Error, invalid username")
+                
+                //Remove loading view if invalid user
                 child.willMove(toParent: nil)
                 child.view.removeFromSuperview()
                 child.removeFromParent()
@@ -119,6 +116,17 @@ class ViewController: UIViewController {
             }
         }
         
+    }
+    
+    //Limit text field to 16 characters: longest possible minecraft username
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentCharacterCount = textField.text?.count ?? 0
+        if range.length + range.location > currentCharacterCount {
+            return false
+        }
+        let newLength = currentCharacterCount + string.count - range.length
+        return newLength <= 16
     }
     
 }

@@ -125,7 +125,7 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         for mode in modes {
             
             if mode.id == "_MURDER_HARDCORE" && (data["games" + mode.id].exists() || data["games_MURDER_SHOWDOWN"].exists()) {
-                modeStats.append(CellData(headerData: ("LEGACY MODES", "")))
+                modeStats.append(CellData(headerData: ("Legacy Modes", "")))
             }
             
             if !data["games" + mode.id].exists() {
@@ -208,6 +208,11 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         if indexPath.row == 0 {
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
+            
+            if category == "Legacy Modes" {
+                cell.backgroundColor = .clear
+                cell.statCategory.font = UIFont.boldSystemFont(ofSize: 17)
+            }
             
             if statsTableData[indexPath.section].color != .label {
                 cell.statValue.textColor = statsTableData[indexPath.section].color

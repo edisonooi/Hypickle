@@ -285,6 +285,10 @@ class Walls3StatsManager: NSObject, StatsManager {
                 let headerView = GenericHeaderView.instanceFromNib()
                 headerView.title.text = headerTitle
                 
+                if headerTitle == "Kits" {
+                    headerView.rightLabel.text = "Prestige"
+                }
+                
                 return headerView
             }
         }

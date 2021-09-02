@@ -9,6 +9,7 @@ import UIKit
 
 class GenericHeaderView: UIView {
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var rightLabel: UILabel!
     
     class func instanceFromNib() -> GenericHeaderView {
         return UINib(nibName: "GenericHeaderView", bundle: Bundle(for: GenericHeaderView.self)).instantiate(withOwner: nil, options: nil)[0] as! GenericHeaderView

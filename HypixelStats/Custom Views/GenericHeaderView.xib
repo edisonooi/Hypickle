@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,19 +20,33 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-1Q-XLY">
+                    <rect key="frame" x="404" y="54" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="KFM-5C-wWX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="Bfm-im-nxY"/>
                 <constraint firstItem="KFM-5C-wWX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="QEh-Wi-74a"/>
+                <constraint firstAttribute="bottom" secondItem="KbR-1Q-XLY" secondAttribute="bottom" constant="10" id="Utd-bs-f6V"/>
                 <constraint firstAttribute="bottom" secondItem="KFM-5C-wWX" secondAttribute="bottom" constant="10" id="tXh-ak-9VJ"/>
+                <constraint firstAttribute="trailing" secondItem="KbR-1Q-XLY" secondAttribute="trailing" constant="10" id="uSi-Mc-Wdc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="rightLabel" destination="KbR-1Q-XLY" id="fFE-Xz-92C"/>
                 <outlet property="title" destination="KFM-5C-wWX" id="EKG-rP-7Ia"/>
             </connections>
             <point key="canvasLocation" x="213" y="157"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -12,7 +12,6 @@ import SwiftyJSON
 class ProfileTableViewController: UITableViewController {
     
     var data: JSON = [:]
-    var user: MinecraftUser?
     
     var hasNameHistory: Bool = true
     var hasRankHistory: Bool = true
@@ -71,7 +70,7 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("Gifts Received", data["giftingMeta"]["bundlesReceived"].intValue), color: UIColor(named: "mc_light_purple")!),
             
             CellData(headerData: ("Status", onlineStatus.0), color: onlineStatus.1),
-            CellData(headerData: ("Game", self.user!.gameType)),
+            CellData(headerData: ("Game", MinecraftUser.shared.gameType)),
             
         ]
         
@@ -445,7 +444,7 @@ class ProfileTableViewController: UITableViewController {
     
     func getOnlineStatus() -> (String, UIColor) {
         
-        if self.user!.isOnline {
+        if MinecraftUser.shared.isOnline {
             return ("Online", .systemGreen)
         }
         
@@ -455,7 +454,7 @@ class ProfileTableViewController: UITableViewController {
         
         //Sometimes status endpoint doesn't update properly. If the user's last login is more recent than last logout, they must be online
         if data["lastLogin"].uInt64Value > data["lastLogout"].uInt64Value {
-            self.user?.gameType = GameTypes.allGames[data["mostRecentGameType"].stringValue]?.cleanName ?? "-"
+            MinecraftUser.shared.gameType = GameTypes.allGames[data["mostRecentGameType"].stringValue]?.cleanName ?? "-"
             return ("Online", .systemGreen)
         }
         

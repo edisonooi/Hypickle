@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var testButton: UIButton!
     
-    var user: MinecraftUser?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,33 +32,34 @@ class ViewController: UIViewController {
     
     
     @IBAction func searchButtonPressed(_ sender: Any) {
+        
+        MinecraftUser.shared.isOnline = false
+        MinecraftUser.shared.gameType = "-"
+        
         let username = usernameTextField.text!
-        var name = ""
-        var uuid = ""
         
         let url = "https://api.mojang.com/users/profiles/minecraft/\(username)"
 
         APIManager.getJSON(url: url) {jsonData in
             
-            if let safeName = jsonData["name"].string, let safeID = jsonData["id"].string {
-                name = safeName
-                uuid = safeID
+            if let name = jsonData["name"].string, let id = jsonData["id"].string {
+                MinecraftUser.shared.username = name
+                MinecraftUser.shared.uuid = id
+                MinecraftUser.shared.skin = "https://crafatar.com/renders/body/\(id)?default=MHF_Steve&overlay=true"
                 
-                self.user = MinecraftUser(username: name, uuid: uuid)
-                
-                let hypixelAPIUrl = "https://api.hypixel.net/player?uuid=\(self.user!.uuid)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
+                let hypixelAPIUrl = "https://api.hypixel.net/player?uuid=\(id)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
                 
                 APIManager.getJSON(url: hypixelAPIUrl) {playerData in
                     if playerData["player"].exists() {
-                        self.user?.playerHypixelData = playerData["player"]
+                        MinecraftUser.shared.playerHypixelData = playerData["player"]
                         
-                        let hypixelAPIStatusUrl = "https://api.hypixel.net/status?uuid=\(uuid)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
+                        let hypixelAPIStatusUrl = "https://api.hypixel.net/status?uuid=\(id)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
                         
                         APIManager.getJSON(url: hypixelAPIStatusUrl) {statusData in
                             if statusData["success"].boolValue {
                                 if statusData["session"]["online"].boolValue {
-                                    self.user?.isOnline = true
-                                    self.user?.gameType = GameTypes.allGames[statusData["session"]["gameType"].stringValue]?.cleanName ?? "-"
+                                    MinecraftUser.shared.isOnline = true
+                                    MinecraftUser.shared.gameType = GameTypes.allGames[statusData["session"]["gameType"].stringValue]?.cleanName ?? "-"
                                     
                                 }
                             } else {
@@ -90,7 +89,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? PlayerInfoTabBarController {
-            destVC.user = self.user
+            
         }
     }
     

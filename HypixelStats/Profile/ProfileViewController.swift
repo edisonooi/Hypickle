@@ -11,7 +11,6 @@ import AMScrollingNavbar
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
-    var user: MinecraftUser?
     var allStatsData: JSON = [:]
     
     @IBOutlet weak var profileTableContainerView: UIView!
@@ -22,7 +21,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let username = user?.username {
+        if MinecraftUser.shared.username != "" {
             usernameLabel.attributedText = RankManager.getAttributedStringForRank(data: allStatsData)
         }
         
@@ -30,8 +29,8 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         
         mainScrollView.delegate = self
         
-        if let skinURL = user?.skin, skinURL != "" {
-            downloadSkinImage(from: URL(string: skinURL)!)
+        if MinecraftUser.shared.skin != "" {
+            downloadSkinImage(from: URL(string: MinecraftUser.shared.skin)!)
         }
     }
     
@@ -43,9 +42,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
             navigationController.followScrollView(mainScrollView, delay: 20.0)
         }
         
-        if let username = user?.username {
+        if MinecraftUser.shared.username != "" {
             usernameLabel.attributedText = RankManager.getAttributedStringForRank(data: allStatsData)
-            self.tabBarController?.navigationItem.title = username + "'s Profile"
+            self.tabBarController?.navigationItem.title = MinecraftUser.shared.username + "'s Profile"
         } else {
             self.tabBarController?.navigationItem.title = "No User Found"
         }
@@ -75,15 +74,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
             profileTableVC.view.translatesAutoresizingMaskIntoConstraints = false
             
             //Initializing stuff here because apparently this is the first method that gets called
-            let tabBar = tabBarController as! PlayerInfoTabBarController
-            self.user = tabBar.user
-            self.allStatsData = tabBar.user!.playerHypixelData
+            self.allStatsData = MinecraftUser.shared.playerHypixelData
             
             profileTableVC.data = self.allStatsData
-            
-            if let safeUser = self.user {
-                profileTableVC.user = safeUser
-            }
         }
     }
     

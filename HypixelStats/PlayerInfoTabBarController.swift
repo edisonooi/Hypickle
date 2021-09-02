@@ -9,8 +9,6 @@ import UIKit
 import SwiftyJSON
 
 class PlayerInfoTabBarController: UITabBarController {
-
-    var user: MinecraftUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()

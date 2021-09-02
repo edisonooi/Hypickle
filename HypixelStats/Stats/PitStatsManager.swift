@@ -37,10 +37,10 @@ class PitStatsManager: NSObject, StatsManager {
         var playtimeMinutes = stats["playtime_minutes"].intValue
         var playtimeHours = Double(playtimeMinutes) / 60.0
         
-        var kaPerHour = Double(kills + assists) / playtimeHours
-        var killsPerHour = Double(kills) / playtimeHours
-        var goldPerHour = stats["cash_earned"].doubleValue / playtimeHours
-        var xpPerHour = Double(xp) / playtimeHours
+        var kaPerHour = calculateStatsPerHour(numerator: Double(kills + assists), denominator: playtimeHours)
+        var killsPerHour = calculateStatsPerHour(numerator: Double(kills), denominator: playtimeHours)
+        var goldPerHour = calculateStatsPerHour(numerator: stats["cash_earned"].doubleValue, denominator: playtimeHours)
+        var xpPerHour = calculateStatsPerHour(numerator: Double(xp), denominator: playtimeHours)
         
         return [
             CellData(headerData: ("Prestige", prestigeString)),
@@ -263,6 +263,20 @@ class PitStatsManager: NSObject, StatsManager {
         }
         
         return (Utils.convertToRomanNumerals(number: maxPrestige), maxLevel)
+    }
+    
+    func calculateStatsPerHour(numerator: Double, denominator: Double) -> Double {
+        var ratio = 0.0
+        
+        if numerator == 0.0 && denominator == 0.0 {
+            ratio = 0.0
+        } else if numerator != 0.0 && denominator == 0.0 {
+            ratio = numerator
+        } else {
+            ratio = numerator / denominator
+        }
+        
+        return ratio
     }
     
     

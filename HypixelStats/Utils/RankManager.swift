@@ -50,7 +50,8 @@ class RankManager {
     }
     
     static func getAttributedStringForRank(data: JSON) -> NSMutableAttributedString {
-        let username = data["displayname"].stringValue
+        
+        let username = MinecraftUser.shared.username
         
         //TODO: Get custom ranks from data["prefix"]
         

@@ -89,8 +89,8 @@ class UHCStatsManager: NSObject, StatsManager {
             CellData(headerData: ("K/D", kdr)),
             
             CellData(headerData: ("Score", data["score"].intValue)),
-            CellData(headerData: ("Stars", titleAndStar.1)),
-            CellData(headerData: ("Title", titleAndStar.0)),
+            CellData(headerData: ("Stars", String(titleAndStar.1) + "\u{2606}"), color: UIColor(named: "mc_gold")!),
+            CellData(headerData: ("Title", titleAndStar.0), color: titleAndStar.2),
             
             CellData(headerData: ("Heads Eaten", headsEaten)),
             CellData(headerData: ("Ultimates Crafted", (data["ultimates_crafted"].intValue) + (data["ultimates_crafted_solo"].intValue))),
@@ -213,33 +213,33 @@ class UHCStatsManager: NSObject, StatsManager {
         return CGFloat.leastNormalMagnitude
     }
     
-    func getTitleAndStar(score: Int) -> (String, Int) {
+    func getTitleAndStar(score: Int) -> (String, Int, UIColor) {
         let titles = [
-            (value: 0, name: "Recruit", color: "gray"),
-            (value: 10, name: "Initiate", color: "gray"),
-            (value: 60, name: "Soldier", color: "gray"),
-            (value: 210, name: "Sergeant", color: "gray"),
-            (value: 460, name: "Knight", color: "gray"),
-            (value: 960, name: "Captain", color: "gray"),
-            (value: 1710, name: "Centurion", color: "gray"),
-            (value: 2710, name: "Gladiator", color: "gray"),
-            (value: 5210, name: "Warlord", color: "gray"),
-            (value: 10210, name: "Champion", color: "gray"),
-            (value: 13210, name: "Champion", color: "gray"),
-            (value: 16210, name: "Bronze Champion", color: "brown"),
-            (value: 19210, name: "Silver Champion", color: "white"),
-            (value: 22210, name: "Gold Champion", color: "gold"),
-            (value: 25210, name: "High Champion", color: "aqua"),
+            (value: 0, name: "Recruit", color: .label),
+            (value: 10, name: "Initiate", color: .label),
+            (value: 60, name: "Soldier", color: .label),
+            (value: 210, name: "Sergeant", color: .label),
+            (value: 460, name: "Knight", color: .label),
+            (value: 960, name: "Captain", color: .label),
+            (value: 1710, name: "Centurion", color: .label),
+            (value: 2710, name: "Gladiator", color: .label),
+            (value: 5210, name: "Warlord", color: .label),
+            (value: 10210, name: "Champion", color: .label),
+            (value: 13210, name: "Champion", color: .label),
+            (value: 16210, name: "Bronze Champion", color: UIColor(named: "mc_bronze")!),
+            (value: 19210, name: "Silver Champion", color: UIColor(named: "mc_white")!),
+            (value: 22210, name: "Gold Champion", color: UIColor(named: "mc_gold")!),
+            (value: 25210, name: "High Champion", color: UIColor(named: "mc_aqua")!),
             (value: Int.max, name: nil, color: nil)
         ]
         
         for (index, title) in titles.enumerated() {
             if score < title.value {
-                return (titles[index - 1].name!, index)
+                return (titles[index - 1].name!, index, titles[index - 1].color!)
             }
         }
         
-        return ("Recruit", 1)
+        return ("Recruit", 1, .label)
     }
     
     

@@ -26,7 +26,7 @@ class PitStatsManager: NSObject, StatsManager {
         
         var xp = profile["xp"].intValue
         var prestigeAndLevel = getPrestigeAndLevel(playerXP: xp)
-        var prestigeString = prestigeAndLevel.0 == "" ? "-" : prestigeAndLevel.0
+        var prestigeString = prestigeAndLevel.0 == 0 ? "-" : Utils.convertToRomanNumerals(number: prestigeAndLevel.0)
         
         var kills = stats["kills"].intValue
         var assists = stats["assists"].intValue
@@ -43,8 +43,8 @@ class PitStatsManager: NSObject, StatsManager {
         var xpPerHour = calculateStatsPerHour(numerator: Double(xp), denominator: playtimeHours)
         
         return [
-            CellData(headerData: ("Prestige", prestigeString)),
-            CellData(headerData: ("Level", prestigeAndLevel.1)),
+            CellData(headerData: ("Prestige", prestigeString), color: getPrestigeColor(prestige: prestigeAndLevel.0)),
+            CellData(headerData: ("Level", prestigeAndLevel.1), color: getLevelColor(level: prestigeAndLevel.1)),
             CellData(headerData: ("XP", xp), sectionData: [], color: UIColor(named: "mc_aqua")!),
             CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: [], color: UIColor(named: "mc_yellow")!),
             
@@ -202,7 +202,7 @@ class PitStatsManager: NSObject, StatsManager {
         return CGFloat.leastNormalMagnitude
     }
     
-    func getPrestigeAndLevel(playerXP: Int) -> (String, Int) {
+    func getPrestigeAndLevel(playerXP: Int) -> (Int, Int) {
         
         let xpLevels = [
             [15,   30,   50,   75,   125,   300,   600,   800,   900,   1000,   1200,   1500],
@@ -243,6 +243,8 @@ class PitStatsManager: NSObject, StatsManager {
             [1515, 3030, 5050, 7575, 12625, 30300, 60600, 80800, 90900, 101000, 121200, 151500],
         ]
         
+        
+        
         let maxPrestige = 35
         let maxLevel = 120
         
@@ -256,13 +258,13 @@ class PitStatsManager: NSObject, StatsManager {
                     if xp >= step {
                         xp -= step
                     } else {
-                        return (Utils.convertToRomanNumerals(number: i), 10 * j + k)
+                        return (i, 10 * j + k)
                     }
                 }
             }
         }
         
-        return (Utils.convertToRomanNumerals(number: maxPrestige), maxLevel)
+        return (maxPrestige, maxLevel)
     }
     
     func calculateStatsPerHour(numerator: Double, denominator: Double) -> Double {
@@ -279,5 +281,54 @@ class PitStatsManager: NSObject, StatsManager {
         return ratio
     }
     
+    func getPrestigeColor(prestige: Int) -> UIColor {
+
+        let prestigeColors = [
+            (prestige: 0, color: UIColor(named: "mc_gray")!),
+            (prestige: 1, color: UIColor(named: "mc_blue")!),
+            (prestige: 5, color: UIColor(named: "mc_yellow")!),
+            (prestige: 10, color: UIColor(named: "mc_gold")!),
+            (prestige: 15, color: UIColor(named: "mc_red")!),
+            (prestige: 20, color: UIColor(named: "mc_dark_purple")!),
+            (prestige: 25, color: UIColor(named: "mc_light_purple")!),
+            (prestige: 30, color: UIColor(named: "mc_white")!),
+            (prestige: 35, color: UIColor(named: "mc_aqua")!),
+        ]
+        
+        for p in prestigeColors.reversed() {
+            if p.prestige <= prestige {
+                return p.color
+            }
+        }
+        
+        return UIColor(named: "mc_gray")!
+    }
+    
+    func getLevelColor(level: Int) -> UIColor {
+        
+        let levelColors = [
+            (level: 0, color: UIColor(named: "mc_gray")!),
+            (level: 10, color: UIColor(named: "mc_blue")!),
+            (level: 20, color: UIColor(named: "mc_dark_aqua")!),
+            (level: 30, color: UIColor(named: "mc_dark_green")!),
+            (level: 40, color: UIColor(named: "mc_green")!),
+            (level: 50, color: UIColor(named: "mc_yellow")!),
+            (level: 60, color: UIColor(named: "mc_gold")!),
+            (level: 70, color: UIColor(named: "mc_red")!),
+            (level: 80, color: UIColor(named: "mc_dark_red")!),
+            (level: 90, color: UIColor(named: "mc_dark_purple")!),
+            (level: 100, color: UIColor(named: "mc_light_purple")!),
+            (level: 110, color: UIColor(named: "mc_white")!),
+            (level: 120, color: UIColor(named: "mc_aqua")!),
+        ]
+        
+        for l in levelColors.reversed() {
+            if l.level <= level {
+                return l.color
+            }
+        }
+        
+        return UIColor(named: "mc_gray")!
+    }
     
 }

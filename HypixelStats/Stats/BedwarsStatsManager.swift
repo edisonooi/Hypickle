@@ -227,11 +227,20 @@ class BedwarsStatsManager: NSObject, StatsManager {
         var value: Any = ""
         
         if indexPath.row == 0 {
+            if !statsTableData[indexPath.section].sectionData.isEmpty {
+                cell.showDropDown()
+            }
+            
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
             
             if statsTableData[indexPath.section].color != .label {
-                cell.statValue.textColor = statsTableData[indexPath.section].color
+                if statsTableData[indexPath.section].color == .clear {
+                    let gradientImage = UIImage.gradientImageWithBounds(bounds: cell.statValue.bounds, colors: [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor, UIColor.purple.cgColor])
+                    cell.statValue.textColor = UIColor.init(patternImage: gradientImage)
+                } else {
+                    cell.statValue.textColor = statsTableData[indexPath.section].color
+                }
             }
             
         } else {
@@ -389,6 +398,7 @@ class BedwarsStatsManager: NSObject, StatsManager {
             (level: 700, levelColor: UIColor(named: "mc_pink")!, prestigeColor: UIColor(named: "mc_pink")!, name: "Crystal"),
             (level: 800, levelColor: UIColor(named: "mc_blue")!, prestigeColor: UIColor(named: "mc_blue")!, name: "Opal"),
             (level: 900, levelColor: UIColor(named: "mc_dark_purple")!, prestigeColor: UIColor(named: "mc_dark_purple")!, name: "Amethyst"),
+            //Clear means rainbow gradient
             (level: 1000, levelColor: .clear, prestigeColor: UIColor(named: "mc_gray")!, name: "Rainbow"),
             (level: 1100, levelColor: UIColor(named: "mc_white")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Iron Prime"),
             (level: 1200, levelColor: UIColor(named: "mc_yellow")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Gold Prime"),

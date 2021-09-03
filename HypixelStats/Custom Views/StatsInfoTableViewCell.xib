@@ -24,16 +24,27 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soE-Ym-aaT">
-                        <rect key="frame" x="260.5" y="12" width="43.5" height="20"/>
+                        <rect key="frame" x="244.5" y="12" width="43.5" height="20"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EFu-uQ-8JO">
+                        <rect key="frame" x="293" y="18.5" width="17" height="7.5"/>
+                        <color key="tintColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="5WN-g5-yQc"/>
+                            <constraint firstAttribute="width" secondItem="EFu-uQ-8JO" secondAttribute="height" multiplier="1:1" id="JHR-FK-kjJ"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="soE-Ym-aaT" secondAttribute="trailing" constant="16" id="E2w-2L-QaD"/>
+                    <constraint firstItem="EFu-uQ-8JO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5OC-J5-Prt"/>
+                    <constraint firstAttribute="trailing" secondItem="EFu-uQ-8JO" secondAttribute="trailing" constant="10" id="BIb-hs-fqa"/>
+                    <constraint firstAttribute="trailing" secondItem="soE-Ym-aaT" secondAttribute="trailing" priority="750" constant="21" id="E2w-2L-QaD"/>
                     <constraint firstAttribute="bottom" secondItem="klF-Xg-OEm" secondAttribute="bottom" constant="12" id="Gcq-gZ-ZBm"/>
+                    <constraint firstItem="EFu-uQ-8JO" firstAttribute="leading" secondItem="soE-Ym-aaT" secondAttribute="trailing" constant="5" id="WGf-Hc-HA0"/>
                     <constraint firstItem="klF-Xg-OEm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="YUe-hx-KCP"/>
                     <constraint firstItem="soE-Ym-aaT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="tc0-id-U1U"/>
                     <constraint firstItem="klF-Xg-OEm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="vaM-33-eqp"/>
@@ -43,13 +54,19 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
             <connections>
+                <outlet property="dropDownIcon" destination="EFu-uQ-8JO" id="moS-EK-BC7"/>
+                <outlet property="dropDownIconWidth" destination="5WN-g5-yQc" id="4Sr-eM-bBe"/>
                 <outlet property="statCategory" destination="klF-Xg-OEm" id="UVP-aU-dEd"/>
                 <outlet property="statValue" destination="soE-Ym-aaT" id="03o-Ri-Imc"/>
             </connections>
-            <point key="canvasLocation" x="132" y="64"/>
+            <point key="canvasLocation" x="131.8840579710145" y="63.616071428571423"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

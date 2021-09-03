@@ -117,6 +117,10 @@ class ProfileTableViewController: UITableViewController {
         var value: Any = ""
         
         if indexPath.row == 0 {
+            if !profileTableData[indexPath.section].sectionData.isEmpty || !profileTableData[indexPath.section].attributedData.isEmpty {
+                cell.showDropDown()
+            }
+            
             category = profileTableData[indexPath.section].headerData.0
             value = profileTableData[indexPath.section].headerData.1
             

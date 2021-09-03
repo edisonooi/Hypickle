@@ -167,6 +167,10 @@ class SkyClashStatsManager: NSObject, StatsManager {
         var value: Any = ""
         
         if indexPath.row == 0 {
+            if !statsTableData[indexPath.section].sectionData.isEmpty {
+                cell.showDropDown()
+            }
+            
             category = statsTableData[indexPath.section].headerData.0
             value = statsTableData[indexPath.section].headerData.1
             

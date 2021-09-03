@@ -10,6 +10,8 @@ import UIKit
 class StatsInfoTableViewCell: UITableViewCell {
     
     static let identifier = "StatsInfoTableViewCell"
+    @IBOutlet weak var dropDownIcon: UIImageView!
+    @IBOutlet weak var dropDownIconWidth: NSLayoutConstraint!
     
     @IBOutlet weak var statCategory: UILabel!
     @IBOutlet weak var statValue: UILabel!
@@ -29,11 +31,16 @@ class StatsInfoTableViewCell: UITableViewCell {
         self.statCategory.font = UIFont.systemFont(ofSize: 17)
         self.statValue.textColor = .label
         self.statValue.font = UIFont.boldSystemFont(ofSize: 17)
+        self.dropDownIconWidth.constant = 0.0
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        dropDownIconWidth.constant = 0.0
+    }
+    
+    func showDropDown() {
+        self.dropDownIconWidth.constant = 17
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

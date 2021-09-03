@@ -21,7 +21,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-1Q-XLY">
-                    <rect key="frame" x="404" y="54" width="0.0" height="0.0"/>
+                    <rect key="frame" x="404" y="57" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" systemColor="secondaryLabelColor"/>
                     <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
             <constraints>
                 <constraint firstItem="KFM-5C-wWX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="Bfm-im-nxY"/>
                 <constraint firstItem="KFM-5C-wWX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="QEh-Wi-74a"/>
-                <constraint firstAttribute="bottom" secondItem="KbR-1Q-XLY" secondAttribute="bottom" constant="10" id="Utd-bs-f6V"/>
+                <constraint firstAttribute="bottom" secondItem="KbR-1Q-XLY" secondAttribute="bottom" constant="7" id="Utd-bs-f6V"/>
                 <constraint firstAttribute="bottom" secondItem="KFM-5C-wWX" secondAttribute="bottom" constant="10" id="tXh-ak-9VJ"/>
                 <constraint firstAttribute="trailing" secondItem="KbR-1Q-XLY" secondAttribute="trailing" constant="10" id="uSi-Mc-Wdc"/>
             </constraints>

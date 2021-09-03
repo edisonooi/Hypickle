@@ -37,13 +37,13 @@ class BedwarsStatsManager: NSObject, StatsManager {
         var finalKDR = Utils.calculateRatio(numerator: finalKills, denominator: finalDeaths)
         
         var level = getLevel(xp: data["Experience"].intValue + data["Experience_new"].intValue)
-        var prestige = getPrestige(level: level)
+        var prestigeAndColors = getPrestige(level: level)
         
         
         var generalStats = [
             
-            CellData(headerData: ("Level", String(format: "%.2f", level))),
-            CellData(headerData: ("Prestige", prestige)),
+            CellData(headerData: ("Level", String(format: "%.2f", level)), color: prestigeAndColors.levelColor),
+            CellData(headerData: ("Prestige", prestigeAndColors.prestige), color: prestigeAndColors.prestigeColor),
             
             CellData(headerData: ("Wins", wins)),
             CellData(headerData: ("Losses", losses)),
@@ -377,50 +377,50 @@ class BedwarsStatsManager: NSObject, StatsManager {
         return Double(lvl) + remainingXP / deltaXP
     }
     
-    func getPrestige(level: Double) -> String {
+    func getPrestige(level: Double) -> (prestige: String, levelColor: UIColor, prestigeColor: UIColor) {
         let prestiges = [
-            (level: 0, colormap: "7", color: "gray", name: "None"),
-            (level: 100, colormap: "f", color: "white", name: "Iron"),
-            (level: 200, colormap: "6", color: "gold", name: "Gold"),
-            (level: 300, colormap: "b", color: "aqua", name: "Diamond"),
-            (level: 400, colormap: "2", color: "darkgreen", name: "Emerald"),
-            (level: 500, colormap: "3", color: "darkaqua", name: "Sapphire"),
-            (level: 600, colormap: "4", color: "darkred", name: "Ruby"),
-            (level: 700, colormap: "d", color: "pink", name: "Crystal"),
-            (level: 800, colormap: "9", color: "blue", name: "Opal"),
-            (level: 900, colormap: "5", color: "purple", name: "Amethyst"),
-            (level: 1000, colormap: "c6eabd5", color: "rainbow", name: "Rainbow"),
-            (level: 1100, colormap: "7ffff77", color: "white", name: "Iron Prime"),
-            (level: 1200, colormap: "7eeee67", color: "yellow", name: "Gold Prime"),
-            (level: 1300, colormap: "7bbbb37", color: "aqua", name: "Diamond Prime"),
-            (level: 1400, colormap: "7aaaa27", color: "green", name: "Emerald Prime"),
-            (level: 1500, colormap: "7333397", color: "darkaqua", name: "Sapphire Prime"),
-            (level: 1600, colormap: "7cccc47", color: "red", name: "Ruby Prime"),
-            (level: 1700, colormap: "7dddd57", color: "pink", name: "Crystal Prime"),
-            (level: 1800, colormap: "7999917", color: "blue", name: "Opal Prime"),
-            (level: 1900, colormap: "7555587", color: "purple", name: "Amethyst Prime"),
-            (level: 2000, colormap: "87ff778", color: "white", name: "Mirror"),
-            (level: 2100, colormap: "ffee666", color: "yellow", name: "Light"),
-            (level: 2200, colormap: "66ffb33", color: "aqua", name: "Dawn"),
-            (level: 2300, colormap: "55dd6ee", color: "purple", name: "Dusk"),
-            (level: 2400, colormap: "bbff778", color: "white", name: "Air"),
-            (level: 2500, colormap: "ffaa222", color: "green", name: "Wind"),
-            (level: 2600, colormap: "44ccdd5", color: "darkred", name: "Nebula"),
-            (level: 2700, colormap: "eeff777", color: "yellow", name: "Thunder"),
-            (level: 2800, colormap: "aa2266e", color: "darkgreen", name: "Earth"),
-            (level: 2900, colormap: "bb33991", color: "blue", name: "Water"),
-            (level: 3000, colormap: "ee66cc4", color: "red", name: "Fire"),
+            (level: 0, levelColor: UIColor(named: "mc_gray")!, prestigeColor: UIColor(named: "mc_gray")!, name: "None"),
+            (level: 100, levelColor: UIColor(named: "mc_white")!, prestigeColor: UIColor(named: "mc_white")!, name: "Iron"),
+            (level: 200, levelColor: UIColor(named: "mc_gold")!, prestigeColor: UIColor(named: "mc_gold")!, name: "Gold"),
+            (level: 300, levelColor: UIColor(named: "mc_aqua")!, prestigeColor: UIColor(named: "mc_aqua")!, name: "Diamond"),
+            (level: 400, levelColor: UIColor(named: "mc_dark_green")!, prestigeColor: UIColor(named: "mc_dark_green")!, name: "Emerald"),
+            (level: 500, levelColor: UIColor(named: "mc_dark_aqua")!, prestigeColor: UIColor(named: "mc_dark_aqua")!, name: "Sapphire"),
+            (level: 600, levelColor: UIColor(named: "mc_dark_red")!, prestigeColor: UIColor(named: "mc_dark_red")!, name: "Ruby"),
+            (level: 700, levelColor: UIColor(named: "mc_pink")!, prestigeColor: UIColor(named: "mc_pink")!, name: "Crystal"),
+            (level: 800, levelColor: UIColor(named: "mc_blue")!, prestigeColor: UIColor(named: "mc_blue")!, name: "Opal"),
+            (level: 900, levelColor: UIColor(named: "mc_dark_purple")!, prestigeColor: UIColor(named: "mc_dark_purple")!, name: "Amethyst"),
+            (level: 1000, levelColor: .clear, prestigeColor: UIColor(named: "mc_gray")!, name: "Rainbow"),
+            (level: 1100, levelColor: UIColor(named: "mc_white")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Iron Prime"),
+            (level: 1200, levelColor: UIColor(named: "mc_yellow")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Gold Prime"),
+            (level: 1300, levelColor: UIColor(named: "mc_aqua")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Diamond Prime"),
+            (level: 1400, levelColor: UIColor(named: "mc_green")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Emerald Prime"),
+            (level: 1500, levelColor: UIColor(named: "mc_dark_aqua")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Sapphire Prime"),
+            (level: 1600, levelColor: UIColor(named: "mc_red")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Ruby Prime"),
+            (level: 1700, levelColor: UIColor(named: "mc_light_purple")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Crystal Prime"),
+            (level: 1800, levelColor: UIColor(named: "mc_blue")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Opal Prime"),
+            (level: 1900, levelColor: UIColor(named: "mc_dark_purple")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Amethyst Prime"),
+            (level: 2000, levelColor: UIColor(named: "mc_gray")!, prestigeColor: UIColor(named: "mc_dark_gray")!, name: "Mirror"),
+            (level: 2100, levelColor: UIColor(named: "mc_gold")!, prestigeColor: UIColor(named: "mc_gold")!, name: "Light"),
+            (level: 2200, levelColor: UIColor(named: "mc_dark_aqua")!, prestigeColor: UIColor(named: "mc_dark_aqua")!, name: "Dawn"),
+            (level: 2300, levelColor: UIColor(named: "mc_yellow")!, prestigeColor: UIColor(named: "mc_yellow")!, name: "Dusk"),
+            (level: 2400, levelColor: UIColor(named: "mc_dark_gray")!, prestigeColor: UIColor(named: "mc_dark_gray")!, name: "Air"),
+            (level: 2500, levelColor: UIColor(named: "mc_dark_green")!, prestigeColor: UIColor(named: "mc_dark_green")!, name: "Wind"),
+            (level: 2600, levelColor: UIColor(named: "mc_dark_purple")!, prestigeColor: UIColor(named: "mc_dark_purple")!, name: "Nebula"),
+            (level: 2700, levelColor: UIColor(named: "mc_dark_gray")!, prestigeColor: UIColor(named: "mc_dark_gray")!, name: "Thunder"),
+            (level: 2800, levelColor: UIColor(named: "mc_yellow")!, prestigeColor: UIColor(named: "mc_yellow")!, name: "Earth"),
+            (level: 2900, levelColor: UIColor(named: "mc_dark_blue")!, prestigeColor: UIColor(named: "mc_dark_blue")!, name: "Water"),
+            (level: 3000, levelColor: UIColor(named: "mc_dark_red")!, prestigeColor: UIColor(named: "mc_dark_red")!, name: "Fire"),
         ]
         
         let levelFloor = Int(floor(level))
         
         for prestige in prestiges.reversed() {
             if prestige.level <= levelFloor {
-                return prestige.name
+                return (prestige: prestige.name, levelColor: prestige.levelColor, prestigeColor: prestige.prestigeColor)
             }
         }
         
-        return "None"
+        return (prestige: "None", levelColor: UIColor(named: "mc_gray")!, prestigeColor: UIColor(named: "mc_gray")!)
     }
     
     

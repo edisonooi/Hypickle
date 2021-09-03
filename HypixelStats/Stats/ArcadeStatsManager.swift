@@ -224,7 +224,7 @@ class ArcadeStatsManager: NSObject, StatsManager {
     func getZombiesStats() -> [CellData] {
         var ret: [CellData] = []
         
-        var generalStats = [
+        let generalStats = [
             CellData(headerData: ("Wins", data["wins_zombies"].intValue)),
             CellData(headerData: ("Zombies Killed", data["zombie_kills_zombies"].intValue)),
             

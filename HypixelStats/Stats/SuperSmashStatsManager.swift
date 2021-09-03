@@ -24,6 +24,8 @@ class SuperSmashStatsManager: NSObject, StatsManager {
         10: "Kits"
     ]
     
+    var hasPrestige = false
+    
     
     lazy var statsTableData: [CellData] = {
         
@@ -118,11 +120,17 @@ class SuperSmashStatsManager: NSObject, StatsManager {
                 
                 var prestigeAndColor = getPrestigeAndColor(kitName: kit.0)
                 
+                if prestigeAndColor.0 > 0 {
+                    hasPrestige = true
+                }
+                
+                var prestigeString = prestigeAndColor.0 == 0 ? "" : "\(prestigeAndColor.0)"
+                
                 for (index, category) in desiredStats.enumerated() {
                     statsForThisKit.append((category, dataForThisMode[index]))
                 }
                 
-                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue), prestigeAndColor.0), sectionData: statsForThisKit, color: prestigeAndColor.1))
+                kitStats.append(CellData(headerData: (kit.1 + " Lvl" + String(data["lastLevel_" + kit.0].intValue), prestigeString), sectionData: statsForThisKit, color: prestigeAndColor.1))
             }
         }
         
@@ -232,7 +240,7 @@ class SuperSmashStatsManager: NSObject, StatsManager {
                 let headerView = GenericHeaderView.instanceFromNib()
                 headerView.title.text = headerTitle
                 
-                if headerTitle == "Kits" {
+                if headerTitle == "Kits" && hasPrestige {
                     headerView.rightLabel.text = "Prestige"
                 }
                 
@@ -247,13 +255,9 @@ class SuperSmashStatsManager: NSObject, StatsManager {
         return CGFloat.leastNormalMagnitude
     }
     
-    func getPrestigeAndColor(kitName: String) -> (String, UIColor) {
+    func getPrestigeAndColor(kitName: String) -> (Int, UIColor) {
         let prestige = data["pg_" + kitName].intValue
-        var prestigeString = ""
         
-        if prestige != 0 {
-            prestigeString = "\(prestige)"
-        }
         var color = UIColor.label
         
         switch prestige {
@@ -269,6 +273,6 @@ class SuperSmashStatsManager: NSObject, StatsManager {
             color = .label
         }
         
-        return (prestigeString, color)
+        return (prestige, color)
     }
 }

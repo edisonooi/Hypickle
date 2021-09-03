@@ -22,6 +22,8 @@ class HungerGamesStatsManager: NSObject, StatsManager {
         7: "Kits"
     ]
     
+    var hasPrestige = false
+    
     lazy var statsTableData: [CellData] = {
         
         var ret: [CellData] = []
@@ -123,6 +125,11 @@ class HungerGamesStatsManager: NSObject, StatsManager {
                 var kitTimePlayed = Utils.convertToHoursMinutesSeconds(seconds: data["time_played_" + kit].intValue)
                 
                 var kitPrestige = data["p" + kit].intValue
+                
+                if kitPrestige > 0 {
+                    hasPrestige = true
+                }
+                
                 var prestigeString = kitPrestige == 0 ? "" : Utils.convertToRomanNumerals(number: kitPrestige)
                 
                 var kitLevel = data[kit].intValue + 1
@@ -267,7 +274,7 @@ class HungerGamesStatsManager: NSObject, StatsManager {
                 let headerView = GenericHeaderView.instanceFromNib()
                 headerView.title.text = headerTitle
                 
-                if headerTitle == "Kits" {
+                if headerTitle == "Kits" && hasPrestige {
                     headerView.rightLabel.text = "Prestige"
                 }
                 

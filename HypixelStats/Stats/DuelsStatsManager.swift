@@ -256,6 +256,10 @@ class DuelsStatsManager: NSObject, StatsManager {
                 let headerView = GenericHeaderView.instanceFromNib()
                 headerView.title.text = headerTitle
                 
+                if headerTitle == "Modes" {
+                    headerView.rightLabel.text = "Division"
+                }
+                
                 return headerView
             }
         }

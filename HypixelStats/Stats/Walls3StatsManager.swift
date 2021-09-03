@@ -18,6 +18,7 @@ class Walls3StatsManager: NSObject, StatsManager {
     }
     
     var modeCount = 0
+    var hasPrestige = false
     
     lazy var statsTableData: [CellData] = {
         
@@ -145,6 +146,9 @@ class Walls3StatsManager: NSObject, StatsManager {
             var kitFinalKDR = Utils.calculateRatio(numerator: kitFinalKills, denominator: kitFinalDeaths)
             
             var kitPrestige = data["classes"][kit.id]["prestige"].intValue
+            if kitPrestige > 0 {
+                hasPrestige = true
+            }
             
             var kitPrestigeString = kitPrestige == 0 ? "" : Utils.convertToRomanNumerals(number: kitPrestige)
             
@@ -289,7 +293,7 @@ class Walls3StatsManager: NSObject, StatsManager {
                 let headerView = GenericHeaderView.instanceFromNib()
                 headerView.title.text = headerTitle
                 
-                if headerTitle == "Kits" {
+                if headerTitle == "Kits" && hasPrestige {
                     headerView.rightLabel.text = "Prestige"
                 }
                 

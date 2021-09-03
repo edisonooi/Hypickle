@@ -260,7 +260,7 @@ class SkyWarsStatsManager: NSObject, StatsManager {
         chance += data["angel_of_death_level"].intValue
         chance += data["angels_offering"].intValue
         
-        let packagesArray = data["packages"].arrayValue ?? []
+        let packagesArray = data["packages"].arrayValue 
         
         if packagesArray.contains("favor_of_the_angel") {
             chance += 1

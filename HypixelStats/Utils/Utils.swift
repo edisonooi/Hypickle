@@ -65,7 +65,7 @@ class Utils {
         
             if (div > 0)
             {
-                for j in 0..<div
+                for _ in 0..<div
                 {
                     //println("Should add \(romanChar) to string")
                     romanValue += romanChar
@@ -95,7 +95,7 @@ class Utils {
     }
     
     static func convertToDateStringFormat(milliseconds: UInt64) -> String {
-        var secondsSince1970 = milliseconds / 1000
+        let secondsSince1970 = milliseconds / 1000
         
         let date = Date(timeIntervalSince1970: TimeInterval(secondsSince1970))
         
@@ -106,7 +106,7 @@ class Utils {
     }
     
     static func convertToDate(milliseconds: UInt64) -> Date {
-        var secondsSince1970 = milliseconds / 1000
+        let secondsSince1970 = milliseconds / 1000
         
         return Date(timeIntervalSince1970: TimeInterval(secondsSince1970))
     }

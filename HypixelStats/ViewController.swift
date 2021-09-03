@@ -18,6 +18,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         usernameTextField.delegate = self
         self.hideKeyboardWhenTappedAround()
+        
+        navigationController?.navigationBar.tintColor = .label
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .done, target: self, action: #selector(aboutButtonPressed))
 
     }
 
@@ -116,6 +120,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+    }
+    
+    @objc func aboutButtonPressed() {
+        print("About")
+        performSegue(withIdentifier: "showAboutPage", sender: self)
     }
     
     //Limit text field to 16 characters: longest possible minecraft username

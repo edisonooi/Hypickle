@@ -13,6 +13,40 @@
         </array>
     </customFonts>
     <scenes>
+        <!--About-->
+        <scene sceneID="kgV-M4-Nbk">
+            <objects>
+                <viewController id="lUL-Na-38K" customClass="AboutViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Qw-Js-Rgh">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgS-4x-pUt">
+                                <rect key="frame" x="5" y="98" width="380" height="702"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fkU-ZO-fx7"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fkU-ZO-fx7" firstAttribute="trailing" secondItem="TgS-4x-pUt" secondAttribute="trailing" constant="5" id="8QM-CH-vbM"/>
+                            <constraint firstItem="fkU-ZO-fx7" firstAttribute="bottom" secondItem="TgS-4x-pUt" secondAttribute="bottom" constant="10" id="c4w-Pv-dSY"/>
+                            <constraint firstItem="TgS-4x-pUt" firstAttribute="leading" secondItem="fkU-ZO-fx7" secondAttribute="leading" constant="5" id="cqQ-cu-gEO"/>
+                            <constraint firstItem="TgS-4x-pUt" firstAttribute="top" secondItem="fkU-ZO-fx7" secondAttribute="top" constant="10" id="e5k-nQ-wma"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="A15-d0-Hz6"/>
+                    <connections>
+                        <outlet property="textView" destination="TgS-4x-pUt" id="WQW-g3-SDb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cm-oP-Vb7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="-614"/>
+        </scene>
         <!--Search Player Stats-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -66,6 +100,7 @@
                         <outlet property="testButton" destination="Z8g-dC-NQB" id="coc-EC-NCc"/>
                         <outlet property="usernameTextField" destination="wMc-jk-A0i" id="l59-KJ-RVw"/>
                         <segue destination="w9r-u7-KCG" kind="show" identifier="showUserInfo" id="AGr-nY-WXJ"/>
+                        <segue destination="lUL-Na-38K" kind="show" identifier="showAboutPage" id="d2S-N2-ng9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -372,6 +407,9 @@
     <resources>
         <image name="outline_bar_chart_black_24pt" width="24" height="24"/>
         <image name="outline_person_outline_black_24pt" width="24" height="24"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -19,5 +19,11 @@ extension NSMutableAttributedString {
         
         self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
     }
+    
+    func setLink(url: String, stringValue: String) {
+        var range = self.mutableString.range(of: stringValue, options: .caseInsensitive)
+        
+        self.addAttribute(.link, value: url, range: range)
+    }
 
 }

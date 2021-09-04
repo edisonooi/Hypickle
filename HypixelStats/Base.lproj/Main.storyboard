@@ -66,17 +66,23 @@
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="keyboardReturnPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="JgF-Bq-yKs"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8I-yj-sop">
-                                <rect key="frame" x="156.66666666666666" y="449" width="77" height="38"/>
+                                <rect key="frame" x="99.666666666666671" y="459" width="190.66666666666663" height="38"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="17"/>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fEn-M2-jTm"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Error: Invalid username" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLt-Ss-WJh">
-                                <rect key="frame" x="36" y="537" width="318" height="223"/>
+                                <rect key="frame" x="36" y="547" width="318" height="213"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="17"/>
@@ -86,6 +92,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="B8I-yj-sop" firstAttribute="width" secondItem="d4a-ZG-Vhv" secondAttribute="width" multiplier="0.6" id="4yV-bJ-FWr"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DO9-ja-zQ7"/>
                             <constraint firstItem="DLt-Ss-WJh" firstAttribute="top" secondItem="B8I-yj-sop" secondAttribute="bottom" constant="50" id="PFw-hk-m46"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="top" secondItem="d4a-ZG-Vhv" secondAttribute="bottom" constant="10" id="Rly-wc-ALz"/>
@@ -96,7 +103,7 @@
                             <constraint firstItem="DLt-Ss-WJh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="jJ2-cR-nUK"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jWa-Gr-JQz"/>
                             <constraint firstItem="d4a-ZG-Vhv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="qpO-7a-wIN"/>
-                            <constraint firstItem="B8I-yj-sop" firstAttribute="top" secondItem="wMc-jk-A0i" secondAttribute="bottom" constant="10" id="w5R-xG-fTK"/>
+                            <constraint firstItem="B8I-yj-sop" firstAttribute="top" secondItem="wMc-jk-A0i" secondAttribute="bottom" constant="20" id="w5R-xG-fTK"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="width" secondItem="d4a-ZG-Vhv" secondAttribute="width" constant="0.5" id="yPe-84-XaQ"/>
                             <constraint firstItem="B8I-yj-sop" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yXS-kS-tZ0"/>
                         </constraints>

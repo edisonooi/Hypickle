@@ -16,8 +16,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        usernameTextField.layer.cornerRadius = 5
+        usernameTextField.layer.borderWidth = 0.5
+        usernameTextField.layer.borderColor = UIColor.systemGray.cgColor
         usernameTextField.delegate = self
         self.hideKeyboardWhenTappedAround()
+        
+        searchButton.layer.cornerRadius = 8
+        searchButton.layer.borderWidth = 1
+        searchButton.layer.borderColor = UIColor.systemGray.cgColor
         
         navigationController?.navigationBar.tintColor = .label
         
@@ -30,8 +37,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    @IBAction func keyboardReturnPressed(_ sender: Any) {
+        performSearch()
+    }
+    
     @IBAction func searchButtonPressed(_ sender: Any) {
-        
+        performSearch()
+    }
+    
+    @objc func aboutButtonPressed() {
+        performSegue(withIdentifier: "showAboutPage", sender: self)
+    }
+    
+    func performSearch() {
         errorTextView.text = ""
         
         let username = usernameTextField.text!
@@ -76,7 +94,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     if playerData["player"].exists() {
                         MinecraftUser.shared.playerHypixelData = playerData["player"]
                     } else {
-                        //TODO: UI Component that indicates hypixel API failure
                         if let errorMessage = playerData["failure"].string {
                             self.errorTextView.text = errorMessage
                         } else {
@@ -115,7 +132,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 })
                 
             } else {
-                //TODO: UI component that indicates invalid username
                 self.errorTextView.text = "Error: Invalid username"
                 
                 //Remove loading view if invalid user
@@ -125,11 +141,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
-        
-    }
-    
-    @objc func aboutButtonPressed() {
-        performSegue(withIdentifier: "showAboutPage", sender: self)
     }
     
     //Limit text field to 16 characters: longest possible minecraft username
@@ -141,6 +152,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         let newLength = currentCharacterCount + string.count - range.length
         return newLength <= 16
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        usernameTextField.layer.borderColor = UIColor.systemGray.cgColor
+        searchButton.layer.borderColor = UIColor.systemGray.cgColor
     }
     
 }

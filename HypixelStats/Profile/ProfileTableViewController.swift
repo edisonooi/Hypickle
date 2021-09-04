@@ -43,6 +43,8 @@ class ProfileTableViewController: UITableViewController {
         
         var onlineStatus = getOnlineStatus()
         
+        var lastLogout = data["lastLogout"].exists() ? Utils.convertToDateStringFormat(milliseconds: data["lastLogout"].uInt64Value) : "Unknown"
+        
         var generalStats =  [
             
             CellData(headerData: ("Network Level", String(format: "%.2f", getNetworkLevel())), color: UIColor(named: "mc_cyan")!),
@@ -80,7 +82,7 @@ class ProfileTableViewController: UITableViewController {
             var loginHistory = [
                 CellData(headerData: ("First Login", Utils.convertToDateStringFormat(milliseconds: data["firstLogin"].uInt64Value))),
                 CellData(headerData: ("Last Login", Utils.convertToDateStringFormat(milliseconds: data["lastLogin"].uInt64Value))),
-                CellData(headerData: ("Last Logout", Utils.convertToDateStringFormat(milliseconds: data["lastLogout"].uInt64Value))),
+                CellData(headerData: ("Last Logout", lastLogout)),
             ]
             
             ret.append(contentsOf: loginHistory)
@@ -454,6 +456,13 @@ class ProfileTableViewController: UITableViewController {
         
         if !data["firstLogin"].exists() {
             return ("Never logged into Hypixel :(", UIColor(named: "gray_label")!)
+        }
+        
+        //Sometimes last login exists but last logout doesn't, even if the player is online
+        if data["lastLogin"].exists() && !data["lastLogout"].exists() {
+            let lastLogin = Utils.convertToDate(milliseconds: data["lastLogin"].uInt64Value)
+            
+            return ("Offline (Last seen \(lastLogin.timeAgoDisplay()))", .systemRed)
         }
         
         //Sometimes status endpoint doesn't update properly. If the user's last login is more recent than last logout, they must be online

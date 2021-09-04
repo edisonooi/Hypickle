@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2O0-bh-yjM">
-    <device id="retina6_0" orientation="portrait" appearance="dark"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -75,14 +75,25 @@
                                     <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fEn-M2-jTm"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Error: Invalid username" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLt-Ss-WJh">
+                                <rect key="frame" x="36" y="537" width="318" height="223"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DO9-ja-zQ7"/>
+                            <constraint firstItem="DLt-Ss-WJh" firstAttribute="top" secondItem="B8I-yj-sop" secondAttribute="bottom" constant="50" id="PFw-hk-m46"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="top" secondItem="d4a-ZG-Vhv" secondAttribute="bottom" constant="10" id="Rly-wc-ALz"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="DLt-Ss-WJh" secondAttribute="bottom" constant="50" id="bEc-I2-SQh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d4a-ZG-Vhv" secondAttribute="trailing" constant="20" id="cTo-Nm-gYc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DLt-Ss-WJh" secondAttribute="trailing" constant="20" id="cVz-qZ-vGP"/>
                             <constraint firstItem="d4a-ZG-Vhv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hiN-ZU-AAG"/>
+                            <constraint firstItem="DLt-Ss-WJh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="jJ2-cR-nUK"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jWa-Gr-JQz"/>
                             <constraint firstItem="d4a-ZG-Vhv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="qpO-7a-wIN"/>
                             <constraint firstItem="B8I-yj-sop" firstAttribute="top" secondItem="wMc-jk-A0i" secondAttribute="bottom" constant="10" id="w5R-xG-fTK"/>
@@ -94,6 +105,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="kGd-Lv-sya"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="errorTextView" destination="DLt-Ss-WJh" id="SjV-Cl-MAJ"/>
                         <outlet property="searchButton" destination="B8I-yj-sop" id="C0w-uA-kvj"/>
                         <outlet property="usernameTextField" destination="wMc-jk-A0i" id="l59-KJ-RVw"/>
                         <segue destination="w9r-u7-KCG" kind="show" identifier="showUserInfo" id="AGr-nY-WXJ"/>
@@ -151,21 +163,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6O-kM-aJi" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="39" placeholderIntrinsicHeight="21" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-nr-9wu">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="39" placeholderIntrinsicHeight="21" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-nr-9wu">
                                                 <rect key="frame" x="187.66666666666666" y="20" width="39" height="21"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="313" translatesAutoresizingMaskIntoConstraints="NO" id="HOF-Rr-GHs">
-                                                <rect key="frame" x="87" y="61" width="240" height="313"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="313" image="steve_skin" translatesAutoresizingMaskIntoConstraints="NO" id="HOF-Rr-GHs">
+                                                <rect key="frame" x="147" y="61" width="120" height="270"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="270" id="szU-II-gIF"/>
+                                                    <constraint firstAttribute="width" constant="120" id="zib-7q-E2A"/>
+                                                </constraints>
                                             </imageView>
                                             <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="532" translatesAutoresizingMaskIntoConstraints="NO" id="AeB-Kk-knS">
-                                                <rect key="frame" x="0.0" y="394" width="414" height="532"/>
+                                                <rect key="frame" x="0.0" y="351" width="414" height="532"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <segue destination="hAT-br-KNY" kind="embed" identifier="showGamesTable" id="cVC-0D-gVA"/>
@@ -297,21 +313,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECx-92-9KG" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="39" placeholderIntrinsicHeight="21" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjQ-sw-5QW">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="39" placeholderIntrinsicHeight="21" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjQ-sw-5QW">
                                                 <rect key="frame" x="187.66666666666666" y="20" width="39" height="21"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="313" translatesAutoresizingMaskIntoConstraints="NO" id="5h7-FO-Ovf">
-                                                <rect key="frame" x="87" y="61" width="240" height="313"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="313" image="steve_skin" translatesAutoresizingMaskIntoConstraints="NO" id="5h7-FO-Ovf">
+                                                <rect key="frame" x="147" y="61" width="120" height="270"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="MJD-VC-qGM"/>
+                                                    <constraint firstAttribute="height" constant="270" id="d6b-GS-x9b"/>
+                                                </constraints>
                                             </imageView>
                                             <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="532" translatesAutoresizingMaskIntoConstraints="NO" id="Y1M-kw-MvA">
-                                                <rect key="frame" x="0.0" y="394" width="414" height="532"/>
+                                                <rect key="frame" x="0.0" y="351" width="414" height="532"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <segue destination="QGj-Da-GCd" kind="embed" identifier="showProfileTable" id="HRd-SB-q2b"/>
@@ -404,6 +424,7 @@
     <resources>
         <image name="outline_bar_chart_black_24pt" width="24" height="24"/>
         <image name="outline_person_outline_black_24pt" width="24" height="24"/>
+        <image name="steve_skin" width="120" height="270"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -415,6 +436,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

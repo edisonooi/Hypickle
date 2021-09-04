@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var errorTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        errorTextView.text = ""
+    }
+    
     
     @IBAction func searchButtonPressed(_ sender: Any) {
+        
+        errorTextView.text = ""
         
         let username = usernameTextField.text!
         
@@ -70,7 +77,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         MinecraftUser.shared.playerHypixelData = playerData["player"]
                     } else {
                         //TODO: UI Component that indicates hypixel API failure
-                        print("Unable to retrieve data from Hypixel API")
+                        if let errorMessage = playerData["failure"].string {
+                            self.errorTextView.text = errorMessage
+                        } else {
+                            self.errorTextView.text = "Error: Could not retrieve data from Hypixel API"
+                        }
+                        
                         gotHypixelData = false
                     }
                     group.leave()
@@ -104,7 +116,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             } else {
                 //TODO: UI component that indicates invalid username
-                print("Error, invalid username")
+                self.errorTextView.text = "Error: Invalid username"
                 
                 //Remove loading view if invalid user
                 child.willMove(toParent: nil)

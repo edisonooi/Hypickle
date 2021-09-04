@@ -47,7 +47,7 @@ class SkyClashStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Losses", losses)),
             CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions),
+            CellData(headerData: ("Kills", kills), sectionData: killsDivisions),
             CellData(headerData: ("Assists", data["assists"].intValue)),
             CellData(headerData: ("Deaths", deaths)),
             CellData(headerData: ("K/D", kdr))

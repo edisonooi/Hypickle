@@ -43,7 +43,7 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         return [
             CellData(headerData: ("Score", data["score"].intValue)),
             CellData(headerData: ("Title", titleAndColor.0), sectionData: [], color: titleAndColor.1),
-            CellData(headerData: ("Overall Wins (tap for details)", wins), sectionData: winsDivisions),
+            CellData(headerData: ("Overall Wins", wins), sectionData: winsDivisions),
             CellData(headerData: ("Overall Losses", losses)),
             CellData(headerData: ("W/L", wlr)),
             CellData(headerData: ("Total Votes", data["total_votes"].intValue)),

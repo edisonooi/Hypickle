@@ -47,7 +47,7 @@ class HungerGamesStatsManager: NSObject, StatsManager {
         ]
         
         var generalStats = [
-            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions),
+            CellData(headerData: ("Wins", wins), sectionData: winsDivisions),
             CellData(headerData: ("Losses", deaths)),
             CellData(headerData: ("W/L", wlr)),
             CellData(headerData: ("Kills", kills)),

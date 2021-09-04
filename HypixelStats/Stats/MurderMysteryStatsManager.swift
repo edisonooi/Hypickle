@@ -92,11 +92,11 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         
         var generalStats = [
             
-            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winsDivisions),
+            CellData(headerData: ("Wins", wins), sectionData: winsDivisions),
             CellData(headerData: ("Losses", losses)),
             CellData(headerData: ("W/L", wlr)),
             
-            CellData(headerData: ("Kills (tap for details)", kills), sectionData: killsDivisions),
+            CellData(headerData: ("Kills", kills), sectionData: killsDivisions),
             CellData(headerData: ("Deaths", deaths)),
             CellData(headerData: ("K/D", kdr)),
             

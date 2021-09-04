@@ -13,7 +13,7 @@ class AboutViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mainText = "Powered by the Hypixel API.\n\nMade by Doogry.\n\nQuestions or suggestions? Email me at "
+        let mainText = "Powered by the Hypixel API.\n\nMade by Doogry.\n\nQuestions or suggestions? Please email "
         
         let attributes = [
             NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body),

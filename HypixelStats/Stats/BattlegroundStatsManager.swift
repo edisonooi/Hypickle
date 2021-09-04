@@ -48,7 +48,7 @@ class BattlegroundStatsManager: NSObject, StatsManager {
         ]
         
         var generalStats = [
-            CellData(headerData: ("Wins (tap for details)", wins), sectionData: winStats),
+            CellData(headerData: ("Wins", wins), sectionData: winStats),
             CellData(headerData: ("Losses", losses)),
             CellData(headerData: ("W/L", wlr)),
             

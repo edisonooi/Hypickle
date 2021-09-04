@@ -11,7 +11,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var testButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +22,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .done, target: self, action: #selector(aboutButtonPressed))
 
-    }
-
-
-    @IBAction func testButtonPressed(_ sender: Any) {
-        print("Test button pressed")
     }
     
     
@@ -123,7 +117,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func aboutButtonPressed() {
-        print("About")
         performSegue(withIdentifier: "showAboutPage", sender: self)
     }
     

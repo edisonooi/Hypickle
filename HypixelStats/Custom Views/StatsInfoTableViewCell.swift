@@ -32,6 +32,7 @@ class StatsInfoTableViewCell: UITableViewCell {
         self.statValue.textColor = .label
         self.statValue.font = UIFont.boldSystemFont(ofSize: 17)
         self.dropDownIconWidth.constant = 0.0
+        self.backgroundColor = .tertiarySystemBackground
     }
 
     override func awakeFromNib() {

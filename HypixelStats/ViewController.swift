@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Keys
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -70,6 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //Reset status of MinecraftUser singleton so that dirty data is not displayed
         MinecraftUser.shared.isOnline = false
         MinecraftUser.shared.gameType = "-"
+        MinecraftUser.shared.playerHypixelData = [:]
         
         let mojangAPIURL = "https://api.mojang.com/users/profiles/minecraft/\(username)"
 
@@ -81,8 +84,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 MinecraftUser.shared.uuid = id
                 MinecraftUser.shared.skin = "https://crafatar.com/renders/body/\(id)?default=MHF_Steve&overlay=true"
                 
-                let hypixelAPIUrl = "https://api.hypixel.net/player?uuid=\(id)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
-                let hypixelAPIStatusUrl = "https://api.hypixel.net/status?uuid=\(id)&key=4609ba54-b794-4a48-aee5-39bc00edea83"
+                let keys = HypixelStatsKeys()
+                
+                let hypixelAPIUrl = "https://api.hypixel.net/player?uuid=\(id)&key=\(keys.hypixelAPIKey)"
+                let hypixelAPIStatusUrl = "https://api.hypixel.net/status?uuid=\(id)&key=\(keys.hypixelAPIKey)"
                 var gotHypixelData = true
                 
                 let group = DispatchGroup()
@@ -92,7 +97,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 //Get player's general stats
                 APIManager.getJSON(url: hypixelAPIUrl) {playerData in
                     if playerData["player"].exists() {
-                        MinecraftUser.shared.playerHypixelData = playerData["player"]
+                        if playerData["player"] == JSON.null {
+                            self.errorTextView.text = name + " has never played on Hypixel!"
+                            gotHypixelData = false
+                        } else {
+                            MinecraftUser.shared.playerHypixelData = playerData["player"]
+                        }
+                        
                     } else {
                         if let errorMessage = playerData["failure"].string {
                             self.errorTextView.text = errorMessage
@@ -144,15 +155,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     //Limit text field to 16 characters: longest possible minecraft username
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let currentCharacterCount = textField.text?.count ?? 0
-        if range.length + range.location > currentCharacterCount {
-            return false
-        }
-        let newLength = currentCharacterCount + string.count - range.length
-        return newLength <= 16
-    }
+    //This code causes a bug which prevents user from deleting emojis from the text field
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+//        let currentCharacterCount = textField.text?.count ?? 0
+//        if range.length + range.location > currentCharacterCount {
+//            return false
+//        }
+//        let newLength = currentCharacterCount + string.count - range.length
+//        return newLength <= 16
+//    }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         usernameTextField.layer.borderColor = UIColor.systemGray.cgColor

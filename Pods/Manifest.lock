@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (5.4.3)
   - AMScrollingNavbar (5.1.1)
+  - Keys (1.0.1)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - AMScrollingNavbar (~> 5.1.0)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -14,11 +16,16 @@ SPEC REPOS:
     - AMScrollingNavbar
     - SwiftyJSON
 
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AMScrollingNavbar: 128e9e17af3b93f80d6705befe7cc2ae5e8a8435
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 3c1f16a0bfc76801d90af9d2d42d3d599b59a2a9
+PODFILE CHECKSUM: fabc8986cd2b797f893e98e8a8fe99251755a819
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.0

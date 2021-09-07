@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Error: Invalid username" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLt-Ss-WJh">
-                                <rect key="frame" x="36" y="547" width="318" height="213"/>
+                                <rect key="frame" x="36" y="527" width="318" height="233"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <fontDescription key="fontDescription" name="Minecraftia" family="Minecraftia" pointSize="17"/>
@@ -94,7 +94,7 @@
                         <constraints>
                             <constraint firstItem="B8I-yj-sop" firstAttribute="width" secondItem="d4a-ZG-Vhv" secondAttribute="width" multiplier="0.6" id="4yV-bJ-FWr"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DO9-ja-zQ7"/>
-                            <constraint firstItem="DLt-Ss-WJh" firstAttribute="top" secondItem="B8I-yj-sop" secondAttribute="bottom" constant="50" id="PFw-hk-m46"/>
+                            <constraint firstItem="DLt-Ss-WJh" firstAttribute="top" secondItem="B8I-yj-sop" secondAttribute="bottom" constant="30" id="PFw-hk-m46"/>
                             <constraint firstItem="wMc-jk-A0i" firstAttribute="top" secondItem="d4a-ZG-Vhv" secondAttribute="bottom" constant="10" id="Rly-wc-ALz"/>
                             <constraint firstAttribute="bottomMargin" secondItem="DLt-Ss-WJh" secondAttribute="bottom" constant="50" id="bEc-I2-SQh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d4a-ZG-Vhv" secondAttribute="trailing" constant="20" id="cTo-Nm-gYc"/>

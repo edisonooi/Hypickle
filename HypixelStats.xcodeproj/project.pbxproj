@@ -31,8 +31,6 @@
 		4C9D143126DED04B00E6695C /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D143026DED04B00E6695C /* GameTypes.swift */; };
 		4C9D143326DED53E00E6695C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D143226DED53E00E6695C /* DateExtension.swift */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
-		4CB192AC26DD39370077D6AC /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AB26DD39370077D6AC /* PlayerView.swift */; };
-		4CB192AE26DD394B0077D6AC /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB192AD26DD394B0077D6AC /* PlayerView.xib */; };
 		4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AF26DD3E110077D6AC /* RankManager.swift */; };
 		4CB2C05A26E2C15A0073241C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2C05926E2C15A0073241C /* AboutViewController.swift */; };
 		4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC234A726CCA34600D95D38 /* CoinsView.xib */; };
@@ -128,8 +126,6 @@
 		4C9D143026DED04B00E6695C /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
 		4C9D143226DED53E00E6695C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
-		4CB192AB26DD39370077D6AC /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		4CB192AD26DD394B0077D6AC /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		4CB192AF26DD3E110077D6AC /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
 		4CB2C05926E2C15A0073241C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		4CC234A726CCA34600D95D38 /* CoinsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsView.xib; sourceTree = "<group>"; };
@@ -234,8 +230,6 @@
 				4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */,
 				4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */,
 				4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */,
-				4CB192AB26DD39370077D6AC /* PlayerView.swift */,
-				4CB192AD26DD394B0077D6AC /* PlayerView.xib */,
 				4C3574F026E1686A00B86AD0 /* SpinnerViewController.swift */,
 			);
 			path = "Custom Views";
@@ -536,7 +530,6 @@
 				BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */,
 				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
 				4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */,
-				4CB192AE26DD394B0077D6AC /* PlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +679,6 @@
 				4CC234AA26CCAF1400D95D38 /* CoinsView.swift in Sources */,
 				BE8FFE3126B3B0850033A8C2 /* QuakeStatsManager.swift in Sources */,
 				4CF034F726D2DE0E000B91C0 /* GenericHeaderView.swift in Sources */,
-				4CB192AC26DD39370077D6AC /* PlayerView.swift in Sources */,
 				4C31D2CC26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift in Sources */,
 				4C9AAC9026D4582D0058CFA3 /* MinigameHeaderView.swift in Sources */,
 				BE0DBF8026B6157700344E8B /* HungerGamesStatsManager.swift in Sources */,

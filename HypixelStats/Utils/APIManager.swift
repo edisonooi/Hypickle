@@ -13,8 +13,6 @@ class APIManager {
     
     static func getJSON(url: String, completion:@escaping (JSON) -> ()) {
         
-        print(url)
-        
         AF.request(url).responseJSON { response in
             switch response.result {
                 case .success(let value):
@@ -22,9 +20,7 @@ class APIManager {
                         switch httpStatusCode {
                         case 200:
                             let json = JSON(value)
-                            DispatchQueue.main.async {
-                                completion(json)
-                            }
+                            completion(json)
                         case 400:
                             completion(JSON(["failure": "Error: Invalid query, please contact app support"]))
                         case 403:

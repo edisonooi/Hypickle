@@ -13,7 +13,7 @@ class AboutViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mainText = "Powered by the Hypixel API.\n\nMade by Doogry.\n\nQuestions or suggestions? Please email "
+        let mainText = "Powered by the Hypixel API.\n\nQuestions or suggestions? Please email "
         
         let attributes = [
             NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body),
@@ -23,7 +23,6 @@ class AboutViewController: UIViewController, UITextViewDelegate {
         let attributedString = NSMutableAttributedString(string: mainText, attributes: attributes)
         
         attributedString.setLink(url: "https://api.hypixel.net/", stringValue: "Hypixel API")
-        attributedString.setLink(url: "https://hypixel.net/members/doogry.1257405/", stringValue: "Doogry")
         
         textView.attributedText = attributedString
     }

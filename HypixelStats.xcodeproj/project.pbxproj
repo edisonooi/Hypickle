@@ -12,6 +12,7 @@
 		4C31D2CC26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */; };
 		4C3574F126E1686A00B86AD0 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3574F026E1686A00B86AD0 /* SpinnerViewController.swift */; };
 		4C3574F326E171D000B86AD0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3574F226E171D000B86AD0 /* UIViewControllerExtension.swift */; };
+		4C3A50B826E882BB008F9424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE14330D26A0DDA20054E475 /* Assets.xcassets */; };
 		4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C526E4926D94EA900B85E0B /* UILabelExtension.swift */; };
 		4C526E4C26D9537300B85E0B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C526E4B26D9537300B85E0B /* UIImageExtension.swift */; };
 		4C526E5626DC456E00B85E0B /* minecraft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C526E5526DC456E00B85E0B /* minecraft.ttf */; };
@@ -53,7 +54,6 @@
 		BE14330626A0DDA00054E475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14330526A0DDA00054E475 /* ViewController.swift */; };
 		BE14330926A0DDA00054E475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE14330726A0DDA00054E475 /* Main.storyboard */; };
 		BE14330C26A0DDA00054E475 /* HypixelStats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE14330A26A0DDA00054E475 /* HypixelStats.xcdatamodeld */; };
-		BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE14330D26A0DDA20054E475 /* Assets.xcassets */; };
 		BE14331126A0DDA20054E475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE14330F26A0DDA20054E475 /* LaunchScreen.storyboard */; };
 		BE14331C26A0DDA20054E475 /* HypixelStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14331B26A0DDA20054E475 /* HypixelStatsTests.swift */; };
 		BE14332726A0DDA20054E475 /* HypixelStatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14332626A0DDA20054E475 /* HypixelStatsUITests.swift */; };
@@ -527,8 +527,8 @@
 				4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */,
 				BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */,
 				4C526E5626DC456E00B85E0B /* minecraft.ttf in Resources */,
-				BE14330E26A0DDA20054E475 /* Assets.xcassets in Resources */,
 				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
+				4C3A50B826E882BB008F9424 /* Assets.xcassets in Resources */,
 				4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

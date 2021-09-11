@@ -15,10 +15,10 @@ class AboutViewController: UIViewController, UITextViewDelegate {
         
         let completeString = NSMutableAttributedString()
         
-        let mainText = "Powered by the Hypixel API.\n\nQuestions or suggestions? Please email statshypickle@gmail.com\n\n\n\n\n\n"
+        let mainText = "Powered by the Hypixel API.\n\nFor questions, suggestions, or bug reports, please email statshypickle@gmail.com\n\n\n\n\n\n"
         
         let attributionText = "App Icon is a modified version of pickle by Tyler Hanns from thenounproject.com"
-        let affiliationText = "\n\nHypickle is not affiliated with Hypixel."
+        let affiliationText = "\n\nHypickle is not affiliated with Hypixel™. Hypickle is not an official Minecraft product. Not approved by or associated with Mojang."
         
         let attributes = [
             NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body),

@@ -43,6 +43,8 @@ class ProfileTableViewController: UITableViewController {
         
         var onlineStatus = getOnlineStatus()
         
+        var firstLogin = data["firstLogin"].exists() ? Utils.convertToDateStringFormat(milliseconds: data["firstLogin"].uInt64Value) : "Unknown"
+        var lastLogin = data["lastLogin"].exists() ? Utils.convertToDateStringFormat(milliseconds: data["lastLogin"].uInt64Value) : "Unknown"
         var lastLogout = data["lastLogout"].exists() ? Utils.convertToDateStringFormat(milliseconds: data["lastLogout"].uInt64Value) : "Unknown"
         
         var generalStats =  [
@@ -74,19 +76,13 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("Status", onlineStatus.0), color: onlineStatus.1),
             CellData(headerData: ("Game", MinecraftUser.shared.gameType)),
             
+            CellData(headerData: ("First Login", firstLogin)),
+            CellData(headerData: ("Last Login", lastLogin)),
+            CellData(headerData: ("Last Logout", lastLogout))
+            
         ]
         
         ret.append(contentsOf: generalStats)
-        
-        if data["firstLogin"].exists() {
-            var loginHistory = [
-                CellData(headerData: ("First Login", Utils.convertToDateStringFormat(milliseconds: data["firstLogin"].uInt64Value))),
-                CellData(headerData: ("Last Login", Utils.convertToDateStringFormat(milliseconds: data["lastLogin"].uInt64Value))),
-                CellData(headerData: ("Last Logout", lastLogout)),
-            ]
-            
-            ret.append(contentsOf: loginHistory)
-        }
         
         return ret
     }()
@@ -454,7 +450,7 @@ class ProfileTableViewController: UITableViewController {
             return ("Online", .systemGreen)
         }
         
-        if !data["firstLogin"].exists() {
+        if !data["firstLogin"].exists() && !data["lastLogin"].exists() {
             return ("Never logged into Hypixel :(", UIColor(named: "gray_label")!)
         }
         

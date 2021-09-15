@@ -44,7 +44,8 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
         
         let winsDivisions = [
             ("Murderer Wins", data["murderer_wins"].intValue),
-            ("Detective Wins", data["detective_wins"].intValue)
+            ("Detective Wins", data["detective_wins"].intValue),
+            ("Hero Wins", data["was_hero"].intValue)
         ]
         
         let killsDivisions = [
@@ -62,7 +63,8 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
             "knife_skin_chewed_bush" : "Chewed Up Bush",
             "knife_skin_diamond_shovel" : "Only the Best",
             "knife_skin_easter_basket" : "Easter Basket",
-            "knife_skin_feather" : "Feather",
+            "knife_skin_feather" : "Jagged",
+            "knife_skin_jagged" : "Jagged",
             "knife_skin_glistening_melon" : "Glistening Melon",
             "knife_skin_gold_digger" : "Gold Digger",
             "knife_skin_apple" : "Healthy Treat",
@@ -113,7 +115,7 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
            (id: "_MURDER_CLASSIC", name: "Classic"),
            (id: "_MURDER_ASSASSINS", name: "Assassins"),
            (id: "_MURDER_DOUBLE_UP", name: "Double Up"),
-           (id: "_MURDER_INFECTION", name: "Infection v2"),
+           (id: "_MURDER_INFECTION", name: "Infection"),
            (id: "_MURDER_HARDCORE", name: "Hardcore"),
            (id: "_MURDER_SHOWDOWN", name: "Showdown")
         ]

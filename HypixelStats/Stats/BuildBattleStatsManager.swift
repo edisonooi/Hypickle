@@ -27,11 +27,14 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         var wins = data["wins"].intValue
         var gamesPlayed = data["games_played"].intValue
         var losses = gamesPlayed - wins
+        
+        if losses < 0 {
+            losses = 0
+        }
+        
         var wlr = Utils.calculateRatio(numerator: wins, denominator: losses)
         
         var titleAndColor = calculateTitle(score: data["score"].intValue)
-        
-        
         
         let winsDivisions = [
             ("Solo", data["wins_solo_normal"].intValue),
@@ -46,7 +49,7 @@ class BuildBattleStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Overall Wins", wins), sectionData: winsDivisions),
             CellData(headerData: ("Overall Losses", losses)),
             CellData(headerData: ("W/L", wlr)),
-            CellData(headerData: ("Total Votes", data["total_votes"].intValue)),
+            CellData(headerData: ("Total Votes Given", data["total_votes"].intValue)),
             CellData(headerData: ("Correct Guesses", data["correct_guesses"].intValue)),
             CellData(headerData: ("Super Votes", data["super_votes"].intValue)),
         ]

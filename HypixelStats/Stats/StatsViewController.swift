@@ -12,12 +12,10 @@ import AMScrollingNavbar
 class StatsViewController: UIViewController, UIScrollViewDelegate {
 
     var allStatsData: JSON = ["": ""]
-    var gameStats: JSON = [:]
     
     @IBOutlet weak var gameTableContainerView: UIView!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var usernameTextField: UILabel!
-    //@IBOutlet weak var skinImageView: UIImageView!
     @IBOutlet weak var headImageView: UIImageView!
     
     override func viewDidLoad() {

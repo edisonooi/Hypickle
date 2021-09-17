@@ -20,6 +20,8 @@
 		4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */; };
 		4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998F26CB5B890042F1E0 /* StatsManager.swift */; };
 		4C7A725E26F516D700FB562C /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A725D26F516D700FB562C /* AchievementsViewController.swift */; };
+		4C7A726026F53F6E00FB562C /* OneTimeAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A725F26F53F6E00FB562C /* OneTimeAchievement.swift */; };
+		4C7A726226F5421200FB562C /* TieredAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A726126F5421200FB562C /* TieredAchievement.swift */; };
 		4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */; };
 		4C7CC51526C8AAF0006F6EEE /* ArcadeStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */; };
 		4C98565426D855C600FBD2EF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98565326D855C600FBD2EF /* UIColorExtension.swift */; };
@@ -117,6 +119,8 @@
 		4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesTableViewCell.xib; sourceTree = "<group>"; };
 		4C54998F26CB5B890042F1E0 /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
 		4C7A725D26F516D700FB562C /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		4C7A725F26F53F6E00FB562C /* OneTimeAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeAchievement.swift; sourceTree = "<group>"; };
+		4C7A726126F5421200FB562C /* TieredAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TieredAchievement.swift; sourceTree = "<group>"; };
 		4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedwarsStatsManager.swift; sourceTree = "<group>"; };
 		4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeStatsManager.swift; sourceTree = "<group>"; };
 		4C98565326D855C600FBD2EF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				BE14333B26A0EDFF0054E475 /* MinecraftUser.swift */,
 				BEDAAF3F26BE38BB002592A1 /* GamesTable.swift */,
 				BEAFEC0026AA11E000349728 /* CellData.swift */,
+				4C7A725F26F53F6E00FB562C /* OneTimeAchievement.swift */,
+				4C7A726126F5421200FB562C /* TieredAchievement.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				BE8ACD9926A277F90063ECB1 /* StatsViewController.swift */,
+				BE10348D26A5EF9B00153FBE /* GamesTableController.swift */,
 				BE667DBF26A76C4700325338 /* GenericStatsViewController.swift */,
 				4C54998F26CB5B890042F1E0 /* StatsManager.swift */,
 				4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */,
@@ -364,13 +371,12 @@
 				BE14330126A0DDA00054E475 /* AppDelegate.swift */,
 				BE14330326A0DDA00054E475 /* SceneDelegate.swift */,
 				BE14330726A0DDA00054E475 /* Main.storyboard */,
+				BE14330526A0DDA00054E475 /* ViewController.swift */,
+				4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */,
 				BE14330D26A0DDA20054E475 /* Assets.xcassets */,
 				BE14330F26A0DDA20054E475 /* LaunchScreen.storyboard */,
 				BE14331226A0DDA20054E475 /* Info.plist */,
 				BE14330A26A0DDA00054E475 /* HypixelStats.xcdatamodeld */,
-				BE14330526A0DDA00054E475 /* ViewController.swift */,
-				4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */,
-				BE10348D26A5EF9B00153FBE /* GamesTableController.swift */,
 				4C020A7E26CECA3600732E71 /* HidingUINavigationController.swift */,
 				4CB2C05926E2C15A0073241C /* AboutViewController.swift */,
 			);
@@ -721,8 +727,10 @@
 				4C3574F126E1686A00B86AD0 /* SpinnerViewController.swift in Sources */,
 				4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */,
 				BEDAAF4026BE38BB002592A1 /* GamesTable.swift in Sources */,
+				4C7A726226F5421200FB562C /* TieredAchievement.swift in Sources */,
 				BE0DBF7E26B5F26800344E8B /* SuperSmashStatsManager.swift in Sources */,
 				BE59FAF326B7294F000F7799 /* StringExtension.swift in Sources */,
+				4C7A726026F53F6E00FB562C /* OneTimeAchievement.swift in Sources */,
 				4C526E4C26D9537300B85E0B /* UIImageExtension.swift in Sources */,
 				4CCF9C0B26CA1292004BDF5E /* TrueCombatStatsManager.swift in Sources */,
 				BE667DC026A76C4700325338 /* GenericStatsViewController.swift in Sources */,

@@ -12,7 +12,6 @@ class MinecraftUser {
     
     var username: String = ""
     var uuid: String = ""
-    var skin: String = ""
     var playerHypixelData: JSON = [:]
     var isOnline: Bool = false
     var gameType: String = "-"

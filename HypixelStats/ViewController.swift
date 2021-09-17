@@ -82,7 +82,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if let name = jsonData["name"].string, let id = jsonData["id"].string {
                 MinecraftUser.shared.username = name
                 MinecraftUser.shared.uuid = id
-                MinecraftUser.shared.skin = "https://crafatar.com/renders/body/\(id)?default=MHF_Steve&overlay=true"
                 
                 let keys = HypixelStatsKeys()
                 

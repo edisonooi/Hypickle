@@ -31,11 +31,9 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
         
         mainScrollView.delegate = self
         
-//        if MinecraftUser.shared.skin != "" {
-//            downloadSkinImage(from: URL(string: MinecraftUser.shared.skin)!)
-//        }
-        
-        downloadHeadImage(from: URL(string: "https://crafatar.com/avatars/\(MinecraftUser.shared.uuid)")!)
+        if MinecraftUser.shared.uuid != "" {
+            downloadHeadImage(uuid: MinecraftUser.shared.uuid)
+        }
         
     }
     
@@ -85,11 +83,10 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func downloadHeadImage(from url: URL) {
+    func downloadHeadImage(uuid: String) {
 
-        APIManager.getData(from: url) { data, response, error in
+        APIManager.getHeadFromUUID(uuid: uuid) { data, response, error in
             guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
 
             // always update the UI from the main thread
             DispatchQueue.main.async() { [weak self] in

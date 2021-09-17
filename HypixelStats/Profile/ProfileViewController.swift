@@ -29,8 +29,8 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         
         mainScrollView.delegate = self
         
-        if MinecraftUser.shared.skin != "" {
-            downloadSkinImage(from: URL(string: MinecraftUser.shared.skin)!)
+        if MinecraftUser.shared.uuid != "" {
+            downloadSkinImage(uuid: MinecraftUser.shared.uuid)
         }
     }
     
@@ -80,11 +80,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func downloadSkinImage(from url: URL) {
+    func downloadSkinImage(uuid: String) {
         
-        APIManager.getData(from: url) { data, response, error in
+        APIManager.getSkinFromUUID(uuid: uuid) { data, response, error in
             guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
             
             // always update the UI from the main thread
             DispatchQueue.main.async() { [weak self] in

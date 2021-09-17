@@ -17,7 +17,8 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var gameTableContainerView: UIView!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var usernameTextField: UILabel!
-    @IBOutlet weak var skinImageView: UIImageView!
+    //@IBOutlet weak var skinImageView: UIImageView!
+    @IBOutlet weak var headImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +31,12 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
         
         mainScrollView.delegate = self
         
-        if MinecraftUser.shared.skin != "" {
-            downloadSkinImage(from: URL(string: MinecraftUser.shared.skin)!)
-        }
+//        if MinecraftUser.shared.skin != "" {
+//            downloadSkinImage(from: URL(string: MinecraftUser.shared.skin)!)
+//        }
+        
+        downloadHeadImage(from: URL(string: "https://crafatar.com/avatars/\(MinecraftUser.shared.uuid)")!)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,15 +85,15 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func downloadSkinImage(from url: URL) {
-        
+    func downloadHeadImage(from url: URL) {
+
         APIManager.getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
-            
+
             // always update the UI from the main thread
             DispatchQueue.main.async() { [weak self] in
-                self?.skinImageView.image = UIImage(data: data)
+                self?.headImageView.image = UIImage(data: data)
             }
         }
     }

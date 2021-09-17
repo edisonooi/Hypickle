@@ -19,6 +19,7 @@
 		4C54998926CAD1B60042F1E0 /* GamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */; };
 		4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */; };
 		4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54998F26CB5B890042F1E0 /* StatsManager.swift */; };
+		4C7A725E26F516D700FB562C /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A725D26F516D700FB562C /* AchievementsViewController.swift */; };
 		4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */; };
 		4C7CC51526C8AAF0006F6EEE /* ArcadeStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */; };
 		4C98565426D855C600FBD2EF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98565326D855C600FBD2EF /* UIColorExtension.swift */; };
@@ -115,6 +116,7 @@
 		4C54998726CAD1B60042F1E0 /* GamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewCell.swift; sourceTree = "<group>"; };
 		4C54998826CAD1B60042F1E0 /* GamesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesTableViewCell.xib; sourceTree = "<group>"; };
 		4C54998F26CB5B890042F1E0 /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
+		4C7A725D26F516D700FB562C /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		4C7CC51226C86F8A006F6EEE /* BedwarsStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedwarsStatsManager.swift; sourceTree = "<group>"; };
 		4C7CC51426C8AAF0006F6EEE /* ArcadeStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeStatsManager.swift; sourceTree = "<group>"; };
 		4C98565326D855C600FBD2EF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -263,6 +265,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4C7A725C26F5169800FB562C /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				4C7A725D26F516D700FB562C /* AchievementsViewController.swift */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
 		4C9D142726DD7A9000E6695C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +353,7 @@
 		BE14330026A0DDA00054E475 /* HypixelStats */ = {
 			isa = PBXGroup;
 			children = (
+				4C7A725C26F5169800FB562C /* Achievements */,
 				4C9D142726DD7A9000E6695C /* Profile */,
 				4C526E5426DC455600B85E0B /* Fonts */,
 				BE59FAF126B72940000F7799 /* Extensions */,
@@ -662,6 +673,7 @@
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
 				4C7CC51526C8AAF0006F6EEE /* ArcadeStatsManager.swift in Sources */,
 				4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */,
+				4C7A725E26F516D700FB562C /* AchievementsViewController.swift in Sources */,
 				BE9BE1B026BB0B7300463ED4 /* DuelsStatsManager.swift in Sources */,
 				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
 				4CCF9C0726C9EA2A004BDF5E /* PitStatsManager.swift in Sources */,

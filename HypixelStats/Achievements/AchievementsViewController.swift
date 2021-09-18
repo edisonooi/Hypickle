@@ -65,6 +65,20 @@ class AchievementsViewController: UIViewController, UIScrollViewDelegate {
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showAchievementsTable" {
+            let achievementsTableVC = segue.destination as! AchievementsTableViewController
+            
+            achievementsTableVC.view.translatesAutoresizingMaskIntoConstraints = false
+            
+            //Initializing stuff here because apparently this is the first method that gets called
+            self.allStatsData = MinecraftUser.shared.playerHypixelData
+            
+            achievementsTableVC.data = self.allStatsData
+        }
+    }
+    
     func downloadHeadImage(uuid: String) {
 
         APIManager.getHeadFromUUID(uuid: uuid) { data, response, error in

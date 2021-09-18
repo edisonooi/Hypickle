@@ -452,6 +452,9 @@
                                             <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="532" translatesAutoresizingMaskIntoConstraints="NO" id="XkB-2D-bGf">
                                                 <rect key="frame" x="0.0" y="201" width="414" height="532"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <segue destination="ho9-cM-J7O" kind="embed" identifier="showAchievementsTable" id="kPV-mB-EV9"/>
+                                                </connections>
                                             </containerView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steve_head" translatesAutoresizingMaskIntoConstraints="NO" id="NQu-fK-1J4">
                                                 <rect key="frame" x="147" y="61" width="120" height="120"/>
@@ -521,6 +524,27 @@
             </objects>
             <point key="canvasLocation" x="2267" y="464"/>
         </scene>
+        <!--Achievements Table View Controller-->
+        <scene sceneID="IL2-qk-MQl">
+            <objects>
+                <tableViewController id="ho9-cM-J7O" customClass="AchievementsTableViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YbI-xE-pfP" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="ho9-cM-J7O" id="n8Y-dr-ngL"/>
+                            <outlet property="delegate" destination="ho9-cM-J7O" id="k5p-8D-KgM"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="achievementsTable" destination="YbI-xE-pfP" id="zrT-m6-Hia"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1OT-52-b4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3196" y="464"/>
+        </scene>
     </scenes>
     <resources>
         <image name="outline_bar_chart_black_24pt" width="24" height="24"/>
@@ -536,6 +560,9 @@
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

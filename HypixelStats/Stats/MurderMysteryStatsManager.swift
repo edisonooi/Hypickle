@@ -12,9 +12,11 @@ import SwiftyJSON
 class MurderMysteryStatsManager: NSObject, StatsManager {
     
     var data: JSON = [:]
+    var achievementsData: JSON = [:]
     
-    init(data: JSON) {
+    init(data: JSON, achievementsData: JSON) {
         self.data = data
+        self.achievementsData = achievementsData
     }
     
     let headers = [
@@ -137,9 +139,10 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
             var statsForThisMode: [(String, Any)] = []
             
             if mode.id == "_MURDER_INFECTION" {
-                var infectionDesiredStats = ["Wins", "Kills as Infected", "Kills as Survivor", "Final Kills", "Total Time Survived", "Gold Pickups"]
+                var infectionDesiredStats = ["Wins", "Wins as Survivor", "Kills as Infected", "Kills as Survivor", "Final Kills", "Total Time Survived", "Gold Pickups"]
                 
                 var wins = data["wins" + mode.id].intValue
+                var survivorWins = achievementsData["murdermystery_survival_skills"].intValue
                 
                 var killsAsInfected = data["kills_as_infected" + mode.id].intValue
                 var killsAsSurvivor = data["kills_as_survivor" + mode.id].intValue
@@ -149,7 +152,7 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
                 
                 var infectionGoldPickups = data["coins_pickedup" + mode.id].intValue
                 
-                var infectionData = [wins, killsAsInfected, killsAsSurvivor, finalKills, timeSurvived, infectionGoldPickups] as [Any]
+                var infectionData = [wins, survivorWins, killsAsInfected, killsAsSurvivor, finalKills, timeSurvived, infectionGoldPickups] as [Any]
                 
                 for (index, category) in infectionDesiredStats.enumerated() {
                     statsForThisMode.append((category, infectionData[index]))

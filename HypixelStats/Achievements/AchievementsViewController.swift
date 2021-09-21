@@ -32,6 +32,11 @@ class AchievementsViewController: UIViewController, UIScrollViewDelegate {
         if MinecraftUser.shared.uuid != "" {
             downloadHeadImage(uuid: MinecraftUser.shared.uuid)
         }
+        
+        print(GlobalAchievementList.totalAchievementPoints)
+        print(GlobalAchievementList.totalAchievementCount)
+        print(GlobalAchievementList.totalLegacyPoints)
+        print(GlobalAchievementList.totalLegacyCount)
     }
     
     override func viewWillAppear(_ animated: Bool) {

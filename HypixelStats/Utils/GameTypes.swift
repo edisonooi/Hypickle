@@ -60,5 +60,42 @@ class GameTypes {
         "SkyClash": "SkyClash"
     ]
     
+    static let achievementGameIDs: [String] = [
+        "arcade",
+        "arena",
+        "bedwars",
+        "blitz",
+        "buildbattle",
+        "copsandcrims",
+        "duels",
+        "walls3",
+        "murdermystery",
+        "paintball",
+        "pit",
+        "quake",
+        "skyblock",
+        "skywars",
+        "supersmash",
+        "speeduhc",
+        "tntgames",
+        "gingerbread",
+        "uhc",
+        "vampirez",
+        "walls",
+        "warlords",
+        
+        
+        "general",
+        "housing",
+        
+        "christmas2017",
+        "easter",
+        "halloween2017",
+        "summer",
+        
+        "truecombat",
+        "skyclash"
+    ]
+    
     
 }

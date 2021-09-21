@@ -15,8 +15,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var errorTextView: UITextView!
     
+    let group = DispatchGroup()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("ROOT VIEW LOADED")
         
         usernameTextField.layer.cornerRadius = 5
         usernameTextField.layer.borderWidth = 0.5
@@ -31,6 +35,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         navigationController?.navigationBar.tintColor = .label
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .done, target: self, action: #selector(aboutButtonPressed))
+        
+        initializeAchievementList()
 
     }
     
@@ -89,9 +95,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 let hypixelAPIStatusUrl = "https://api.hypixel.net/status?uuid=\(id)&key=\(keys.hypixelAPIKey)"
                 var gotHypixelData = true
                 
-                let group = DispatchGroup()
-                group.enter()
-                group.enter()
+                
+                self.group.enter()
+                self.group.enter()
                 
                 //Get player's general stats
                 APIManager.getJSON(url: hypixelAPIUrl) {playerData in
@@ -112,7 +118,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         
                         gotHypixelData = false
                     }
-                    group.leave()
+                    self.group.leave()
                 }
                 
                 //Get player's online status (separate endpoint)
@@ -126,11 +132,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     } else {
                         print("Error getting online status")
                     }
-                    group.leave()
+                    self.group.leave()
                     
                 }
                 
-                group.notify(queue: .main, execute: {
+                self.group.notify(queue: .main, execute: {
                     //Remove loading view upon completion of Hypixel API calls
                     child.willMove(toParent: nil)
                     child.view.removeFromSuperview()
@@ -164,6 +170,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        let newLength = currentCharacterCount + string.count - range.length
 //        return newLength <= 16
 //    }
+    
+    func initializeAchievementList() {
+        self.group.enter()
+        
+        APIManager.getJSON(url: "https://api.hypixel.net/resources/achievements") {json in
+            if(json["success"].boolValue) {
+                GlobalAchievementList.initializeGlobalList(data: json["achievements"])
+            }
+            
+            self.group.leave()
+        }
+    }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         usernameTextField.layer.borderColor = UIColor.systemGray.cgColor

@@ -123,10 +123,26 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="zlp-fg-ghh">
+            <objects>
+                <viewController id="Ryp-0Y-1kD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wi2-8k-VVZ">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8wC-8Y-k1p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ayN-Kf-0P8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1579" y="117"/>
+        </scene>
         <!--Scrolling Navigation Controller-->
         <scene sceneID="RZh-RT-m0X">
             <objects>
                 <navigationController id="2O0-bh-yjM" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pb8-CK-KV9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5L8-8w-PAF">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

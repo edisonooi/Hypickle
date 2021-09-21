@@ -18,11 +18,13 @@ class TieredAchievement {
     
     var name: String
     var description: String
+    var legacy: Bool
     var tiers: [AchievementTier] = []
     
-    init(name: String, description: String, tiers: JSON) {
+    init(name: String, description: String, tiers: JSON, legacy: Bool = false) {
         self.name = name
-        self.description = description.replacingOccurrences(of: "\\u0027", with: "'")
+        self.description = description
+        self.legacy = legacy
         
         for (_, subJSON):(String, JSON) in tiers {
             self.tiers.append(AchievementTier(

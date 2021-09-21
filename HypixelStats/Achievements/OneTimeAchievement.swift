@@ -15,13 +15,15 @@ class OneTimeAchievement {
     var points: Int
     var gamePercentUnlocked: Double
     var globalPercentUnlocked: Double
+    var legacy: Bool
     
-    init(name: String, description: String, points: Int, gamePercentUnlocked: Double = 0.0, globalPercentUnlocked: Double) {
+    init(name: String, description: String, points: Int, gamePercentUnlocked: Double = 0.0, globalPercentUnlocked: Double, legacy: Bool = false) {
         self.name = name
-        self.description = description.replacingOccurrences(of: "\\u0027", with: "'")
+        self.description = description
         self.points = points
         self.gamePercentUnlocked = gamePercentUnlocked
         self.globalPercentUnlocked = globalPercentUnlocked
+        self.legacy = legacy
     }
     
 }

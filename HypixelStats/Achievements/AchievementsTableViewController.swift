@@ -10,18 +10,58 @@ import SwiftyJSON
 
 class AchievementsTableViewController: UITableViewController {
     
-    var data: JSON = [:]
+    //var data: JSON = [:]
+    var allCompletedAchievements: [String: CompletedAchievementGroup] = [:]
 
     @IBOutlet var achievementsTable: NonScrollingTable!
     
+    let achievementCategories = [
+        [
+            "general",
+            "housing"
+        ],
+        [
+            "arcade",
+            "arena",
+            "bedwars",
+            "blitz",
+            "buildbattle",
+            "copsandcrims",
+            "duels",
+            "walls3",
+            "murdermystery",
+            "paintball",
+            "pit",
+            "quake",
+            "skyblock",
+            "skywars",
+            "supersmash",
+            "speeduhc",
+            "tntgames",
+            "gingerbread",
+            "uhc",
+            "vampirez",
+            "walls",
+            "warlords"
+        ],
+        [
+            "christmas2017",
+            "easter",
+            "halloween2017",
+            "summer"
+        ],
+        [
+            "truecombat",
+            "skyclash"
+        ]
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        allCompletedAchievements = AchievementsManager.getCompletedAchievements(data: MinecraftUser.shared.playerHypixelData)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     // MARK: - Table view data source
@@ -34,6 +74,22 @@ class AchievementsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
+    }
+    
+    func getTotalCompletionsAndPoints() -> (completions: Int, points: Int, legacyCompletions: Int, legacyPoints: Int) {
+        var completions = 0
+        var points = 0
+        var legacyCompletions = 0
+        var legacyPoints = 0
+        
+        for (_, group) in allCompletedAchievements {
+            completions += group.completedCount
+            points += group.completedPoints
+            legacyCompletions += group.legacyCompletedCount
+            legacyPoints += group.legacyCompletedPoints
+        }
+        
+        return (completions: completions, points: points, legacyCompletions: legacyCompletions, legacyPoints: legacyPoints)
     }
     
     

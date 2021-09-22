@@ -11,6 +11,8 @@ import SwiftyJSON
 //All of the achievements for a particular gamemode
 struct AchievementGroup {
     var gameID: String
+    var totalCount: Int
+    var totalPoints: Int
     var oneTimeAchievements: [String: OneTimeAchievement]
     var tieredAchievements: [String: TieredAchievement]
 }
@@ -26,13 +28,18 @@ class GlobalAchievementList {
     
     
     static func initializeGlobalList(data: JSON) {
+        //Reset everything in case function is called again
         GlobalAchievementList.globalList.removeAll()
         totalAchievementCount = 0
         totalAchievementPoints = 0
+        totalLegacyCount = 0
+        totalLegacyPoints = 0
         
         
         for(key, value):(String, JSON) in data {
             let gameID = key
+            var points = 0
+            var count = 0
             
             var oneTimes: [String: OneTimeAchievement] = [:]
             for(name, achievement):(String, JSON) in value["one_time"] {
@@ -43,7 +50,10 @@ class GlobalAchievementList {
                                                             globalPercentUnlocked: achievement["globalPercentUnlocked"].doubleValue,
                                                             legacy: achievement["legacy"].boolValue)
                 
-                if !oneTimeAchievement.legacy {
+                points += oneTimeAchievement.points
+                count += 1
+                
+                if !oneTimeAchievement.isLegacy {
                     totalAchievementCount += 1
                     totalAchievementPoints += oneTimeAchievement.points
                 } else {
@@ -63,7 +73,10 @@ class GlobalAchievementList {
                 
                 
                 for tier in tieredAchievement.tiers {
-                    if !tieredAchievement.legacy {
+                    points += tier.points
+                    count += 1
+                    
+                    if !tieredAchievement.isLegacy {
                         totalAchievementPoints += tier.points
                         totalAchievementCount += 1
                     } else {
@@ -77,7 +90,7 @@ class GlobalAchievementList {
                 tiered[name] = tieredAchievement
             }
             
-            GlobalAchievementList.globalList[gameID] = AchievementGroup(gameID: gameID, oneTimeAchievements: oneTimes, tieredAchievements: tiered)
+            GlobalAchievementList.globalList[gameID] = AchievementGroup(gameID: gameID, totalCount: count, totalPoints: points, oneTimeAchievements: oneTimes, tieredAchievements: tiered)
         }
         
         

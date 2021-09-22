@@ -60,41 +60,40 @@ class GameTypes {
         "SkyClash": "SkyClash"
     ]
     
-    static let achievementGameIDs: [String] = [
-        "arcade",
-        "arena",
-        "bedwars",
-        "blitz",
-        "buildbattle",
-        "copsandcrims",
-        "duels",
-        "walls3",
-        "murdermystery",
-        "paintball",
-        "pit",
-        "quake",
-        "skyblock",
-        "skywars",
-        "supersmash",
-        "speeduhc",
-        "tntgames",
-        "gingerbread",
-        "uhc",
-        "vampirez",
-        "walls",
-        "warlords",
+    static let achievementGameIDToCleanName: [String: String] = [
+        "general": "General",
+        "housing": "Housing",
         
+        "arcade": "Arcade",
+        "arena": "Arena Brawl",
+        "bedwars": "Bedwars",
+        "blitz": "Blitz Survival Games",
+        "buildbattle": "Build Battle",
+        "copsandcrims": "Cops and Crims",
+        "duels": "Duels",
+        "walls3": "Mega Walls",
+        "murdermystery": "Murder Mystery",
+        "paintball": "Paintball",
+        "pit": "Pit",
+        "quake": "QuakeCraft",
+        "skyblock": "SkyBlock",
+        "skywars": "SkyWars",
+        "supersmash": "Smash Heroes",
+        "speeduhc": "Speed UHC",
+        "tntgames": "TNT Games",
+        "gingerbread": "Turbo Kart Racers",
+        "uhc": "UHC Champions",
+        "vampirez": "VampireZ",
+        "walls": "Walls",
+        "warlords": "Warlords",
         
-        "general",
-        "housing",
+        "christmas2017": "Christmas",
+        "easter": "Easter",
+        "halloween2017": "Halloween",
+        "summer": "Summer",
         
-        "christmas2017",
-        "easter",
-        "halloween2017",
-        "summer",
-        
-        "truecombat",
-        "skyclash"
+        "truecombat": "Crazy Walls",
+        "skyclash": "SkyClash"
     ]
     
     

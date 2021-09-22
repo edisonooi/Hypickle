@@ -35,6 +35,7 @@
 		4C9D143126DED04B00E6695C /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D143026DED04B00E6695C /* GameTypes.swift */; };
 		4C9D143326DED53E00E6695C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D143226DED53E00E6695C /* DateExtension.swift */; };
 		4CA3E03726FA3FF800209314 /* GlobalAchievementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */; };
+		4CA3E03926FAEA9400209314 /* AchievementsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3E03826FAEA9400209314 /* AchievementsManager.swift */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
 		4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AF26DD3E110077D6AC /* RankManager.swift */; };
 		4CB2C05A26E2C15A0073241C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2C05926E2C15A0073241C /* AboutViewController.swift */; };
@@ -136,6 +137,7 @@
 		4C9D143026DED04B00E6695C /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
 		4C9D143226DED53E00E6695C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAchievementList.swift; sourceTree = "<group>"; };
+		4CA3E03826FAEA9400209314 /* AchievementsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsManager.swift; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
 		4CB192AF26DD3E110077D6AC /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
 		4CB2C05926E2C15A0073241C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			children = (
 				4C7A725D26F516D700FB562C /* AchievementsViewController.swift */,
 				4C7A726326F5484300FB562C /* AchievementsTableViewController.swift */,
+				4CA3E03826FAEA9400209314 /* AchievementsManager.swift */,
 				4C7A725F26F53F6E00FB562C /* OneTimeAchievement.swift */,
 				4C7A726126F5421200FB562C /* TieredAchievement.swift */,
 				4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */,
@@ -711,6 +714,7 @@
 				4C9D142D26DDFA5000E6695C /* DoubleExtension.swift in Sources */,
 				BE667DC226A77E5700325338 /* PaintballStatsManager.swift in Sources */,
 				BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */,
+				4CA3E03926FAEA9400209314 /* AchievementsManager.swift in Sources */,
 				4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */,
 				BEC6822A26BCD15F0042D947 /* Walls3StatsManager.swift in Sources */,
 				4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */,

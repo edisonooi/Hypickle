@@ -10,7 +10,7 @@ import SwiftyJSON
 
 class GamesTableController: UITableViewController {
 
-    var data: JSON = [:]
+    let data: JSON = MinecraftUser.shared.playerHypixelData
     var selectedGame = ""
 
     let gameList = [

@@ -11,7 +11,7 @@ import AMScrollingNavbar
 
 class AchievementsViewController: UIViewController, UIScrollViewDelegate {
 
-    var allStatsData: JSON = [:]
+    var allStatsData: JSON = MinecraftUser.shared.playerHypixelData
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var headImageView: UIImageView!
@@ -33,10 +33,6 @@ class AchievementsViewController: UIViewController, UIScrollViewDelegate {
             downloadHeadImage(uuid: MinecraftUser.shared.uuid)
         }
         
-        print(GlobalAchievementList.totalAchievementPoints)
-        print(GlobalAchievementList.totalAchievementCount)
-        print(GlobalAchievementList.totalLegacyPoints)
-        print(GlobalAchievementList.totalLegacyCount)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,9 +74,7 @@ class AchievementsViewController: UIViewController, UIScrollViewDelegate {
             achievementsTableVC.view.translatesAutoresizingMaskIntoConstraints = false
             
             //Initializing stuff here because apparently this is the first method that gets called
-            self.allStatsData = MinecraftUser.shared.playerHypixelData
             
-            //achievementsTableVC.data = self.allStatsData
         }
     }
     

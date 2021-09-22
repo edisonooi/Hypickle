@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class ProfileTableViewController: UITableViewController {
     
-    var data: JSON = [:]
+    let data: JSON = MinecraftUser.shared.playerHypixelData
     
     var hasNameHistory: Bool = true
     var hasRankHistory: Bool = true

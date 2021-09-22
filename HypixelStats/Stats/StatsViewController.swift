@@ -11,7 +11,7 @@ import AMScrollingNavbar
 
 class StatsViewController: UIViewController, UIScrollViewDelegate {
 
-    var allStatsData: JSON = ["": ""]
+    let allStatsData: JSON = MinecraftUser.shared.playerHypixelData
     
     @IBOutlet weak var gameTableContainerView: UIView!
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -75,9 +75,8 @@ class StatsViewController: UIViewController, UIScrollViewDelegate {
             gamesTableVC.view.translatesAutoresizingMaskIntoConstraints = false
             
             //Initializing stuff here because apparently this is the first method that gets called
-            self.allStatsData = MinecraftUser.shared.playerHypixelData
             
-            gamesTableVC.data = self.allStatsData
+            
         }
     }
     

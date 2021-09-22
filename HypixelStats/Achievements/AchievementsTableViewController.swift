@@ -60,6 +60,12 @@ class AchievementsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         allCompletedAchievements = AchievementsManager.getCompletedAchievements(data: MinecraftUser.shared.playerHypixelData)
+        
+        var bruh = getTotalCompletionsAndPoints()
+        print(bruh.completions)
+        print(bruh.points)
+        print(bruh.legacyCompletions)
+        print(bruh.legacyPoints)
 
         
     }

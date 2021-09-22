@@ -80,7 +80,7 @@ class AchievementsViewController: UIViewController, UIScrollViewDelegate {
             //Initializing stuff here because apparently this is the first method that gets called
             self.allStatsData = MinecraftUser.shared.playerHypixelData
             
-            achievementsTableVC.data = self.allStatsData
+            //achievementsTableVC.data = self.allStatsData
         }
     }
     

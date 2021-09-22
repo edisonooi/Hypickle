@@ -28,7 +28,12 @@ class AchievementsManager {
         let oneTimesCompletedArray = data["achievementsOneTime"].arrayValue.map { $0.stringValue }
         let allOneTimesCompleted: Set = Set(oneTimesCompletedArray)
         
-        let tieredCompletions = data["achievements"].dictionaryValue as! [String: Int]
+        let tieredCompletionsDictionary = data["achievements"].dictionaryValue
+        var tieredCompletions: [String: Int] = [:]
+        
+        for (name, amount) in tieredCompletionsDictionary {
+            tieredCompletions[name] = amount.intValue
+        }
         
         for (gameID, _) in GameTypes.achievementGameIDToCleanName {
             var oneTimesCompleted: [String] = []

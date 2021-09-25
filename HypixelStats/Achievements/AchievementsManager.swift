@@ -48,7 +48,7 @@ class AchievementsManager {
             var legacyCount = 0
             var legacyPoints = 0
             
-            if let group = GlobalAchievementList.globalList[gameID] {
+            if let group = GlobalAchievementList.shared.globalList[gameID] {
                 for (name, achievement) in group.oneTimeAchievements {
                     if allOneTimesCompleted.contains(gameID + "_" + name.lowercased()) {
                         if achievement.isLegacy {

@@ -18,18 +18,20 @@ struct AchievementGroup {
 }
 
 class GlobalAchievementList {
-    static var globalList: [String: AchievementGroup] = [:]
+    static let shared = GlobalAchievementList()
     
-    static var totalAchievementCount = 0
-    static var totalAchievementPoints = 0
+    var globalList: [String: AchievementGroup] = [:]
     
-    static var totalLegacyCount = 0
-    static var totalLegacyPoints = 0
+    var totalAchievementCount = 0
+    var totalAchievementPoints = 0
+    
+    var totalLegacyCount = 0
+    var totalLegacyPoints = 0
     
     
-    static func initializeGlobalList(data: JSON) {
+    func initializeGlobalList(data: JSON) {
         //Reset everything in case function is called again
-        GlobalAchievementList.globalList.removeAll()
+        globalList.removeAll()
         totalAchievementCount = 0
         totalAchievementPoints = 0
         totalLegacyCount = 0
@@ -90,7 +92,7 @@ class GlobalAchievementList {
                 tiered[name] = tieredAchievement
             }
             
-            GlobalAchievementList.globalList[gameID] = AchievementGroup(gameID: gameID, totalCount: count, totalPoints: points, oneTimeAchievements: oneTimes, tieredAchievements: tiered)
+            globalList[gameID] = AchievementGroup(gameID: gameID, totalCount: count, totalPoints: points, oneTimeAchievements: oneTimes, tieredAchievements: tiered)
         }
         
         

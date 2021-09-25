@@ -176,7 +176,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         APIManager.getJSON(url: "https://api.hypixel.net/resources/achievements") {json in
             if(json["success"].boolValue) {
-                GlobalAchievementList.initializeGlobalList(data: json["achievements"])
+                GlobalAchievementList.shared.initializeGlobalList(data: json["achievements"])
             }
             
             self.group.leave()

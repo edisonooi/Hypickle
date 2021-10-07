@@ -18,15 +18,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klF-Xg-OEm">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klF-Xg-OEm">
                         <rect key="frame" x="16" y="12" width="41.5" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="soE-Ym-aaT">
-                        <rect key="frame" x="243.5" y="12" width="44.5" height="20"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="soE-Ym-aaT">
+                        <rect key="frame" x="244.5" y="12" width="43.5" height="20"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,9 +45,9 @@
                     <constraint firstAttribute="trailing" secondItem="EFu-uQ-8JO" secondAttribute="trailing" constant="10" id="BIb-hs-fqa"/>
                     <constraint firstAttribute="trailing" secondItem="soE-Ym-aaT" secondAttribute="trailing" priority="750" constant="21" id="E2w-2L-QaD"/>
                     <constraint firstAttribute="bottom" secondItem="klF-Xg-OEm" secondAttribute="bottom" constant="12" id="Gcq-gZ-ZBm"/>
+                    <constraint firstItem="soE-Ym-aaT" firstAttribute="leading" secondItem="klF-Xg-OEm" secondAttribute="trailing" constant="10" id="Mkt-ZT-dff"/>
                     <constraint firstItem="EFu-uQ-8JO" firstAttribute="leading" secondItem="soE-Ym-aaT" secondAttribute="trailing" constant="5" id="WGf-Hc-HA0"/>
                     <constraint firstItem="klF-Xg-OEm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="YUe-hx-KCP"/>
-                    <constraint firstItem="soE-Ym-aaT" firstAttribute="leading" secondItem="klF-Xg-OEm" secondAttribute="trailing" priority="250" constant="20" id="bUu-17-r08"/>
                     <constraint firstItem="soE-Ym-aaT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="tc0-id-U1U"/>
                     <constraint firstItem="klF-Xg-OEm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="vaM-33-eqp"/>
                     <constraint firstAttribute="bottom" secondItem="soE-Ym-aaT" secondAttribute="bottom" constant="12" id="wKT-hN-ksD"/>
@@ -61,7 +61,7 @@
                 <outlet property="statCategory" destination="klF-Xg-OEm" id="UVP-aU-dEd"/>
                 <outlet property="statValue" destination="soE-Ym-aaT" id="03o-Ri-Imc"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="63.616071428571423"/>
+            <point key="canvasLocation" x="138" y="52"/>
         </tableViewCell>
     </objects>
     <resources>

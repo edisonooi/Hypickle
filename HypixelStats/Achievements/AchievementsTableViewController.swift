@@ -95,7 +95,7 @@ class AchievementsTableViewController: UITableViewController {
         case 1:
             return 2
         case 2:
-            return 1
+            return 5
         default:
             return 1
         }
@@ -115,7 +115,7 @@ class AchievementsTableViewController: UITableViewController {
             
             if indexPath.section == 0 {
                 if indexPath.row == 0 {
-                    category = "Points"
+                    category = "Achievement Points"
                     
                     let points = completionsAndPoints.points
                     let totalPoints = GlobalAchievementList.shared.totalAchievementPoints
@@ -220,8 +220,18 @@ class AchievementsTableViewController: UITableViewController {
         
         //Recently completed achievements
         if indexPath.section == 2 {
+            var category = ""
+            var value: Any = ""
             
+            category = GameTypes.achievementGameIDToCleanName[recentlyCompletedAchievements[indexPath.row].gameID] ?? "-"
+            value = recentlyCompletedAchievements[indexPath.row].name
+            
+            cell.configure(category: category, value: "\(value)")
+
+            return cell
         }
+        
+        
         
         return cell
         

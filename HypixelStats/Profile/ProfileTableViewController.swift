@@ -94,6 +94,10 @@ class ProfileTableViewController: UITableViewController {
         profileTable.dataSource = self
         profileTable.estimatedRowHeight = 0
         
+        if #available(iOS 15.0, *) {
+            profileTable.sectionHeaderTopPadding = 0
+        }
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -12,6 +12,7 @@ class AchievementsTableViewController: UITableViewController {
     
     //var data: JSON = [:]
     var allCompletedAchievements: [String: CompletedAchievementGroup] = [:]
+    var recentlyCompletedAchievements: [OneTimeAchievement] = []
 
     @IBOutlet var achievementsTable: NonScrollingTable!
     
@@ -67,9 +68,15 @@ class AchievementsTableViewController: UITableViewController {
         achievementsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
-        //achievementsTable.estimatedRowHeight = 0
         
-        allCompletedAchievements = AchievementsManager.getCompletedAchievements(data: MinecraftUser.shared.playerHypixelData)
+        if #available(iOS 15.0, *) {
+            achievementsTable.sectionHeaderTopPadding = 0
+        }
+        
+        let allAchievements = AchievementsManager.getCompletedAchievements(data: MinecraftUser.shared.playerHypixelData)
+        allCompletedAchievements = allAchievements.allCompletedAchievements
+        recentlyCompletedAchievements = allAchievements.recentlyCompletedAchievements
+        print(recentlyCompletedAchievements)
 
         
     }
@@ -95,14 +102,14 @@ class AchievementsTableViewController: UITableViewController {
             let slashString = NSMutableAttributedString(string: " / ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
             
             var category = ""
-            var value = NSMutableAttributedString()
+            let value = NSMutableAttributedString()
             
             if indexPath.section == 0 {
                 if indexPath.row == 0 {
                     category = "Points"
                     
-                    var points = completionsAndPoints.points
-                    var totalPoints = GlobalAchievementList.shared.totalAchievementPoints
+                    let points = completionsAndPoints.points
+                    let totalPoints = GlobalAchievementList.shared.totalAchievementPoints
                     let percentage = " (\(Utils.calculatePercentage(numerator: points, denominator: totalPoints)))"
                                 
                     let pointsString = NSMutableAttributedString(string: points.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
@@ -125,8 +132,8 @@ class AchievementsTableViewController: UITableViewController {
                 } else if indexPath.row == 1 {
                     category = "Completions"
                     
-                    var completions = completionsAndPoints.completions
-                    var totalCompletions = GlobalAchievementList.shared.totalAchievementCount
+                    let completions = completionsAndPoints.completions
+                    let totalCompletions = GlobalAchievementList.shared.totalAchievementCount
                     let percentage = " (\(Utils.calculatePercentage(numerator: completions, denominator: totalCompletions)))"
                                 
                     let completionsString = NSMutableAttributedString(string: completions.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_aqua")!])
@@ -149,8 +156,8 @@ class AchievementsTableViewController: UITableViewController {
                 if indexPath.row == 0 {
                     category = "Legacy Points"
                     
-                    var points = completionsAndPoints.points
-                    var totalPoints = GlobalAchievementList.shared.totalAchievementPoints
+                    let points = completionsAndPoints.legacyPoints
+                    let totalPoints = GlobalAchievementList.shared.totalLegacyPoints
                     let percentage = " (\(Utils.calculatePercentage(numerator: points, denominator: totalPoints)))"
                                 
                     let pointsString = NSMutableAttributedString(string: points.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
@@ -173,8 +180,8 @@ class AchievementsTableViewController: UITableViewController {
                 } else if indexPath.row == 1 {
                     category = "Legacy Completions"
                     
-                    var completions = completionsAndPoints.completions
-                    var totalCompletions = GlobalAchievementList.shared.totalAchievementCount
+                    let completions = completionsAndPoints.legacyCompletions
+                    let totalCompletions = GlobalAchievementList.shared.totalLegacyCount
                     let percentage = " (\(Utils.calculatePercentage(numerator: completions, denominator: totalCompletions)))"
                                 
                     let completionsString = NSMutableAttributedString(string: completions.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_aqua")!])
@@ -216,14 +223,14 @@ class AchievementsTableViewController: UITableViewController {
             }
         }
         
-        return 0
+        return CGFloat.leastNormalMagnitude
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerTitle = headers[section] {
             if headerTitle == "" {
                 let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
-                headerView.backgroundColor = .red
+                headerView.backgroundColor = .green
                 
                 return headerView
             } else {
@@ -238,8 +245,15 @@ class AchievementsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return CGFloat.leastNormalMagnitude
     }
+    
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
+//        headerView.backgroundColor = .red
+//
+//        return headerView
+//    }
     
     
     

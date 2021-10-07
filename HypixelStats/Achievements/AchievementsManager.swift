@@ -22,10 +22,17 @@ struct CompletedAchievementGroup {
 
 class AchievementsManager {
     
-    static func getCompletedAchievements(data: JSON) -> [String: CompletedAchievementGroup] {
+    static let numRecentAchievements = 15
+    
+    static func getCompletedAchievements(data: JSON) -> (allCompletedAchievements: [String: CompletedAchievementGroup], recentlyCompletedAchievements: [OneTimeAchievement]) {
         var ret: [String: CompletedAchievementGroup] = [:]
+        var ret2 = [OneTimeAchievement](repeating: OneTimeAchievement(), count: numRecentAchievements)
         
         let oneTimesCompletedArray = data["achievementsOneTime"].arrayValue.map { $0.stringValue }
+        
+        var recentlyCompleted = Array(oneTimesCompletedArray.suffix(numRecentAchievements))
+        recentlyCompleted = recentlyCompleted.reversed()
+        
         let allOneTimesCompleted: Set = Set(oneTimesCompletedArray)
         
         let tieredCompletionsDictionary = data["achievements"].dictionaryValue
@@ -59,6 +66,12 @@ class AchievementsManager {
                             oneTimesCompleted.append(name)
                             count += 1
                             points += achievement.points
+                        }
+                        
+                        if recentlyCompleted.contains(gameID + "_" + name.lowercased()) {
+                            if let index = recentlyCompleted.firstIndex(of: gameID + "_" + name.lowercased()) {
+                                ret2[index] = achievement
+                            }
                         }
                     }
                 }
@@ -105,6 +118,6 @@ class AchievementsManager {
             }
         }
         
-        return ret
+        return (allCompletedAchievements: ret, recentlyCompletedAchievements: ret2)
     }
 }

@@ -45,7 +45,8 @@ class GlobalAchievementList {
             
             var oneTimes: [String: OneTimeAchievement] = [:]
             for(name, achievement):(String, JSON) in value["one_time"] {
-                let oneTimeAchievement = OneTimeAchievement(name: achievement["name"].stringValue,
+                let oneTimeAchievement = OneTimeAchievement(gameID: gameID,
+                                                            name: achievement["name"].stringValue,
                                                             description: achievement["description"].stringValue,
                                                             points: achievement["points"].intValue,
                                                             gamePercentUnlocked: achievement["gamePercentUnlocked"].doubleValue,

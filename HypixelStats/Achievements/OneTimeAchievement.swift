@@ -10,6 +10,7 @@ import Foundation
 
 class OneTimeAchievement {
     
+    var gameID: String
     var name: String
     var description: String
     var points: Int
@@ -17,7 +18,8 @@ class OneTimeAchievement {
     var globalPercentUnlocked: Double
     var isLegacy: Bool
     
-    init(name: String, description: String, points: Int, gamePercentUnlocked: Double = 0.0, globalPercentUnlocked: Double, legacy: Bool = false) {
+    init(gameID: String = "", name: String = "", description: String = "", points: Int = 0, gamePercentUnlocked: Double = 0.0, globalPercentUnlocked: Double = 0.0, legacy: Bool = false) {
+        self.gameID = gameID
         self.name = name
         self.description = description
         self.points = points

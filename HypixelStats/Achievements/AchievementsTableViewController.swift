@@ -18,6 +18,7 @@ class AchievementsTableViewController: UITableViewController {
     
     let headers = [
         1: "",
+        2: "Recently Completed"
     ]
     
     let achievementCategories = [
@@ -84,18 +85,26 @@ class AchievementsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 4 + achievementCategories.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 2
+        switch section {
+        case 0:
+            return 2
+        case 1:
+            return 2
+        case 2:
+            return 1
+        default:
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
+        //Overall stats
         if indexPath.section == 0 || indexPath.section == 1 {
             
             let completionsAndPoints = getTotalCompletionsAndPoints()
@@ -209,6 +218,11 @@ class AchievementsTableViewController: UITableViewController {
             
         }
         
+        //Recently completed achievements
+        if indexPath.section == 2 {
+            
+        }
+        
         return cell
         
         
@@ -230,7 +244,7 @@ class AchievementsTableViewController: UITableViewController {
         if let headerTitle = headers[section] {
             if headerTitle == "" {
                 let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
-                headerView.backgroundColor = .green
+                headerView.backgroundColor = .clear
                 
                 return headerView
             } else {
@@ -248,15 +262,6 @@ class AchievementsTableViewController: UITableViewController {
         return CGFloat.leastNormalMagnitude
     }
     
-//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 32))
-//        headerView.backgroundColor = .red
-//
-//        return headerView
-//    }
-    
-    
-    
     func getTotalCompletionsAndPoints() -> (completions: Int, points: Int, legacyCompletions: Int, legacyPoints: Int) {
         var completions = 0
         var points = 0
@@ -273,8 +278,4 @@ class AchievementsTableViewController: UITableViewController {
         return (completions: completions, points: points, legacyCompletions: legacyCompletions, legacyPoints: legacyPoints)
     }
     
-    
-
-    
-
 }

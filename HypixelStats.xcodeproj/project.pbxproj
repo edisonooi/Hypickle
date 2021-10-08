@@ -34,6 +34,9 @@
 		4C9D142F26DEB9E900E6695C /* CumulativeStatsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D142E26DEB9E900E6695C /* CumulativeStatsKeys.swift */; };
 		4C9D143126DED04B00E6695C /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D143026DED04B00E6695C /* GameTypes.swift */; };
 		4C9D143326DED53E00E6695C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D143226DED53E00E6695C /* DateExtension.swift */; };
+		4C9EE5F6271101C200EBE829 /* AchievementPercentageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EE5F4271101C200EBE829 /* AchievementPercentageTableViewCell.swift */; };
+		4C9EE5F7271101C200EBE829 /* AchievementPercentageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9EE5F5271101C200EBE829 /* AchievementPercentageTableViewCell.xib */; };
+		4C9EE5F92711075400EBE829 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EE5F82711075400EBE829 /* CollectionExtension.swift */; };
 		4CA3E03726FA3FF800209314 /* GlobalAchievementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */; };
 		4CA3E03926FAEA9400209314 /* AchievementsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3E03826FAEA9400209314 /* AchievementsManager.swift */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
@@ -136,6 +139,9 @@
 		4C9D142E26DEB9E900E6695C /* CumulativeStatsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CumulativeStatsKeys.swift; sourceTree = "<group>"; };
 		4C9D143026DED04B00E6695C /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
 		4C9D143226DED53E00E6695C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		4C9EE5F4271101C200EBE829 /* AchievementPercentageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementPercentageTableViewCell.swift; sourceTree = "<group>"; };
+		4C9EE5F5271101C200EBE829 /* AchievementPercentageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementPercentageTableViewCell.xib; sourceTree = "<group>"; };
+		4C9EE5F82711075400EBE829 /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAchievementList.swift; sourceTree = "<group>"; };
 		4CA3E03826FAEA9400209314 /* AchievementsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsManager.swift; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
@@ -253,6 +259,8 @@
 				4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */,
 				4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */,
 				4C3574F026E1686A00B86AD0 /* SpinnerViewController.swift */,
+				4C9EE5F4271101C200EBE829 /* AchievementPercentageTableViewCell.swift */,
+				4C9EE5F5271101C200EBE829 /* AchievementPercentageTableViewCell.xib */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -431,10 +439,11 @@
 				4C98565326D855C600FBD2EF /* UIColorExtension.swift */,
 				4C526E4926D94EA900B85E0B /* UILabelExtension.swift */,
 				4C526E4B26D9537300B85E0B /* UIImageExtension.swift */,
+				4C3574F226E171D000B86AD0 /* UIViewControllerExtension.swift */,
 				4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */,
 				4C9D142C26DDFA5000E6695C /* DoubleExtension.swift */,
 				4C9D143226DED53E00E6695C /* DateExtension.swift */,
-				4C3574F226E171D000B86AD0 /* UIViewControllerExtension.swift */,
+				4C9EE5F82711075400EBE829 /* CollectionExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -548,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CF034F526D2DD16000B91C0 /* GenericHeaderView.xib in Resources */,
+				4C9EE5F7271101C200EBE829 /* AchievementPercentageTableViewCell.xib in Resources */,
 				BE14331126A0DDA20054E475 /* LaunchScreen.storyboard in Resources */,
 				4C9AAC8E26D453B30058CFA3 /* MinigameHeaderView.xib in Resources */,
 				4C54998A26CAD1B60042F1E0 /* GamesTableViewCell.xib in Resources */,
@@ -688,6 +698,7 @@
 				BE59FAF526B778A1000F7799 /* BattlegroundStatsManager.swift in Sources */,
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,
 				4C7CC51526C8AAF0006F6EEE /* ArcadeStatsManager.swift in Sources */,
+				4C9EE5F92711075400EBE829 /* CollectionExtension.swift in Sources */,
 				4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */,
 				4C7A725E26F516D700FB562C /* AchievementsViewController.swift in Sources */,
 				BE9BE1B026BB0B7300463ED4 /* DuelsStatsManager.swift in Sources */,
@@ -724,6 +735,7 @@
 				4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */,
 				4C9D142926DD7AAA00E6695C /* ProfileViewController.swift in Sources */,
 				BE10349026A627FA00153FBE /* Utils.swift in Sources */,
+				4C9EE5F6271101C200EBE829 /* AchievementPercentageTableViewCell.swift in Sources */,
 				4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */,
 				BEAFEC0126AA11E000349728 /* CellData.swift in Sources */,
 				4C9D142B26DD7B2400E6695C /* ProfileTableViewController.swift in Sources */,

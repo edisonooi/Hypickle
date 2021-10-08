@@ -13,12 +13,19 @@ class AchievementsTableViewController: UITableViewController {
     //var data: JSON = [:]
     var allCompletedAchievements: [String: CompletedAchievementGroup] = [:]
     var recentlyCompletedAchievements: [OneTimeAchievement] = []
+    var incompleteOneTimes: [OneTimeAchievement] = []
 
     @IBOutlet var achievementsTable: NonScrollingTable!
     
     let headers = [
         1: "",
-        2: "Recently Completed"
+        2: "Recently Completed",
+        3: "Easiest Remaining"
+    ]
+    
+    let footers = [
+        2,
+        3
     ]
     
     let achievementCategories = [
@@ -67,6 +74,7 @@ class AchievementsTableViewController: UITableViewController {
         
         achievementsTable.allowsSelection = true
         achievementsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
+        achievementsTable.register(AchievementPercentageTableViewCell.nib(), forCellReuseIdentifier: AchievementPercentageTableViewCell.identifier)
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
         
@@ -77,9 +85,8 @@ class AchievementsTableViewController: UITableViewController {
         let allAchievements = AchievementsManager.getCompletedAchievements(data: MinecraftUser.shared.playerHypixelData)
         allCompletedAchievements = allAchievements.allCompletedAchievements
         recentlyCompletedAchievements = allAchievements.recentlyCompletedAchievements
-        print(recentlyCompletedAchievements)
-
-        
+        incompleteOneTimes = allAchievements.incompleteOneTimes
+        print(incompleteOneTimes)
     }
 
     // MARK: - Table view data source
@@ -95,6 +102,8 @@ class AchievementsTableViewController: UITableViewController {
         case 1:
             return 2
         case 2:
+            return 5
+        case 3:
             return 5
         default:
             return 1
@@ -115,7 +124,7 @@ class AchievementsTableViewController: UITableViewController {
             
             if indexPath.section == 0 {
                 if indexPath.row == 0 {
-                    category = "Achievement Points"
+                    category = "Points"
                     
                     let points = completionsAndPoints.points
                     let totalPoints = GlobalAchievementList.shared.totalAchievementPoints
@@ -227,16 +236,36 @@ class AchievementsTableViewController: UITableViewController {
             value = recentlyCompletedAchievements[indexPath.row].name
             
             cell.configure(category: category, value: "\(value)")
-
-            return cell
         }
         
+        if indexPath.section == 3 {
+            let easiestRemainingCell = tableView.dequeueReusableCell(withIdentifier: AchievementPercentageTableViewCell.identifier, for: indexPath) as! AchievementPercentageTableViewCell
+            
+            if let achievement = incompleteOneTimes[safe: indexPath.row] {
+                easiestRemainingCell.configure(game: GameTypes.achievementGameIDToCleanName[achievement.gameID] ?? "-", achievementName: achievement.name, percentage: String(format: "%.2f%%", achievement.globalPercentUnlocked))
+                
+            } else {
+                easiestRemainingCell.configure(game: "-", achievementName: "-", percentage: "-")
+            }
+            
+            return easiestRemainingCell
+        }
         
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
         
         return cell
         
         
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 3 {
+//            return 64
+//        }
+//        
+//        return
+//    }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if let headerTitle = headers[section] {
@@ -269,8 +298,49 @@ class AchievementsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if footers.contains(section) {
+            return 36
+        }
+        
         return CGFloat.leastNormalMagnitude
     }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if footers.contains(section) {
+
+            let detailsButton = UIButton(type: .custom)
+            
+            detailsButton.setTitle("See More Details", for: .normal)
+            
+            if section == 2 {
+                detailsButton.addTarget(self, action: #selector(recentlyCompletedButtonTapped), for: .touchUpInside)
+            } else if section == 3 {
+                detailsButton.addTarget(self, action: #selector(easiestRemainingButtonTapped), for: .touchUpInside)
+            }
+            
+            detailsButton.setTitleColor(.link, for: .normal)
+            detailsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+            detailsButton.titleLabel?.textAlignment = .center
+            detailsButton.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 24)
+            detailsButton.backgroundColor = .clear
+
+            return detailsButton
+        }
+
+        return nil
+    }
+    
+    @objc func recentlyCompletedButtonTapped() {
+        print("Recent")
+    }
+    
+    @objc func easiestRemainingButtonTapped() {
+        print("Easiest")
+    }
+    
+    
     
     func getTotalCompletionsAndPoints() -> (completions: Int, points: Int, legacyCompletions: Int, legacyPoints: Int) {
         var completions = 0
@@ -286,6 +356,18 @@ class AchievementsTableViewController: UITableViewController {
         }
         
         return (completions: completions, points: points, legacyCompletions: legacyCompletions, legacyPoints: legacyPoints)
+    }
+    
+    func getIncompleteOneTimes() -> [OneTimeAchievement] {
+        var ret: [OneTimeAchievement] = []
+        
+        for (gameID, achievementGroup) in GlobalAchievementList.shared.globalList {
+            let completedGroup = allCompletedAchievements[gameID]
+            
+            
+        }
+        
+        return ret
     }
     
 }

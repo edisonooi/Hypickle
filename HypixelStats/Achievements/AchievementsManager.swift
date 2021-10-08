@@ -23,10 +23,12 @@ struct CompletedAchievementGroup {
 class AchievementsManager {
     
     static let numRecentAchievements = 15
+    static let numEasiestAchievements = 15
     
-    static func getCompletedAchievements(data: JSON) -> (allCompletedAchievements: [String: CompletedAchievementGroup], recentlyCompletedAchievements: [OneTimeAchievement]) {
+    static func getCompletedAchievements(data: JSON) -> (allCompletedAchievements: [String: CompletedAchievementGroup], recentlyCompletedAchievements: [OneTimeAchievement], incompleteOneTimes: [OneTimeAchievement]) {
         var ret: [String: CompletedAchievementGroup] = [:]
         var ret2 = [OneTimeAchievement](repeating: OneTimeAchievement(), count: numRecentAchievements)
+        var ret3: [OneTimeAchievement] = []
         
         let oneTimesCompletedArray = data["achievementsOneTime"].arrayValue.map { $0.stringValue }
         
@@ -73,6 +75,11 @@ class AchievementsManager {
                                 ret2[index] = achievement
                             }
                         }
+                    } else {
+                        if !achievement.isLegacy {
+                            ret3.append(achievement)
+                        }
+                        
                     }
                 }
                 
@@ -118,6 +125,10 @@ class AchievementsManager {
             }
         }
         
-        return (allCompletedAchievements: ret, recentlyCompletedAchievements: ret2)
+        ret3.sort {
+            $0.globalPercentUnlocked > $1.globalPercentUnlocked
+        }
+        
+        return (allCompletedAchievements: ret, recentlyCompletedAchievements: ret2, incompleteOneTimes: ret3)
     }
 }

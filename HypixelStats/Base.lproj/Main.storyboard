@@ -276,12 +276,12 @@
         <scene sceneID="wSy-vH-FdJ">
             <objects>
                 <viewController id="hAT-br-KNY" customClass="GamesTableController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MYM-og-vvR" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="MYM-og-vvR" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" systemColor="systemGray2Color"/>
-                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                     </tableView>
                     <connections>
                         <outlet property="gamesTable" destination="MYM-og-vvR" id="GF5-PL-Sns"/>
@@ -545,10 +545,11 @@
         <scene sceneID="IL2-qk-MQl">
             <objects>
                 <tableViewController id="ho9-cM-J7O" customClass="AchievementsTableViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YbI-xE-pfP" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="YbI-xE-pfP" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <connections>
                             <outlet property="dataSource" destination="ho9-cM-J7O" id="n8Y-dr-ngL"/>
                             <outlet property="delegate" destination="ho9-cM-J7O" id="k5p-8D-KgM"/>

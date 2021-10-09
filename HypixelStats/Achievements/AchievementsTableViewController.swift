@@ -20,7 +20,11 @@ class AchievementsTableViewController: UITableViewController {
     let headers = [
         1: "",
         2: "Recently Completed",
-        3: "Easiest Remaining"
+        3: "Easiest Remaining",
+        4: "General",
+        5: "Regular Games",
+        6: "Holiday Games",
+        7: "Removed Games"
     ]
     
     let footers = [
@@ -75,6 +79,7 @@ class AchievementsTableViewController: UITableViewController {
         achievementsTable.allowsSelection = true
         achievementsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         achievementsTable.register(AchievementPercentageTableViewCell.nib(), forCellReuseIdentifier: AchievementPercentageTableViewCell.identifier)
+        achievementsTable.register(GameAchievementsInfoTableViewCell.nib(), forCellReuseIdentifier: GameAchievementsInfoTableViewCell.identifier)
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
         
@@ -96,6 +101,10 @@ class AchievementsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section > 3 {
+            return achievementCategories[section - 4].count
+        }
+        
         switch section {
         case 0:
             return 2
@@ -113,11 +122,13 @@ class AchievementsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
+        let slashString = NSMutableAttributedString(string: " / ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
         //Overall stats
         if indexPath.section == 0 || indexPath.section == 1 {
             
             let completionsAndPoints = getTotalCompletionsAndPoints()
-            let slashString = NSMutableAttributedString(string: " / ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            
             
             var category = ""
             let value = NSMutableAttributedString()
@@ -251,6 +262,40 @@ class AchievementsTableViewController: UITableViewController {
             return easiestRemainingCell
         }
         
+        if indexPath.section > 3 {
+            let gameCell = tableView.dequeueReusableCell(withIdentifier: GameAchievementsInfoTableViewCell.identifier, for: indexPath) as! GameAchievementsInfoTableViewCell
+            
+            let pointsRatioString = NSMutableAttributedString()
+            
+            let achievementGameID = achievementCategories[indexPath.section - 4][indexPath.row]
+            let databaseName = GameTypes.achievementGameIDToDatabaseName[achievementGameID] ?? ""
+            let imageName = databaseName.lowercased() + "_icon"
+            let gameName = GameTypes.achievementGameIDToCleanName[achievementGameID] ?? ""
+            
+            let points = allCompletedAchievements[achievementGameID]?.completedPoints ?? 0
+            let totalPoints = GlobalAchievementList.shared.globalList[achievementGameID]?.totalPoints ?? 0
+            
+            let percentage = " (\(Utils.calculatePercentage(numerator: points, denominator: totalPoints)))"
+            let pointsString = NSMutableAttributedString(string: points.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
+            let totalString = NSMutableAttributedString(string: totalPoints.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
+            
+            var percentageColor = UIColor.lightGray
+            
+            if points == totalPoints {
+                percentageColor = UIColor.systemGreen
+            }
+            
+            let percentageString = NSMutableAttributedString(string: String(percentage), attributes: [NSAttributedString.Key.foregroundColor: percentageColor])
+            
+            pointsRatioString.append(pointsString)
+            pointsRatioString.append(slashString)
+            pointsRatioString.append(totalString)
+            
+            gameCell.configure(icon: imageName, name: gameName, pointsRatio: pointsRatioString, percentage: percentageString)
+            
+            return gameCell
+        }
+        
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
@@ -259,13 +304,9 @@ class AchievementsTableViewController: UITableViewController {
         
     }
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 3 {
-//            return 64
-//        }
-//        
-//        return
-//    }
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section > 3
+    }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if let headerTitle = headers[section] {
@@ -289,6 +330,11 @@ class AchievementsTableViewController: UITableViewController {
             } else {
                 let headerView = GenericHeaderView.instanceFromNib()
                 headerView.title.text = headerTitle
+                
+                if headerTitle == "Easiest Remaining" {
+                    headerView.rightLabel.font = UIFont.systemFont(ofSize: 12)
+                    headerView.rightLabel.text = "% Completed (Global)"
+                }
                 
                 return headerView
             }

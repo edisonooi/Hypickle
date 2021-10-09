@@ -96,5 +96,41 @@ class GameTypes {
         "skyclash": "SkyClash"
     ]
     
+    static let achievementGameIDToDatabaseName: [String: String] = [
+        "general": "General",
+        "housing": "Housing",
+        
+        "arcade": "Arcade",
+        "arena": "Arena",
+        "bedwars": "Bedwars",
+        "blitz": "HungerGames",
+        "buildbattle": "BuildBattle",
+        "copsandcrims": "MCGO",
+        "duels": "Duels",
+        "walls3": "Walls3",
+        "murdermystery": "MurderMystery",
+        "paintball": "Paintball",
+        "pit": "Pit",
+        "quake": "Quake",
+        "skyblock": "SkyBlock",
+        "skywars": "SkyWars",
+        "supersmash": "SuperSmash",
+        "speeduhc": "SpeedUHC",
+        "tntgames": "TNTGames",
+        "gingerbread": "Gingerbread",
+        "uhc": "UHC",
+        "vampirez": "VampireZ",
+        "walls": "Walls",
+        "warlords": "Battleground",
+        
+        "christmas2017": "grinch_simulator",
+        "easter": "easter_simulator",
+        "halloween2017": "halloween_simulator",
+        "summer": "scuba_simulator",
+        
+        "truecombat": "TrueCombat",
+        "skyclash": "SkyClash"
+    ]
+    
     
 }

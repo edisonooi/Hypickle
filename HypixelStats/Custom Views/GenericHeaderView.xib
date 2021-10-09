@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFM-5C-wWX">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFM-5C-wWX">
                     <rect key="frame" x="10" y="26" width="59" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="jtB-bJ-hyP"/>
@@ -24,8 +24,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-1Q-XLY">
-                    <rect key="frame" x="404" y="57" width="0.0" height="0.0"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-1Q-XLY">
+                    <rect key="frame" x="364.5" y="57" width="39.5" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" systemColor="secondaryLabelColor"/>
                     <nil key="highlightedColor"/>
@@ -34,6 +34,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="KbR-1Q-XLY" firstAttribute="leading" secondItem="KFM-5C-wWX" secondAttribute="trailing" constant="20" id="3fS-Mt-2Da"/>
                 <constraint firstItem="KFM-5C-wWX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="Bfm-im-nxY"/>
                 <constraint firstItem="KFM-5C-wWX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="QEh-Wi-74a"/>
                 <constraint firstAttribute="bottom" secondItem="KbR-1Q-XLY" secondAttribute="bottom" constant="7" id="Utd-bs-f6V"/>

@@ -22,8 +22,8 @@ class AchievementsTableViewController: UITableViewController {
         2: "Recently Completed",
         3: "Easiest Remaining",
         4: "General",
-        5: "Regular Games",
-        6: "Holiday Games",
+        5: "",
+        6: "Seasonal",
         7: "Removed Games"
     ]
     
@@ -272,8 +272,13 @@ class AchievementsTableViewController: UITableViewController {
             let imageName = databaseName.lowercased() + "_icon"
             let gameName = GameTypes.achievementGameIDToCleanName[achievementGameID] ?? ""
             
-            let points = allCompletedAchievements[achievementGameID]?.completedPoints ?? 0
-            let totalPoints = GlobalAchievementList.shared.globalList[achievementGameID]?.totalPoints ?? 0
+            var points = (allCompletedAchievements[achievementGameID]?.completedPoints ?? 0)
+            var totalPoints = (GlobalAchievementList.shared.globalList[achievementGameID]?.totalPoints ?? 0) - (GlobalAchievementList.shared.globalList[achievementGameID]?.totalLegacyPoints ?? 0)
+            
+            if indexPath.section == 7 {
+                points = allCompletedAchievements[achievementGameID]?.legacyCompletedPoints ?? 0
+                totalPoints = (GlobalAchievementList.shared.globalList[achievementGameID]?.totalLegacyPoints ?? 0)
+            }
             
             let percentage = " (\(Utils.calculatePercentage(numerator: points, denominator: totalPoints)))"
             let pointsString = NSMutableAttributedString(string: points.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
@@ -407,18 +412,6 @@ class AchievementsTableViewController: UITableViewController {
         }
         
         return (completions: completions, points: points, legacyCompletions: legacyCompletions, legacyPoints: legacyPoints)
-    }
-    
-    func getIncompleteOneTimes() -> [OneTimeAchievement] {
-        var ret: [OneTimeAchievement] = []
-        
-        for (gameID, achievementGroup) in GlobalAchievementList.shared.globalList {
-            let completedGroup = allCompletedAchievements[gameID]
-            
-            
-        }
-        
-        return ret
     }
     
 }

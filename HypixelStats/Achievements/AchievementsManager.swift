@@ -122,6 +122,10 @@ class AchievementsManager {
                                                         legacyTieredCompletions: legacyTieredCompleted,
                                                         legacyCompletedCount: legacyCount,
                                                         legacyCompletedPoints: legacyPoints)
+                print(gameID)
+                print(points)
+                print(legacyPoints)
+                
             }
         }
         

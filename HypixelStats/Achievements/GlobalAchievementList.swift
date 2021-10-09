@@ -13,6 +13,8 @@ struct AchievementGroup {
     var gameID: String
     var totalCount: Int
     var totalPoints: Int
+    var totalLegacyCount: Int
+    var totalLegacyPoints: Int
     var oneTimeAchievements: [String: OneTimeAchievement]
     var tieredAchievements: [String: TieredAchievement]
 }
@@ -42,6 +44,8 @@ class GlobalAchievementList {
             let gameID = key
             var points = 0
             var count = 0
+            var legacyPoints = 0
+            var legacyCount = 0
             
             var oneTimes: [String: OneTimeAchievement] = [:]
             for(name, achievement):(String, JSON) in value["one_time"] {
@@ -61,6 +65,8 @@ class GlobalAchievementList {
                     totalAchievementPoints += oneTimeAchievement.points
                 } else {
                     totalLegacyCount += 1
+                    legacyCount += 1
+                    legacyPoints += oneTimeAchievement.points
                     totalLegacyPoints += oneTimeAchievement.points
                 }
                 
@@ -84,6 +90,8 @@ class GlobalAchievementList {
                         totalAchievementCount += 1
                     } else {
                         totalLegacyCount += 1
+                        legacyCount += 1
+                        legacyPoints += tier.points
                         totalLegacyPoints += tier.points
                     }
                     
@@ -93,7 +101,7 @@ class GlobalAchievementList {
                 tiered[name] = tieredAchievement
             }
             
-            globalList[gameID] = AchievementGroup(gameID: gameID, totalCount: count, totalPoints: points, oneTimeAchievements: oneTimes, tieredAchievements: tiered)
+            globalList[gameID] = AchievementGroup(gameID: gameID, totalCount: count, totalPoints: points, totalLegacyCount: legacyCount, totalLegacyPoints: legacyPoints, oneTimeAchievements: oneTimes, tieredAchievements: tiered)
         }
         
         

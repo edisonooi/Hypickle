@@ -336,6 +336,11 @@ class AchievementsTableViewController: UITableViewController {
                     headerView.rightLabel.text = "% Completed (Global)"
                 }
                 
+                if section > 3 {
+                    headerView.rightLabel.font = UIFont.systemFont(ofSize: 14)
+                    headerView.rightLabel.text = "Points"
+                }
+                
                 return headerView
             }
         }

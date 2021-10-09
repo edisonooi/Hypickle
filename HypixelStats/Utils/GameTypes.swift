@@ -126,7 +126,7 @@ class GameTypes {
         "christmas2017": "grinch_simulator",
         "easter": "easter_simulator",
         "halloween2017": "halloween_simulator",
-        "summer": "scuba_simulator",
+        "summer": "Summer",
         
         "truecombat": "TrueCombat",
         "skyclash": "SkyClash"

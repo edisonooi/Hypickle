@@ -11,13 +11,28 @@ class OneTimeAchievementTableViewCell: UITableViewCell {
 
     static let identifier = "OneTimeAchievementTableViewCell"
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var gamePlayersUnlockedLabel: UILabel!
+    @IBOutlet weak var globalPlayersUnlockedLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var circleImageView: UIImageView!
+    @IBOutlet weak var gamePercentageLabel: UILabel!
+    @IBOutlet weak var globalPercentageLabel: UILabel!
     
     static func nib() -> UINib {
         return UINib(nibName: "OneTimeAchievementTableViewCell", bundle: nil)
     }
     
-    public func configure() {
+    public func configure(name: String, description: String, shortName: String, points: Int, gamePercentage: Double, globalPercentage: Double, isComplete: Bool) {
+        nameLabel.text = name
+        descriptionLabel.text = description
+        gamePlayersUnlockedLabel.text = shortName + " Players Unlocked:"
+        pointsLabel.text = String(points)
+        globalPercentageLabel.text = String(format: "%.2f%%", globalPercentage)
+        gamePercentageLabel.text = String(format: "%.2f%%", gamePercentage)
         
+        circleImageView.tintColor = isComplete ? .systemGreen : .systemRed
     }
     
     override func awakeFromNib() {

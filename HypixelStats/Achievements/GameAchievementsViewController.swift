@@ -86,6 +86,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             let oneTimeAchievementCell = tableView.dequeueReusableCell(withIdentifier: OneTimeAchievementTableViewCell.identifier, for: indexPath) as! OneTimeAchievementTableViewCell
             let currentAchievement = oneTimeAchievementsSorted[indexPath.row].1
             let name = currentAchievement.name
+            let shortName = GameTypes.achievementGameIDToShortName[currentAchievement.gameID] ?? "-"
             let description = currentAchievement.description
             let points = currentAchievement.points
             let gamePercentUnlocked = currentAchievement.gamePercentUnlocked
@@ -96,6 +97,8 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             if let completed = completedAchievements {
                 isComplete = Set(completed.oneTimesCompleted).contains(oneTimeAchievementsSorted[indexPath.row].0)
             }
+            
+            oneTimeAchievementCell.configure(name: name, description: description, shortName: shortName, points: points, gamePercentage: gamePercentUnlocked, globalPercentage: globalPercentUnlocked, isComplete: isComplete)
             
             return oneTimeAchievementCell
             

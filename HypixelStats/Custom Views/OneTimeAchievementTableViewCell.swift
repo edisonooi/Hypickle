@@ -20,6 +20,8 @@ class OneTimeAchievementTableViewCell: UITableViewCell {
     @IBOutlet weak var gamePercentageLabel: UILabel!
     @IBOutlet weak var globalPercentageLabel: UILabel!
     
+    @IBOutlet weak var gamePercentageLabelHeight: NSLayoutConstraint!
+    
     static func nib() -> UINib {
         return UINib(nibName: "OneTimeAchievementTableViewCell", bundle: nil)
     }
@@ -31,6 +33,11 @@ class OneTimeAchievementTableViewCell: UITableViewCell {
         pointsLabel.text = String(points)
         globalPercentageLabel.text = String(format: "%.2f%%", globalPercentage)
         gamePercentageLabel.text = String(format: "%.2f%%", gamePercentage)
+        
+        if gamePercentage == 0.0 {
+            gamePercentageLabelHeight.constant = 0.0
+            gamePercentageLabel.isHidden = true
+        }
         
         circleImageView.tintColor = isComplete ? .systemGreen : .systemRed
     }

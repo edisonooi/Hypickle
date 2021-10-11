@@ -40,6 +40,8 @@
 		4C9EE5FC2711148600EBE829 /* GameAchievementsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EE5FA2711148600EBE829 /* GameAchievementsInfoTableViewCell.swift */; };
 		4C9EE5FD2711148600EBE829 /* GameAchievementsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9EE5FB2711148600EBE829 /* GameAchievementsInfoTableViewCell.xib */; };
 		4C9EE5FF2713DA2600EBE829 /* GameAchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EE5FE2713DA2600EBE829 /* GameAchievementsViewController.swift */; };
+		4C9EE6022713F5ED00EBE829 /* OneTimeAchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EE6002713F5ED00EBE829 /* OneTimeAchievementTableViewCell.swift */; };
+		4C9EE6032713F5ED00EBE829 /* OneTimeAchievementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9EE6012713F5ED00EBE829 /* OneTimeAchievementTableViewCell.xib */; };
 		4CA3E03726FA3FF800209314 /* GlobalAchievementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */; };
 		4CA3E03926FAEA9400209314 /* AchievementsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3E03826FAEA9400209314 /* AchievementsManager.swift */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
@@ -148,6 +150,8 @@
 		4C9EE5FA2711148600EBE829 /* GameAchievementsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievementsInfoTableViewCell.swift; sourceTree = "<group>"; };
 		4C9EE5FB2711148600EBE829 /* GameAchievementsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameAchievementsInfoTableViewCell.xib; sourceTree = "<group>"; };
 		4C9EE5FE2713DA2600EBE829 /* GameAchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievementsViewController.swift; sourceTree = "<group>"; };
+		4C9EE6002713F5ED00EBE829 /* OneTimeAchievementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeAchievementTableViewCell.swift; sourceTree = "<group>"; };
+		4C9EE6012713F5ED00EBE829 /* OneTimeAchievementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneTimeAchievementTableViewCell.xib; sourceTree = "<group>"; };
 		4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAchievementList.swift; sourceTree = "<group>"; };
 		4CA3E03826FAEA9400209314 /* AchievementsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsManager.swift; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 				4C9EE5F5271101C200EBE829 /* AchievementPercentageTableViewCell.xib */,
 				4C9EE5FA2711148600EBE829 /* GameAchievementsInfoTableViewCell.swift */,
 				4C9EE5FB2711148600EBE829 /* GameAchievementsInfoTableViewCell.xib */,
+				4C9EE6002713F5ED00EBE829 /* OneTimeAchievementTableViewCell.swift */,
+				4C9EE6012713F5ED00EBE829 /* OneTimeAchievementTableViewCell.xib */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -566,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CF034F526D2DD16000B91C0 /* GenericHeaderView.xib in Resources */,
+				4C9EE6032713F5ED00EBE829 /* OneTimeAchievementTableViewCell.xib in Resources */,
 				4C9EE5F7271101C200EBE829 /* AchievementPercentageTableViewCell.xib in Resources */,
 				BE14331126A0DDA20054E475 /* LaunchScreen.storyboard in Resources */,
 				4C9AAC8E26D453B30058CFA3 /* MinigameHeaderView.xib in Resources */,
@@ -714,6 +721,7 @@
 				4C7CC51326C86F8A006F6EEE /* BedwarsStatsManager.swift in Sources */,
 				4C7A725E26F516D700FB562C /* AchievementsViewController.swift in Sources */,
 				BE9BE1B026BB0B7300463ED4 /* DuelsStatsManager.swift in Sources */,
+				4C9EE6022713F5ED00EBE829 /* OneTimeAchievementTableViewCell.swift in Sources */,
 				BE14333A26A0E97A0054E475 /* MojangAPIManager.swift in Sources */,
 				4CCF9C0726C9EA2A004BDF5E /* PitStatsManager.swift in Sources */,
 				4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsManager.swift in Sources */,

@@ -13,6 +13,9 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     var achievementGameID: String = ""
     var achievements: AchievementGroup?
     var completedAchievements: CompletedAchievementGroup?
+    
+    var oneTimeAchievementsSorted: [(String, OneTimeAchievement)] = []
+    var tieredAchievementsSorted: [(String, TieredAchievement)] = []
 
     @IBOutlet weak var achievementsTable: UITableView!
     
@@ -25,8 +28,17 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             title = "Couldn't Find Achievements"
         }
         
+        if let safeAchievements = self.achievements {
+            oneTimeAchievementsSorted = safeAchievements.oneTimeAchievements.sorted {
+                $0.1.name < $1.1.name
+            }
+            
+            tieredAchievementsSorted = safeAchievements.tieredAchievements.sorted {
+                $0.1.name < $1.1.name
+            }
+        }
         
-        
+        achievementsTable.register(OneTimeAchievementTableViewCell.nib(), forCellReuseIdentifier: OneTimeAchievementTableViewCell.identifier)
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
         achievementsTable.allowsSelection = false
@@ -56,14 +68,12 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let safeAchievements = self.achievements {
-            if section == 0 {
-                return safeAchievements.oneTimeAchievements.count
-            }
-            
-            if section == 1 {
-                return safeAchievements.tieredAchievements.count
-            }
+        if section == 0 {
+            return oneTimeAchievementsSorted.count
+        }
+        
+        if section == 1 {
+            return tieredAchievementsSorted.count
         }
         
         return 0
@@ -71,6 +81,28 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        
+        if indexPath.section == 0 {
+            let oneTimeAchievementCell = tableView.dequeueReusableCell(withIdentifier: OneTimeAchievementTableViewCell.identifier, for: indexPath) as! OneTimeAchievementTableViewCell
+            let currentAchievement = oneTimeAchievementsSorted[indexPath.row].1
+            let name = currentAchievement.name
+            let description = currentAchievement.description
+            let points = currentAchievement.points
+            let gamePercentUnlocked = currentAchievement.gamePercentUnlocked
+            let globalPercentUnlocked = currentAchievement.globalPercentUnlocked
+            
+            var isComplete: Bool = false
+            
+            if let completed = completedAchievements {
+                isComplete = Set(completed.oneTimesCompleted).contains(oneTimeAchievementsSorted[indexPath.row].0)
+            }
+            
+            return oneTimeAchievementCell
+            
+            
+            
+            
+        }
         
         return cell
     }

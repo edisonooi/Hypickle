@@ -241,7 +241,7 @@ class AchievementsTableViewController: UITableViewController {
         }
         
         //Recently completed achievements
-        if indexPath.section == 2 {
+        else if indexPath.section == 2 {
             var category = ""
             var value: Any = ""
             
@@ -251,7 +251,7 @@ class AchievementsTableViewController: UITableViewController {
             cell.configure(category: category, value: "\(value)")
         }
         
-        if indexPath.section == 3 {
+        else if indexPath.section == 3 {
             let easiestRemainingCell = tableView.dequeueReusableCell(withIdentifier: AchievementPercentageTableViewCell.identifier, for: indexPath) as! AchievementPercentageTableViewCell
             
             if let achievement = incompleteOneTimes[safe: indexPath.row] {
@@ -264,7 +264,7 @@ class AchievementsTableViewController: UITableViewController {
             return easiestRemainingCell
         }
         
-        if indexPath.section > 3 {
+        else if indexPath.section > 3 {
             let gameCell = tableView.dequeueReusableCell(withIdentifier: GameAchievementsInfoTableViewCell.identifier, for: indexPath) as! GameAchievementsInfoTableViewCell
             
             let pointsRatioString = NSMutableAttributedString()

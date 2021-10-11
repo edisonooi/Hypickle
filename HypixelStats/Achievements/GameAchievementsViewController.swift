@@ -22,8 +22,8 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let cleanName = GameTypes.achievementGameIDToCleanName[achievementGameID] {
-            title = cleanName + " Achievements"
+        if let shortName = GameTypes.achievementGameIDToShortName[achievementGameID] {
+            title = shortName + " Achievements"
         } else {
             title = "Couldn't Find Achievements"
         }
@@ -39,6 +39,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         }
         
         achievementsTable.register(OneTimeAchievementTableViewCell.nib(), forCellReuseIdentifier: OneTimeAchievementTableViewCell.identifier)
+        achievementsTable.register(TieredAchievementTableViewCell.nib(), forCellReuseIdentifier: TieredAchievementTableViewCell.identifier)
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
         achievementsTable.allowsSelection = false
@@ -69,11 +70,9 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return oneTimeAchievementsSorted.count
-        }
-        
-        if section == 1 {
             return tieredAchievementsSorted.count
+        } else if section == 1 {
+            return oneTimeAchievementsSorted.count
         }
         
         return 0
@@ -82,8 +81,9 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        if indexPath.section == 0 {
+        if indexPath.section == 1 {
             let oneTimeAchievementCell = tableView.dequeueReusableCell(withIdentifier: OneTimeAchievementTableViewCell.identifier, for: indexPath) as! OneTimeAchievementTableViewCell
+            
             let currentAchievement = oneTimeAchievementsSorted[indexPath.row].1
             let name = currentAchievement.name
             let shortName = GameTypes.achievementGameIDToShortName[currentAchievement.gameID] ?? "-"
@@ -95,20 +95,44 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             var isComplete: Bool = false
             
             if let completed = completedAchievements {
-                isComplete = Set(completed.oneTimesCompleted).contains(oneTimeAchievementsSorted[indexPath.row].0)
+                isComplete = completed.oneTimesCompleted.contains(oneTimeAchievementsSorted[indexPath.row].0)
             }
             
             oneTimeAchievementCell.configure(name: name, description: description, shortName: shortName, points: points, gamePercentage: gamePercentUnlocked, globalPercentage: globalPercentUnlocked, isComplete: isComplete)
             
             return oneTimeAchievementCell
+        }
+        
+        else if indexPath.section == 0 {
             
+            let tieredAchievementCell = tableView.dequeueReusableCell(withIdentifier: TieredAchievementTableViewCell.identifier, for: indexPath) as! TieredAchievementTableViewCell
             
+            let currentAchievement = tieredAchievementsSorted[indexPath.row].1
+            let name = currentAchievement.name
+            let description = currentAchievement.description
+            let tiers = currentAchievement.tiers
+            var numCompletedTiers = 0
+            var completedAmount = 0
+            
+            if let completedTiers = completedAchievements?.tieredCompletions {
+                let tierInfo: (Int, Int) = completedTiers[tieredAchievementsSorted[indexPath.row].0] ?? (0, 0)
+                
+                numCompletedTiers = tierInfo.0
+                completedAmount = tierInfo.1
+                
+            }
+            
+            tieredAchievementCell.configure(name: name, description: description, tiers: tiers, numCompletedTiers: numCompletedTiers, completedAmount: completedAmount)
+            
+            return tieredAchievementCell
             
             
         }
         
         return cell
     }
+    
+    
 
 
 }

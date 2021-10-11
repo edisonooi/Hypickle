@@ -12,9 +12,9 @@ import SwiftyJSON
 struct CompletedAchievementGroup {
     var completedCount: Int
     var completedPoints: Int
-    var oneTimesCompleted: [String]
-    var tieredCompletions: [String: (Int, Int)]
-    var legacyOneTimesCompleted: [String]
+    var oneTimesCompleted: Set<String> //Raw database name all caps
+    var tieredCompletions: [String: (Int, Int)] //achievementName in caps: (tiersCompleted, completedAmount)
+    var legacyOneTimesCompleted: Set<String>
     var legacyTieredCompletions: [String: (Int, Int)]
     var legacyCompletedCount: Int
     var legacyCompletedPoints: Int
@@ -45,10 +45,10 @@ class AchievementsManager {
         }
         
         for (gameID, _) in GameTypes.achievementGameIDToCleanName {
-            var oneTimesCompleted: [String] = []
+            var oneTimesCompleted: Set = Set<String>()
             var tieredCompleted: [String: (Int, Int)] = [:]
             
-            var legacyOneTimesCompleted: [String] = []
+            var legacyOneTimesCompleted: Set = Set<String>()
             var legacyTieredCompleted: [String: (Int, Int)] = [:]
             
             var count = 0
@@ -61,11 +61,11 @@ class AchievementsManager {
                 for (name, achievement) in group.oneTimeAchievements {
                     if allOneTimesCompleted.contains(gameID + "_" + name.lowercased()) {
                         if achievement.isLegacy {
-                            legacyOneTimesCompleted.append(name)
+                            legacyOneTimesCompleted.insert(name)
                             legacyCount += 1
                             legacyPoints += achievement.points
                         } else {
-                            oneTimesCompleted.append(name)
+                            oneTimesCompleted.insert(name)
                             count += 1
                             points += achievement.points
                         }

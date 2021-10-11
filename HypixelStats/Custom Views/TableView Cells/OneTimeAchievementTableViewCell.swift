@@ -20,7 +20,7 @@ class OneTimeAchievementTableViewCell: UITableViewCell {
     @IBOutlet weak var gamePercentageLabel: UILabel!
     @IBOutlet weak var globalPercentageLabel: UILabel!
     
-    @IBOutlet weak var gamePercentageLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var gamePlayersUnlockedLabelHeight: NSLayoutConstraint!
     
     static func nib() -> UINib {
         return UINib(nibName: "OneTimeAchievementTableViewCell", bundle: nil)
@@ -35,7 +35,7 @@ class OneTimeAchievementTableViewCell: UITableViewCell {
         gamePercentageLabel.text = String(format: "%.2f%%", gamePercentage)
         
         if gamePercentage == 0.0 {
-            gamePercentageLabelHeight.constant = 0.0
+            gamePlayersUnlockedLabelHeight.constant = 0.0
             gamePercentageLabel.isHidden = true
         }
         

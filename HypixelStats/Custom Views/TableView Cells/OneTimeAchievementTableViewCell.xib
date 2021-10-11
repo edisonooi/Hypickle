@@ -102,8 +102,8 @@
                 <outlet property="circleImageView" destination="16f-qv-M7G" id="hlG-HF-BCe"/>
                 <outlet property="descriptionLabel" destination="JS2-JO-Lz9" id="mfn-6f-0c6"/>
                 <outlet property="gamePercentageLabel" destination="OMk-ZK-hhO" id="fNA-b6-69Z"/>
-                <outlet property="gamePercentageLabelHeight" destination="ayr-QT-fw8" id="7me-HC-b1f"/>
                 <outlet property="gamePlayersUnlockedLabel" destination="H4S-0b-oMH" id="JQu-lf-rXd"/>
+                <outlet property="gamePlayersUnlockedLabelHeight" destination="ayr-QT-fw8" id="7me-HC-b1f"/>
                 <outlet property="globalPercentageLabel" destination="tYb-BM-PqQ" id="YSW-SH-7gB"/>
                 <outlet property="globalPlayersUnlockedLabel" destination="Fxs-HB-WOJ" id="nc8-r0-cqR"/>
                 <outlet property="nameLabel" destination="MgW-J5-vh3" id="lqy-np-cQU"/>

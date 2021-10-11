@@ -17,13 +17,13 @@ struct AchievementTier {
 class TieredAchievement {
     
     var name: String
-    var description: String
+    var achievementDescription: String
     var isLegacy: Bool
     var tiers: [AchievementTier] = []
     
     init(name: String, description: String, tiers: JSON, legacy: Bool = false) {
         self.name = name
-        self.description = description
+        self.achievementDescription = description
         self.isLegacy = legacy
         
         for (_, subJSON):(String, JSON) in tiers {

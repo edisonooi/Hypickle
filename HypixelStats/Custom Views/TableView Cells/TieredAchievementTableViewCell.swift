@@ -13,8 +13,28 @@ class TieredAchievementTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var pointsRatioLabel: UILabel!
     @IBOutlet weak var capsuleImageView: UIImageView!
+    
+    @IBOutlet weak var pointsLabel1: UILabel!
+    @IBOutlet weak var pointsLabel2: UILabel!
+    @IBOutlet weak var pointsLabel3: UILabel!
+    @IBOutlet weak var pointsLabel4: UILabel!
+    @IBOutlet weak var pointsLabel5: UILabel!
+    
+    @IBOutlet weak var pointsLabel1Height: NSLayoutConstraint!
+    @IBOutlet weak var pointsLabel2Height: NSLayoutConstraint!
+    @IBOutlet weak var pointsLabel3Height: NSLayoutConstraint!
+    @IBOutlet weak var pointsLabel4Height: NSLayoutConstraint!
+    @IBOutlet weak var pointsLabel5Height: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var amountLabel1: UILabel!
+    @IBOutlet weak var amountLabel2: UILabel!
+    @IBOutlet weak var amountLabel3: UILabel!
+    @IBOutlet weak var amountLabel4: UILabel!
+    @IBOutlet weak var amountLabel5: UILabel!
+    
     
     
     static func nib() -> UINib {
@@ -24,8 +44,7 @@ class TieredAchievementTableViewCell: UITableViewCell {
     public func configure(name: String, description: String, tiers: [AchievementTier], numCompletedTiers: Int, completedAmount: Int) {
         nameLabel.text = name
         
-        
-        
+        //Format description string with current progress
         var nextCompletionAmount = ""
         
         if numCompletedTiers == tiers.count {
@@ -37,7 +56,6 @@ class TieredAchievementTableViewCell: UITableViewCell {
         let amountCompletedString = completedAmount.withCommas + "/" + nextCompletionAmount
         
         let description2 = description.replacingOccurrences(of: "%s", with: amountCompletedString)
-        print(description2)
         
         let descriptionString = NSMutableAttributedString(string: description2)
         
@@ -48,6 +66,7 @@ class TieredAchievementTableViewCell: UITableViewCell {
         
         descriptionLabel.attributedText = descriptionString
         
+        //Format ratio label in top right with color
         var earnedPoints = 0
         var totalPoints = 0
         
@@ -61,7 +80,7 @@ class TieredAchievementTableViewCell: UITableViewCell {
             }
         }
         
-        pointsLabel.text = "\(earnedPoints)/\(totalPoints)"
+        pointsRatioLabel.text = "\(earnedPoints)/\(totalPoints)"
         
         if numCompletedTiers == 0 {
             capsuleImageView.tintColor = .systemRed
@@ -71,9 +90,38 @@ class TieredAchievementTableViewCell: UITableViewCell {
             capsuleImageView.tintColor = .systemGreen
         }
         
+        //Format all tiers
         
+        let pointsLabels: [UILabel] = [pointsLabel1, pointsLabel2, pointsLabel3, pointsLabel4, pointsLabel5]
+        let pointsLabelsHeights: [NSLayoutConstraint] = [pointsLabel1Height, pointsLabel2Height, pointsLabel3Height, pointsLabel4Height, pointsLabel5Height]
+        let amountLabels: [UILabel] = [amountLabel1, amountLabel2, amountLabel3, amountLabel4, amountLabel5]
         
+        let numTiers = tiers.count
         
+        var startIndex = 0
+        if numTiers < 5 {
+            for i in 0..<5 - numTiers {
+                pointsLabelsHeights[i].constant = 0.0
+            }
+            
+            startIndex = 5 - numTiers
+        }
+        
+        for (i, tier) in tiers.enumerated() {
+            pointsLabels[i + startIndex].text = String(tier.points)
+            amountLabels[i + startIndex].text = tier.amount.withCommas
+            
+            var tintColor: UIColor = .systemRed
+            
+            if numCompletedTiers == i {
+                tintColor = .systemYellow
+            } else if numCompletedTiers > i {
+                tintColor = .systemGreen
+            }
+            
+            pointsLabels[i + startIndex].textColor = tintColor
+            amountLabels[i + startIndex].textColor = tintColor
+        }
     }
     
     override func awakeFromNib() {

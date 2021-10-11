@@ -109,7 +109,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             
             let currentAchievement = tieredAchievementsSorted[indexPath.row].1
             let name = currentAchievement.name
-            let description = currentAchievement.description
+            let description = currentAchievement.achievementDescription
             let tiers = currentAchievement.tiers
             var numCompletedTiers = 0
             var completedAmount = 0

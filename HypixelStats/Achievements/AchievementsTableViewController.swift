@@ -14,6 +14,8 @@ class AchievementsTableViewController: UITableViewController {
     var allCompletedAchievements: [String: CompletedAchievementGroup] = [:]
     var recentlyCompletedAchievements: [OneTimeAchievement] = []
     var incompleteOneTimes: [OneTimeAchievement] = []
+    
+    var selectedGame = ""
 
     @IBOutlet var achievementsTable: NonScrollingTable!
     
@@ -32,7 +34,7 @@ class AchievementsTableViewController: UITableViewController {
         3
     ]
     
-    let achievementCategories = [
+    let achievementGameIDs = [
         [
             "general",
             "housing"
@@ -97,12 +99,12 @@ class AchievementsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4 + achievementCategories.count
+        return 4 + achievementGameIDs.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section > 3 {
-            return achievementCategories[section - 4].count
+            return achievementGameIDs[section - 4].count
         }
         
         switch section {
@@ -267,7 +269,7 @@ class AchievementsTableViewController: UITableViewController {
             
             let pointsRatioString = NSMutableAttributedString()
             
-            let achievementGameID = achievementCategories[indexPath.section - 4][indexPath.row]
+            let achievementGameID = achievementGameIDs[indexPath.section - 4][indexPath.row]
             let databaseName = GameTypes.achievementGameIDToDatabaseName[achievementGameID] ?? ""
             let imageName = databaseName.lowercased() + "_icon"
             let gameName = GameTypes.achievementGameIDToCleanName[achievementGameID] ?? ""
@@ -311,6 +313,14 @@ class AchievementsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return indexPath.section > 3
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        selectedGame = achievementGameIDs[indexPath.section - 4][indexPath.row]
+        
+        performSegue(withIdentifier: "showGameAchievements", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -394,6 +404,16 @@ class AchievementsTableViewController: UITableViewController {
     
     @objc func easiestRemainingButtonTapped() {
         print("Easiest")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showGameAchievements" {
+            let destVC = segue.destination as! GameAchievementsViewController
+            
+            destVC.achievementGameID = selectedGame
+            destVC.achievements = GlobalAchievementList.shared.globalList[selectedGame]
+            destVC.completedAchievements = allCompletedAchievements[selectedGame]
+        }
     }
     
     

@@ -558,11 +558,43 @@
                     </tableView>
                     <connections>
                         <outlet property="achievementsTable" destination="YbI-xE-pfP" id="zrT-m6-Hia"/>
+                        <segue destination="tLm-2E-NHY" kind="show" identifier="showGameAchievements" id="MmY-oc-i9e"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1OT-52-b4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3196" y="464"/>
+        </scene>
+        <!--Game Achievements View Controller-->
+        <scene sceneID="WID-Ke-MUM">
+            <objects>
+                <viewController id="tLm-2E-NHY" customClass="GameAchievementsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJO-Cx-bQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zx9-S8-2jA">
+                                <rect key="frame" x="0.0" y="43" width="414" height="435"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bMV-cJ-Xl3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zx9-S8-2jA" firstAttribute="centerX" secondItem="eJO-Cx-bQ1" secondAttribute="centerX" id="E4M-QU-uUP"/>
+                            <constraint firstItem="zx9-S8-2jA" firstAttribute="width" secondItem="eJO-Cx-bQ1" secondAttribute="width" id="F79-OE-ttj"/>
+                            <constraint firstItem="zx9-S8-2jA" firstAttribute="height" secondItem="eJO-Cx-bQ1" secondAttribute="height" multiplier="0.910042" id="b4B-Td-pix"/>
+                            <constraint firstAttribute="bottom" secondItem="zx9-S8-2jA" secondAttribute="bottom" id="kXT-Jr-qYO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qwo-Li-6PF"/>
+                    <connections>
+                        <outlet property="achievementsTable" destination="zx9-S8-2jA" id="6Eu-bL-IFk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oha-qF-Ths" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4036" y="465"/>
         </scene>
     </scenes>
     <resources>

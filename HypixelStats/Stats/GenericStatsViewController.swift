@@ -38,7 +38,7 @@ class GenericStatsViewController: UIViewController {
         case "Walls3":
             return Walls3StatsManager(data: data)
         case "MurderMystery":
-            return MurderMysteryStatsManager(data: data)
+            return MurderMysteryStatsManager(data: data, achievementsData: achievementsData)
         case "Paintball":
             return PaintballStatsManager(data: data)
         case "Pit":

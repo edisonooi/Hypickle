@@ -25,6 +25,9 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lje-nI-Obi">
                     <rect key="frame" x="299.5" y="69" width="75.5" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="TEh-Gb-rGQ"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Sorted: "/>
                 </button>
@@ -41,6 +44,7 @@
             <connections>
                 <outlet property="headerLabel" destination="7rS-bz-E5d" id="8E8-fc-hLy"/>
                 <outlet property="sortButton" destination="Lje-nI-Obi" id="xb7-xq-FEc"/>
+                <outlet property="sortButtonHeight" destination="TEh-Gb-rGQ" id="k6T-wD-CbT"/>
             </connections>
             <point key="canvasLocation" x="132.60869565217394" y="234.375"/>
         </view>

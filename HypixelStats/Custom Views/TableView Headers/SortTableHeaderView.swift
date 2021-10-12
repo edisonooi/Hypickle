@@ -11,6 +11,7 @@ class SortTableHeaderView: UIView {
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var sortButtonHeight: NSLayoutConstraint!
     
     
     class func instanceFromNib() -> SortTableHeaderView {

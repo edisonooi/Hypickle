@@ -38,6 +38,18 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
+    
+    var expandedSections = [
+        0: true,
+        1: true,
+        2: true,
+        3: true,
+        4: true
+    ]
+    
+    var hasTiered: Bool = true
+    var hasTieredLegacy: Bool = false
+    var hasTieredOneTime: Bool = false
 
     @IBOutlet weak var achievementsTable: UITableView!
     
@@ -60,11 +72,14 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             }
         }
         
+        hasTiered = tieredAchievementsSorted.count > 0
+        
         achievementsTable.register(OneTimeAchievementTableViewCell.nib(), forCellReuseIdentifier: OneTimeAchievementTableViewCell.identifier)
         achievementsTable.register(TieredAchievementTableViewCell.nib(), forCellReuseIdentifier: TieredAchievementTableViewCell.identifier)
+        achievementsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
-        achievementsTable.allowsSelection = false
+        achievementsTable.allowsSelection = true
         
     }
     
@@ -92,9 +107,15 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return tieredAchievementsSorted.count
+            if !hasTiered {
+                return 0
+            } else if (expandedSections[section] ?? false) {
+                return tieredAchievementsSorted.count + 1
+            } else {
+                return 1
+            }
         } else if section == 1 {
-            return oneTimeAchievementsSorted.count
+            return (expandedSections[section] ?? false) ? oneTimeAchievementsSorted.count + 1 : 1
         }
         
         return 0
@@ -104,9 +125,18 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         let cell = UITableViewCell()
         
         if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                let topCell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
+                topCell.showDropDown()
+                topCell.statCategory.textColor = .secondaryLabel
+                let labelText = (expandedSections[indexPath.section] ?? false) ? "Collapse" : "Expand"
+                topCell.configure(category: labelText, value: "")
+                return topCell
+            }
+            
             let oneTimeAchievementCell = tableView.dequeueReusableCell(withIdentifier: OneTimeAchievementTableViewCell.identifier, for: indexPath) as! OneTimeAchievementTableViewCell
             
-            let currentAchievement = oneTimeAchievementsSorted[indexPath.row].1
+            let currentAchievement = oneTimeAchievementsSorted[indexPath.row - 1].1
             let name = currentAchievement.name
             let shortName = GameTypes.achievementGameIDToShortName[currentAchievement.gameID] ?? "-"
             let description = currentAchievement.description
@@ -117,7 +147,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             var isComplete: Bool = false
             
             if let completed = completedAchievements {
-                isComplete = completed.oneTimesCompleted.contains(oneTimeAchievementsSorted[indexPath.row].0)
+                isComplete = completed.oneTimesCompleted.contains(oneTimeAchievementsSorted[indexPath.row - 1].0)
             }
             
             oneTimeAchievementCell.configure(name: name, description: description, shortName: shortName, points: points, gamePercentage: gamePercentUnlocked, globalPercentage: globalPercentUnlocked, isComplete: isComplete)
@@ -126,10 +156,18 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         }
         
         else if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let topCell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
+                topCell.showDropDown()
+                topCell.statCategory.textColor = .secondaryLabel
+                let labelText = (expandedSections[indexPath.section] ?? false) ? "Collapse" : "Expand"
+                topCell.configure(category: labelText, value: "")
+                return topCell
+            }
             
             let tieredAchievementCell = tableView.dequeueReusableCell(withIdentifier: TieredAchievementTableViewCell.identifier, for: indexPath) as! TieredAchievementTableViewCell
             
-            let currentAchievement = tieredAchievementsSorted[indexPath.row].1
+            let currentAchievement = tieredAchievementsSorted[indexPath.row - 1].1
             let name = currentAchievement.name
             let description = currentAchievement.achievementDescription
             let tiers = currentAchievement.tiers
@@ -137,7 +175,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             var completedAmount = 0
             
             if let completedTiers = completedAchievements?.tieredCompletions {
-                let tierInfo: (Int, Int) = completedTiers[tieredAchievementsSorted[indexPath.row].0] ?? (0, 0)
+                let tierInfo: (Int, Int) = completedTiers[tieredAchievementsSorted[indexPath.row - 1].0] ?? (0, 0)
                 
                 numCompletedTiers = tierInfo.0
                 completedAmount = tierInfo.1
@@ -157,7 +195,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
-            return 100
+            return hasTiered ? 100 : 0
         case 1:
             return 100
         default:
@@ -170,6 +208,10 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 0:
+            if !hasTiered {
+                return nil
+            }
+            
             let headerView = SortTableHeaderView.instanceFromNib()
             headerView.headerLabel.text = "Tiered Achievements"
             headerView.sortButton.isHidden = true
@@ -185,6 +227,27 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         default:
             return nil
         }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row == 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.row == 0 {
+            if let section = expandedSections[indexPath.section] {
+                expandedSections[indexPath.section] = !section
+            }
+            
+            tableView.reloadData()
+            tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.top, animated: true)
+            //tableView.reloadSections([indexPath.section], with: .none)
+        }
+        
+        
+        
     }
     
 //    @objc func sortTieredButtonTapped() {

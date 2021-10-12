@@ -46,6 +46,8 @@
 		4C9EE6072714918200EBE829 /* TieredAchievementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9EE6052714918200EBE829 /* TieredAchievementTableViewCell.xib */; };
 		4CA3E03726FA3FF800209314 /* GlobalAchievementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */; };
 		4CA3E03926FAEA9400209314 /* AchievementsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3E03826FAEA9400209314 /* AchievementsManager.swift */; };
+		4CB070682714FAF600A81658 /* SortTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB070672714FAF600A81658 /* SortTableHeaderView.swift */; };
+		4CB0706A2714FB0F00A81658 /* SortTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB070692714FB0F00A81658 /* SortTableHeaderView.xib */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
 		4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AF26DD3E110077D6AC /* RankManager.swift */; };
 		4CB2C05A26E2C15A0073241C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2C05926E2C15A0073241C /* AboutViewController.swift */; };
@@ -158,6 +160,8 @@
 		4C9EE6052714918200EBE829 /* TieredAchievementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TieredAchievementTableViewCell.xib; sourceTree = "<group>"; };
 		4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAchievementList.swift; sourceTree = "<group>"; };
 		4CA3E03826FAEA9400209314 /* AchievementsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsManager.swift; sourceTree = "<group>"; };
+		4CB070672714FAF600A81658 /* SortTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableHeaderView.swift; sourceTree = "<group>"; };
+		4CB070692714FB0F00A81658 /* SortTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortTableHeaderView.xib; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
 		4CB192AF26DD3E110077D6AC /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
 		4CB2C05926E2C15A0073241C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +342,8 @@
 				4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */,
 				4C9AAC8D26D453B30058CFA3 /* MinigameHeaderView.xib */,
 				4C9AAC8F26D4582D0058CFA3 /* MinigameHeaderView.swift */,
+				4CB070672714FAF600A81658 /* SortTableHeaderView.swift */,
+				4CB070692714FB0F00A81658 /* SortTableHeaderView.xib */,
 			);
 			path = "TableView Headers";
 			sourceTree = "<group>";
@@ -603,6 +609,7 @@
 				4C9EE6072714918200EBE829 /* TieredAchievementTableViewCell.xib in Resources */,
 				4C526E5626DC456E00B85E0B /* minecraft.ttf in Resources */,
 				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
+				4CB0706A2714FB0F00A81658 /* SortTableHeaderView.xib in Resources */,
 				4C9EE5FD2711148600EBE829 /* GameAchievementsInfoTableViewCell.xib in Resources */,
 				4C3A50B826E882BB008F9424 /* Assets.xcassets in Resources */,
 				4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */,
@@ -786,6 +793,7 @@
 				4C9D142F26DEB9E900E6695C /* CumulativeStatsKeys.swift in Sources */,
 				BE51723226A8F65100DE85DC /* VampireZStatsManager.swift in Sources */,
 				BE51723626A914C200DE85DC /* BuildBattleStatsManager.swift in Sources */,
+				4CB070682714FAF600A81658 /* SortTableHeaderView.swift in Sources */,
 				BE51723426A90A0E00DE85DC /* WallsStatsManager.swift in Sources */,
 				BEAFEC0626AA3F3B00349728 /* ArenaStatsManager.swift in Sources */,
 				BE14333C26A0EDFF0054E475 /* MinecraftUser.swift in Sources */,

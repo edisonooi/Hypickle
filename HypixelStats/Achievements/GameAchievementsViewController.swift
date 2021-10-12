@@ -51,6 +51,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     ]
     
     var hasTiered: Bool = true
+    var hasOneTimes: Bool = true
     var hasTieredLegacy: Bool = false
     var hasTieredOneTime: Bool = false
 
@@ -84,6 +85,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         }
         
         hasTiered = tieredAchievementsSorted.count > 0
+        hasOneTimes = oneTimeAchievementsSorted.count > 0
         hasTieredLegacy = legacyTieredAchievementsSorted.count > 0
         hasTieredOneTime = legacyOneTimeAchievementsSorted.count > 0
         
@@ -132,7 +134,13 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
                 return 1
             }
         case 2:
-            return (expandedSections[section] ?? false) ? oneTimeAchievementsSorted.count + 1 : 1
+            if !hasOneTimes {
+                return 0
+            } else if (expandedSections[section] ?? false) {
+                return oneTimeAchievementsSorted.count + 1
+            } else {
+                return 1
+            }
         case 3:
             if !hasTieredLegacy {
                 return 0
@@ -182,7 +190,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             var isComplete: Bool = false
             
             if let completed = completedAchievements {
-                isComplete = completed.oneTimesCompleted.contains(oneTimeAchievementsSorted[indexPath.row - 1].0)
+                isComplete = indexPath.section == 2 ? completed.oneTimesCompleted.contains(oneTimeAchievementsSorted[indexPath.row - 1].0) : completed.legacyOneTimesCompleted.contains(legacyOneTimeAchievementsSorted[indexPath.row - 1].0)
             }
             
             oneTimeAchievementCell.configure(name: name, description: description, shortName: shortName, points: points, gamePercentage: gamePercentUnlocked, globalPercentage: globalPercentUnlocked, isComplete: isComplete)
@@ -209,13 +217,26 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             var numCompletedTiers = 0
             var completedAmount = 0
             
-            if let completedTiers = completedAchievements?.tieredCompletions {
-                let tierInfo: (Int, Int) = completedTiers[tieredAchievementsSorted[indexPath.row - 1].0] ?? (0, 0)
-                
-                numCompletedTiers = tierInfo.0
-                completedAmount = tierInfo.1
-                
+            if indexPath.section == 1 {
+                if let completedTiers = completedAchievements?.tieredCompletions {
+                    let tierInfo: (Int, Int) = completedTiers[tieredAchievementsSorted[indexPath.row - 1].0] ?? (0, 0)
+                    
+                    numCompletedTiers = tierInfo.0
+                    completedAmount = tierInfo.1
+                    
+                }
+            } else {
+                if let completedTiers = completedAchievements?.legacyTieredCompletions {
+                    let tierInfo: (Int, Int) = completedTiers[legacyTieredAchievementsSorted[indexPath.row - 1].0] ?? (0, 0)
+                    
+                    numCompletedTiers = tierInfo.0
+                    completedAmount = tierInfo.1
+                    
+                }
             }
+            
+            
+            
             
             tieredAchievementCell.configure(name: name, description: description, tiers: tiers, numCompletedTiers: numCompletedTiers, completedAmount: completedAmount)
             
@@ -234,7 +255,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         case 1:
             return hasTiered ? 64 : 0
         case 2:
-            return 100
+            return hasOneTimes ? 100 : 0
         case 3:
             return hasTieredOneTime || hasTieredLegacy ? 64 : 0
         case 4:
@@ -260,6 +281,10 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
 //            headerView.sortButton.titleLabel?.text = "Sorted: " + getShortSortingCategoryName(category: TieredSortingCategory.allCases[selectedTieredSortingRow])
             return headerView
         case 2:
+            if !hasOneTimes {
+                return nil
+            }
+            
             let headerView = SortTableHeaderView.instanceFromNib()
             headerView.headerLabel.text = "One-Time Achievements"
             headerView.sortButton.addTarget(self, action: #selector(sortOneTimeButtonTapped), for: .touchUpInside)

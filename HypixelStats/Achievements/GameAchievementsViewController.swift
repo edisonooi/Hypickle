@@ -261,13 +261,13 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         case .pointsDescending:
             return "Points ↓"
         case .gamePercentAscending:
-            return "Game % ↑"
+            return "Game % Unlocked ↑"
         case .gamePercentDescending:
-            return "Game % ↓"
+            return "Game % Unlocked ↓"
         case .globalPercentAscending:
-            return "Global % ↑"
+            return "Global % Unlocked ↑"
         case .globalPercentDescending:
-            return "Global % ↓"
+            return "Global % Unlocked ↓"
         }
     }
     

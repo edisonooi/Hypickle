@@ -239,6 +239,9 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         
         alert.setValue(vc, forKey: "contentViewController")
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+//            let section = IndexSet.init(integer: 1)
+//            self.achievementsTable.reloadSections(section, with: .none)
+            self.achievementsTable.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in

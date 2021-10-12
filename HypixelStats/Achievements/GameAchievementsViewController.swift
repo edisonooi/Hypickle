@@ -245,9 +245,6 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.top, animated: true)
             //tableView.reloadSections([indexPath.section], with: .none)
         }
-        
-        
-        
     }
     
 //    @objc func sortTieredButtonTapped() {

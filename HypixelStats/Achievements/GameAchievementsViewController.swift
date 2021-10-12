@@ -33,6 +33,9 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     var oneTimeAchievementsSorted: [(String, OneTimeAchievement)] = []
     var tieredAchievementsSorted: [(String, TieredAchievement)] = []
     
+    var legacyOneTimeAchievementsSorted: [(String, OneTimeAchievement)] = []
+    var legacyTieredAchievementsSorted: [(String, TieredAchievement)] = []
+    
     var selectedOneTimeSortingRow = 0
     //var selectedTieredSortingRow = 0
     
@@ -40,7 +43,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     let screenHeight = UIScreen.main.bounds.height
     
     var expandedSections = [
-        0: true,
+        0: false,
         1: true,
         2: true,
         3: true,
@@ -70,13 +73,24 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             tieredAchievementsSorted = safeAchievements.tieredAchievements.sorted {
                 $0.1.name < $1.1.name
             }
+            
+            legacyOneTimeAchievementsSorted = safeAchievements.legacyOneTimeAchievements.sorted {
+                $0.1.name < $1.1.name
+            }
+            
+            legacyTieredAchievementsSorted = safeAchievements.legacyTieredAchievements.sorted {
+                $0.1.name < $1.1.name
+            }
         }
         
         hasTiered = tieredAchievementsSorted.count > 0
+        hasTieredLegacy = legacyTieredAchievementsSorted.count > 0
+        hasTieredOneTime = legacyOneTimeAchievementsSorted.count > 0
         
         achievementsTable.register(OneTimeAchievementTableViewCell.nib(), forCellReuseIdentifier: OneTimeAchievementTableViewCell.identifier)
         achievementsTable.register(TieredAchievementTableViewCell.nib(), forCellReuseIdentifier: TieredAchievementTableViewCell.identifier)
         achievementsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
+        achievementsTable.sectionFooterHeight = 16
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
         achievementsTable.allowsSelection = true
@@ -102,11 +116,14 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        switch section {
+        case 0:
+            return 1
+        case 1:
             if !hasTiered {
                 return 0
             } else if (expandedSections[section] ?? false) {
@@ -114,17 +131,34 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             } else {
                 return 1
             }
-        } else if section == 1 {
+        case 2:
             return (expandedSections[section] ?? false) ? oneTimeAchievementsSorted.count + 1 : 1
+        case 3:
+            if !hasTieredLegacy {
+                return 0
+            } else if (expandedSections[section] ?? false) {
+                return legacyTieredAchievementsSorted.count + 1
+            } else {
+                return 1
+            }
+        case 4:
+            if !hasTieredOneTime {
+                return 0
+            } else if (expandedSections[section] ?? false) {
+                return legacyOneTimeAchievementsSorted.count + 1
+            } else {
+                return 1
+            }
+        default:
+            return 0
         }
         
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        if indexPath.section == 1 {
+        if indexPath.section == 2 || indexPath.section == 4 {
             if indexPath.row == 0 {
                 let topCell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
                 topCell.showDropDown()
@@ -136,10 +170,11 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             
             let oneTimeAchievementCell = tableView.dequeueReusableCell(withIdentifier: OneTimeAchievementTableViewCell.identifier, for: indexPath) as! OneTimeAchievementTableViewCell
             
-            let currentAchievement = oneTimeAchievementsSorted[indexPath.row - 1].1
+            let currentAchievement = indexPath.section == 2 ? oneTimeAchievementsSorted[indexPath.row - 1].1 : legacyOneTimeAchievementsSorted[indexPath.row - 1].1
+            
             let name = currentAchievement.name
             let shortName = GameTypes.achievementGameIDToShortName[currentAchievement.gameID] ?? "-"
-            let description = currentAchievement.description
+            let description = currentAchievement.achievementDescription
             let points = currentAchievement.points
             let gamePercentUnlocked = currentAchievement.gamePercentUnlocked
             let globalPercentUnlocked = currentAchievement.globalPercentUnlocked
@@ -155,7 +190,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             return oneTimeAchievementCell
         }
         
-        else if indexPath.section == 0 {
+        else if indexPath.section == 1 || indexPath.section == 3 {
             if indexPath.row == 0 {
                 let topCell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
                 topCell.showDropDown()
@@ -167,7 +202,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             
             let tieredAchievementCell = tableView.dequeueReusableCell(withIdentifier: TieredAchievementTableViewCell.identifier, for: indexPath) as! TieredAchievementTableViewCell
             
-            let currentAchievement = tieredAchievementsSorted[indexPath.row - 1].1
+            let currentAchievement = indexPath.section == 1 ? tieredAchievementsSorted[indexPath.row - 1].1 : legacyTieredAchievementsSorted[indexPath.row - 1].1
             let name = currentAchievement.name
             let description = currentAchievement.achievementDescription
             let tiers = currentAchievement.tiers
@@ -195,34 +230,49 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
-            return hasTiered ? 100 : 0
+            return 0
         case 1:
+            return hasTiered ? 64 : 0
+        case 2:
             return 100
+        case 3:
+            return hasTieredOneTime || hasTieredLegacy ? 64 : 0
+        case 4:
+            return 20
         default:
             return CGFloat.leastNormalMagnitude
         }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-        case 0:
+        case 1:
             if !hasTiered {
                 return nil
             }
             
-            let headerView = SortTableHeaderView.instanceFromNib()
-            headerView.headerLabel.text = "Tiered Achievements"
-            headerView.sortButton.isHidden = true
+            let headerView = GenericHeaderView.instanceFromNib()
+            headerView.title.text = "Tiered Achievements"
+//            let headerView = SortTableHeaderView.instanceFromNib()
+//            headerView.headerLabel.text = "Tiered Achievements"
+//            headerView.sortButton.isHidden = true
 //            headerView.sortButton.addTarget(self, action: #selector(sortTieredButtonTapped), for: .touchUpInside)
 //            headerView.sortButton.titleLabel?.text = "Sorted: " + getShortSortingCategoryName(category: TieredSortingCategory.allCases[selectedTieredSortingRow])
             return headerView
-        case 1:
+        case 2:
             let headerView = SortTableHeaderView.instanceFromNib()
             headerView.headerLabel.text = "One-Time Achievements"
             headerView.sortButton.addTarget(self, action: #selector(sortOneTimeButtonTapped), for: .touchUpInside)
             headerView.sortButton.titleLabel?.text = "Sorted: " + getShortSortingCategoryName(category: OneTimeSortingCategory.allCases[selectedOneTimeSortingRow])
+            return headerView
+        case 3:
+            if !hasTieredLegacy && !hasTieredOneTime {
+                return nil
+            }
+            
+            let headerView = GenericHeaderView.instanceFromNib()
+            headerView.title.text = "Legacy Achievements"
+            
             return headerView
         default:
             return nil

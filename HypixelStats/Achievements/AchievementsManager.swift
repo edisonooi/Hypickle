@@ -60,15 +60,10 @@ class AchievementsManager {
             if let group = GlobalAchievementList.shared.globalList[gameID] {
                 for (name, achievement) in group.oneTimeAchievements {
                     if allOneTimesCompleted.contains(gameID + "_" + name.lowercased()) {
-                        if achievement.isLegacy {
-                            legacyOneTimesCompleted.insert(name)
-                            legacyCount += 1
-                            legacyPoints += achievement.points
-                        } else {
-                            oneTimesCompleted.insert(name)
-                            count += 1
-                            points += achievement.points
-                        }
+                        
+                        oneTimesCompleted.insert(name)
+                        count += 1
+                        points += achievement.points
                         
                         if recentlyCompleted.contains(gameID + "_" + name.lowercased()) {
                             if let index = recentlyCompleted.firstIndex(of: gameID + "_" + name.lowercased()) {
@@ -76,10 +71,15 @@ class AchievementsManager {
                             }
                         }
                     } else {
-                        if !achievement.isLegacy {
-                            ret3.append(achievement)
-                        }
-                        
+                        ret3.append(achievement)
+                    }
+                }
+                
+                for(name, achievement) in group.legacyOneTimeAchievements {
+                    if allOneTimesCompleted.contains(gameID + "_" + name.lowercased()) {
+                        legacyOneTimesCompleted.insert(name)
+                        legacyCount += 1
+                        legacyPoints += achievement.points
                     }
                 }
                 
@@ -114,6 +114,27 @@ class AchievementsManager {
                     }
                 }
                 
+                for(name, achievement) in group.legacyTieredAchievements {
+                    if let completedAmount = tieredCompletions[gameID + "_" + name.lowercased()] {
+                        var tiersCompleted = 0
+                        
+                        for tier in achievement.tiers {
+                            if completedAmount >= tier.amount {
+                                tiersCompleted += 1
+                                
+                                legacyCount += 1
+                                legacyPoints += tier.points
+                            } else {
+                                break
+                            }
+                        }
+                        
+                        legacyTieredCompleted[name] = (tiersCompleted, completedAmount)
+                        
+                    }
+                    
+                }
+                
                 ret[gameID] = CompletedAchievementGroup(completedCount: count,
                                                         completedPoints: points,
                                                         oneTimesCompleted: oneTimesCompleted,
@@ -122,9 +143,6 @@ class AchievementsManager {
                                                         legacyTieredCompletions: legacyTieredCompleted,
                                                         legacyCompletedCount: legacyCount,
                                                         legacyCompletedPoints: legacyPoints)
-                print(gameID)
-                print(points)
-                print(legacyPoints)
                 
             }
         }

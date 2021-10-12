@@ -12,7 +12,7 @@ class OneTimeAchievement {
     
     var gameID: String
     var name: String
-    var description: String
+    var achievementDescription: String
     var points: Int
     var gamePercentUnlocked: Double
     var globalPercentUnlocked: Double
@@ -21,7 +21,7 @@ class OneTimeAchievement {
     init(gameID: String = "", name: String = "", description: String = "", points: Int = 0, gamePercentUnlocked: Double = 0.0, globalPercentUnlocked: Double = 0.0, legacy: Bool = false) {
         self.gameID = gameID
         self.name = name
-        self.description = description
+        self.achievementDescription = description
         self.points = points
         self.gamePercentUnlocked = gamePercentUnlocked
         self.globalPercentUnlocked = globalPercentUnlocked

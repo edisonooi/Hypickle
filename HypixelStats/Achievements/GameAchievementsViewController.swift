@@ -351,13 +351,13 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row == 0
+        return indexPath.row == 0 && indexPath.section != 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.row == 0 {
+        if indexPath.row == 0 && indexPath.section != 0 {
             if let section = expandedSections[indexPath.section] {
                 expandedSections[indexPath.section] = !section
             }

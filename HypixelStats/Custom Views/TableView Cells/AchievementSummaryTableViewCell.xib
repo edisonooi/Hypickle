@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,37 +19,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,650/1,650" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGc-IN-tET">
-                        <rect key="frame" x="16" y="46.5" width="144" height="31.5"/>
+                        <rect key="frame" x="32" y="46.5" width="144" height="31.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfS-7F-QzE">
-                        <rect key="frame" x="204" y="16" width="56" height="25.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                        <rect key="frame" x="187.5" y="16" width="57.5" height="25.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mee-ju-qDf">
-                        <rect key="frame" x="60" y="16" width="56.5" height="25.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                        <rect key="frame" x="75" y="16" width="58.5" height="25.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(100.00%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zah-wE-PxG">
-                        <rect key="frame" x="183" y="83" width="98.5" height="24"/>
+                        <rect key="frame" x="167" y="83" width="98.5" height="24"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,650/1,650" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-4R-rxd">
-                        <rect key="frame" x="160" y="46.5" width="144" height="31.5"/>
+                        <rect key="frame" x="144" y="46.5" width="144" height="31.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(100.00%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryB-12-vD3">
-                        <rect key="frame" x="39" y="83" width="98.5" height="24"/>
+                        <rect key="frame" x="55" y="83" width="98.5" height="24"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -61,16 +62,17 @@
                     <constraint firstAttribute="bottomMargin" secondItem="ryB-12-vD3" secondAttribute="bottom" constant="16" id="7Mu-zZ-2CP"/>
                     <constraint firstItem="QfS-7F-QzE" firstAttribute="centerY" secondItem="Mee-ju-qDf" secondAttribute="centerY" id="F7E-Ma-EaE"/>
                     <constraint firstItem="ryB-12-vD3" firstAttribute="centerX" secondItem="Mee-ju-qDf" secondAttribute="centerX" id="Ggn-j7-ltN"/>
-                    <constraint firstAttribute="trailing" secondItem="6Cu-4R-rxd" secondAttribute="trailing" constant="16" id="JPJ-oO-hgO"/>
+                    <constraint firstAttribute="trailing" secondItem="6Cu-4R-rxd" secondAttribute="trailing" constant="32" id="JPJ-oO-hgO"/>
                     <constraint firstItem="mGc-IN-tET" firstAttribute="centerX" secondItem="Mee-ju-qDf" secondAttribute="centerX" id="VZR-BE-SGY"/>
                     <constraint firstItem="6Cu-4R-rxd" firstAttribute="centerY" secondItem="mGc-IN-tET" secondAttribute="centerY" id="YYB-7e-x3D"/>
                     <constraint firstItem="Zah-wE-PxG" firstAttribute="centerY" secondItem="ryB-12-vD3" secondAttribute="centerY" id="c8Q-TI-XFn"/>
                     <constraint firstItem="ryB-12-vD3" firstAttribute="top" secondItem="mGc-IN-tET" secondAttribute="bottom" constant="5" id="hwU-Rt-LQ0"/>
-                    <constraint firstItem="mGc-IN-tET" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="mXA-np-w9b"/>
+                    <constraint firstItem="mGc-IN-tET" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="mXA-np-w9b"/>
                     <constraint firstItem="6Cu-4R-rxd" firstAttribute="centerX" secondItem="QfS-7F-QzE" secondAttribute="centerX" id="uX3-Vc-6Fq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
             <connections>
                 <outlet property="countLabel" destination="6Cu-4R-rxd" id="mDp-s0-Kud"/>
                 <outlet property="countPercentLabel" destination="Zah-wE-PxG" id="wYu-H7-gSf"/>
@@ -80,4 +82,9 @@
             <point key="canvasLocation" x="131.8840579710145" y="87.053571428571431"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

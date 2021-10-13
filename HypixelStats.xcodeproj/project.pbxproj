@@ -50,6 +50,7 @@
 		4CB0706A2714FB0F00A81658 /* SortTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB070692714FB0F00A81658 /* SortTableHeaderView.xib */; };
 		4CB0706D27169AF100A81658 /* AchievementSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0706B27169AF100A81658 /* AchievementSummaryTableViewCell.swift */; };
 		4CB0706E27169AF100A81658 /* AchievementSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB0706C27169AF100A81658 /* AchievementSummaryTableViewCell.xib */; };
+		4CB0707027173E2800A81658 /* AchievementMoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0706F27173E2800A81658 /* AchievementMoreDetailsViewController.swift */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
 		4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AF26DD3E110077D6AC /* RankManager.swift */; };
 		4CB2C05A26E2C15A0073241C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2C05926E2C15A0073241C /* AboutViewController.swift */; };
@@ -166,6 +167,7 @@
 		4CB070692714FB0F00A81658 /* SortTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortTableHeaderView.xib; sourceTree = "<group>"; };
 		4CB0706B27169AF100A81658 /* AchievementSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		4CB0706C27169AF100A81658 /* AchievementSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementSummaryTableViewCell.xib; sourceTree = "<group>"; };
+		4CB0706F27173E2800A81658 /* AchievementMoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementMoreDetailsViewController.swift; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
 		4CB192AF26DD3E110077D6AC /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
 		4CB2C05926E2C15A0073241C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				4C7A726126F5421200FB562C /* TieredAchievement.swift */,
 				4CA3E03626FA3FF800209314 /* GlobalAchievementList.swift */,
 				4C9EE5FE2713DA2600EBE829 /* GameAchievementsViewController.swift */,
+				4CB0706F27173E2800A81658 /* AchievementMoreDetailsViewController.swift */,
 			);
 			path = Achievements;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				BE10349026A627FA00153FBE /* Utils.swift in Sources */,
 				4C9EE5F6271101C200EBE829 /* AchievementPercentageTableViewCell.swift in Sources */,
 				4C54999026CB5B890042F1E0 /* StatsManager.swift in Sources */,
+				4CB0707027173E2800A81658 /* AchievementMoreDetailsViewController.swift in Sources */,
 				BEAFEC0126AA11E000349728 /* CellData.swift in Sources */,
 				4C9D142B26DD7B2400E6695C /* ProfileTableViewController.swift in Sources */,
 				4C9D142F26DEB9E900E6695C /* CumulativeStatsKeys.swift in Sources */,

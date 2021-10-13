@@ -315,11 +315,9 @@ class AchievementsTableViewController: UITableViewController {
             
             detailsButton.setTitle("See More Details", for: .normal)
             
-            if section == 2 {
-                detailsButton.addTarget(self, action: #selector(recentlyCompletedButtonTapped), for: .touchUpInside)
-            } else if section == 3 {
-                detailsButton.addTarget(self, action: #selector(easiestRemainingButtonTapped), for: .touchUpInside)
-            }
+            detailsButton.tag = section
+            
+            detailsButton.addTarget(self, action: #selector(moreDetailsButtonTapped(sender:)), for: .touchUpInside)
             
             detailsButton.setTitleColor(.link, for: .normal)
             detailsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -333,12 +331,8 @@ class AchievementsTableViewController: UITableViewController {
         return nil
     }
     
-    @objc func recentlyCompletedButtonTapped() {
-        print("Recent")
-    }
-    
-    @objc func easiestRemainingButtonTapped() {
-        print("Easiest")
+    @objc func moreDetailsButtonTapped(sender: UIButton) {
+        performSegue(withIdentifier: "showMoreAchievementsDetails", sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -348,6 +342,23 @@ class AchievementsTableViewController: UITableViewController {
             destVC.achievementGameID = selectedGame
             destVC.achievements = GlobalAchievementList.shared.globalList[selectedGame]
             destVC.completedAchievements = allCompletedAchievements[selectedGame]
+        }
+        
+        else if segue.identifier == "showMoreAchievementsDetails" {
+            
+            let destVC = segue.destination as! AchievementMoreDetailsViewController
+            
+            //Recently completed achieves
+            if (sender as! UIButton).tag == 2 {
+                destVC.achievementsAreCompleted = true
+                destVC.achievementsList = recentlyCompletedAchievements
+            }
+            
+            //Easiest remaining achieves
+            else if (sender as! UIButton).tag == 3 {
+                destVC.achievementsAreCompleted = false
+                destVC.achievementsList = Array(incompleteOneTimes.prefix(AchievementsManager.numEasiestAchievements))
+            }
         }
     }
     

@@ -558,6 +558,7 @@
                     <connections>
                         <outlet property="achievementsTable" destination="YbI-xE-pfP" id="zrT-m6-Hia"/>
                         <segue destination="tLm-2E-NHY" kind="show" identifier="showGameAchievements" id="MmY-oc-i9e"/>
+                        <segue destination="gzq-zJ-YfJ" kind="show" identifier="showMoreAchievementsDetails" id="scG-CG-bos"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1OT-52-b4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -596,6 +597,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oha-qF-Ths" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4035.9813084112147" y="464.57883369330455"/>
+        </scene>
+        <!--Achievement More Details View Controller-->
+        <scene sceneID="xKW-4b-acr">
+            <objects>
+                <viewController id="gzq-zJ-YfJ" customClass="AchievementMoreDetailsViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iue-iz-KSz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="478"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ycO-HF-vI2">
+                                <rect key="frame" x="0.0" y="43" width="414" height="435"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" systemColor="systemGray2Color"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CcI-zt-nzq"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ycO-HF-vI2" firstAttribute="width" secondItem="Iue-iz-KSz" secondAttribute="width" id="Cnp-Ks-NsT"/>
+                            <constraint firstItem="ycO-HF-vI2" firstAttribute="height" secondItem="Iue-iz-KSz" secondAttribute="height" multiplier="0.910042" id="FQy-4u-hfF"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ycO-HF-vI2" secondAttribute="bottom" id="Iau-xw-AOg"/>
+                            <constraint firstItem="ycO-HF-vI2" firstAttribute="centerX" secondItem="Iue-iz-KSz" secondAttribute="centerX" id="TWi-EE-dDU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="py0-j9-RB5"/>
+                    <connections>
+                        <outlet property="achievementsTable" destination="ycO-HF-vI2" id="JdA-7J-K1a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8U-vc-0PZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3633.6448598130837" y="922.67818574514047"/>
         </scene>
     </scenes>
     <resources>

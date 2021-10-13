@@ -26,7 +26,8 @@ class RankManager {
         "RED" : UIColor(named: "mc_red")!,
         "LIGHT_PURPLE" : UIColor(named: "mc_light_purple")!,
         "YELLOW" : UIColor(named: "mc_yellow")!,
-        "WHITE" : UIColor(named: "white_label")!
+        "WHITE" : UIColor(named: "white_label")!,
+        "BLACK" : UIColor.black
     ]
     
     static func getRank(data: JSON) -> String {

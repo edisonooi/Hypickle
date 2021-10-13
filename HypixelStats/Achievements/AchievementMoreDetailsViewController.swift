@@ -19,6 +19,7 @@ class AchievementMoreDetailsViewController: UIViewController, UITableViewDelegat
         
         achievementsTable.delegate = self
         achievementsTable.dataSource = self
+        achievementsTable.allowsSelection = false
         
         achievementsTable.register(OneTimeAchievementTableViewCell.nib(), forCellReuseIdentifier: OneTimeAchievementTableViewCell.identifier)
         

@@ -92,30 +92,39 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         achievementsTable.register(OneTimeAchievementTableViewCell.nib(), forCellReuseIdentifier: OneTimeAchievementTableViewCell.identifier)
         achievementsTable.register(TieredAchievementTableViewCell.nib(), forCellReuseIdentifier: TieredAchievementTableViewCell.identifier)
         achievementsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
-        achievementsTable.sectionFooterHeight = 16
+        achievementsTable.register(AchievementSummaryTableViewCell.nib(), forCellReuseIdentifier: AchievementSummaryTableViewCell.identifier)
+        //achievementsTable.sectionFooterHeight = 16
+        
+//        let dummyViewHeight = CGFloat(40)
+//        achievementsTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.achievementsTable.bounds.size.width, height: CGFloat.leastNormalMagnitude))
+//        self.achievementsTable.contentInset = UIEdgeInsets(top: -dummyViewHeight, left: 0, bottom: 0, right: 0)
+//        achievementsTable.clipsToBounds = true
+        
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
         achievementsTable.allowsSelection = true
         
+        
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.showNavbar(animated: true)
-            navigationController.followScrollView(achievementsTable, delay: 20.0)
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.showNavbar(animated: true)
-            navigationController.stopFollowingScrollView()
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        if let navigationController = self.navigationController as? ScrollingNavigationController {
+//            navigationController.showNavbar(animated: true)
+//            navigationController.followScrollView(achievementsTable, delay: 20.0)
+//        }
+//    }
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        
+//        if let navigationController = self.navigationController as? ScrollingNavigationController {
+//            navigationController.showNavbar(animated: true)
+//            navigationController.stopFollowingScrollView()
+//        }
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
@@ -164,7 +173,27 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let dummyCell = UITableViewCell()
+        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: AchievementSummaryTableViewCell.identifier, for: indexPath) as! AchievementSummaryTableViewCell
+            
+            
+            if let completed = completedAchievements, let achieves = achievements {
+                var pointsStrings = AchievementsManager.getPointsStrings(earnedPoints: completed.completedPoints, totalPoints: achieves.totalPoints - achieves.totalLegacyPoints)
+                var countsStrings = AchievementsManager.getCountsStrings(earnedCount: completed.completedCount, totalCount: achieves.totalCount - achieves.totalLegacyCount)
+                
+                if achievementGameID == "truecombat" || achievementGameID == "skyclash" {
+                    pointsStrings = AchievementsManager.getPointsStrings(earnedPoints: completed.legacyCompletedPoints, totalPoints: achieves.totalLegacyPoints)
+                    countsStrings = AchievementsManager.getCountsStrings(earnedCount: completed.legacyCompletedCount, totalCount: achieves.totalLegacyCount)
+                }
+                
+                cell.configure(points: pointsStrings.ratioString, pointsPercent: pointsStrings.percentString, count: countsStrings.ratioString, countPercent: countsStrings.percentString)
+                
+            }
+            
+            return cell
+        }
         
         if indexPath.section == 2 || indexPath.section == 4 {
             if indexPath.row == 0 {
@@ -245,7 +274,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             
         }
         
-        return cell
+        return dummyCell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -253,11 +282,11 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         case 0:
             return 0
         case 1:
-            return hasTiered ? 64 : 0
+            return hasTiered ? 100 : 0
         case 2:
             return hasOneTimes ? 100 : 0
         case 3:
-            return hasTieredOneTime || hasTieredLegacy ? 64 : 0
+            return hasTieredOneTime || hasTieredLegacy ? 100 : 0
         case 4:
             return 20
         default:
@@ -301,6 +330,23 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             return headerView
         default:
             return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 0
+        case 1:
+            return hasTiered ? 16 : 0
+        case 2:
+            return hasOneTimes ? 16 : 0
+        case 3:
+            return hasTieredLegacy ? 16 : 0
+        case 4:
+            return hasTieredOneTime ? 16 : 0
+        default:
+            return 0
         }
     }
     

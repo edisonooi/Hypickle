@@ -153,4 +153,56 @@ class AchievementsManager {
         
         return (allCompletedAchievements: ret, recentlyCompletedAchievements: ret2, incompleteOneTimes: ret3)
     }
+    
+    static func getPointsStrings(earnedPoints: Int, totalPoints: Int) -> (ratioString: NSAttributedString, percentString: NSAttributedString) {
+        let ratio = NSMutableAttributedString()
+        
+        let slashString = NSMutableAttributedString(string: " / ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
+        let percentage = "(\(Utils.calculatePercentage(numerator: earnedPoints, denominator: totalPoints)))"
+        
+        let pointsString = NSMutableAttributedString(string: earnedPoints.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
+        let totalString = NSMutableAttributedString(string: totalPoints.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
+        
+        
+        var percentageColor = UIColor.lightGray
+        
+        if earnedPoints == totalPoints {
+            percentageColor = UIColor.systemGreen
+        }
+        
+        let percentageString = NSMutableAttributedString(string: String(percentage), attributes: [NSAttributedString.Key.foregroundColor: percentageColor])
+        
+        ratio.append(pointsString)
+        ratio.append(slashString)
+        ratio.append(totalString)
+        
+        return (ratioString: ratio, percentString: percentageString)
+    }
+    
+    static func getCountsStrings(earnedCount: Int, totalCount: Int) -> (ratioString: NSAttributedString, percentString: NSAttributedString) {
+        
+        let ratio = NSMutableAttributedString()
+        
+        let slashString = NSMutableAttributedString(string: " / ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
+        let percentage = "(\(Utils.calculatePercentage(numerator: earnedCount, denominator: totalCount)))"
+                    
+        let completionsString = NSMutableAttributedString(string: earnedCount.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_aqua")!])
+        let totalString = NSMutableAttributedString(string: totalCount.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_aqua")!])
+        
+        var percentageColor = UIColor.lightGray
+        
+        if totalCount == earnedCount {
+            percentageColor = UIColor.systemGreen
+        }
+        
+        let percentageString = NSMutableAttributedString(string: String(percentage), attributes: [NSAttributedString.Key.foregroundColor: percentageColor])
+        
+        ratio.append(completionsString)
+        ratio.append(slashString)
+        ratio.append(totalString)
+        
+        return (ratioString: ratio, percentString: percentageString)
+    }
 }

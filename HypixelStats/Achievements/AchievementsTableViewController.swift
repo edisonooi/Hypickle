@@ -141,23 +141,12 @@ class AchievementsTableViewController: UITableViewController {
                     
                     let points = completionsAndPoints.points
                     let totalPoints = GlobalAchievementList.shared.totalAchievementPoints
-                    let percentage = " (\(Utils.calculatePercentage(numerator: points, denominator: totalPoints)))"
-                                
-                    let pointsString = NSMutableAttributedString(string: points.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
-                    let totalString = NSMutableAttributedString(string: totalPoints.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
                     
-                    var percentageColor = UIColor.lightGray
+                    let pointsStrings = AchievementsManager.getPointsStrings(earnedPoints: points, totalPoints: totalPoints)
                     
-                    if points == totalPoints {
-                        percentageColor = UIColor.systemGreen
-                    }
-                    
-                    let percentageString = NSMutableAttributedString(string: String(percentage), attributes: [NSAttributedString.Key.foregroundColor: percentageColor])
-                    
-                    value.append(pointsString)
-                    value.append(slashString)
-                    value.append(totalString)
-                    value.append(percentageString)
+                    value.append(pointsStrings.ratioString)
+                    value.append(NSAttributedString(string: " "))
+                    value.append(pointsStrings.percentString)
                     
                     
                 } else if indexPath.row == 1 {
@@ -165,47 +154,26 @@ class AchievementsTableViewController: UITableViewController {
                     
                     let completions = completionsAndPoints.completions
                     let totalCompletions = GlobalAchievementList.shared.totalAchievementCount
-                    let percentage = " (\(Utils.calculatePercentage(numerator: completions, denominator: totalCompletions)))"
-                                
-                    let completionsString = NSMutableAttributedString(string: completions.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_aqua")!])
-                    let totalString = NSMutableAttributedString(string: totalCompletions.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_aqua")!])
                     
-                    var percentageColor = UIColor.lightGray
+                    let countsStrings = AchievementsManager.getCountsStrings(earnedCount: completions, totalCount: totalCompletions)
                     
-                    if totalCompletions == completions {
-                        percentageColor = UIColor.systemGreen
-                    }
-                    
-                    let percentageString = NSMutableAttributedString(string: String(percentage), attributes: [NSAttributedString.Key.foregroundColor: percentageColor])
-                    
-                    value.append(completionsString)
-                    value.append(slashString)
-                    value.append(totalString)
-                    value.append(percentageString)
+                    value.append(countsStrings.ratioString)
+                    value.append(NSAttributedString(string: " "))
+                    value.append(countsStrings.percentString)
                 }
+                
             } else if indexPath.section == 1 {
                 if indexPath.row == 0 {
                     category = "Legacy Points"
                     
                     let points = completionsAndPoints.legacyPoints
                     let totalPoints = GlobalAchievementList.shared.totalLegacyPoints
-                    let percentage = " (\(Utils.calculatePercentage(numerator: points, denominator: totalPoints)))"
-                                
-                    let pointsString = NSMutableAttributedString(string: points.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
-                    let totalString = NSMutableAttributedString(string: totalPoints.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
                     
-                    var percentageColor = UIColor.lightGray
+                    let pointsStrings = AchievementsManager.getPointsStrings(earnedPoints: points, totalPoints: totalPoints)
                     
-                    if points == totalPoints {
-                        percentageColor = UIColor.systemGreen
-                    }
-                    
-                    let percentageString = NSMutableAttributedString(string: String(percentage), attributes: [NSAttributedString.Key.foregroundColor: percentageColor])
-                    
-                    value.append(pointsString)
-                    value.append(slashString)
-                    value.append(totalString)
-                    value.append(percentageString)
+                    value.append(pointsStrings.ratioString)
+                    value.append(NSAttributedString(string: " "))
+                    value.append(pointsStrings.percentString)
                     
                     
                 } else if indexPath.row == 1 {
@@ -213,27 +181,14 @@ class AchievementsTableViewController: UITableViewController {
                     
                     let completions = completionsAndPoints.legacyCompletions
                     let totalCompletions = GlobalAchievementList.shared.totalLegacyCount
-                    let percentage = " (\(Utils.calculatePercentage(numerator: completions, denominator: totalCompletions)))"
-                                
-                    let completionsString = NSMutableAttributedString(string: completions.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_aqua")!])
-                    let totalString = NSMutableAttributedString(string: totalCompletions.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_aqua")!])
                     
-                    var percentageColor = UIColor.lightGray
+                    let countsStrings = AchievementsManager.getCountsStrings(earnedCount: completions, totalCount: totalCompletions)
                     
-                    if totalCompletions == completions {
-                        percentageColor = UIColor.systemGreen
-                    }
-                    
-                    let percentageString = NSMutableAttributedString(string: String(percentage), attributes: [NSAttributedString.Key.foregroundColor: percentageColor])
-                    
-                    value.append(completionsString)
-                    value.append(slashString)
-                    value.append(totalString)
-                    value.append(percentageString)
+                    value.append(countsStrings.ratioString)
+                    value.append(NSAttributedString(string: " "))
+                    value.append(countsStrings.percentString)
                 }
             }
-            
-            
             
             cell.statCategory.text = category
             cell.statValue.attributedText = value
@@ -267,8 +222,6 @@ class AchievementsTableViewController: UITableViewController {
         else if indexPath.section > 3 {
             let gameCell = tableView.dequeueReusableCell(withIdentifier: GameAchievementsInfoTableViewCell.identifier, for: indexPath) as! GameAchievementsInfoTableViewCell
             
-            let pointsRatioString = NSMutableAttributedString()
-            
             let achievementGameID = achievementGameIDs[indexPath.section - 4][indexPath.row]
             let databaseName = GameTypes.achievementGameIDToDatabaseName[achievementGameID] ?? ""
             let imageName = databaseName.lowercased() + "_icon"
@@ -282,23 +235,9 @@ class AchievementsTableViewController: UITableViewController {
                 totalPoints = (GlobalAchievementList.shared.globalList[achievementGameID]?.totalLegacyPoints ?? 0)
             }
             
-            let percentage = " (\(Utils.calculatePercentage(numerator: points, denominator: totalPoints)))"
-            let pointsString = NSMutableAttributedString(string: points.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
-            let totalString = NSMutableAttributedString(string: totalPoints.withCommas, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "mc_yellow")!])
+            let pointsStrings = AchievementsManager.getPointsStrings(earnedPoints: points, totalPoints: totalPoints)
             
-            var percentageColor = UIColor.lightGray
-            
-            if points == totalPoints {
-                percentageColor = UIColor.systemGreen
-            }
-            
-            let percentageString = NSMutableAttributedString(string: String(percentage), attributes: [NSAttributedString.Key.foregroundColor: percentageColor])
-            
-            pointsRatioString.append(pointsString)
-            pointsRatioString.append(slashString)
-            pointsRatioString.append(totalString)
-            
-            gameCell.configure(icon: imageName, name: gameName, pointsRatio: pointsRatioString, percentage: percentageString)
+            gameCell.configure(icon: imageName, name: gameName, pointsRatio: pointsStrings.ratioString, percentage: pointsStrings.percentString)
             
             return gameCell
         }

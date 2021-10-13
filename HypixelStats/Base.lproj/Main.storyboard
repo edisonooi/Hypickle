@@ -618,7 +618,7 @@
                         <constraints>
                             <constraint firstItem="ycO-HF-vI2" firstAttribute="width" secondItem="Iue-iz-KSz" secondAttribute="width" id="Cnp-Ks-NsT"/>
                             <constraint firstItem="ycO-HF-vI2" firstAttribute="height" secondItem="Iue-iz-KSz" secondAttribute="height" multiplier="0.910042" id="FQy-4u-hfF"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="ycO-HF-vI2" secondAttribute="bottom" id="Iau-xw-AOg"/>
+                            <constraint firstAttribute="bottom" secondItem="ycO-HF-vI2" secondAttribute="bottom" id="Iau-xw-AOg"/>
                             <constraint firstItem="ycO-HF-vI2" firstAttribute="centerX" secondItem="Iue-iz-KSz" secondAttribute="centerX" id="TWi-EE-dDU"/>
                         </constraints>
                     </view>

@@ -315,9 +315,11 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             }
             
             let headerView = SortTableHeaderView.instanceFromNib()
+            
             headerView.headerLabel.text = "One-Time Achievements"
             headerView.sortButton.addTarget(self, action: #selector(sortOneTimeButtonTapped), for: .touchUpInside)
-            headerView.sortButton.titleLabel?.text = "Sorted: " + getShortSortingCategoryName(category: OneTimeSortingCategory.allCases[selectedOneTimeSortingRow])
+            headerView.sortButton.setTitle("Sorted: " + getShortSortingCategoryName(category: OneTimeSortingCategory.allCases[selectedOneTimeSortingRow]), for: .normal)
+            
             return headerView
         case 3:
             if !hasTieredLegacy && !hasTieredOneTime {
@@ -420,9 +422,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         
         alert.setValue(vc, forKey: "contentViewController")
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
-//            let section = IndexSet.init(integer: 1)
-//            self.achievementsTable.reloadSections(section, with: .none)
-            self.achievementsTable.reloadData()
+            
         }))
         
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in

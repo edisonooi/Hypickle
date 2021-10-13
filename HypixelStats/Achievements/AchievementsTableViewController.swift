@@ -93,7 +93,6 @@ class AchievementsTableViewController: UITableViewController {
         allCompletedAchievements = allAchievements.allCompletedAchievements
         recentlyCompletedAchievements = allAchievements.recentlyCompletedAchievements
         incompleteOneTimes = allAchievements.incompleteOneTimes
-        print(incompleteOneTimes)
     }
 
     // MARK: - Table view data source
@@ -124,13 +123,10 @@ class AchievementsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
-        let slashString = NSMutableAttributedString(string: " / ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        
         //Overall stats
         if indexPath.section == 0 || indexPath.section == 1 {
             
             let completionsAndPoints = getTotalCompletionsAndPoints()
-            
             
             var category = ""
             let value = NSMutableAttributedString()

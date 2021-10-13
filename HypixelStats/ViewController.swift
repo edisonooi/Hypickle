@@ -60,7 +60,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func performSearch() {
         errorTextView.text = ""
         
-        let username = usernameTextField.text!
+        let username = usernameTextField.text!.trimmingCharacters(in: .whitespaces)
         
         if username == "" {
             return

@@ -352,12 +352,14 @@ class AchievementsTableViewController: UITableViewController {
             if (sender as! UIButton).tag == 2 {
                 destVC.achievementsAreCompleted = true
                 destVC.achievementsList = recentlyCompletedAchievements
+                destVC.introString = "\(MinecraftUser.shared.username)'s recent challenge achievement completions, with most recent at the top."
             }
             
             //Easiest remaining achieves
             else if (sender as! UIButton).tag == 3 {
                 destVC.achievementsAreCompleted = false
                 destVC.achievementsList = Array(incompleteOneTimes.prefix(AchievementsManager.numEasiestAchievements))
+                destVC.introString = "\(MinecraftUser.shared.username)'s easiest remaining challenge achievements, sorted by percentage of Hypixel players who have completed the achievement."
             }
         }
     }

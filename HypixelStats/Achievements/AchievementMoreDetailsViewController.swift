@@ -11,6 +11,7 @@ class AchievementMoreDetailsViewController: UIViewController, UITableViewDelegat
     
     var achievementsList: [OneTimeAchievement] = []
     var achievementsAreCompleted: Bool = false
+    var introString: String = ""
 
     @IBOutlet weak var achievementsTable: UITableView!
     
@@ -22,6 +23,7 @@ class AchievementMoreDetailsViewController: UIViewController, UITableViewDelegat
         achievementsTable.allowsSelection = false
         
         achievementsTable.register(OneTimeAchievementTableViewCell.nib(), forCellReuseIdentifier: OneTimeAchievementTableViewCell.identifier)
+        achievementsTable.register(SummaryTableViewCell.nib(), forCellReuseIdentifier: SummaryTableViewCell.identifier)
         
         title = achievementsAreCompleted ? "Recently Completed Achievements" : "Easiest Remaining Achievements"
     }
@@ -55,8 +57,11 @@ class AchievementMoreDetailsViewController: UIViewController, UITableViewDelegat
             return oneTimeAchievementCell
         }
         
-        let dummyCell = UITableViewCell()
-        return dummyCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SummaryTableViewCell.identifier, for: indexPath) as! SummaryTableViewCell
+        
+        cell.configure(text: introString)
+        
+        return cell
     }
 
 }

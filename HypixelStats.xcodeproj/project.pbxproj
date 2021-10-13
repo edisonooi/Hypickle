@@ -51,6 +51,8 @@
 		4CB0706D27169AF100A81658 /* AchievementSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0706B27169AF100A81658 /* AchievementSummaryTableViewCell.swift */; };
 		4CB0706E27169AF100A81658 /* AchievementSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB0706C27169AF100A81658 /* AchievementSummaryTableViewCell.xib */; };
 		4CB0707027173E2800A81658 /* AchievementMoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0706F27173E2800A81658 /* AchievementMoreDetailsViewController.swift */; };
+		4CB0707327175F7E00A81658 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0707127175F7E00A81658 /* SummaryTableViewCell.swift */; };
+		4CB0707427175F7E00A81658 /* SummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB0707227175F7E00A81658 /* SummaryTableViewCell.xib */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
 		4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AF26DD3E110077D6AC /* RankManager.swift */; };
 		4CB2C05A26E2C15A0073241C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2C05926E2C15A0073241C /* AboutViewController.swift */; };
@@ -168,6 +170,8 @@
 		4CB0706B27169AF100A81658 /* AchievementSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		4CB0706C27169AF100A81658 /* AchievementSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementSummaryTableViewCell.xib; sourceTree = "<group>"; };
 		4CB0706F27173E2800A81658 /* AchievementMoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementMoreDetailsViewController.swift; sourceTree = "<group>"; };
+		4CB0707127175F7E00A81658 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
+		4CB0707227175F7E00A81658 /* SummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryTableViewCell.xib; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
 		4CB192AF26DD3E110077D6AC /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
 		4CB2C05926E2C15A0073241C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 				4C9EE6052714918200EBE829 /* TieredAchievementTableViewCell.xib */,
 				4CB0706B27169AF100A81658 /* AchievementSummaryTableViewCell.swift */,
 				4CB0706C27169AF100A81658 /* AchievementSummaryTableViewCell.xib */,
+				4CB0707127175F7E00A81658 /* SummaryTableViewCell.swift */,
+				4CB0707227175F7E00A81658 /* SummaryTableViewCell.xib */,
 			);
 			path = "TableView Cells";
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				BE667DBE26A766D500325338 /* StatsInfoTableViewCell.xib in Resources */,
 				4C9EE6072714918200EBE829 /* TieredAchievementTableViewCell.xib in Resources */,
 				4C526E5626DC456E00B85E0B /* minecraft.ttf in Resources */,
+				4CB0707427175F7E00A81658 /* SummaryTableViewCell.xib in Resources */,
 				BE14330926A0DDA00054E475 /* Main.storyboard in Resources */,
 				4CB0706A2714FB0F00A81658 /* SortTableHeaderView.xib in Resources */,
 				4C9EE5FD2711148600EBE829 /* GameAchievementsInfoTableViewCell.xib in Resources */,
@@ -752,6 +759,7 @@
 			files = (
 				4CA3E03726FA3FF800209314 /* GlobalAchievementList.swift in Sources */,
 				4C070DD826CC2DF8000B88C4 /* IntExtension.swift in Sources */,
+				4CB0707327175F7E00A81658 /* SummaryTableViewCell.swift in Sources */,
 				4C9EE5FF2713DA2600EBE829 /* GameAchievementsViewController.swift in Sources */,
 				BE59FAF526B778A1000F7799 /* BattlegroundStatsManager.swift in Sources */,
 				BE14330626A0DDA00054E475 /* ViewController.swift in Sources */,

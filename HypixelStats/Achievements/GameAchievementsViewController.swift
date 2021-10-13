@@ -93,19 +93,10 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
         achievementsTable.register(TieredAchievementTableViewCell.nib(), forCellReuseIdentifier: TieredAchievementTableViewCell.identifier)
         achievementsTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         achievementsTable.register(AchievementSummaryTableViewCell.nib(), forCellReuseIdentifier: AchievementSummaryTableViewCell.identifier)
-        //achievementsTable.sectionFooterHeight = 16
-        
-//        let dummyViewHeight = CGFloat(40)
-//        achievementsTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.achievementsTable.bounds.size.width, height: CGFloat.leastNormalMagnitude))
-//        self.achievementsTable.contentInset = UIEdgeInsets(top: -dummyViewHeight, left: 0, bottom: 0, right: 0)
-//        achievementsTable.clipsToBounds = true
         
         achievementsTable.dataSource = self
         achievementsTable.delegate = self
         achievementsTable.allowsSelection = true
-        
-        
-        
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -316,7 +307,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             
             let headerView = SortTableHeaderView.instanceFromNib()
             
-            headerView.headerLabel.text = "One-Time Achievements"
+            headerView.headerLabel.text = "Challenge Achievements"
             headerView.sortButton.addTarget(self, action: #selector(sortOneTimeButtonTapped), for: .touchUpInside)
             headerView.sortButton.setTitle("Sorted: " + getShortSortingCategoryName(category: OneTimeSortingCategory.allCases[selectedOneTimeSortingRow]), for: .normal)
             

@@ -28,13 +28,11 @@ class TieredAchievementTableViewCell: UITableViewCell {
     @IBOutlet weak var pointsLabel4Height: NSLayoutConstraint!
     @IBOutlet weak var pointsLabel5Height: NSLayoutConstraint!
     
-    
     @IBOutlet weak var amountLabel1: UILabel!
     @IBOutlet weak var amountLabel2: UILabel!
     @IBOutlet weak var amountLabel3: UILabel!
     @IBOutlet weak var amountLabel4: UILabel!
     @IBOutlet weak var amountLabel5: UILabel!
-    
     
     
     static func nib() -> UINib {
@@ -57,15 +55,6 @@ class TieredAchievementTableViewCell: UITableViewCell {
         
         let description2 = description.replacingOccurrences(of: "%s", with: amountCompletedString)
         
-        let descriptionString = NSMutableAttributedString(string: description2)
-        
-        let range = descriptionString.mutableString.range(of: amountCompletedString, options: .caseInsensitive)
-        
-        descriptionString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 15), range: range)
-        descriptionString.addAttribute(.backgroundColor, value: UIColor.systemGray, range: range)
-        
-        descriptionLabel.attributedText = descriptionString
-        
         //Format ratio label in top right with color
         var earnedPoints = 0
         var totalPoints = 0
@@ -82,13 +71,27 @@ class TieredAchievementTableViewCell: UITableViewCell {
         
         pointsRatioLabel.text = "\(earnedPoints)/\(totalPoints)"
         
+        var color = UIColor()
+        
         if numCompletedTiers == 0 {
-            capsuleImageView.tintColor = .systemRed
+            color = .systemRed
         } else if numCompletedTiers > 0 && numCompletedTiers < tiers.count {
-            capsuleImageView.tintColor = .systemYellow
+            color = .systemYellow
         } else {
-            capsuleImageView.tintColor = .systemGreen
+            color = .systemGreen
         }
+        
+        capsuleImageView.tintColor = color
+        
+        let descriptionString = NSMutableAttributedString(string: description2)
+        
+        let range = descriptionString.mutableString.range(of: amountCompletedString, options: .caseInsensitive)
+        
+        descriptionString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 15), range: range)
+        descriptionString.addAttribute(.backgroundColor, value: color, range: range)
+        descriptionString.setColor(color: .black, stringValue: amountCompletedString)
+        
+        descriptionLabel.attributedText = descriptionString
         
         //Format all tiers
         

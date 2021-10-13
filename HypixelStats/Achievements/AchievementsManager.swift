@@ -81,6 +81,12 @@ class AchievementsManager {
                         legacyCount += 1
                         legacyPoints += achievement.points
                     }
+                    
+                    if recentlyCompleted.contains(gameID + "_" + name.lowercased()) {
+                        if let index = recentlyCompleted.firstIndex(of: gameID + "_" + name.lowercased()) {
+                            ret2[index] = achievement
+                        }
+                    }
                 }
                 
                 for(name, achievement) in group.tieredAchievements {
@@ -146,6 +152,10 @@ class AchievementsManager {
                 
             }
         }
+        
+        ret2.removeAll(where: {
+            $0.isLegacy
+        })
         
         ret3.sort {
             $0.globalPercentUnlocked > $1.globalPercentUnlocked

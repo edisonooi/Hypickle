@@ -164,7 +164,6 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dummyCell = UITableViewCell()
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AchievementSummaryTableViewCell.identifier, for: indexPath) as! AchievementSummaryTableViewCell
@@ -255,16 +254,12 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
                 }
             }
             
-            
-            
-            
             tieredAchievementCell.configure(name: name, description: description, tiers: tiers, numCompletedTiers: numCompletedTiers, completedAmount: completedAmount)
             
             return tieredAchievementCell
-            
-            
         }
         
+        let dummyCell = UITableViewCell()
         return dummyCell
     }
     

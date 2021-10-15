@@ -34,23 +34,32 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wng-Fm-16o">
-                        <rect key="frame" x="245" y="5" width="30" height="12"/>
+                        <rect key="frame" x="220" y="5" width="30" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(100.00%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cd-rV-v4z">
-                        <rect key="frame" x="222" y="33" width="76.5" height="18"/>
+                        <rect key="frame" x="197" y="33" width="76.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" name="gray_label"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,650/1,650" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVy-Bb-oR9">
-                        <rect key="frame" x="213" y="14" width="94" height="20.5"/>
+                        <rect key="frame" x="188" y="14" width="94" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZMZ-Yl-g07">
+                        <rect key="frame" x="287" y="25" width="17" height="14"/>
+                        <color key="tintColor" name="blue_label"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ZMZ-Yl-g07" secondAttribute="height" multiplier="1:1" id="7TK-Pt-1pp"/>
+                            <constraint firstAttribute="width" constant="17" id="G41-qe-puo"/>
+                        </constraints>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -60,11 +69,13 @@
                     <constraint firstItem="5tq-vM-lc2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KR3-Hb-lG3"/>
                     <constraint firstItem="6cd-rV-v4z" firstAttribute="centerX" secondItem="wng-Fm-16o" secondAttribute="centerX" id="O3Q-hv-Z1b"/>
                     <constraint firstItem="5tq-vM-lc2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RGY-0Q-Bgw"/>
+                    <constraint firstItem="ZMZ-Yl-g07" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ULp-nw-7Qp"/>
                     <constraint firstItem="qVy-Bb-oR9" firstAttribute="centerX" secondItem="wng-Fm-16o" secondAttribute="centerX" id="b6S-sc-Ub1"/>
                     <constraint firstItem="QQA-TO-wBf" firstAttribute="leading" secondItem="5tq-vM-lc2" secondAttribute="trailing" constant="10" id="cuK-Ej-GaW"/>
-                    <constraint firstAttribute="trailing" secondItem="wng-Fm-16o" secondAttribute="trailing" constant="45" id="f41-QQ-6dk"/>
+                    <constraint firstAttribute="trailing" secondItem="wng-Fm-16o" secondAttribute="trailing" constant="70" id="f41-QQ-6dk"/>
                     <constraint firstItem="qVy-Bb-oR9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="lgU-jA-LdT"/>
                     <constraint firstAttribute="bottom" secondItem="6cd-rV-v4z" secondAttribute="bottom" constant="13" id="rce-oR-NuQ"/>
+                    <constraint firstAttribute="trailing" secondItem="ZMZ-Yl-g07" secondAttribute="trailing" constant="16" id="uM2-V4-hEb"/>
                     <constraint firstItem="QQA-TO-wBf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zS7-Xs-hnq"/>
                 </constraints>
             </tableViewCellContentView>
@@ -80,6 +91,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <namedColor name="blue_label">
+            <color red="0.0" green="0.0" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="gray_label">
             <color white="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>

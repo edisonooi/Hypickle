@@ -49,17 +49,17 @@ class ProfileTableViewController: UITableViewController {
         
         var generalStats =  [
             
-            CellData(headerData: ("Network Level", String(format: "%.2f", getNetworkLevel())), color: UIColor(named: "mc_cyan")!),
-            CellData(headerData: ("Total EXP", data["networkExp"].uInt64Value), color: UIColor(named: "mc_cyan")!),
-            CellData(headerData: ("EXP to Next Level", getXPToNextLevel(currentXP: data["networkExp"].uInt64Value)), color: UIColor(named: "mc_cyan")!),
+            CellData(headerData: ("Network Level", String(format: "%.2f", getNetworkLevel())), color: UIColor.MinecraftColors.cyan),
+            CellData(headerData: ("Total EXP", data["networkExp"].uInt64Value), color: UIColor.MinecraftColors.cyan),
+            CellData(headerData: ("EXP to Next Level", getXPToNextLevel(currentXP: data["networkExp"].uInt64Value)), color: UIColor.MinecraftColors.cyan),
             
-            CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor(named: "mc_light_purple")!),
-            CellData(headerData: ("Achievement Points", data["achievementPoints"].intValue), color: UIColor(named: "mc_yellow")!),
-            CellData(headerData: ("Quests Completed", getQuestsCompleted()), color: UIColor(named: "mc_green")!),
-            CellData(headerData: ("Challenges Completed", getChallengesCompleted()), color: UIColor(named: "mc_green")!),
+            CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor.MinecraftColors.lightPurple),
+            CellData(headerData: ("Achievement Points", data["achievementPoints"].intValue), color: UIColor.MinecraftColors.yellow),
+            CellData(headerData: ("Quests Completed", getQuestsCompleted()), color: UIColor.MinecraftColors.green),
+            CellData(headerData: ("Challenges Completed", getChallengesCompleted()), color: UIColor.MinecraftColors.green),
             
             CellData(headerData: ("Coin Multiplier", getCoinMultiplier())),
-            CellData(headerData: ("Total Coins", getTotalCoins()), color: UIColor(named: "mc_gold")!),
+            CellData(headerData: ("Total Coins", getTotalCoins()), color: UIColor.MinecraftColors.gold),
             
             CellData(headerData: ("Total Wins", getTotalWins())),
             CellData(headerData: ("Total Kills", getTotalKills())),
@@ -69,9 +69,9 @@ class ProfileTableViewController: UITableViewController {
             CellData(headerData: ("Current Streak", data["rewardScore"].intValue)),
             CellData(headerData: ("Highest Streak", data["rewardHighScore"].intValue)),
             
-            CellData(headerData: ("Ranks Gifted", data["giftingMeta"]["ranksGiven"].intValue), color: UIColor(named: "mc_dark_purple")!),
-            CellData(headerData: ("Gifts Given", data["giftingMeta"]["bundlesGiven"].intValue), color: UIColor(named: "mc_light_purple")!),
-            CellData(headerData: ("Gifts Received", data["giftingMeta"]["bundlesReceived"].intValue), color: UIColor(named: "mc_light_purple")!),
+            CellData(headerData: ("Ranks Gifted", data["giftingMeta"]["ranksGiven"].intValue), color: UIColor.MinecraftColors.darkPurple),
+            CellData(headerData: ("Gifts Given", data["giftingMeta"]["bundlesGiven"].intValue), color: UIColor.MinecraftColors.lightPurple),
+            CellData(headerData: ("Gifts Received", data["giftingMeta"]["bundlesReceived"].intValue), color: UIColor.MinecraftColors.lightPurple),
             
             CellData(headerData: ("Status", onlineStatus.0), color: onlineStatus.1),
             CellData(headerData: ("Game", MinecraftUser.shared.gameType)),
@@ -455,7 +455,7 @@ class ProfileTableViewController: UITableViewController {
         }
         
         if !data["firstLogin"].exists() && !data["lastLogin"].exists() {
-            return ("Never logged into Hypixel :(", UIColor(named: "gray_label")!)
+            return ("Never logged into Hypixel :(", UIColor.LabelColors.grayLabel)
         }
         
         //Sometimes last login exists but last logout doesn't, even if the player is online

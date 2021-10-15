@@ -31,5 +31,11 @@ extension UIColor {
         static var black = UIColor.black
     }
     
-    static var gold = UIColor(named: "white_label")!
+    struct LabelColors {
+        static var whiteLabel = UIColor(named: "white_label")!
+        static var grayLabel = UIColor(named: "gray_label")!
+        static var blueLabel = UIColor(named: "blue_label")!
+    }
+    
+    
 }

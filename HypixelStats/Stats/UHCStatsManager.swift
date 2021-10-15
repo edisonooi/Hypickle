@@ -89,7 +89,7 @@ class UHCStatsManager: NSObject, StatsManager {
             CellData(headerData: ("K/D", kdr)),
             
             CellData(headerData: ("Score", data["score"].intValue)),
-            CellData(headerData: ("Stars", String(titleAndStar.1) + "\u{2606}"), color: UIColor(named: "mc_gold")!),
+            CellData(headerData: ("Stars", String(titleAndStar.1) + "\u{2606}"), color: UIColor.MinecraftColors.gold),
             CellData(headerData: ("Title", titleAndStar.0), color: titleAndStar.2),
             
             CellData(headerData: ("Heads Eaten", headsEaten)),
@@ -230,10 +230,10 @@ class UHCStatsManager: NSObject, StatsManager {
             (value: 5210, name: "Warlord", color: .label),
             (value: 10210, name: "Champion", color: .label),
             (value: 13210, name: "Champion", color: .label),
-            (value: 16210, name: "Bronze Champion", color: UIColor(named: "mc_bronze")!),
-            (value: 19210, name: "Silver Champion", color: UIColor(named: "mc_white")!),
-            (value: 22210, name: "Gold Champion", color: UIColor(named: "mc_gold")!),
-            (value: 25210, name: "High Champion", color: UIColor(named: "mc_aqua")!),
+            (value: 16210, name: "Bronze Champion", color: UIColor.MinecraftColors.bronze),
+            (value: 19210, name: "Silver Champion", color: UIColor.MinecraftColors.white),
+            (value: 22210, name: "Gold Champion", color: UIColor.MinecraftColors.gold),
+            (value: 25210, name: "High Champion", color: UIColor.MinecraftColors.aqua),
             (value: Int.max, name: nil, color: nil)
         ]
         

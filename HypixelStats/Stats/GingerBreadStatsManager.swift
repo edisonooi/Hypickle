@@ -104,9 +104,9 @@ class GingerBreadStatsManager: NSObject, StatsManager {
         
         
         return [
-            CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!),
-            CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_gray")!),
-            CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: [], color: UIColor(named: "mc_bronze")!),
+            CellData(headerData: ("Gold Trophies", data["gold_trophy"].intValue), sectionData: [], color: UIColor.MinecraftColors.gold),
+            CellData(headerData: ("Silver Trophies", data["silver_trophy"].intValue), sectionData: [], color: UIColor.MinecraftColors.gray),
+            CellData(headerData: ("Bronze Trophies", data["bronze_trophy"].intValue), sectionData: [], color: UIColor.MinecraftColors.bronze),
             CellData(headerData: ("Games Played", gamesPlayed)),
             CellData(headerData: ("% Games on Podium", podiumPercentage + "%")),
             

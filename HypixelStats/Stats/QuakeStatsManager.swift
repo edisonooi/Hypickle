@@ -66,7 +66,7 @@ class QuakeStatsManager: NSObject, StatsManager {
         var killstreaks = killstreaksSolo + killstreaksTeams
         
         var godlikes = achievementsData["quake_godlikes"].intValue
-        var godlikeColor = godlikes == 0 ? UIColor.label : UIColor(named: "mc_gold")!
+        var godlikeColor = godlikes == 0 ? UIColor.label : UIColor.MinecraftColors.gold
         
         let statsSolo: [(String, Any)] = [
             ("Wins", winsSolo),

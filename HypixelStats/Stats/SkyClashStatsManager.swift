@@ -130,7 +130,7 @@ class SkyClashStatsManager: NSObject, StatsManager {
             var color = UIColor.label
             
             if kitLevel == "VIII" {
-                color = UIColor(named: "mc_gold")!
+                color = UIColor.MinecraftColors.gold
             }
             
             var dataForThisMode = [kitWins, kitKills, kitAssists, kitDeaths, kitKDR] as [Any]

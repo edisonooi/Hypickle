@@ -59,8 +59,8 @@ class BattlegroundStatsManager: NSObject, StatsManager {
             CellData(headerData: ("K/D", kdr)),
             CellData(headerData: ("Assists/Kill", akr)),
             
-            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
-            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: [], color: UIColor(named: "mc_light_purple")!),
+            CellData(headerData: ("Magic Dust", data["magic_dust"].intValue), sectionData: [], color: UIColor.MinecraftColors.aqua),
+            CellData(headerData: ("Void Shards", data["void_shards"].intValue), sectionData: [], color: UIColor.MinecraftColors.lightPurple),
             
             CellData(headerData: ("Flags Captured CTF", data["flag_conquer_self"].intValue)),
             CellData(headerData: ("Flags Returned CTF", data["flag_returns"].intValue)),
@@ -109,7 +109,7 @@ class BattlegroundStatsManager: NSObject, StatsManager {
             var color = UIColor.label
             
             if kitLevel == 90 {
-                color = UIColor(named: "mc_gold")!
+                color = UIColor.MinecraftColors.gold
             }
             
             kitStats.append(CellData(headerData: (kit.capitalized, "Lv\(kitLevel)"), sectionData: statsForThisKit, color: color))

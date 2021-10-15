@@ -314,13 +314,13 @@ class AchievementsTableViewController: UITableViewController {
             let detailsButton = UIButton(type: .custom)
             
             detailsButton.setTitle("See More Details", for: .normal)
+            detailsButton.setTitleColor(UIColor.LabelColors.blueLabel, for: .normal)
             
             detailsButton.tag = section
             
             detailsButton.addTarget(self, action: #selector(moreDetailsButtonTapped(sender:)), for: .touchUpInside)
             
-            detailsButton.setTitleColor(.link, for: .normal)
-            detailsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+            detailsButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
             detailsButton.titleLabel?.textAlignment = .center
             detailsButton.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 24)
             detailsButton.backgroundColor = .clear

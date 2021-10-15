@@ -388,38 +388,38 @@ class BedwarsStatsManager: NSObject, StatsManager {
     
     func getPrestige(level: Double) -> (prestige: String, levelColor: UIColor, prestigeColor: UIColor) {
         let prestiges = [
-            (level: 0, levelColor: UIColor(named: "mc_gray")!, prestigeColor: UIColor(named: "mc_gray")!, name: "None"),
-            (level: 100, levelColor: UIColor(named: "mc_white")!, prestigeColor: UIColor(named: "mc_white")!, name: "Iron"),
-            (level: 200, levelColor: UIColor(named: "mc_gold")!, prestigeColor: UIColor(named: "mc_gold")!, name: "Gold"),
-            (level: 300, levelColor: UIColor(named: "mc_aqua")!, prestigeColor: UIColor(named: "mc_aqua")!, name: "Diamond"),
-            (level: 400, levelColor: UIColor(named: "mc_dark_green")!, prestigeColor: UIColor(named: "mc_dark_green")!, name: "Emerald"),
-            (level: 500, levelColor: UIColor(named: "mc_dark_aqua")!, prestigeColor: UIColor(named: "mc_dark_aqua")!, name: "Sapphire"),
-            (level: 600, levelColor: UIColor(named: "mc_dark_red")!, prestigeColor: UIColor(named: "mc_dark_red")!, name: "Ruby"),
-            (level: 700, levelColor: UIColor(named: "mc_pink")!, prestigeColor: UIColor(named: "mc_pink")!, name: "Crystal"),
-            (level: 800, levelColor: UIColor(named: "mc_blue")!, prestigeColor: UIColor(named: "mc_blue")!, name: "Opal"),
-            (level: 900, levelColor: UIColor(named: "mc_dark_purple")!, prestigeColor: UIColor(named: "mc_dark_purple")!, name: "Amethyst"),
+            (level: 0, levelColor: UIColor.MinecraftColors.gray, prestigeColor: UIColor.MinecraftColors.gray, name: "None"),
+            (level: 100, levelColor: UIColor.MinecraftColors.white, prestigeColor: UIColor.MinecraftColors.white, name: "Iron"),
+            (level: 200, levelColor: UIColor.MinecraftColors.gold, prestigeColor: UIColor.MinecraftColors.gold, name: "Gold"),
+            (level: 300, levelColor: UIColor.MinecraftColors.aqua, prestigeColor: UIColor.MinecraftColors.aqua, name: "Diamond"),
+            (level: 400, levelColor: UIColor.MinecraftColors.darkGreen, prestigeColor: UIColor.MinecraftColors.darkGreen, name: "Emerald"),
+            (level: 500, levelColor: UIColor.MinecraftColors.darkAqua, prestigeColor: UIColor.MinecraftColors.darkAqua, name: "Sapphire"),
+            (level: 600, levelColor: UIColor.MinecraftColors.darkRed, prestigeColor: UIColor.MinecraftColors.darkRed, name: "Ruby"),
+            (level: 700, levelColor: UIColor.MinecraftColors.pink, prestigeColor: UIColor.MinecraftColors.pink, name: "Crystal"),
+            (level: 800, levelColor: UIColor.MinecraftColors.blue, prestigeColor: UIColor.MinecraftColors.blue, name: "Opal"),
+            (level: 900, levelColor: UIColor.MinecraftColors.darkPurple, prestigeColor: UIColor.MinecraftColors.darkPurple, name: "Amethyst"),
             //Clear means rainbow gradient
-            (level: 1000, levelColor: .clear, prestigeColor: UIColor(named: "mc_gray")!, name: "Rainbow"),
-            (level: 1100, levelColor: UIColor(named: "mc_white")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Iron Prime"),
-            (level: 1200, levelColor: UIColor(named: "mc_yellow")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Gold Prime"),
-            (level: 1300, levelColor: UIColor(named: "mc_aqua")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Diamond Prime"),
-            (level: 1400, levelColor: UIColor(named: "mc_green")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Emerald Prime"),
-            (level: 1500, levelColor: UIColor(named: "mc_dark_aqua")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Sapphire Prime"),
-            (level: 1600, levelColor: UIColor(named: "mc_red")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Ruby Prime"),
-            (level: 1700, levelColor: UIColor(named: "mc_light_purple")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Crystal Prime"),
-            (level: 1800, levelColor: UIColor(named: "mc_blue")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Opal Prime"),
-            (level: 1900, levelColor: UIColor(named: "mc_dark_purple")!, prestigeColor: UIColor(named: "mc_gray")!, name: "Amethyst Prime"),
-            (level: 2000, levelColor: UIColor(named: "mc_gray")!, prestigeColor: UIColor(named: "mc_dark_gray")!, name: "Mirror"),
-            (level: 2100, levelColor: UIColor(named: "mc_gold")!, prestigeColor: UIColor(named: "mc_gold")!, name: "Light"),
-            (level: 2200, levelColor: UIColor(named: "mc_dark_aqua")!, prestigeColor: UIColor(named: "mc_dark_aqua")!, name: "Dawn"),
-            (level: 2300, levelColor: UIColor(named: "mc_yellow")!, prestigeColor: UIColor(named: "mc_yellow")!, name: "Dusk"),
-            (level: 2400, levelColor: UIColor(named: "mc_dark_gray")!, prestigeColor: UIColor(named: "mc_dark_gray")!, name: "Air"),
-            (level: 2500, levelColor: UIColor(named: "mc_dark_green")!, prestigeColor: UIColor(named: "mc_dark_green")!, name: "Wind"),
-            (level: 2600, levelColor: UIColor(named: "mc_dark_purple")!, prestigeColor: UIColor(named: "mc_dark_purple")!, name: "Nebula"),
-            (level: 2700, levelColor: UIColor(named: "mc_dark_gray")!, prestigeColor: UIColor(named: "mc_dark_gray")!, name: "Thunder"),
-            (level: 2800, levelColor: UIColor(named: "mc_yellow")!, prestigeColor: UIColor(named: "mc_yellow")!, name: "Earth"),
-            (level: 2900, levelColor: UIColor(named: "mc_dark_blue")!, prestigeColor: UIColor(named: "mc_dark_blue")!, name: "Water"),
-            (level: 3000, levelColor: UIColor(named: "mc_dark_red")!, prestigeColor: UIColor(named: "mc_dark_red")!, name: "Fire"),
+            (level: 1000, levelColor: .clear, prestigeColor: UIColor.MinecraftColors.gray, name: "Rainbow"),
+            (level: 1100, levelColor: UIColor.MinecraftColors.white, prestigeColor: UIColor.MinecraftColors.gray, name: "Iron Prime"),
+            (level: 1200, levelColor: UIColor.MinecraftColors.yellow, prestigeColor: UIColor.MinecraftColors.gray, name: "Gold Prime"),
+            (level: 1300, levelColor: UIColor.MinecraftColors.aqua, prestigeColor: UIColor.MinecraftColors.gray, name: "Diamond Prime"),
+            (level: 1400, levelColor: UIColor.MinecraftColors.green, prestigeColor: UIColor.MinecraftColors.gray, name: "Emerald Prime"),
+            (level: 1500, levelColor: UIColor.MinecraftColors.darkAqua, prestigeColor: UIColor.MinecraftColors.gray, name: "Sapphire Prime"),
+            (level: 1600, levelColor: UIColor.MinecraftColors.red, prestigeColor: UIColor.MinecraftColors.gray, name: "Ruby Prime"),
+            (level: 1700, levelColor: UIColor.MinecraftColors.lightPurple, prestigeColor: UIColor.MinecraftColors.gray, name: "Crystal Prime"),
+            (level: 1800, levelColor: UIColor.MinecraftColors.blue, prestigeColor: UIColor.MinecraftColors.gray, name: "Opal Prime"),
+            (level: 1900, levelColor: UIColor.MinecraftColors.darkPurple, prestigeColor: UIColor.MinecraftColors.gray, name: "Amethyst Prime"),
+            (level: 2000, levelColor: UIColor.MinecraftColors.gray, prestigeColor: UIColor.MinecraftColors.darkGray, name: "Mirror"),
+            (level: 2100, levelColor: UIColor.MinecraftColors.gold, prestigeColor: UIColor.MinecraftColors.gold, name: "Light"),
+            (level: 2200, levelColor: UIColor.MinecraftColors.darkAqua, prestigeColor: UIColor.MinecraftColors.darkAqua, name: "Dawn"),
+            (level: 2300, levelColor: UIColor.MinecraftColors.yellow, prestigeColor: UIColor.MinecraftColors.yellow, name: "Dusk"),
+            (level: 2400, levelColor: UIColor.MinecraftColors.darkGray, prestigeColor: UIColor.MinecraftColors.darkGray, name: "Air"),
+            (level: 2500, levelColor: UIColor.MinecraftColors.darkGreen, prestigeColor: UIColor.MinecraftColors.darkGreen, name: "Wind"),
+            (level: 2600, levelColor: UIColor.MinecraftColors.darkPurple, prestigeColor: UIColor.MinecraftColors.darkPurple, name: "Nebula"),
+            (level: 2700, levelColor: UIColor.MinecraftColors.darkGray, prestigeColor: UIColor.MinecraftColors.darkGray, name: "Thunder"),
+            (level: 2800, levelColor: UIColor.MinecraftColors.yellow, prestigeColor: UIColor.MinecraftColors.yellow, name: "Earth"),
+            (level: 2900, levelColor: UIColor.MinecraftColors.darkBlue, prestigeColor: UIColor.MinecraftColors.darkBlue, name: "Water"),
+            (level: 3000, levelColor: UIColor.MinecraftColors.darkRed, prestigeColor: UIColor.MinecraftColors.darkRed, name: "Fire"),
         ]
         
         let levelFloor = Int(floor(level))
@@ -430,7 +430,7 @@ class BedwarsStatsManager: NSObject, StatsManager {
             }
         }
         
-        return (prestige: "None", levelColor: UIColor(named: "mc_gray")!, prestigeColor: UIColor(named: "mc_gray")!)
+        return (prestige: "None", levelColor: UIColor.MinecraftColors.gray, prestigeColor: UIColor.MinecraftColors.gray)
     }
     
     

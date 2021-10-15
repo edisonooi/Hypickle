@@ -173,25 +173,25 @@ class BuildBattleStatsManager: NSObject, StatsManager {
         } else if (100..<250).contains(score) {
             return ("Untrained", .systemGray)
         } else if (250..<500).contains(score) {
-            return ("Amateur", UIColor(named: "mc_yellow")!)
+            return ("Amateur", UIColor.MinecraftColors.yellow)
         } else if (500..<1000).contains(score) {
-            return ("Apprentice", UIColor(named: "mc_green")!)
+            return ("Apprentice", UIColor.MinecraftColors.green)
         } else if (1000..<2000).contains(score) {
-            return ("Experienced", UIColor(named: "mc_pink")!)
+            return ("Experienced", UIColor.MinecraftColors.pink)
         } else if (2000..<3500).contains(score) {
-            return ("Seasoned", UIColor(named: "mc_blue")!)
+            return ("Seasoned", UIColor.MinecraftColors.blue)
         } else if (3500..<5000).contains(score) {
-            return ("Trained", UIColor(named: "mc_dark_green")!)
+            return ("Trained", UIColor.MinecraftColors.darkGreen)
         } else if (5000..<7500).contains(score) {
-            return ("Skilled", UIColor(named: "mc_dark_aqua")!)
+            return ("Skilled", UIColor.MinecraftColors.darkAqua)
         } else if (7500..<10000).contains(score) {
-            return ("Talented", UIColor(named: "mc_red")!)
+            return ("Talented", UIColor.MinecraftColors.red)
         } else if (10000..<15000).contains(score) {
-            return ("Professional", UIColor(named: "mc_dark_purple")!)
+            return ("Professional", UIColor.MinecraftColors.darkPurple)
         } else if (15000..<20000).contains(score) {
-            return ("Expert", UIColor(named: "mc_dark_blue")!)
+            return ("Expert", UIColor.MinecraftColors.darkBlue)
         } else if score >= 20000 {
-            return ("Master", UIColor(named: "mc_dark_red")!)
+            return ("Master", UIColor.MinecraftColors.darkRed)
         } //Check for title #1 buider
         
         

@@ -49,7 +49,7 @@ class SpeedUHCStatsManager: NSObject, StatsManager {
             CellData(headerData: ("K/D", kdr)),
             
             CellData(headerData: ("Score", data["score"].intValue)),
-            CellData(headerData: ("Stars", String(titleAndStar.1) + "\u{274B}"), color: UIColor(named: "mc_light_purple")!),
+            CellData(headerData: ("Stars", String(titleAndStar.1) + "\u{274B}"), color: UIColor.MinecraftColors.lightPurple),
             CellData(headerData: ("Title", titleAndStar.0)),
             CellData(headerData: ("Salt", data["salt"].intValue)),
             

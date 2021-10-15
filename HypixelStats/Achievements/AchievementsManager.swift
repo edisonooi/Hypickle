@@ -165,11 +165,11 @@ class AchievementsManager {
     }
     
     static func getPointsStrings(earnedPoints: Int, totalPoints: Int) -> (ratioString: NSAttributedString, percentString: NSAttributedString) {
-        return getAttributedStrings(earned: earnedPoints, total: totalPoints, color: UIColor(named: "mc_yellow")!)
+        return getAttributedStrings(earned: earnedPoints, total: totalPoints, color: UIColor.MinecraftColors.yellow)
     }
     
     static func getCountsStrings(earnedCount: Int, totalCount: Int) -> (ratioString: NSAttributedString, percentString: NSAttributedString) {
-        return getAttributedStrings(earned: earnedCount, total: totalCount, color: UIColor(named: "mc_aqua")!)
+        return getAttributedStrings(earned: earnedCount, total: totalCount, color: UIColor.MinecraftColors.aqua)
     }
     
     private static func getAttributedStrings(earned: Int, total: Int, color: UIColor) -> (ratioString: NSAttributedString, percentString: NSAttributedString) {

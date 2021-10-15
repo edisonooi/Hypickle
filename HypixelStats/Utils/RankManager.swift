@@ -12,21 +12,21 @@ import SwiftyJSON
 class RankManager {
     
     static let colors: [String: UIColor] = [
-        "DARK_BLUE" : UIColor(named: "mc_dark_blue")!,
-        "DARK_GREEN" : UIColor(named: "mc_dark_green")!,
-        "DARK_AQUA" : UIColor(named: "mc_dark_aqua")!,
-        "DARK_RED" : UIColor(named: "mc_dark_red")!,
-        "DARK_PURPLE" : UIColor(named: "mc_dark_purple")!,
-        "GOLD" : UIColor(named: "mc_gold")!,
-        "GRAY" : UIColor(named: "mc_gray")!,
-        "DARK_GRAY" : UIColor(named: "mc_dark_gray")!,
-        "BLUE" : UIColor(named: "mc_blue")!,
-        "GREEN" : UIColor(named: "mc_green")!,
-        "AQUA" : UIColor(named: "mc_aqua")!,
-        "RED" : UIColor(named: "mc_red")!,
-        "LIGHT_PURPLE" : UIColor(named: "mc_light_purple")!,
-        "YELLOW" : UIColor(named: "mc_yellow")!,
-        "WHITE" : UIColor(named: "white_label")!,
+        "DARK_BLUE" : UIColor.MinecraftColors.darkBlue,
+        "DARK_GREEN" : UIColor.MinecraftColors.darkGreen,
+        "DARK_AQUA" : UIColor.MinecraftColors.darkAqua,
+        "DARK_RED" : UIColor.MinecraftColors.darkRed,
+        "DARK_PURPLE" : UIColor.MinecraftColors.darkPurple,
+        "GOLD" : UIColor.MinecraftColors.gold,
+        "GRAY" : UIColor.MinecraftColors.gray,
+        "DARK_GRAY" : UIColor.MinecraftColors.darkGray,
+        "BLUE" : UIColor.MinecraftColors.blue,
+        "GREEN" : UIColor.MinecraftColors.green,
+        "AQUA" : UIColor.MinecraftColors.aqua,
+        "RED" : UIColor.MinecraftColors.red,
+        "LIGHT_PURPLE" : UIColor.MinecraftColors.lightPurple,
+        "YELLOW" : UIColor.MinecraftColors.yellow,
+        "WHITE" : UIColor.LabelColors.whiteLabel,
         "BLACK" : UIColor.black
     ]
     

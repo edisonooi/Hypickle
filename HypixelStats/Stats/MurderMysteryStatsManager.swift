@@ -107,8 +107,8 @@ class MurderMysteryStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Fastest Murderer Win", murdWinString)),
             CellData(headerData: ("Fastest Detective Win", detWinString)),
             
-            CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: [], color: UIColor(named: "mc_dark_red")!),
-            CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!)
+            CellData(headerData: ("Murder Weapon", knifeSkins[data["active_knife_skin"].stringValue] ?? "Default Iron Sword"), sectionData: [], color: UIColor.MinecraftColors.darkRed),
+            CellData(headerData: ("Gold Picked Up", data["coins_pickedup"].intValue), sectionData: [], color: UIColor.MinecraftColors.gold)
         ]
         
         ret.append(contentsOf: generalStats)

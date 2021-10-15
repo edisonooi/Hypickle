@@ -54,7 +54,7 @@ class SkyWarsStatsManager: NSObject, StatsManager {
             
             CellData(headerData: ("Level", String(format: "%.2f", level)), sectionData: [], color: prestigeAndColor.1),
             CellData(headerData: ("Prestige", prestigeAndColor.0), sectionData: [], color: prestigeAndColor.1),
-            CellData(headerData: ("Tokens", data["cosmetic_tokens"].intValue), sectionData: [], color: UIColor(named: "mc_dark_green")!),
+            CellData(headerData: ("Tokens", data["cosmetic_tokens"].intValue), sectionData: [], color: UIColor.MinecraftColors.darkGreen),
             
             CellData(headerData: ("Wins", wins)),
             CellData(headerData: ("Lab Wins", data["wins_lab"].intValue)),
@@ -85,9 +85,9 @@ class SkyWarsStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Heads Gathered", data["heads"].intValue)),
             CellData(headerData: ("Corruption Chance", getCorruptionChance())),
             
-            CellData(headerData: ("Souls Gathered", data["souls_gathered"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
-            CellData(headerData: ("Current Souls", data["souls"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
-            CellData(headerData: ("Paid Souls", data["paid_souls"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
+            CellData(headerData: ("Souls Gathered", data["souls_gathered"].intValue), sectionData: [], color: UIColor.MinecraftColors.aqua),
+            CellData(headerData: ("Current Souls", data["souls"].intValue), sectionData: [], color: UIColor.MinecraftColors.aqua),
+            CellData(headerData: ("Paid Souls", data["paid_souls"].intValue), sectionData: [], color: UIColor.MinecraftColors.aqua),
             CellData(headerData: ("Soul Well Uses", data["soul_well"].intValue)),
         ]
         
@@ -291,16 +291,16 @@ class SkyWarsStatsManager: NSObject, StatsManager {
     func getPrestige(level: Double) -> (String, UIColor) {
         
         let prestiges = [
-            (level: 0,   color: UIColor(named: "mc_gray")!, name: "None"),
+            (level: 0,   color: UIColor.MinecraftColors.gray, name: "None"),
             (level: 5,   color: .label, name: "Iron"),
-            (level: 10,  color: UIColor(named: "mc_gold")!, name: "Gold"),
-            (level: 15,  color: UIColor(named: "mc_aqua")!, name: "Diamond"),
-            (level: 20,  color: UIColor(named: "mc_dark_green")!, name: "Emerald"),
-            (level: 25,  color: UIColor(named: "mc_dark_aqua")!, name: "Sapphire"),
-            (level: 30,  color: UIColor(named: "mc_dark_red")!, name: "Ruby"),
-            (level: 35,  color: UIColor(named: "mc_pink")!, name: "Crystal"),
-            (level: 40,  color: UIColor(named: "mc_blue")!, name: "Opal"),
-            (level: 45,  color: UIColor(named: "mc_dark_purple")!, name: "Amethyst"),
+            (level: 10,  color: UIColor.MinecraftColors.gold, name: "Gold"),
+            (level: 15,  color: UIColor.MinecraftColors.aqua, name: "Diamond"),
+            (level: 20,  color: UIColor.MinecraftColors.darkGreen, name: "Emerald"),
+            (level: 25,  color: UIColor.MinecraftColors.darkAqua, name: "Sapphire"),
+            (level: 30,  color: UIColor.MinecraftColors.darkRed, name: "Ruby"),
+            (level: 35,  color: UIColor.MinecraftColors.pink, name: "Crystal"),
+            (level: 40,  color: UIColor.MinecraftColors.blue, name: "Opal"),
+            (level: 45,  color: UIColor.MinecraftColors.darkPurple, name: "Amethyst"),
             //Clear color indicates it should be rainbow gradient
             (level: 50,  color: .clear, name: "Rainbow"),
             (level: 60, color: .clear, name: "Mythic"),

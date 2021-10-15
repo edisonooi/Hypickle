@@ -43,7 +43,7 @@ class SuperSmashStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Wins", wins)),
             CellData(headerData: ("Losses", losses)),
             CellData(headerData: ("W/L", wlr)),
-            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: [], color: UIColor(named: "mc_aqua")!),
+            CellData(headerData: ("Smash Level", data["smash_level_total"].intValue), sectionData: [], color: UIColor.MinecraftColors.aqua),
             CellData(headerData: ("Kills", kills)),
             CellData(headerData: ("Deaths", deaths)),
             CellData(headerData: ("K/D", kdr))
@@ -262,13 +262,13 @@ class SuperSmashStatsManager: NSObject, StatsManager {
         
         switch prestige {
         case 2:
-            color = UIColor(named: "mc_green")!
+            color = UIColor.MinecraftColors.green
         case 3:
-            color = UIColor(named: "mc_blue")!
+            color = UIColor.MinecraftColors.blue
         case 4:
-            color = UIColor(named: "mc_dark_purple")!
+            color = UIColor.MinecraftColors.darkPurple
         case 5:
-            color = UIColor(named: "mc_gold")!
+            color = UIColor.MinecraftColors.gold
         default:
             color = .label
         }

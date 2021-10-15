@@ -190,7 +190,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             if indexPath.row == 0 {
                 let topCell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
                 topCell.showDropDown()
-                topCell.statCategory.textColor = .secondaryLabel
+                topCell.statCategory.textColor = UIColor.LabelColors.blueLabel
                 let labelText = (expandedSections[indexPath.section] ?? false) ? "Collapse" : "Expand"
                 topCell.configure(category: labelText, value: "")
                 return topCell
@@ -222,7 +222,7 @@ class GameAchievementsViewController: UIViewController, UITableViewDataSource, U
             if indexPath.row == 0 {
                 let topCell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
                 topCell.showDropDown()
-                topCell.statCategory.textColor = .secondaryLabel
+                topCell.statCategory.textColor = UIColor.LabelColors.blueLabel
                 let labelText = (expandedSections[indexPath.section] ?? false) ? "Collapse" : "Expand"
                 topCell.configure(category: labelText, value: "")
                 return topCell

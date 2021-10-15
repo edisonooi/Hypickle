@@ -45,11 +45,11 @@ class PitStatsManager: NSObject, StatsManager {
         return [
             CellData(headerData: ("Prestige", prestigeString), color: getPrestigeColor(prestige: prestigeAndLevel.0)),
             CellData(headerData: ("Level", prestigeAndLevel.1), color: getLevelColor(level: prestigeAndLevel.1)),
-            CellData(headerData: ("XP", xp), sectionData: [], color: UIColor(named: "mc_aqua")!),
-            CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: [], color: UIColor(named: "mc_yellow")!),
+            CellData(headerData: ("XP", xp), sectionData: [], color: UIColor.MinecraftColors.aqua),
+            CellData(headerData: ("Renown", profile["renown"].intValue), sectionData: [], color: UIColor.MinecraftColors.yellow),
             
-            CellData(headerData: ("Current Gold", Int(floor(profile["cash"].doubleValue))), sectionData: [], color: UIColor(named: "mc_gold")!),
-            CellData(headerData: ("Lifetime Gold", stats["cash_earned"].intValue), sectionData: [], color: UIColor(named: "mc_gold")!),
+            CellData(headerData: ("Current Gold", Int(floor(profile["cash"].doubleValue))), sectionData: [], color: UIColor.MinecraftColors.gold),
+            CellData(headerData: ("Lifetime Gold", stats["cash_earned"].intValue), sectionData: [], color: UIColor.MinecraftColors.gold),
             
             CellData(headerData: ("Kills", kills)),
             CellData(headerData: ("Assists", assists)),
@@ -61,8 +61,8 @@ class PitStatsManager: NSObject, StatsManager {
             CellData(headerData: ("Playtime", Utils.convertToHoursMinutesSeconds(seconds: playtimeMinutes * 60))),
             CellData(headerData: ("Kills/Hour", String(format: "%.2f", killsPerHour))),
             CellData(headerData: ("KA/Hour", String(format: "%.2f", kaPerHour))),
-            CellData(headerData: ("XP/Hour", String(format: "%.2f", xpPerHour)), sectionData: [], color: UIColor(named: "mc_aqua")!),
-            CellData(headerData: ("Gold/Hour", String(format: "%.2f", goldPerHour)), sectionData: [], color: UIColor(named: "mc_gold")!),
+            CellData(headerData: ("XP/Hour", String(format: "%.2f", xpPerHour)), sectionData: [], color: UIColor.MinecraftColors.aqua),
+            CellData(headerData: ("Gold/Hour", String(format: "%.2f", goldPerHour)), sectionData: [], color: UIColor.MinecraftColors.gold),
             
             CellData(headerData: ("Jumps into Pit", stats["jumped_into_pit"].intValue)),
             CellData(headerData: ("Launcher Launches", stats["launched_by_launchers"].intValue)),
@@ -288,15 +288,15 @@ class PitStatsManager: NSObject, StatsManager {
     func getPrestigeColor(prestige: Int) -> UIColor {
 
         let prestigeColors = [
-            (prestige: 0, color: UIColor(named: "mc_gray")!),
-            (prestige: 1, color: UIColor(named: "mc_blue")!),
-            (prestige: 5, color: UIColor(named: "mc_yellow")!),
-            (prestige: 10, color: UIColor(named: "mc_gold")!),
-            (prestige: 15, color: UIColor(named: "mc_red")!),
-            (prestige: 20, color: UIColor(named: "mc_dark_purple")!),
-            (prestige: 25, color: UIColor(named: "mc_light_purple")!),
-            (prestige: 30, color: UIColor(named: "mc_white")!),
-            (prestige: 35, color: UIColor(named: "mc_aqua")!),
+            (prestige: 0, color: UIColor.MinecraftColors.gray),
+            (prestige: 1, color: UIColor.MinecraftColors.blue),
+            (prestige: 5, color: UIColor.MinecraftColors.yellow),
+            (prestige: 10, color: UIColor.MinecraftColors.gold),
+            (prestige: 15, color: UIColor.MinecraftColors.red),
+            (prestige: 20, color: UIColor.MinecraftColors.darkPurple),
+            (prestige: 25, color: UIColor.MinecraftColors.lightPurple),
+            (prestige: 30, color: UIColor.MinecraftColors.white),
+            (prestige: 35, color: UIColor.MinecraftColors.aqua),
         ]
         
         for p in prestigeColors.reversed() {
@@ -305,25 +305,25 @@ class PitStatsManager: NSObject, StatsManager {
             }
         }
         
-        return UIColor(named: "mc_gray")!
+        return UIColor.MinecraftColors.gray
     }
     
     func getLevelColor(level: Int) -> UIColor {
         
         let levelColors = [
-            (level: 0, color: UIColor(named: "mc_gray")!),
-            (level: 10, color: UIColor(named: "mc_blue")!),
-            (level: 20, color: UIColor(named: "mc_dark_aqua")!),
-            (level: 30, color: UIColor(named: "mc_dark_green")!),
-            (level: 40, color: UIColor(named: "mc_green")!),
-            (level: 50, color: UIColor(named: "mc_yellow")!),
-            (level: 60, color: UIColor(named: "mc_gold")!),
-            (level: 70, color: UIColor(named: "mc_red")!),
-            (level: 80, color: UIColor(named: "mc_dark_red")!),
-            (level: 90, color: UIColor(named: "mc_dark_purple")!),
-            (level: 100, color: UIColor(named: "mc_light_purple")!),
-            (level: 110, color: UIColor(named: "mc_white")!),
-            (level: 120, color: UIColor(named: "mc_aqua")!),
+            (level: 0, color: UIColor.MinecraftColors.gray),
+            (level: 10, color: UIColor.MinecraftColors.blue),
+            (level: 20, color: UIColor.MinecraftColors.darkAqua),
+            (level: 30, color: UIColor.MinecraftColors.darkGreen),
+            (level: 40, color: UIColor.MinecraftColors.green),
+            (level: 50, color: UIColor.MinecraftColors.yellow),
+            (level: 60, color: UIColor.MinecraftColors.gold),
+            (level: 70, color: UIColor.MinecraftColors.red),
+            (level: 80, color: UIColor.MinecraftColors.darkRed),
+            (level: 90, color: UIColor.MinecraftColors.darkPurple),
+            (level: 100, color: UIColor.MinecraftColors.lightPurple),
+            (level: 110, color: UIColor.MinecraftColors.white),
+            (level: 120, color: UIColor.MinecraftColors.aqua),
         ]
         
         for l in levelColors.reversed() {
@@ -332,7 +332,7 @@ class PitStatsManager: NSObject, StatsManager {
             }
         }
         
-        return UIColor(named: "mc_gray")!
+        return UIColor.MinecraftColors.gray
     }
     
 }

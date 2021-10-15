@@ -299,6 +299,10 @@ class AchievementsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 16
+        }
+        
         if footers.contains(section) {
             return 36
         }

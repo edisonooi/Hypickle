@@ -53,6 +53,7 @@
 		4CB0707027173E2800A81658 /* AchievementMoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0706F27173E2800A81658 /* AchievementMoreDetailsViewController.swift */; };
 		4CB0707327175F7E00A81658 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB0707127175F7E00A81658 /* SummaryTableViewCell.swift */; };
 		4CB0707427175F7E00A81658 /* SummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB0707227175F7E00A81658 /* SummaryTableViewCell.xib */; };
+		4CB070782719EE3300A81658 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB070772719EE3300A81658 /* Colors.swift */; };
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
 		4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AF26DD3E110077D6AC /* RankManager.swift */; };
 		4CB2C05A26E2C15A0073241C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2C05926E2C15A0073241C /* AboutViewController.swift */; };
@@ -172,6 +173,7 @@
 		4CB0706F27173E2800A81658 /* AchievementMoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementMoreDetailsViewController.swift; sourceTree = "<group>"; };
 		4CB0707127175F7E00A81658 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 		4CB0707227175F7E00A81658 /* SummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryTableViewCell.xib; sourceTree = "<group>"; };
+		4CB070772719EE3300A81658 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtension.swift; sourceTree = "<group>"; };
 		4CB192AF26DD3E110077D6AC /* RankManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankManager.swift; sourceTree = "<group>"; };
 		4CB2C05926E2C15A0073241C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				4CB192AF26DD3E110077D6AC /* RankManager.swift */,
 				4C9D142E26DEB9E900E6695C /* CumulativeStatsKeys.swift */,
 				4C9D143026DED04B00E6695C /* GameTypes.swift */,
+				4CB070772719EE3300A81658 /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				4C3574F326E171D000B86AD0 /* UIViewControllerExtension.swift in Sources */,
 				4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */,
 				4C7A726426F5484300FB562C /* AchievementsTableViewController.swift in Sources */,
+				4CB070782719EE3300A81658 /* Colors.swift in Sources */,
 				4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */,
 				4C9D142926DD7AAA00E6695C /* ProfileViewController.swift in Sources */,
 				BE10349026A627FA00153FBE /* Utils.swift in Sources */,

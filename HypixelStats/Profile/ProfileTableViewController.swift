@@ -458,6 +458,11 @@ class ProfileTableViewController: UITableViewController {
             return ("Never logged into Hypixel :(", UIColor.LabelColors.grayLabel)
         }
         
+        //Some people just don't have last login/logout records (thanks Hypixel)
+        if data["firstLogin"].exists() && !data["lastLogin"].exists() && !data["lastLogout"].exists() {
+            return ("Offline", .systemRed)
+        }
+        
         //Sometimes last login exists but last logout doesn't, even if the player is online
         if data["lastLogin"].exists() && !data["lastLogout"].exists() {
             let lastLogin = Utils.convertToDate(milliseconds: data["lastLogin"].uInt64Value)

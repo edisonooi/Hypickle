@@ -313,7 +313,7 @@
                             <constraint firstItem="my2-Co-vT4" firstAttribute="centerX" secondItem="tIk-1h-xJ7" secondAttribute="centerX" id="67O-yM-hNb"/>
                             <constraint firstItem="my2-Co-vT4" firstAttribute="height" secondItem="tIk-1h-xJ7" secondAttribute="height" multiplier="0.910042" id="feL-ad-eoI"/>
                             <constraint firstItem="my2-Co-vT4" firstAttribute="width" secondItem="tIk-1h-xJ7" secondAttribute="width" id="hOs-WA-q7R"/>
-                            <constraint firstItem="GNC-kc-6RG" firstAttribute="bottom" secondItem="my2-Co-vT4" secondAttribute="bottom" id="wEl-4b-BwZ"/>
+                            <constraint firstAttribute="bottom" secondItem="my2-Co-vT4" secondAttribute="bottom" id="wEl-4b-BwZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bZ9-ZI-RWn"/>

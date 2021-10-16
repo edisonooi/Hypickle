@@ -19,20 +19,20 @@ class ProfileTableViewController: UITableViewController {
 
     @IBOutlet var profileTable: NonScrollingTable!
     
-    lazy var profileTableData: [CellData] = {
-        var ret: [CellData] = []
+    lazy var profileTableData: [[CellData]] = {
+        var ret: [[CellData]] = []
         
         var nameHistory = getNameHistory()
         var rankHistory = getRankHistory()
         
         if !nameHistory.isEmpty {
-            ret.append(CellData(headerData: ("Name History", ""), sectionData: nameHistory))
+            ret.append([CellData(headerData: ("Name History", ""), sectionData: nameHistory)])
         } else {
             hasNameHistory = false
         }
         
         if !rankHistory.isEmpty {
-            ret.append(CellData(headerData: ("Rank History", ""), attributedData: rankHistory))
+            ret.append([CellData(headerData: ("Rank History", ""), attributedData: rankHistory)])
         } else {
             hasRankHistory = false
         }
@@ -49,37 +49,52 @@ class ProfileTableViewController: UITableViewController {
         
         var generalStats =  [
             
-            CellData(headerData: ("Network Level", String(format: "%.2f", getNetworkLevel())), color: UIColor.MinecraftColors.cyan),
-            CellData(headerData: ("Total EXP", data["networkExp"].uInt64Value), color: UIColor.MinecraftColors.cyan),
-            CellData(headerData: ("EXP to Next Level", getXPToNextLevel(currentXP: data["networkExp"].uInt64Value)), color: UIColor.MinecraftColors.cyan),
+            [
+                CellData(headerData: ("Network Level", String(format: "%.2f", getNetworkLevel())), color: UIColor.MinecraftColors.cyan),
+                CellData(headerData: ("Total EXP", data["networkExp"].uInt64Value), color: UIColor.MinecraftColors.cyan),
+                CellData(headerData: ("EXP to Next Level", getXPToNextLevel(currentXP: data["networkExp"].uInt64Value)), color: UIColor.MinecraftColors.cyan)
+            ],
             
-            CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor.MinecraftColors.lightPurple),
-            CellData(headerData: ("Achievement Points", data["achievementPoints"].intValue), color: UIColor.MinecraftColors.yellow),
-            CellData(headerData: ("Quests Completed", getQuestsCompleted()), color: UIColor.MinecraftColors.green),
-            CellData(headerData: ("Challenges Completed", getChallengesCompleted()), color: UIColor.MinecraftColors.green),
+            [
+                CellData(headerData: ("Karma", data["karma"].intValue), color: UIColor.MinecraftColors.lightPurple),
+                CellData(headerData: ("Achievement Points", data["achievementPoints"].intValue), color: UIColor.MinecraftColors.yellow),
+                CellData(headerData: ("Quests Completed", getQuestsCompleted()), color: UIColor.MinecraftColors.green),
+                CellData(headerData: ("Challenges Completed", getChallengesCompleted()), color: UIColor.MinecraftColors.green)
+            ],
             
-            CellData(headerData: ("Coin Multiplier", getCoinMultiplier())),
-            CellData(headerData: ("Total Coins", getTotalCoins()), color: UIColor.MinecraftColors.gold),
+            [
+                CellData(headerData: ("Coin Multiplier", getCoinMultiplier())),
+                CellData(headerData: ("Total Coins", getTotalCoins()), color: UIColor.MinecraftColors.gold)
+            ],
             
-            CellData(headerData: ("Total Wins", getTotalWins())),
-            CellData(headerData: ("Total Kills", getTotalKills())),
+            [
+                CellData(headerData: ("Total Wins", getTotalWins())),
+                CellData(headerData: ("Total Kills", getTotalKills()))
+            ],
             
-            CellData(headerData: ("Daily Reward", claimedString), color: claimedColor),
-            CellData(headerData: ("Rewards Claimed", data["totalRewards"].intValue)),
-            CellData(headerData: ("Current Streak", data["rewardScore"].intValue)),
-            CellData(headerData: ("Highest Streak", data["rewardHighScore"].intValue)),
+            [
+                CellData(headerData: ("Daily Reward", claimedString), color: claimedColor),
+                CellData(headerData: ("Rewards Claimed", data["totalRewards"].intValue)),
+                CellData(headerData: ("Current Streak", data["rewardScore"].intValue)),
+                CellData(headerData: ("Highest Streak", data["rewardHighScore"].intValue))
+            ],
             
-            CellData(headerData: ("Ranks Gifted", data["giftingMeta"]["ranksGiven"].intValue), color: UIColor.MinecraftColors.darkPurple),
-            CellData(headerData: ("Gifts Given", data["giftingMeta"]["bundlesGiven"].intValue), color: UIColor.MinecraftColors.lightPurple),
-            CellData(headerData: ("Gifts Received", data["giftingMeta"]["bundlesReceived"].intValue), color: UIColor.MinecraftColors.lightPurple),
+            [
+                CellData(headerData: ("Ranks Gifted", data["giftingMeta"]["ranksGiven"].intValue), color: UIColor.MinecraftColors.darkPurple),
+                CellData(headerData: ("Gifts Given", data["giftingMeta"]["bundlesGiven"].intValue), color: UIColor.MinecraftColors.lightPurple),
+                CellData(headerData: ("Gifts Received", data["giftingMeta"]["bundlesReceived"].intValue), color: UIColor.MinecraftColors.lightPurple)
+            ],
             
-            CellData(headerData: ("Status", onlineStatus.0), color: onlineStatus.1),
-            CellData(headerData: ("Game", MinecraftUser.shared.gameType)),
+            [
+                CellData(headerData: ("Status", onlineStatus.0), color: onlineStatus.1),
+                CellData(headerData: ("Game", MinecraftUser.shared.gameType))
+            ],
             
-            CellData(headerData: ("First Login", firstLogin)),
-            CellData(headerData: ("Last Login", lastLogin)),
-            CellData(headerData: ("Last Logout", lastLogout))
-            
+            [
+                CellData(headerData: ("First Login", firstLogin)),
+                CellData(headerData: ("Last Login", lastLogin)),
+                CellData(headerData: ("Last Logout", lastLogout))
+            ]
         ]
         
         ret.append(contentsOf: generalStats)
@@ -94,9 +109,9 @@ class ProfileTableViewController: UITableViewController {
         profileTable.dataSource = self
         profileTable.estimatedRowHeight = 0
         
-        if #available(iOS 15.0, *) {
-            profileTable.sectionHeaderTopPadding = 0
-        }
+//        if #available(iOS 15.0, *) {
+//            profileTable.sectionHeaderTopPadding = 0
+//        }
         
     }
 
@@ -105,55 +120,120 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if profileTableData[section].isOpened {
-            return profileTableData[section].sectionData.count == 0 ? profileTableData[section].attributedData.count + 1 : profileTableData[section].sectionData.count + 1
+        
+        
+        if profileTableData[section][0].isOpened {
+            return profileTableData[section][0].sectionData.count == 0 ? profileTableData[section][0].attributedData.count + 1 : profileTableData[section][0].sectionData.count + 1
         } else {
-            return 1
+            return profileTableData[section].count
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
+        let section = indexPath.section
+        let row = indexPath.row
         
         var category = ""
         var value: Any = ""
         
-        if indexPath.row == 0 {
-            if !profileTableData[indexPath.section].sectionData.isEmpty || !profileTableData[indexPath.section].attributedData.isEmpty {
+        if !(profileTableData[section][0].sectionData.isEmpty && profileTableData[section][0].attributedData.isEmpty) {
+            if row == 0 {
                 cell.showDropDown()
-            }
-            
-            category = profileTableData[indexPath.section].headerData.0
-            value = profileTableData[indexPath.section].headerData.1
-            
-            if profileTableData[indexPath.section].color != .label {
-                cell.statValue.textColor = profileTableData[indexPath.section].color
+                
+                category = profileTableData[section][row].headerData.0
+                value = profileTableData[section][row].headerData.1
+                
+                if profileTableData[section][row].color != .label {
+                    cell.statValue.textColor = profileTableData[section][row].color
+                }
+                
+            } else {
+                if !profileTableData[indexPath.section][0].attributedData.isEmpty {
+                    cell.statCategory.attributedText = profileTableData[indexPath.section][0].attributedData[indexPath.row - 1].0
+                    cell.statValue.text = profileTableData[indexPath.section][0].attributedData[indexPath.row - 1].1 as? String
+                    
+                    cell.statCategory.font = UIFont(name: "Minecraftia", size: 14.0)
+                    cell.statValue.textColor = UIColor(named: "gray_label")
+                    cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
+                    return cell
+                    
+                } else {
+                    
+                    category = profileTableData[indexPath.section][0].sectionData[indexPath.row - 1].0
+                    value = profileTableData[indexPath.section][0].sectionData[indexPath.row - 1].1
+                    
+                    cell.statCategory.textColor = UIColor(named: "gray_label")
+                    cell.statCategory.font = UIFont.systemFont(ofSize: 14)
+                    cell.statValue.textColor = UIColor(named: "gray_label")
+                    cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
+                }
             }
             
         } else {
+            category = profileTableData[indexPath.section][indexPath.row].headerData.0
+            value = profileTableData[indexPath.section][indexPath.row].headerData.1
             
-            if !profileTableData[indexPath.section].attributedData.isEmpty {
-                cell.statCategory.attributedText = profileTableData[indexPath.section].attributedData[indexPath.row - 1].0
-                cell.statValue.text = profileTableData[indexPath.section].attributedData[indexPath.row - 1].1 as? String
-                
-                cell.statCategory.font = UIFont(name: "Minecraftia", size: 14.0)
-                cell.statValue.textColor = UIColor(named: "gray_label")
-                cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
-                return cell
-                
-            } else {
-                
-                category = profileTableData[indexPath.section].sectionData[indexPath.row - 1].0
-                value = profileTableData[indexPath.section].sectionData[indexPath.row - 1].1
-                
-                cell.statCategory.textColor = UIColor(named: "gray_label")
-                cell.statCategory.font = UIFont.systemFont(ofSize: 14)
-                cell.statValue.textColor = UIColor(named: "gray_label")
-                cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
+            if profileTableData[indexPath.section][indexPath.row].color != .label {
+                cell.statValue.textColor = profileTableData[indexPath.section][indexPath.row].color
             }
-            
-            
         }
+        
+//        if profileTableData[section][row].sectionData.isEmpty && profileTableData[section][row].attributedData.isEmpty {
+//            category = profileTableData[section][row].headerData.0
+//            value = profileTableData[section][row].headerData.1
+//
+//            if profileTableData[section][row].color != .label {
+//                cell.statValue.textColor = profileTableData[section][row].color
+//            }
+//        } else if !profileTableData[section][row].sectionData.isEmpty || !profileTableData[section][row].attributedData.isEmpty {
+//            cell.showDropDown()
+//
+//            category = profileTableData[section][row].headerData.0
+//            value = profileTableData[section][row].headerData.1
+//
+//            if profileTableData[section][row].color != .label {
+//                cell.statValue.textColor = profileTableData[section][row].color
+//            }
+//        }
+//
+//
+//        if indexPath.row == 0 {
+//            if !profileTableData[indexPath.section][indexPath.row].sectionData.isEmpty || !profileTableData[indexPath.section][indexPath.row].attributedData.isEmpty {
+//                cell.showDropDown()
+//            }
+//
+//            category = profileTableData[indexPath.section][indexPath.row].headerData.0
+//            value = profileTableData[indexPath.section][indexPath.row].headerData.1
+//
+//            if profileTableData[indexPath.section][indexPath.row].color != .label {
+//                cell.statValue.textColor = profileTableData[indexPath.section][indexPath.row].color
+//            }
+//
+//        } else {
+//
+//            if !profileTableData[indexPath.section][0].attributedData.isEmpty {
+//                cell.statCategory.attributedText = profileTableData[indexPath.section][0].attributedData[indexPath.row - 1].0
+//                cell.statValue.text = profileTableData[indexPath.section][0].attributedData[indexPath.row - 1].1 as? String
+//
+//                cell.statCategory.font = UIFont(name: "Minecraftia", size: 14.0)
+//                cell.statValue.textColor = UIColor(named: "gray_label")
+//                cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
+//                return cell
+//
+//            } else {
+//
+//                category = profileTableData[indexPath.section].sectionData[indexPath.row - 1].0
+//                value = profileTableData[indexPath.section].sectionData[indexPath.row - 1].1
+//
+//                cell.statCategory.textColor = UIColor(named: "gray_label")
+//                cell.statCategory.font = UIFont.systemFont(ofSize: 14)
+//                cell.statValue.textColor = UIColor(named: "gray_label")
+//                cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
+//            }
+//
+//
+//        }
         
         if value is Int {
             value = (value as! Int).withCommas
@@ -169,18 +249,18 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 44
+        if !(profileTableData[indexPath.section][0].sectionData.isEmpty && profileTableData[indexPath.section][0].attributedData.isEmpty) {
+            return indexPath.row == 0 ? 55 : 41
         }
 
-        return 41
+        return 44
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if (!profileTableData[indexPath.section].sectionData.isEmpty || !profileTableData[indexPath.section].attributedData.isEmpty) && indexPath.row == 0 {
-            profileTableData[indexPath.section].isOpened = !profileTableData[indexPath.section].isOpened
+        if !(profileTableData[indexPath.section][0].sectionData.isEmpty && profileTableData[indexPath.section][0].attributedData.isEmpty) && indexPath.row == 0 {
+            profileTableData[indexPath.section][0].isOpened = !profileTableData[indexPath.section][0].isOpened
             
             let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none)
@@ -191,7 +271,7 @@ class ProfileTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        if (profileTableData[indexPath.section].sectionData.isEmpty && profileTableData[indexPath.section].attributedData.isEmpty) || indexPath.row != 0 {
+        if (profileTableData[indexPath.section][0].sectionData.isEmpty && profileTableData[indexPath.section][0].attributedData.isEmpty) || indexPath.row != 0 {
             return false
         }
         
@@ -207,17 +287,21 @@ class ProfileTableViewController: UITableViewController {
         
         if hasRankHistory {
             historyCount += 1
+            
+            if section == 1 {
+                return 20
+            }
         }
         
         let headers = [
             historyCount: "",
+            historyCount + 1: "",
+            historyCount + 2: "",
             historyCount + 3: "",
+            historyCount + 4: "",
+            historyCount + 5: "",
+            historyCount + 6: "Status",
             historyCount + 7: "",
-            historyCount + 9: "",
-            historyCount + 11: "",
-            historyCount + 15: "",
-            historyCount + 18: "Status",
-            historyCount + 20: "",
         ]
         
         if let headerTitle = headers[section] {
@@ -244,13 +328,13 @@ class ProfileTableViewController: UITableViewController {
         
         let headers = [
             historyCount: "",
+            historyCount + 1: "",
+            historyCount + 2: "",
             historyCount + 3: "",
+            historyCount + 4: "",
+            historyCount + 5: "",
+            historyCount + 6: "Status",
             historyCount + 7: "",
-            historyCount + 9: "",
-            historyCount + 11: "",
-            historyCount + 15: "",
-            historyCount + 18: "Status",
-            historyCount + 20: "",
         ]
         
         if let headerTitle = headers[section] {

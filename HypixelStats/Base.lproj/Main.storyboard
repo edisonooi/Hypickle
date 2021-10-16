@@ -425,7 +425,7 @@
         <scene sceneID="mTc-7Z-EKu">
             <objects>
                 <tableViewController id="QGj-Da-GCd" customClass="ProfileTableViewController" customModule="HypixelStats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FyY-JG-KHj" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="FyY-JG-KHj" customClass="NonScrollingTable" customModule="HypixelStats" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

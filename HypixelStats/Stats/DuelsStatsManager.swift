@@ -27,14 +27,18 @@ class DuelsStatsManager: NSObject, StatsManager {
     ]
     
     let divisions = [
-        (name: "Rookie",      color: UIColor(named: "mc_dark_gray")),
-        (name: "Iron",        color: .label),
-        (name: "Gold",        color: UIColor(named: "mc_gold")),
-        (name: "Diamond",     color: UIColor(named: "mc_cyan")),
-        (name: "Master",      color: UIColor(named: "mc_dark_green")),
-        (name: "Legend",      color: UIColor(named: "mc_dark_red")),
-        (name: "Grandmaster", color: UIColor(named: "mc_yellow")),
-        (name: "Godlike",     color: UIColor(named: "mc_dark_purple")),
+        (name: "Rookie",        color: UIColor.MinecraftColors.darkGray),
+        (name: "Iron",          color: .label),
+        (name: "Gold",          color: UIColor.MinecraftColors.gold),
+        (name: "Diamond",       color: UIColor.MinecraftColors.cyan),
+        (name: "Master",        color: UIColor.MinecraftColors.darkGreen),
+        (name: "Legend",        color: UIColor.MinecraftColors.darkRed),
+        (name: "Grandmaster",   color: UIColor.MinecraftColors.yellow),
+        (name: "Godlike",       color: UIColor.MinecraftColors.darkPurple),
+        (name: "World Elite",   color: UIColor.MinecraftColors.aqua),
+        (name: "World Master",  color: UIColor.MinecraftColors.lightPurple),
+        (name: "WORLD'S BEST",  color: UIColor.MinecraftColors.gold),
+        
     ]
     
     lazy var statsTableData: [CellData] = {
@@ -103,11 +107,22 @@ class DuelsStatsManager: NSObject, StatsManager {
             (id: "classic_duel", divisionId: "classic", name: "Classic 1v1"),
             (id: "potion_duel", divisionId: "no_debuff", name: "NoDebuff 1v1"),
             (id: "combo_duel", divisionId: "combo", name: "Combo 1v1"),
+            
+            (id: "boxing_duel", divisionId: "boxing", name: "Boxing 1v1"),
+            (id: "duel_arena", divisionId: "", name: "Duel Arena"),
+            //(id: "capture_duel", divisionId: "bridge", name: "Capture??"),
+            (id: "parkour_eight", divisionId: "parkour", name: "Parkour 8 Player FFA"),
+            
             (id: "bridge_duel", divisionId: "bridge", name: "Bridge 1v1"),
             (id: "bridge_doubles", divisionId: "bridge", name: "Bridge 2v2"),
             (id: "bridge_2v2v2v2", divisionId: "bridge", name: "Bridge 2v2v2v2"),
+            
+            (id: "bridge_threes", divisionId: "bridge", name: "Bridge 3v3"),
+            
             (id: "bridge_3v3v3v3", divisionId: "bridge", name: "Bridge 3v3v3v3"),
-            (id: "bridge_four", divisionId: "bridge", name: "Bridge 4v4")
+            (id: "bridge_four", divisionId: "bridge", name: "Bridge 4v4"),
+            
+            (id: "capture_threes", divisionId: "bridge", name: "Bridge CTF 3v3")
         ]
         
         var desiredStats = ["Wins", "Losses", "W/L", "Kills", "Deaths", "K/D", "Best Winstreak", "Current Winstreak"]
@@ -142,8 +157,13 @@ class DuelsStatsManager: NSObject, StatsManager {
             }
             
             if mode.divisionId == "bridge" {
-                var goals = data[mode.id + "_goals"].intValue
-                statsForThisMode.append(("Goals", goals))
+                if mode.id == "capture_threes" {
+                    statsForThisMode.append(("Captures", data["captures"].intValue))
+                } else {
+                    var goals = data[mode.id + "_goals"].intValue
+                    statsForThisMode.append(("Goals", goals))
+                }
+                
             }
             
             modeStats.append(CellData(headerData: (mode.name, modeDivisonAndColor.0), sectionData: statsForThisMode, color: modeDivisonAndColor.1))
@@ -272,13 +292,18 @@ class DuelsStatsManager: NSObject, StatsManager {
     }
     
     func getDivision(modeID: String) -> (String, UIColor) {
+        if modeID == "" {
+            return ("N/A", UIColor.MinecraftColors.darkGray)
+        }
+        
         for division in divisions.reversed() {
-            let divisionData = data[modeID + "_" + division.name.lowercased() + "_title_prestige"].intValue
+            
+            let divisionData = data[modeID + "_" + division.name.lowercased().replacingOccurrences(of: "'", with: "").replacingOccurrences(of: " ", with: "_") + "_title_prestige"].intValue
             
             if divisionData != 0 {
                 let romanNumeral = Utils.convertToRomanNumerals(number: divisionData)
                 
-                return (division.name + " " + romanNumeral, division.color!)
+                return (division.name + " " + romanNumeral, division.color)
             }
         }
         

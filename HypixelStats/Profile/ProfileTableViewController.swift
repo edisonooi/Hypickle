@@ -438,7 +438,7 @@ class ProfileTableViewController: UITableViewController {
         var totalCoins: UInt64 = 0
         
         for (key, _) in GameTypes.databaseNameToCleanName {
-            totalCoins += data["stats"][key]["coins"].uInt64Value
+            totalCoins &+= data["stats"][key]["coins"].uInt64Value
         }
         
         return totalCoins

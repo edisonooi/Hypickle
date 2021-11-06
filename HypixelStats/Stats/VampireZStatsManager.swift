@@ -26,22 +26,22 @@ class VampireZStatsManager: NSObject, StatsManager {
         var humanKills = data["human_kills"].intValue
         var humanDeaths = data["human_deaths"].intValue
         
-        var humanKDR = Utils.calculateRatio(numerator: humanKills, denominator: humanDeaths)
-        
         var vampireKills = data["vampire_kills"].intValue
         var vampireDeaths = data["vampire_deaths"].intValue
         
-        var vampireKDR = Utils.calculateRatio(numerator: vampireKills, denominator: vampireDeaths)
+        var humanKDR = Utils.calculateRatio(numerator: vampireKills, denominator: humanDeaths)
+        
+        var vampireKDR = Utils.calculateRatio(numerator: humanKills, denominator: vampireDeaths)
         
         return [
             CellData(headerData: ("Human Wins", data["human_wins"].intValue)),
-            CellData(headerData: ("Human Kills", humanKills)),
+            CellData(headerData: ("Vampire Kills", vampireKills)),
             CellData(headerData: ("Human Deaths", humanDeaths)),
             CellData(headerData: ("Human K/D", humanKDR)),
             CellData(headerData: ("Zombie Kills", data["zombie_kills"].intValue)),
             
             CellData(headerData: ("Vampire Wins", data["vampire_wins"].intValue)),
-            CellData(headerData: ("Vampire Kills", vampireKills)),
+            CellData(headerData: ("Human Kills", humanKills)),
             CellData(headerData: ("Vampire Deaths", vampireDeaths)),
             CellData(headerData: ("Vampire K/D", vampireKDR))
         ]

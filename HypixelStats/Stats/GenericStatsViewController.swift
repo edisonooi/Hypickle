@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftyJSON
-import AMScrollingNavbar
+//import AMScrollingNavbar
 
 class GenericStatsViewController: UIViewController {
         

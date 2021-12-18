@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftyJSON
-import AMScrollingNavbar
+//import AMScrollingNavbar
 
 class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
@@ -37,10 +37,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
-            navigationController.showNavbar(animated: true)
-            navigationController.followScrollView(mainScrollView, delay: 20.0)
-        }
+//        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+//            navigationController.showNavbar(animated: true)
+//            navigationController.followScrollView(mainScrollView, delay: 20.0)
+//        }
         
         if MinecraftUser.shared.username != "" {
             usernameLabel.attributedText = RankManager.getAttributedStringForRank(data: allStatsData)
@@ -53,18 +53,18 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
-            navigationController.showNavbar(animated: true)
-            navigationController.stopFollowingScrollView()
-        }
+//        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+//            navigationController.showNavbar(animated: true)
+//            navigationController.stopFollowingScrollView()
+//        }
     }
     
-    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
-            navigationController.showNavbar()
-        }
-        return true
-    }
+//    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+//        if let navigationController = self.tabBarController?.navigationController as? ScrollingNavigationController {
+//            navigationController.showNavbar()
+//        }
+//        return true
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

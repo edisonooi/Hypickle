@@ -107,7 +107,7 @@ class ProfileTableViewController: UITableViewController {
         
         profileTable.register(StatsInfoTableViewCell.nib(), forCellReuseIdentifier: StatsInfoTableViewCell.identifier)
         profileTable.dataSource = self
-        profileTable.estimatedRowHeight = 0
+        //profileTable.estimatedRowHeight = 0
         
 //        if #available(iOS 15.0, *) {
 //            profileTable.sectionHeaderTopPadding = 0

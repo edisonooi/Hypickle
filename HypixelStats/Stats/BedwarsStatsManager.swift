@@ -124,7 +124,7 @@ class BedwarsStatsManager: NSObject, StatsManager {
             
             var modeFinalKills = data[mode.id + "final_kills_bedwars"].intValue
             var modeFinalDeaths = data[mode.id + "final_deaths_bedwars"].intValue
-            var modeFinalKDR = Utils.calculateRatio(numerator: modeKills, denominator: modeDeaths)
+            var modeFinalKDR = Utils.calculateRatio(numerator: modeFinalKills, denominator: modeFinalDeaths)
 
             var modeWS = data[mode.id + "winstreak"].intValue
             

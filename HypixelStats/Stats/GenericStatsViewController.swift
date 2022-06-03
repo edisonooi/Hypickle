@@ -63,6 +63,8 @@ class GenericStatsViewController: UIViewController {
             return WallsStatsManager(data: data)
         case "Battleground":
             return BattlegroundStatsManager(data: data)
+        case "WoolGames":
+            return WoolGamesManager(data: data)
         case "TrueCombat":
             return TrueCombatStatsManager(data: data)
         case "SkyClash":

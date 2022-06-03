@@ -26,6 +26,39 @@ class StatsInfoTableViewCell: UITableViewCell {
         statValue.text = value
     }
     
+    public func configureDefault(statsTableData: [CellData], indexPath: IndexPath) {
+        var category = ""
+        var value: Any = ""
+        
+        if indexPath.row == 0 {
+            if !statsTableData[indexPath.section].sectionData.isEmpty {
+                self.showDropDown()
+            }
+            
+            category = statsTableData[indexPath.section].headerData.0
+            value = statsTableData[indexPath.section].headerData.1
+            
+            if statsTableData[indexPath.section].color != .label {
+                self.statValue.textColor = statsTableData[indexPath.section].color
+            }
+            
+        } else {
+            category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
+            value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
+            
+            self.statCategory.textColor = UIColor(named: "gray_label")
+            self.statCategory.font = UIFont.systemFont(ofSize: 14)
+            self.statValue.textColor = UIColor(named: "gray_label")
+            self.statValue.font = UIFont.boldSystemFont(ofSize: 14)
+        }
+        
+        if value is Int {
+            value = (value as! Int).withCommas
+        }
+        
+        self.configure(category: category, value: "\(value)")
+    }
+    
     override func prepareForReuse() {
         self.statCategory.textColor = .label
         self.statCategory.font = UIFont.systemFont(ofSize: 17)

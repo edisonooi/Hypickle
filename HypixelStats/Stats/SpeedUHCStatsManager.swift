@@ -116,36 +116,7 @@ class SpeedUHCStatsManager: NSObject, StatsManager {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatsInfoTableViewCell.identifier, for: indexPath) as! StatsInfoTableViewCell
         
-        var category = ""
-        var value: Any = ""
-        
-        if indexPath.row == 0 {
-            if !statsTableData[indexPath.section].sectionData.isEmpty {
-                cell.showDropDown()
-            }
-            
-            category = statsTableData[indexPath.section].headerData.0
-            value = statsTableData[indexPath.section].headerData.1
-            
-            if statsTableData[indexPath.section].color != .label {
-                cell.statValue.textColor = statsTableData[indexPath.section].color
-            }
-            
-        } else {
-            category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
-            value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1
-            
-            cell.statCategory.textColor = UIColor(named: "gray_label")
-            cell.statCategory.font = UIFont.systemFont(ofSize: 14)
-            cell.statValue.textColor = UIColor(named: "gray_label")
-            cell.statValue.font = UIFont.boldSystemFont(ofSize: 14)
-        }
-        
-        if value is Int {
-            value = (value as! Int).withCommas
-        }
-        
-        cell.configure(category: category, value: "\(value)")
+        cell.configureDefault(statsTableData: statsTableData, indexPath: indexPath)
 
         return cell
     }

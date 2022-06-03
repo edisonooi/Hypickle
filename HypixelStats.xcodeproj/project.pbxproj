@@ -65,6 +65,7 @@
 		4CCF9C0726C9EA2A004BDF5E /* PitStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */; };
 		4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0826C9F213004BDF5E /* SkyClashStatsManager.swift */; };
 		4CCF9C0B26CA1292004BDF5E /* TrueCombatStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsManager.swift */; };
+		4CDA25252849D5EB00233D7A /* WoolGamesStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA25242849D5EB00233D7A /* WoolGamesStatsManager.swift */; };
 		4CF034F526D2DD16000B91C0 /* GenericHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF034F426D2DD16000B91C0 /* GenericHeaderView.xib */; };
 		4CF034F726D2DE0E000B91C0 /* GenericHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */; };
 		5EBDABE6804A57848BCBC20A /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB04033484B1876BF2D5301 /* Pods_HypixelStats_HypixelStatsUITests.framework */; };
@@ -184,6 +185,7 @@
 		4CCF9C0626C9EA2A004BDF5E /* PitStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitStatsManager.swift; sourceTree = "<group>"; };
 		4CCF9C0826C9F213004BDF5E /* SkyClashStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyClashStatsManager.swift; sourceTree = "<group>"; };
 		4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueCombatStatsManager.swift; sourceTree = "<group>"; };
+		4CDA25242849D5EB00233D7A /* WoolGamesStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoolGamesStatsManager.swift; sourceTree = "<group>"; };
 		4CF034F426D2DD16000B91C0 /* GenericHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericHeaderView.xib; sourceTree = "<group>"; };
 		4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericHeaderView.swift; sourceTree = "<group>"; };
 		5AB04033484B1876BF2D5301 /* Pods_HypixelStats_HypixelStatsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats_HypixelStatsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,6 +408,7 @@
 				BE51723126A8F65100DE85DC /* VampireZStatsManager.swift */,
 				BE51723326A90A0D00DE85DC /* WallsStatsManager.swift */,
 				BE59FAF426B778A1000F7799 /* BattlegroundStatsManager.swift */,
+				4CDA25242849D5EB00233D7A /* WoolGamesStatsManager.swift */,
 				4CCF9C0A26CA1292004BDF5E /* TrueCombatStatsManager.swift */,
 				4CCF9C0826C9F213004BDF5E /* SkyClashStatsManager.swift */,
 			);
@@ -804,6 +807,7 @@
 				4CCF9C0926C9F213004BDF5E /* SkyClashStatsManager.swift in Sources */,
 				4C3574F326E171D000B86AD0 /* UIViewControllerExtension.swift in Sources */,
 				4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */,
+				4CDA25252849D5EB00233D7A /* WoolGamesStatsManager.swift in Sources */,
 				4C7A726426F5484300FB562C /* AchievementsTableViewController.swift in Sources */,
 				4CB070782719EE3300A81658 /* Colors.swift in Sources */,
 				4C526E4A26D94EA900B85E0B /* UILabelExtension.swift in Sources */,

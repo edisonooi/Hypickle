@@ -31,7 +31,8 @@ class GameTypes {
         "VAMPIREZ": (databaseName: "VampireZ", cleanName: "VampireZ"),
         "WALLS": (databaseName: "Walls", cleanName: "Walls"),
         "TRUE_COMBAT": (databaseName: "TrueCombat", cleanName: "Crazy Walls"),
-        "SKYCLASH": (databaseName: "SkyClash", cleanName: "SkyClash")
+        "SKYCLASH": (databaseName: "SkyClash", cleanName: "SkyClash"),
+        "WOOL_GAMES": (databaseName: "WoolGames", cleanName: "Wool Wars")
     ]
     
     static let databaseNameToCleanName: [String: String] = [
@@ -57,7 +58,8 @@ class GameTypes {
         "VampireZ": "VampireZ",
         "Walls": "Walls",
         "TrueCombat": "Crazy Walls",
-        "SkyClash": "SkyClash"
+        "SkyClash": "SkyClash",
+        "WoolGames": "Wool Wars"
     ]
     
     static let achievementGameIDToCleanName: [String: String] = [

@@ -152,11 +152,6 @@ class BattlegroundStatsManager: NSObject, StatsManager {
                 cell.statValue.textColor = statsTableData[indexPath.section].color
             }
             
-            
-            if statsTableData[indexPath.section].color != .label {
-                cell.statValue.textColor = statsTableData[indexPath.section].color
-            }
-            
         } else {
             category = statsTableData[indexPath.section].sectionData[indexPath.row - 1].0
             value = statsTableData[indexPath.section].sectionData[indexPath.row - 1].1

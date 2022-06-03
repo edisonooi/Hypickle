@@ -14,7 +14,7 @@ class GamesTableController: UITableViewController {
     var selectedGame = ""
 
     let gameList = [
-        ["Arcade", "Arena", "Bedwars", "HungerGames", "BuildBattle", "MCGO", "Duels", "Walls3", "MurderMystery", "Paintball", "Pit", "Quake", "SkyWars", "SuperSmash", "SpeedUHC", "TNTGames", "GingerBread", "UHC", "VampireZ", "Walls", "Battleground"],
+        ["Arcade", "Arena", "Bedwars", "HungerGames", "BuildBattle", "MCGO", "Duels", "Walls3", "MurderMystery", "Paintball", "Pit", "Quake", "SkyWars", "SuperSmash", "SpeedUHC", "TNTGames", "GingerBread", "UHC", "VampireZ", "Walls", "Battleground", "WoolGames"],
         ["TrueCombat", "SkyClash"]
     ]
     

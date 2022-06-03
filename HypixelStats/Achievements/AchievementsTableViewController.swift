@@ -61,7 +61,8 @@ class AchievementsTableViewController: UITableViewController {
             "uhc",
             "vampirez",
             "walls",
-            "warlords"
+            "warlords",
+            "woolgames"
         ],
         [
             "christmas2017",

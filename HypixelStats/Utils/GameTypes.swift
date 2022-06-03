@@ -88,6 +88,7 @@ class GameTypes {
         "vampirez": "VampireZ",
         "walls": "Walls",
         "warlords": "Warlords",
+        "woolgames": "Wool Wars",
         
         "christmas2017": "Christmas",
         "easter": "Easter",
@@ -124,6 +125,7 @@ class GameTypes {
         "vampirez": "VampireZ",
         "walls": "Walls",
         "warlords": "Battleground",
+        "woolgames": "WoolGames",
         
         "christmas2017": "grinch_simulator",
         "easter": "easter_simulator",
@@ -160,6 +162,7 @@ class GameTypes {
         "vampirez": "VampireZ",
         "walls": "Walls",
         "warlords": "Warlords",
+        "woolgames": "Wool Wars",
         
         "christmas2017": "Christmas",
         "easter": "Easter",

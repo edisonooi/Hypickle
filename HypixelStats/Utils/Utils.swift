@@ -18,7 +18,7 @@ class Utils {
     static func calculateRatio(numerator: Int, denominator: Int) -> String {
         
         let kills2 = Double(numerator)
-        let deaths2 = Double(denominator)
+        let deaths2 = denominator < 0 ? 0.0 : Double(denominator)
         var kdr = 0.0
         
         if kills2 == 0.0 && deaths2 == 0.0 {
@@ -35,7 +35,7 @@ class Utils {
     static func calculatePercentage(numerator: Int, denominator: Int) -> String {
         
         let kills2 = Double(numerator)
-        let deaths2 = Double(denominator)
+        let deaths2 = denominator < 0 ? 0.0 : Double(denominator)
         var kdr = 0.0
         
         if kills2 == 0.0 && deaths2 == 0.0 {

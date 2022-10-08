@@ -57,7 +57,6 @@
 		4CB192AA26DD37F30077D6AC /* NSMutableAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192A926DD37F30077D6AC /* NSMutableAttributedStringExtension.swift */; };
 		4CB192B026DD3E110077D6AC /* RankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB192AF26DD3E110077D6AC /* RankManager.swift */; };
 		4CB2C05A26E2C15A0073241C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2C05926E2C15A0073241C /* AboutViewController.swift */; };
-		4CBA2B136F2169183DA7D448 /* Pods_HypixelStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710A4E77CF2473F8FCFCE57D /* Pods_HypixelStats.framework */; };
 		4CC234A826CCA34600D95D38 /* CoinsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC234A726CCA34600D95D38 /* CoinsView.xib */; };
 		4CC234AA26CCAF1400D95D38 /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC234A926CCAF1400D95D38 /* CoinsView.swift */; };
 		4CCF9C0326C95FCC004BDF5E /* SkyWarsStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF9C0226C95FCC004BDF5E /* SkyWarsStatsManager.swift */; };
@@ -68,8 +67,9 @@
 		4CDA25252849D5EB00233D7A /* WoolGamesStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA25242849D5EB00233D7A /* WoolGamesStatsManager.swift */; };
 		4CF034F526D2DD16000B91C0 /* GenericHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF034F426D2DD16000B91C0 /* GenericHeaderView.xib */; };
 		4CF034F726D2DE0E000B91C0 /* GenericHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */; };
-		5EBDABE6804A57848BCBC20A /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB04033484B1876BF2D5301 /* Pods_HypixelStats_HypixelStatsUITests.framework */; };
-		6C8C1618C3FBC94FC00F1C1B /* Pods_HypixelStatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD24808AED57C6780D3C2A9B /* Pods_HypixelStatsTests.framework */; };
+		5EF88B50D2E6716D41FF05CB /* Pods_HypixelStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEABFBD6E2EBFE4EE8AB6E96 /* Pods_HypixelStats.framework */; };
+		7D90316D2BD245B271FA7CB2 /* Pods_HypixelStatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D32B8DAB7F5AA90CA27DA1 /* Pods_HypixelStatsTests.framework */; };
+		989E24D32ED0DE0E19C4FCED /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA05ACC935F128AE816E81F /* Pods_HypixelStats_HypixelStatsUITests.framework */; };
 		BE0DBF7E26B5F26800344E8B /* SuperSmashStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */; };
 		BE0DBF8026B6157700344E8B /* HungerGamesStatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DBF7F26B6157700344E8B /* HungerGamesStatsManager.swift */; };
 		BE10348E26A5EF9B00153FBE /* GamesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10348D26A5EF9B00153FBE /* GamesTableController.swift */; };
@@ -126,9 +126,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F84BC6A9CBE1EB40FF1365C /* Pods-HypixelStatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.release.xcconfig"; sourceTree = "<group>"; };
-		38C9A33948A9BA0CE1566264 /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		39128ACD900AC9905F535CE7 /* Pods-HypixelStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.release.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.release.xcconfig"; sourceTree = "<group>"; };
+		09D32B8DAB7F5AA90CA27DA1 /* Pods_HypixelStatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D7414079C07F98B141E8E8D /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0DA05ACC935F128AE816E81F /* Pods_HypixelStats_HypixelStatsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats_HypixelStatsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F3D7BE6C6CED41CC4C5F9AB /* Pods-HypixelStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.release.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.release.xcconfig"; sourceTree = "<group>"; };
+		16EE4030B9845EFCA6081F8D /* Pods-HypixelStatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1DA2FDCF2C2D56E842EC935D /* Pods-HypixelStatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.release.xcconfig"; sourceTree = "<group>"; };
+		417D6B2833B52B5F8D55EDA7 /* Pods-HypixelStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.debug.xcconfig"; sourceTree = "<group>"; };
 		4C020A7E26CECA3600732E71 /* HidingUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidingUINavigationController.swift; sourceTree = "<group>"; };
 		4C070DD726CC2DF8000B88C4 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		4C31D2CB26CDF20F005EB6A5 /* PlayerInfoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoTabBarController.swift; sourceTree = "<group>"; };
@@ -188,10 +192,7 @@
 		4CDA25242849D5EB00233D7A /* WoolGamesStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoolGamesStatsManager.swift; sourceTree = "<group>"; };
 		4CF034F426D2DD16000B91C0 /* GenericHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericHeaderView.xib; sourceTree = "<group>"; };
 		4CF034F626D2DE0E000B91C0 /* GenericHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericHeaderView.swift; sourceTree = "<group>"; };
-		5AB04033484B1876BF2D5301 /* Pods_HypixelStats_HypixelStatsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats_HypixelStatsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		710A4E77CF2473F8FCFCE57D /* Pods_HypixelStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7545666F72EEAB283917B800 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.release.xcconfig"; sourceTree = "<group>"; };
-		85883E02B4EBFDF63BDF39CB /* Pods-HypixelStatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStatsTests.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStatsTests/Pods-HypixelStatsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5BE2EB7AE06107FD6D380BF6 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats-HypixelStatsUITests.release.xcconfig"; path = "Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE0DBF7D26B5F26800344E8B /* SuperSmashStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSmashStatsManager.swift; sourceTree = "<group>"; };
 		BE0DBF7F26B6157700344E8B /* HungerGamesStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HungerGamesStatsManager.swift; sourceTree = "<group>"; };
 		BE10348D26A5EF9B00153FBE /* GamesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableController.swift; sourceTree = "<group>"; };
@@ -235,8 +236,7 @@
 		BEC6822926BCD15F0042D947 /* Walls3StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walls3StatsManager.swift; sourceTree = "<group>"; };
 		BEC6822B26BCE26D0042D947 /* SpeedUHCStatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedUHCStatsManager.swift; sourceTree = "<group>"; };
 		BEDAAF3F26BE38BB002592A1 /* GamesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTable.swift; sourceTree = "<group>"; };
-		DD24808AED57C6780D3C2A9B /* Pods_HypixelStatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4B432CCDD2D62902E23D280 /* Pods-HypixelStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HypixelStats.debug.xcconfig"; path = "Target Support Files/Pods-HypixelStats/Pods-HypixelStats.debug.xcconfig"; sourceTree = "<group>"; };
+		EEABFBD6E2EBFE4EE8AB6E96 /* Pods_HypixelStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HypixelStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CBA2B136F2169183DA7D448 /* Pods_HypixelStats.framework in Frameworks */,
+				5EF88B50D2E6716D41FF05CB /* Pods_HypixelStats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C8C1618C3FBC94FC00F1C1B /* Pods_HypixelStatsTests.framework in Frameworks */,
+				7D90316D2BD245B271FA7CB2 /* Pods_HypixelStatsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,19 +260,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EBDABE6804A57848BCBC20A /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */,
+				989E24D32ED0DE0E19C4FCED /* Pods_HypixelStats_HypixelStatsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F56A52F43C83599766F6BB2 /* Frameworks */ = {
+		17E6984AB734EC3C6C5E8C6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				710A4E77CF2473F8FCFCE57D /* Pods_HypixelStats.framework */,
-				5AB04033484B1876BF2D5301 /* Pods_HypixelStats_HypixelStatsUITests.framework */,
-				DD24808AED57C6780D3C2A9B /* Pods_HypixelStatsTests.framework */,
+				EEABFBD6E2EBFE4EE8AB6E96 /* Pods_HypixelStats.framework */,
+				0DA05ACC935F128AE816E81F /* Pods_HypixelStats_HypixelStatsUITests.framework */,
+				09D32B8DAB7F5AA90CA27DA1 /* Pods_HypixelStatsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -370,12 +370,12 @@
 		BBD5FE7B11B397D579B5E290 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E4B432CCDD2D62902E23D280 /* Pods-HypixelStats.debug.xcconfig */,
-				39128ACD900AC9905F535CE7 /* Pods-HypixelStats.release.xcconfig */,
-				38C9A33948A9BA0CE1566264 /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */,
-				7545666F72EEAB283917B800 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */,
-				85883E02B4EBFDF63BDF39CB /* Pods-HypixelStatsTests.debug.xcconfig */,
-				1F84BC6A9CBE1EB40FF1365C /* Pods-HypixelStatsTests.release.xcconfig */,
+				417D6B2833B52B5F8D55EDA7 /* Pods-HypixelStats.debug.xcconfig */,
+				0F3D7BE6C6CED41CC4C5F9AB /* Pods-HypixelStats.release.xcconfig */,
+				0D7414079C07F98B141E8E8D /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */,
+				5BE2EB7AE06107FD6D380BF6 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */,
+				16EE4030B9845EFCA6081F8D /* Pods-HypixelStatsTests.debug.xcconfig */,
+				1DA2FDCF2C2D56E842EC935D /* Pods-HypixelStatsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -423,7 +423,7 @@
 				BE14332526A0DDA20054E475 /* HypixelStatsUITests */,
 				BE1432FF26A0DDA00054E475 /* Products */,
 				BBD5FE7B11B397D579B5E290 /* Pods */,
-				0F56A52F43C83599766F6BB2 /* Frameworks */,
+				17E6984AB734EC3C6C5E8C6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -519,11 +519,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE14332B26A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStats" */;
 			buildPhases = (
-				ECBC58FAECD4B8655F506830 /* [CP] Check Pods Manifest.lock */,
+				3EF0B92153C1B614E7BC1F73 /* [CP] Check Pods Manifest.lock */,
 				BE1432FA26A0DDA00054E475 /* Sources */,
 				BE1432FB26A0DDA00054E475 /* Frameworks */,
 				BE1432FC26A0DDA00054E475 /* Resources */,
-				4D8A66B0CB9F8CF7E2576164 /* [CP] Embed Pods Frameworks */,
+				0CB0F160892722EB41F5E522 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -538,7 +538,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE14332E26A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStatsTests" */;
 			buildPhases = (
-				D5DCDC2151B7CAD4E615EFBC /* [CP] Check Pods Manifest.lock */,
+				152A7F185FC38E27D063BC5D /* [CP] Check Pods Manifest.lock */,
 				BE14331326A0DDA20054E475 /* Sources */,
 				BE14331426A0DDA20054E475 /* Frameworks */,
 				BE14331526A0DDA20054E475 /* Resources */,
@@ -557,11 +557,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE14333126A0DDA20054E475 /* Build configuration list for PBXNativeTarget "HypixelStatsUITests" */;
 			buildPhases = (
-				B504D7B889E8B146E3B36352 /* [CP] Check Pods Manifest.lock */,
+				6190CCDB34B5DFE78AC1BF8B /* [CP] Check Pods Manifest.lock */,
 				BE14331E26A0DDA20054E475 /* Sources */,
 				BE14331F26A0DDA20054E475 /* Frameworks */,
 				BE14332026A0DDA20054E475 /* Resources */,
-				9B58D5A9523E3EBD72342003 /* [CP] Embed Pods Frameworks */,
+				6DFA2FF30DE21385DF62E3DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -656,7 +656,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4D8A66B0CB9F8CF7E2576164 /* [CP] Embed Pods Frameworks */ = {
+		0CB0F160892722EB41F5E522 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -673,46 +673,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HypixelStats/Pods-HypixelStats-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9B58D5A9523E3EBD72342003 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B504D7B889E8B146E3B36352 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HypixelStats-HypixelStatsUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D5DCDC2151B7CAD4E615EFBC /* [CP] Check Pods Manifest.lock */ = {
+		152A7F185FC38E27D063BC5D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -734,7 +695,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ECBC58FAECD4B8655F506830 /* [CP] Check Pods Manifest.lock */ = {
+		3EF0B92153C1B614E7BC1F73 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -754,6 +715,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6190CCDB34B5DFE78AC1BF8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HypixelStats-HypixelStatsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DFA2FF30DE21385DF62E3DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HypixelStats-HypixelStatsUITests/Pods-HypixelStats-HypixelStatsUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1013,12 +1013,12 @@
 		};
 		BE14332C26A0DDA20054E475 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4B432CCDD2D62902E23D280 /* Pods-HypixelStats.debug.xcconfig */;
+			baseConfigurationReference = 417D6B2833B52B5F8D55EDA7 /* Pods-HypixelStats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = RBK8797X5P;
 				INFOPLIST_FILE = HypixelStats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1026,7 +1026,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "Edison-Ooi.HypixelStats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1036,12 +1036,12 @@
 		};
 		BE14332D26A0DDA20054E475 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39128ACD900AC9905F535CE7 /* Pods-HypixelStats.release.xcconfig */;
+			baseConfigurationReference = 0F3D7BE6C6CED41CC4C5F9AB /* Pods-HypixelStats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = RBK8797X5P;
 				INFOPLIST_FILE = HypixelStats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1049,7 +1049,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "Edison-Ooi.HypixelStats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1059,7 +1059,7 @@
 		};
 		BE14332F26A0DDA20054E475 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85883E02B4EBFDF63BDF39CB /* Pods-HypixelStatsTests.debug.xcconfig */;
+			baseConfigurationReference = 16EE4030B9845EFCA6081F8D /* Pods-HypixelStatsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1082,7 +1082,7 @@
 		};
 		BE14333026A0DDA20054E475 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F84BC6A9CBE1EB40FF1365C /* Pods-HypixelStatsTests.release.xcconfig */;
+			baseConfigurationReference = 1DA2FDCF2C2D56E842EC935D /* Pods-HypixelStatsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1105,7 +1105,7 @@
 		};
 		BE14333226A0DDA20054E475 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38C9A33948A9BA0CE1566264 /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */;
+			baseConfigurationReference = 0D7414079C07F98B141E8E8D /* Pods-HypixelStats-HypixelStatsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1126,7 +1126,7 @@
 		};
 		BE14333326A0DDA20054E475 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7545666F72EEAB283917B800 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */;
+			baseConfigurationReference = 5BE2EB7AE06107FD6D380BF6 /* Pods-HypixelStats-HypixelStatsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
